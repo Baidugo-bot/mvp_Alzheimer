@@ -30,6 +30,7 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_slidable: ^1.2.0
+  bordered_text: ^2.0.0
   jiffy: ^5.0.0
 
 

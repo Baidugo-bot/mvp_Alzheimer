@@ -24,7 +24,6 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(// map dos botoes
       appBar: AppBar(
         title: Center(child: Text("Dia "+myInstance.now.day.toString()+" - "+ Jiffy(myInstance.now).EEEE.toString())),
@@ -116,24 +115,6 @@ class _MyHomePageState extends State<MyHomePage> {
           ],
         ),
       ),
-  //     floatingActionButton:  Container(
-  //       height: 90.0,
-  //       width: 90.0,
-  //
-  //       child: FloatingActionButton(
-  //         shape: BeveledRectangleBorder(
-  //             borderRadius: BorderRadius.zero
-  //         ),
-  //         backgroundColor: Colors.greenAccent,
-  //         onPressed: () {
-  //
-  //         },
-  //         child: Text('''+ Adicionar
-  // lembretes
-  //         '''),
-  //
-  //       ),
-  //     ),
 
     );
   }
