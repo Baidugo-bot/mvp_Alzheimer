@@ -34,7 +34,7 @@ class MemoriesViewState extends State<MemoriesView> {
                 child: InkWell(
                   splashColor: Colors.grey.withAlpha(70),
                   onTap: () {
-                    debugPrint('Card tapped.');
+                    Navigator.of(context).pushNamed('/seeMemory');
                   },
                   child:  SizedBox(
                     height: 160,

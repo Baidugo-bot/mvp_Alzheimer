@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:projeto_estudo/src/views/ConfigurationsView.dart';
+import 'package:projeto_estudo/src/views/EditMemoryView.dart';
 import 'package:projeto_estudo/src/views/MemoriesView.dart';
 import 'package:projeto_estudo/src/views/ReminderView.dart';
 import 'package:projeto_estudo/src/views/FamilyView.dart';
 import 'package:projeto_estudo/src/views/ProfileView.dart';
+import 'package:projeto_estudo/src/views/SeeMemoryView.dart';
 import 'AppController.dart';
 import 'MyHomePage.dart';
 
@@ -24,10 +26,10 @@ class MyApp extends StatelessWidget {
             '/addReminder': (context) => MyHomePage(title: '',),
             '/editReminder': (context) => MyHomePage(title: '',),
             '/addMemory': (context) => MyHomePage(title: '',),
-            '/editMemory': (context) => MyHomePage(title: '',),
+            '/editMemory': (context) => EditMemoryView(),
             '/memories': (context) => MemoriesView(),
             '/reminders': (context) => ReminderView(),
-            '/seeMemory': (context) => MyHomePage(title: '',),//push content on route
+            '/seeMemory': (context) => SeeMemoryView(),//push content on route
             '/seeReminder': (context) => MyHomePage(title: '',),
             '/configurations': (context) =>  ConfigurationsView(),
             '/family': (context) => FamilyView(),
