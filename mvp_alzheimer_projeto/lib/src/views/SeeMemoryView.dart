@@ -1,9 +1,14 @@
 import 'package:flutter/material.dart';
 
+import '../models/MemoryModel.dart';
+
 class SeeMemoryView extends StatelessWidget {
+
 
   @override
   Widget build(BuildContext context) {
+    var args = ModalRoute.of(context)!.settings.arguments as Map<String,Memory>;
+
     return Scaffold(
       backgroundColor: Colors.grey[400],
       appBar: AppBar(
@@ -11,7 +16,7 @@ class SeeMemoryView extends StatelessWidget {
         actions: [
           InkWell(
               onTap: (){
-                Navigator.of(context).pushNamed('/editMemory');
+                Navigator.of(context).pushNamed('/editMemory',arguments: {});
               },
               splashColor: Colors.blue,
               child: Icon(Icons.edit)
@@ -24,22 +29,25 @@ class SeeMemoryView extends StatelessWidget {
         child: SingleChildScrollView(
           child: Column(
             children: [
+              Container(height: 30,),
+              Image(image: AssetImage('assets/images/pelezin.jpg'),),
+              Container(height: 30,),
               Container(
-                width: double.infinity,
-                color: Colors.black26,
-                child: Column(
-                  children: [
-                    Container(height: 30,),
-                    Image(image: AssetImage('assets/images/pelezin.jpg'),),
-                    Text("Titulo teste", style: TextStyle(fontSize: 40, color: Colors.black)),
-                  ],
-                ),
+                color: Colors.black,
+                width: 500,
+                child: Center(child: Text(args["memory"]!.getTitle(), style: TextStyle(fontSize: 40, color: Colors.white))),
+              ),
+              Container(
+                color: Colors.black,
+                width: 500,
+                child: Center(child: Text(args["memory"]!.getDate().toString().substring(0,10), style: TextStyle(fontSize: 40, color: Colors.white))),
               ),
 
 
               Container(
-                color: Colors.black,
-                child: Text(" Na Lei nº 14.316, de 29 de março de 2022, publicada no Diário Oficial da União de 30 de março de 2022, Seção 1, página 1, nas assinaturas,leia-se:Jair Messias Bolsonaro, Anderson Gustavo Torres, João Inácio Ribeiro Roma Neto e Damares Regina Alves..",
+                height: 280,
+                color: Colors.black45,
+                child: Text(args["memory"]!.getDescription(),
                     textAlign: TextAlign.center,
                     style: TextStyle(fontSize: 20, color: Colors.white)
                 ),

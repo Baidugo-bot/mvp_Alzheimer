@@ -19,6 +19,7 @@ class MyApp extends StatelessWidget {
       animation: AppController.instance,
       builder: (context,child){
         return MaterialApp(
+            debugShowCheckedModeBanner : false,
           theme: ThemeData.dark(),
           initialRoute: '/',
           routes: {

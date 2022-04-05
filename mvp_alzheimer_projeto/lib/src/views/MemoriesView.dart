@@ -19,6 +19,7 @@ class MemoriesViewState extends State<MemoriesView> {
 
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       backgroundColor: Colors.grey[400],
       appBar: AppBar(
@@ -34,7 +35,7 @@ class MemoriesViewState extends State<MemoriesView> {
                 child: InkWell(
                   splashColor: Colors.grey.withAlpha(70),
                   onTap: () {
-                    Navigator.of(context).pushNamed('/seeMemory');
+                    Navigator.of(context).pushNamed('/seeMemory',arguments: {"memory": MemoryModel.instance.memories[index]});
                   },
                   child:  SizedBox(
                     height: 160,
@@ -50,7 +51,7 @@ class MemoriesViewState extends State<MemoriesView> {
                                   strokeColor: Colors.brown,
                                   strokeWidth: 3,
                                   child: Text(
-                                    "Almoco em familia $index",
+                                    MemoryModel.instance.memories[index].getTitle(),
                                     style: TextStyle(fontSize: 20),
                                   )
                               ),
@@ -58,7 +59,7 @@ class MemoriesViewState extends State<MemoriesView> {
                                   strokeColor: Colors.white,
                                   strokeWidth: 1.3,
                                   child: Text(
-                                    "05/10/2001",
+                                    MemoryModel.instance.memories[index].getDate().toString().substring(0,10),
                                     style: TextStyle(fontSize: 20,color: Colors.black26),
                                   )
                               )
@@ -77,7 +78,7 @@ class MemoriesViewState extends State<MemoriesView> {
         onPressed: (){
           print("Add new Memory!");
         setState(() {
-          MemoryModel.instance.memories.add(Memory(title: "CU",date: DateTime.now()));
+          MemoryModel.instance.memories.add(Memory(title: "My memory "+MemoryModel.instance.memories.length.toString(),date: DateTime.now(),description: "This memory is created to remember me something... but i cant remember it anymore"));
         });
         },
         child: Icon(Icons.add),
