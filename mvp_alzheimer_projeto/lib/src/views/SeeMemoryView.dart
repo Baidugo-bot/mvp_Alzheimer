@@ -45,7 +45,7 @@ class SeeMemoryView extends StatelessWidget {
 
 
               Container(
-                height: 280,
+                height: 195,
                 color: Colors.black45,
                 child: Text(args["memory"]!.getDescription(),
                     textAlign: TextAlign.center,
