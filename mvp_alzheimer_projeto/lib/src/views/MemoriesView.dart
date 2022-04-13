@@ -78,7 +78,7 @@ class MemoriesViewState extends State<MemoriesView> {
         onPressed: (){
           print("Add new Memory!");
         setState(() {
-          MemoryModel.instance.memories.add(Memory(title: "My memory "+MemoryModel.instance.memories.length.toString(),date: DateTime.now(),description: "This memory is created to remember me something... but i cant remember it anymore"));
+          MemoryModel.instance.memories.add(Memory(title: "My memory "+MemoryModel.instance.memories.length.toString(),date: DateTime.now(),description: "This memory was created to remember me something... but i cant remember it anymore"));
         });
         },
         child: Icon(Icons.add),

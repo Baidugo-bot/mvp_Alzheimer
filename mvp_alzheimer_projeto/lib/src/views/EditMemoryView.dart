@@ -19,36 +19,50 @@ class EditMemoryView extends StatelessWidget {
           ),
         ],
       ),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: [
-            Container(height: 30,),
-            Container(
-              child: GestureDetector(
-                onTap: (){
-                  
-                },
-                child: Image(
-                  image: AssetImage('assets/images/pelezin.jpg',),
-                  height: 250,
+      body: SingleChildScrollView(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+              Container(height: 30,),
+              Container(
+                padding: EdgeInsets.only(bottom: 10),
+                width: 430,
+                decoration: BoxDecoration(
+                  border: Border(
+                    bottom: BorderSide(
+                        width: 2,color: Colors.grey
+                    ),
+                  ),
+                ),
+                child: GestureDetector(
+                  onTap: (){
+                    
+                  },
+                  child: Image(
+                    image: AssetImage('assets/images/pelezin.jpg',),
+                    height: 250,
+                  ),
                 ),
               ),
-            ),
-            Container(height: 30,),
-          Text(
-              "Titulo"
+              Container(height: 30,),
+              TextField(
+                decoration: InputDecoration(
+                  hintText: "Thats my hint:"
+                ),
+              ),
+            TextField(
+              decoration: InputDecoration(
+                  hintText: "Thats my hint:"
+              ),
             ),
             TextField(
-
+              decoration: InputDecoration(
+                  hintText: "Thats my hint:"
+              ),
             ),
-            Text(
-              "Descrição"
-            ),
-            TextField(
+            ],
 
-            ),
-          ],
-
+        ),
       ),
     );
   }

@@ -1,5 +1,8 @@
+import 'package:bordered_text/bordered_text.dart';
 import 'package:flutter/material.dart';
+import 'package:jiffy/jiffy.dart';
 
+import '../../AppController.dart';
 import '../models/MemoryModel.dart';
 
 class SeeMemoryView extends StatelessWidget {
@@ -29,27 +32,61 @@ class SeeMemoryView extends StatelessWidget {
         child: SingleChildScrollView(
           child: Column(
             children: [
-              Container(height: 30,),
-              Image(image: AssetImage('assets/images/pelezin.jpg'),),
-              Container(height: 30,),
+              Container(height: 15,),
+              Image(image: AssetImage('assets/images/pelezin.jpg'),height: 200,),
+              Container(height: 10,),
               Container(
-                color: Colors.black,
                 width: 500,
-                child: Center(child: Text(args["memory"]!.getTitle(), style: TextStyle(fontSize: 40, color: Colors.white))),
+                child: Center(
+                    child: BorderedText(
+                      strokeColor: Colors.brown,
+                      strokeWidth: 3,
+                      child: Text(
+                          args["memory"]!.getTitle().toUpperCase(),
+                          style: TextStyle(fontSize: 25, color: Colors.white,)
+                      ),
+                    )
+                ),
               ),
               Container(
-                color: Colors.black,
                 width: 500,
-                child: Center(child: Text(args["memory"]!.getDate().toString().substring(0,10), style: TextStyle(fontSize: 40, color: Colors.white))),
+                decoration: BoxDecoration(
+                    border: Border(
+                      bottom: BorderSide(
+                        width: 2,color: Colors.grey
+                      ),
+                    ),
+                ),
+                child: Center(
+                    child: BorderedText(
+                      strokeColor: Colors.grey,
+                      strokeWidth: 3,
+
+                      child: Text(
+                          Jiffy(AppController.instance.now).EEEE.toString()+" "+args["memory"]!.getDate().toString().substring(0,10),
+                          style: TextStyle(fontSize: 25, color: Colors.white)
+                      ),
+                    )
+                ),
               ),
 
 
               Container(
-                height: 195,
-                color: Colors.black45,
-                child: Text(args["memory"]!.getDescription(),
-                    textAlign: TextAlign.center,
-                    style: TextStyle(fontSize: 20, color: Colors.white)
+                height: 150,
+                decoration: BoxDecoration(
+                  border: Border(
+                    left: BorderSide(width: 16.0, ),
+                    right: BorderSide(width: 16.0,),
+                  ),
+                ),
+
+                child: BorderedText(
+                  strokeWidth: 3,
+                  strokeColor: Colors.black,
+                  child: Text(
+                      args["memory"]!.getDescription().toUpperCase(),
+                      style: TextStyle(fontSize: 20, color: Colors.white)
+                  ),
                 ),
               ),
             ],
