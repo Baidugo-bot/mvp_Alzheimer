@@ -21,7 +21,7 @@ class MemoriesViewState extends State<MemoriesView> {
   Widget build(BuildContext context) {
 
     return Scaffold(
-      backgroundColor: Colors.grey[400],
+      backgroundColor: Colors.lightBlue[100],
       appBar: AppBar(
         title: Center(child: Text("Memorias",)),
       ),
@@ -31,7 +31,7 @@ class MemoriesViewState extends State<MemoriesView> {
           itemBuilder: (BuildContext build,int index) {
 
             return Card(
-                color: Colors.grey[400],
+                color: Colors.lightBlue[100],
                 child: InkWell(
                   splashColor: Colors.grey.withAlpha(70),
                   onTap: () {
@@ -76,10 +76,7 @@ class MemoriesViewState extends State<MemoriesView> {
         backgroundColor: Colors.grey,
 
         onPressed: (){
-          print("Add new Memory!");
-        setState(() {
-          MemoryModel.instance.memories.add(Memory(title: "My memory "+MemoryModel.instance.memories.length.toString(),date: DateTime.now(),description: "This memory was created to remember me something... but i cant remember it anymore"));
-        });
+          Navigator.of(context).pushNamed('/addMemory');
         },
         child: Icon(Icons.add),
       ),

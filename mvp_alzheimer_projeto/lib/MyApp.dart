@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:projeto_estudo/src/views/AddMemoryView.dart';
 import 'package:projeto_estudo/src/views/ConfigurationsView.dart';
 import 'package:projeto_estudo/src/views/EditMemoryView.dart';
 import 'package:projeto_estudo/src/views/MemoriesView.dart';
@@ -26,7 +27,7 @@ class MyApp extends StatelessWidget {
             '/': (context) => MyHomePage(title: '',),
             '/addReminder': (context) => MyHomePage(title: '',),
             '/editReminder': (context) => MyHomePage(title: '',),
-            '/addMemory': (context) => MyHomePage(title: '',),
+            '/addMemory': (context) => AddMemoryView(),
             '/editMemory': (context) => EditMemoryView(),
             '/memories': (context) => MemoriesView(),
             '/reminders': (context) => ReminderView(),

@@ -32,6 +32,7 @@ dependencies:
   flutter_slidable: ^1.2.0
   bordered_text: ^2.0.0
   jiffy: ^5.0.0
+  date_field: ^3.0.0
 
 
   # The following adds the Cupertino Icons font to your application.

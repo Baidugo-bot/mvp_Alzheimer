@@ -11,15 +11,14 @@ class SeeMemoryView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var args = ModalRoute.of(context)!.settings.arguments as Map<String,Memory>;
-
     return Scaffold(
-      backgroundColor: Colors.grey[400],
+      backgroundColor: Colors.lightBlue[100],
       appBar: AppBar(
         title: Text("Ver memoria"),
         actions: [
           InkWell(
               onTap: (){
-                Navigator.of(context).pushNamed('/editMemory',arguments: {});
+                Navigator.of(context).pushNamed('/editMemory',arguments: { "memory": args["memory"] as Memory});
               },
               splashColor: Colors.blue,
               child: Icon(Icons.edit)
@@ -53,13 +52,13 @@ class SeeMemoryView extends StatelessWidget {
                 decoration: BoxDecoration(
                     border: Border(
                       bottom: BorderSide(
-                        width: 2,color: Colors.grey
+                        width: 2,color: Colors.lightBlue
                       ),
                     ),
                 ),
                 child: Center(
                     child: BorderedText(
-                      strokeColor: Colors.grey,
+                      strokeColor: Colors.lightBlue,
                       strokeWidth: 3,
 
                       child: Text(
@@ -75,7 +74,7 @@ class SeeMemoryView extends StatelessWidget {
                 height: 150,
                 decoration: BoxDecoration(
                   border: Border(
-                    left: BorderSide(width: 16.0, ),
+                    left: BorderSide(width: 16.0,color: Colors.grey ),
                     right: BorderSide(width: 16.0,),
                   ),
                 ),
