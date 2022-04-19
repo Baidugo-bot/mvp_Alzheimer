@@ -41,7 +41,7 @@ class SeeMemoryView extends StatelessWidget {
                       strokeColor: Colors.brown,
                       strokeWidth: 3,
                       child: Text(
-                          args["memory"]!.getTitle().toUpperCase(),
+                          args["memory"]!.getTitle().toUpperCase()+args["memory"]!.getIdentifier().toString(),
                           style: TextStyle(fontSize: 25, color: Colors.white,)
                       ),
                     )

@@ -58,6 +58,13 @@
             </list>
           </value>
         </entry>
+        <entry key="date_field">
+          <value>
+            <list>
+              <option value="$PROJECT_DIR$/../Downloads/flutter_windows_2.10.4-stable/flutter/.pub-cache/hosted/pub.dartlang.org/date_field-3.0.0/lib" />
+            </list>
+          </value>
+        </entry>
         <entry key="fake_async">
           <value>
             <list>
@@ -216,6 +223,7 @@
       <root url="file://$PROJECT_DIR$/../Downloads/flutter_windows_2.10.4-stable/flutter/.pub-cache/hosted/pub.dartlang.org/clock-1.1.0/lib" />
       <root url="file://$PROJECT_DIR$/../Downloads/flutter_windows_2.10.4-stable/flutter/.pub-cache/hosted/pub.dartlang.org/collection-1.15.0/lib" />
       <root url="file://$PROJECT_DIR$/../Downloads/flutter_windows_2.10.4-stable/flutter/.pub-cache/hosted/pub.dartlang.org/cupertino_icons-1.0.4/lib" />
+      <root url="file://$PROJECT_DIR$/../Downloads/flutter_windows_2.10.4-stable/flutter/.pub-cache/hosted/pub.dartlang.org/date_field-3.0.0/lib" />
       <root url="file://$PROJECT_DIR$/../Downloads/flutter_windows_2.10.4-stable/flutter/.pub-cache/hosted/pub.dartlang.org/fake_async-1.2.0/lib" />
       <root url="file://$PROJECT_DIR$/../Downloads/flutter_windows_2.10.4-stable/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_lints-1.0.4/lib" />
       <root url="file://$PROJECT_DIR$/../Downloads/flutter_windows_2.10.4-stable/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_slidable-1.2.0/lib" />

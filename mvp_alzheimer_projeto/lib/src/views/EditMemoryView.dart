@@ -18,7 +18,8 @@ class EditMemoryView extends StatefulWidget {
 class EditMemoryViewState extends State<EditMemoryView> {
   @override
   Widget build(BuildContext context) {
-    //var args = ModalRoute.of(context)!.settings.arguments as Map<String,Memory>;
+    TextEditingController titleController = new TextEditingController();
+    TextEditingController descController = new TextEditingController();
     return Scaffold(
       backgroundColor: Colors.lightBlue[100],
       appBar: AppBar(
@@ -63,10 +64,14 @@ class EditMemoryViewState extends State<EditMemoryView> {
             ),
             BorderedTextField(
               title: 'Titulo:',
+              haveFrame: false,
+              myResult: titleController,
             ),
             DateBorderedField(),
             BorderedTextField(
               title: "Anotacoes:",
+              haveFrame: true,
+              myResult: descController,
             ),
             Container(height: 10,),
             CustomButton(),

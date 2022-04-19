@@ -1,10 +1,17 @@
+import 'package:flutter/material.dart';
+
 import 'package:bordered_text/bordered_text.dart';
 import 'package:date_field/date_field.dart';
 import 'package:flutter/material.dart';
 
+import '../models/MemoryModel.dart';
+
 class BorderedTextField extends StatefulWidget {
   final String title;
-  const BorderedTextField({Key? key, required this.title}) : super(key: key);
+  final bool haveFrame;
+  final TextEditingController myResult;
+  const BorderedTextField({Key? key, required this.title, required this.haveFrame, required this.myResult}) : super(key: key);
+
 
   @override
   BorderedTextFieldState createState() => BorderedTextFieldState();
@@ -33,6 +40,7 @@ class BorderedTextFieldState extends State<BorderedTextField> {
           Expanded(
             child: Container(
               child: TextField(
+                controller: widget.myResult  ,
                 keyboardType: TextInputType.multiline,
                 maxLines: null,
                 decoration: InputDecoration(

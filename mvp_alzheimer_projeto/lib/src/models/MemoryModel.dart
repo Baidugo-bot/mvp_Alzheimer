@@ -7,10 +7,11 @@ class MemoryModel{
 }
 
 class Memory {
-  const Memory({Key? key, required this.title, required this.date,required this.description}) ;
+  const Memory(  {Key? key, required this.title, required this.date,required this.description,required this.identifier}) ;
   final String title ;
   final DateTime date;
   final String description;
+  final int identifier;
 
   String getTitle(){
     return title;
@@ -22,6 +23,10 @@ class Memory {
 
   DateTime getDate(){
     return date;
+  }
+
+  int getIdentifier(){
+    return identifier;
   }
 
 

@@ -19,7 +19,8 @@ class AddMemoryView extends StatefulWidget {
 class AddMemoryViewState extends State<AddMemoryView> {
   @override
   Widget build(BuildContext context) {
-    //var args = ModalRoute.of(context)!.settings.arguments as Map<String,Memory>;
+    TextEditingController titleController = new TextEditingController();
+    TextEditingController descController = new TextEditingController();
     return Scaffold(
       backgroundColor: Colors.lightBlue[100],
       appBar: AppBar(
@@ -27,8 +28,8 @@ class AddMemoryViewState extends State<AddMemoryView> {
         actions: [
           InkWell(
               onTap: () {
-                AppController.instance.memories.map((e) => print("teste"));
-                Navigator.of(context).pushNamed('/seeMemory', arguments: {});
+                MemoryModel.instance.memories.add(new Memory(title: titleController.text, date: DateTime.now(), description: descController.text, identifier: MemoryModel.instance.memories.length));
+                Navigator.of(context).pushNamed('/memories', arguments: {});
               },
               splashColor: Colors.blue,
               child: Icon(Icons.check)),
@@ -64,10 +65,14 @@ class AddMemoryViewState extends State<AddMemoryView> {
             ),
             BorderedTextField(
               title: 'Titulo:',
+              haveFrame: false,
+              myResult: titleController,
             ),
             DateBorderedField(),
             BorderedTextField(
               title: "Anotacoes:",
+              haveFrame: true,
+              myResult: descController,
             ),
             Container(height: 10,),
             Row(
