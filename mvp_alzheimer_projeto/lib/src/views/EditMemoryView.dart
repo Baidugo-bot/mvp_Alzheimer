@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:jiffy/jiffy.dart';
 import 'package:projeto_estudo/AppController.dart';
 import 'package:projeto_estudo/src/components/EditMemoryComponents.dart';
+import 'package:projeto_estudo/src/controller/EditMemoryController.dart';
 
 import '../components/AddMemoryComponents.dart';
 import '../models/MemoryModel.dart';
@@ -30,7 +31,7 @@ class EditMemoryViewState extends State<EditMemoryView> {
           InkWell(
               onTap: () {
 
-                Navigator.of(context).pushNamed('/seeMemory', arguments: {});
+                Navigator.of(context).pushNamed('/memories', arguments: {});
               },
               splashColor: Colors.blue,
               child: Icon(Icons.check)),
@@ -77,7 +78,28 @@ class EditMemoryViewState extends State<EditMemoryView> {
               myResult: descController,
             ),
             Container(height: 10,),
-            CustomButton(),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                CustomButton(
+                  title: "Salvar",
+                  color: Colors.green,
+                  response: (){
+                    //EditMemoryController.instance.changeById(args["memory"]!.getIdentifier(), Memory(null,null,null));
+                    Navigator.of(context).pushNamed('/memories', arguments: {});
+                  },
+                ),
+                Container(width: 10,),
+                CustomButton(
+                  title: "Apagar",
+                  color: Colors.red,
+                  response: (){
+                    EditMemoryController.instance.excludeById(args["memory"]!.getIdentifier());
+                    Navigator.of(context).pushNamed('/memories', arguments: {});
+                  },
+                ),
+              ],
+            ),
           ],
         ),
       ),

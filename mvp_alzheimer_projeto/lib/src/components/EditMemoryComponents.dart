@@ -11,7 +11,8 @@ class BorderedTextField extends StatefulWidget {
   bool haveFrame;
   TextEditingController myResult;
   bool beenChanged= false;
-  BorderedTextField({Key? key, required this.title, required this.haveFrame, required this.myResult}) : super(key: key);
+   //Funtion(String) onChanged;//on both
+  BorderedTextField({Key? key, required this.title, required this.haveFrame, required this.myResult,}) : super(key: key);
 
 
   @override
@@ -42,6 +43,7 @@ class BorderedTextFieldState extends State<BorderedTextField> {
             child: Container(
               child: TextField(
                 controller: widget.myResult  ,
+                //onChanged: ,
                 keyboardType: TextInputType.multiline,
                 maxLines: null,
                 decoration: InputDecoration(

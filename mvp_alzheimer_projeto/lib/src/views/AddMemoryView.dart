@@ -25,15 +25,6 @@ class AddMemoryViewState extends State<AddMemoryView> {
       backgroundColor: Colors.lightBlue[100],
       appBar: AppBar(
         title: Center(child: Text("Add Memory")),
-        actions: [
-          InkWell(
-              onTap: () {
-                MemoryModel.instance.memories.add(new Memory(title: titleController.text, date: DateTime.now(), description: descController.text, identifier: MemoryModel.instance.memories.length));
-                Navigator.of(context).pushNamed('/memories', arguments: {});
-              },
-              splashColor: Colors.blue,
-              child: Icon(Icons.check)),
-        ],
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -75,13 +66,13 @@ class AddMemoryViewState extends State<AddMemoryView> {
               myResult: descController,
             ),
             Container(height: 10,),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                CustomButton(),
-                Container(width: 10,),
-                CustomButton(),
-              ],
+            CustomButton(
+              title: "Adicionar",
+              color: Colors.green,
+              response: (){
+                MemoryModel.instance.memories.add(new Memory(title: titleController.text, date: DateTime.now(), description: descController.text, identifier: MemoryModel.instance.memories.length));
+                Navigator.of(context).pushNamed('/memories', arguments: {});
+              },
             ),
           ],
         ),
