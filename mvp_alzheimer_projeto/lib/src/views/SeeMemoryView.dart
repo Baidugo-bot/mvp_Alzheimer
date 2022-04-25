@@ -72,10 +72,11 @@ class SeeMemoryView extends StatelessWidget {
 
               Container(
                 height: 150,
+                width: 415,
                 decoration: BoxDecoration(
                   border: Border(
-                    left: BorderSide(width: 16.0,color: Colors.grey ),
-                    right: BorderSide(width: 16.0,),
+                    left: BorderSide(width: 16.0,color: Color.fromRGBO(158, 158, 158, 0)  ),
+                    right: BorderSide(width: 16.0,color: Color.fromRGBO(158, 158, 158, 0) ),
                   ),
                 ),
 

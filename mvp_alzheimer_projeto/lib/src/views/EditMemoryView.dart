@@ -16,8 +16,10 @@ class EditMemoryView extends StatefulWidget {
 }
 
 class EditMemoryViewState extends State<EditMemoryView> {
+
   @override
   Widget build(BuildContext context) {
+    var args = ModalRoute.of(context)!.settings.arguments as Map<String,Memory>;
     TextEditingController titleController = new TextEditingController();
     TextEditingController descController = new TextEditingController();
     return Scaffold(
@@ -27,7 +29,7 @@ class EditMemoryViewState extends State<EditMemoryView> {
         actions: [
           InkWell(
               onTap: () {
-                AppController.instance.memories.map((e) => print("teste"));
+
                 Navigator.of(context).pushNamed('/seeMemory', arguments: {});
               },
               splashColor: Colors.blue,
@@ -66,6 +68,7 @@ class EditMemoryViewState extends State<EditMemoryView> {
               title: 'Titulo:',
               haveFrame: false,
               myResult: titleController,
+
             ),
             DateBorderedField(),
             BorderedTextField(

@@ -4,9 +4,7 @@ import 'package:flutter/material.dart';
 import '../models/MemoryModel.dart';
 
 class MemoriesView extends StatefulWidget {
-  String var1 = "Festa Aniversario";
-  String var2 = "Pele";
-  String var3 = "05/10/2001";
+
 
   MemoriesView({Key? key}) : super(key: key);
 

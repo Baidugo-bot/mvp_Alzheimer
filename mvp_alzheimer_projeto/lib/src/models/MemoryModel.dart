@@ -4,14 +4,22 @@ class MemoryModel{
   static MemoryModel instance = MemoryModel();
 
   List<Memory> memories = <Memory>[];
+
+  void changeByIdentifier(int identifier,Memory newMemory){
+    memories.map((e) => (){
+      if(e.identifier==identifier){
+        e.changeMemory(newMemory);
+      }
+    });
+  }
 }
 
 class Memory {
-  const Memory(  {Key? key, required this.title, required this.date,required this.description,required this.identifier}) ;
-  final String title ;
-  final DateTime date;
-  final String description;
-  final int identifier;
+   Memory(  {Key? key, required this.title, required this.date,required this.description,required this.identifier}) ;
+   String title ;
+   DateTime date;
+   String description;
+   int identifier;
 
   String getTitle(){
     return title;
@@ -27,6 +35,12 @@ class Memory {
 
   int getIdentifier(){
     return identifier;
+  }
+
+  void changeMemory(Memory newMemory){
+    this.title = newMemory.getDescription();
+    this.date = newMemory.getDate();
+    this.description = newMemory.getDescription();
   }
 
 

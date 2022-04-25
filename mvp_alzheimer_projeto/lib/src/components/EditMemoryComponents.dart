@@ -7,10 +7,11 @@ import 'package:flutter/material.dart';
 import '../models/MemoryModel.dart';
 
 class BorderedTextField extends StatefulWidget {
-  final String title;
-  final bool haveFrame;
-  final TextEditingController myResult;
-  const BorderedTextField({Key? key, required this.title, required this.haveFrame, required this.myResult}) : super(key: key);
+  String title;
+  bool haveFrame;
+  TextEditingController myResult;
+  bool beenChanged= false;
+  BorderedTextField({Key? key, required this.title, required this.haveFrame, required this.myResult}) : super(key: key);
 
 
   @override
