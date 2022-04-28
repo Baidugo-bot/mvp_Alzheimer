@@ -21,6 +21,7 @@ class AddMemoryViewState extends State<AddMemoryView> {
   Widget build(BuildContext context) {
     TextEditingController titleController = new TextEditingController();
     TextEditingController descController = new TextEditingController();
+    DateTime dateController = DateTime.now();
     return Scaffold(
       backgroundColor: Colors.lightBlue[100],
       appBar: AppBar(
@@ -59,7 +60,11 @@ class AddMemoryViewState extends State<AddMemoryView> {
               haveFrame: false,
               myResult: titleController,
             ),
-            DateBorderedField(),
+            DateBorderedField(
+              onChangeFunction: (DateTime date){
+
+              },
+            ),
             BorderedTextField(
               title: "Anotacoes:",
               haveFrame: true,

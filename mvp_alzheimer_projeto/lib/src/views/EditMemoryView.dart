@@ -23,19 +23,12 @@ class EditMemoryViewState extends State<EditMemoryView> {
     var args = ModalRoute.of(context)!.settings.arguments as Map<String,Memory>;
     TextEditingController titleController = new TextEditingController();
     TextEditingController descController = new TextEditingController();
+    DateTime dateController = DateTime.now() ;
     return Scaffold(
       backgroundColor: Colors.lightBlue[100],
       appBar: AppBar(
         title: Center(child: Text("Edit Memory")),
-        actions: [
-          InkWell(
-              onTap: () {
 
-                Navigator.of(context).pushNamed('/memories', arguments: {});
-              },
-              splashColor: Colors.blue,
-              child: Icon(Icons.check)),
-        ],
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -71,7 +64,9 @@ class EditMemoryViewState extends State<EditMemoryView> {
               myResult: titleController,
 
             ),
-            DateBorderedField(),
+            DateBorderedField(
+              onChangeFunction: (DateTime date){dateController = date;},
+            ),
             BorderedTextField(
               title: "Anotacoes:",
               haveFrame: true,
@@ -85,8 +80,12 @@ class EditMemoryViewState extends State<EditMemoryView> {
                   title: "Salvar",
                   color: Colors.green,
                   response: (){
-                    //EditMemoryController.instance.changeById(args["memory"]!.getIdentifier(), Memory(null,null,null));
-                    Navigator.of(context).pushNamed('/memories', arguments: {});
+                    if(titleController.text=="" || descController.text==""){
+                      print("Preencha");
+                    }else{
+                        EditMemoryController.instance.changeById(args["memory"]!.getIdentifier(), Memory(title: titleController.text, date: dateController, description: descController.text, identifier: args["memory"]!.getIdentifier()));
+                        Navigator.of(context).pushNamed('/memories', arguments: {});
+                    }
                   },
                 ),
                 Container(width: 10,),

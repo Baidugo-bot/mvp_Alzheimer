@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'package:bordered_text/bordered_text.dart';
@@ -59,7 +60,8 @@ class BorderedTextFieldState extends State<BorderedTextField> {
 }
 
 class DateBorderedField extends StatefulWidget {
-  const DateBorderedField({Key? key}) : super(key: key);
+  Function(DateTime) onChangeFunction = (DateTime date){};
+  DateBorderedField({Key? key, required this.onChangeFunction}) : super(key: key);
 
   @override
   DateBorderedFieldState createState() => DateBorderedFieldState();
@@ -68,6 +70,8 @@ class DateBorderedField extends StatefulWidget {
 class DateBorderedFieldState extends State<DateBorderedField> {
   @override
   Widget build(BuildContext context) {
+    DateTime holderDate = DateTime.now();
+
     return Container(
       decoration: BoxDecoration(
         border: Border(
@@ -85,8 +89,11 @@ class DateBorderedFieldState extends State<DateBorderedField> {
 
             width: 200,
             child: DateTimeFormField(
+                onDateSelected: (DateTime date){
+                  widget.onChangeFunction(date);
+                },
                 mode: DateTimeFieldPickerMode.date,
-                initialDate: DateTime.now(),
+                initialDate: holderDate,
                 dateTextStyle: TextStyle(color: Colors.black),
                 decoration: InputDecoration(
                     border: InputBorder.none
