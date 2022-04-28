@@ -9,12 +9,10 @@ class EditMemoryController{
   }
 
   void changeById(int identifier, Memory newMemory){
-
-    MemoryModel.instance.memories.map((e) => (){
-      print(newMemory.getIdentifier().toString() );
+    MemoryModel.instance.memories.forEach((e) {
+      print(newMemory.getDescription()+" - "+newMemory.getTitle());
       if(e.identifier==identifier){
         e.changeMemory(newMemory);
-        print(e);
       }
     });
   }

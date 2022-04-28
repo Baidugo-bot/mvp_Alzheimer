@@ -76,6 +76,7 @@ class AddMemoryViewState extends State<AddMemoryView> {
               color: Colors.green,
               response: (){
                 MemoryModel.instance.memories.add(new Memory(title: titleController.text, date: DateTime.now(), description: descController.text, identifier: MemoryModel.instance.memories.length));
+
                 Navigator.of(context).pushNamed('/memories', arguments: {});
               },
             ),

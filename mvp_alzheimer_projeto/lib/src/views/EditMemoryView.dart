@@ -83,6 +83,7 @@ class EditMemoryViewState extends State<EditMemoryView> {
                     if(titleController.text=="" || descController.text==""){
                       print("Preencha");
                     }else{
+
                         EditMemoryController.instance.changeById(args["memory"]!.getIdentifier(), Memory(title: titleController.text, date: dateController, description: descController.text, identifier: args["memory"]!.getIdentifier()));
                         Navigator.of(context).pushNamed('/memories', arguments: {});
                     }

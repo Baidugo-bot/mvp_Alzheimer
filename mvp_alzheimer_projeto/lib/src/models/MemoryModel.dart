@@ -5,13 +5,6 @@ class MemoryModel{
 
   List<Memory> memories = <Memory>[];
 
-  void changeByIdentifier(int identifier,Memory newMemory){
-    memories.map((e) => (){
-      if(e.identifier==identifier){
-        e.changeMemory(newMemory);
-      }
-    });
-  }
 }
 
 class Memory {
