@@ -17,7 +17,22 @@ class EditMemoryView extends StatefulWidget {
 }
 
 class EditMemoryViewState extends State<EditMemoryView> {
-
+  /*
+  *  new AlertDialog(
+        title: new Text('Are you sure?'),
+        content: new Text('Do you want to exit an App'),
+        actions: <Widget>[
+          TextButton(
+            onPressed: () => Navigator.of(context).pop(false),
+            child: new Text('No'),
+          ),
+          TextButton(
+            onPressed: () => Navigator.of(context).pop(true),
+            child: new Text('Yes'),
+          ),
+        ],
+      ),
+  * */
   @override
   Widget build(BuildContext context) {
     var args = ModalRoute.of(context)!.settings.arguments as Map<String,Memory>;
@@ -25,6 +40,7 @@ class EditMemoryViewState extends State<EditMemoryView> {
     TextEditingController descController = new TextEditingController();
     DateTime dateController = DateTime.now() ;
     return Scaffold(
+
       backgroundColor: Colors.lightBlue[100],
       appBar: AppBar(
         title: Center(child: Text("Edit Memory")),

@@ -31,7 +31,7 @@ class Memory {
   }
 
   void changeMemory(Memory newMemory){
-    this.title = newMemory.getDescription();
+    this.title = newMemory.getTitle();
     this.date = newMemory.getDate();
     this.description = newMemory.getDescription();
   }
