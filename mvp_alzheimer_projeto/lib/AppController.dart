@@ -9,6 +9,7 @@ class AppController extends ChangeNotifier{
   List<Widget> memories = <Widget>[];
   DateTime now = DateTime.now().toUtc();
   int counter = 0;
+  Color mainColor = Color.fromRGBO(121,188,218, 1) ;
 
 
 

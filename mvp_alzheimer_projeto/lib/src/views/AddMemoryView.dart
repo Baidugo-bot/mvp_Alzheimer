@@ -23,8 +23,9 @@ class AddMemoryViewState extends State<AddMemoryView> {
     TextEditingController descController = new TextEditingController();
     DateTime dateController = DateTime.now();
     return Scaffold(
-      backgroundColor: Colors.lightBlue[100],
+      backgroundColor: AppController.instance.mainColor,
       appBar: AppBar(
+        backgroundColor: AppController.instance.mainColor,
         title: Center(child: Text("Add Memory")),
       ),
       body: SingleChildScrollView(
@@ -75,9 +76,16 @@ class AddMemoryViewState extends State<AddMemoryView> {
               title: "Adicionar",
               color: Colors.green,
               response: (){
-                MemoryModel.instance.memories.add(new Memory(title: titleController.text, date: DateTime.now(), description: descController.text, identifier: MemoryModel.instance.memories.length));
+                if(titleController.text=="" || descController.text==""){
+                  print("Preencha");
+                }else{
 
-                Navigator.of(context).pushNamed('/memories', arguments: {});
+                  MemoryModel.instance.memories.add(new Memory(title: titleController.text, date: DateTime.now(), description: descController.text, identifier: MemoryModel.instance.memories.length));
+                  Navigator.of(context).pushNamed('/memories', arguments: {});
+                }
+
+
+
               },
             ),
           ],

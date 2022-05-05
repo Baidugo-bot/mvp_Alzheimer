@@ -41,8 +41,9 @@ class EditMemoryViewState extends State<EditMemoryView> {
     DateTime dateController = DateTime.now() ;
     return Scaffold(
 
-      backgroundColor: Colors.lightBlue[100],
+      backgroundColor: AppController.instance.mainColor,
       appBar: AppBar(
+        backgroundColor: AppController.instance.mainColor,
         title: Center(child: Text("Edit Memory")),
 
       ),

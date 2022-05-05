@@ -25,7 +25,9 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(// map dos botoes
+      backgroundColor: AppController.instance.mainColor,
       appBar: AppBar(
+        backgroundColor: AppController.instance.mainColor,
         title: Center(child: Text("Dia "+myInstance.now.day.toString()+" - "+ Jiffy(myInstance.now).EEEE.toString())),
       ),
       body: SizedBox(

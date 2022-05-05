@@ -24,10 +24,13 @@
   <component name="ChangeListManager">
     <list default="true" id="01374189-c916-4464-add0-3260a260741b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mvp_alzheimer_projeto/lib/AppController.dart" beforeDir="false" afterPath="$PROJECT_DIR$/mvp_alzheimer_projeto/lib/AppController.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mvp_alzheimer_projeto/lib/MyHomePage.dart" beforeDir="false" afterPath="$PROJECT_DIR$/mvp_alzheimer_projeto/lib/MyHomePage.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mvp_alzheimer_projeto/lib/src/components/EditMemoryComponents.dart" beforeDir="false" afterPath="$PROJECT_DIR$/mvp_alzheimer_projeto/lib/src/components/EditMemoryComponents.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mvp_alzheimer_projeto/lib/src/controller/EditMemoryController.dart" beforeDir="false" afterPath="$PROJECT_DIR$/mvp_alzheimer_projeto/lib/src/controller/EditMemoryController.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mvp_alzheimer_projeto/lib/src/views/AddMemoryView.dart" beforeDir="false" afterPath="$PROJECT_DIR$/mvp_alzheimer_projeto/lib/src/views/AddMemoryView.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mvp_alzheimer_projeto/lib/src/views/EditMemoryView.dart" beforeDir="false" afterPath="$PROJECT_DIR$/mvp_alzheimer_projeto/lib/src/views/EditMemoryView.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mvp_alzheimer_projeto/lib/src/views/MemoriesView.dart" beforeDir="false" afterPath="$PROJECT_DIR$/mvp_alzheimer_projeto/lib/src/views/MemoriesView.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mvp_alzheimer_projeto/lib/src/views/SeeMemoryView.dart" beforeDir="false" afterPath="$PROJECT_DIR$/mvp_alzheimer_projeto/lib/src/views/SeeMemoryView.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -89,35 +92,35 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="100" y="200" width="1200" height="660" key="AVDManager" timestamp="1651109279847">
+    <state x="100" y="200" width="1200" height="660" key="AVDManager" timestamp="1651781695420">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="100" y="200" width="1200" height="660" key="AVDManager/0.0.1920.1040/1920.0.1600.860@0.0.1920.1040" timestamp="1651109279847" />
+    <state x="100" y="200" width="1200" height="660" key="AVDManager/0.0.1920.1040/1920.0.1600.860@0.0.1920.1040" timestamp="1651781695420" />
     <state x="100" y="200" width="1200" height="660" key="AVDManager/0.0.1920.1040/1920.182.1600.860@0.0.1920.1040" timestamp="1650848613465" />
     <state x="1010" y="273" key="FileChooserDialogImpl" timestamp="1649276028344">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="1010" y="273" key="FileChooserDialogImpl/0.0.1920.1040/1920.182.1600.860@0.0.1920.1040" timestamp="1649276028344" />
     <state x="1010" y="273" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1648168753457" />
-    <state width="1340" height="310" key="GridCell.Tab.0.bottom" timestamp="1651112841013">
+    <state width="1514" height="310" key="GridCell.Tab.0.bottom" timestamp="1651784295247">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1340" height="310" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1600.860@0.0.1920.1040" timestamp="1651112841013" />
+    <state width="1514" height="310" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1600.860@0.0.1920.1040" timestamp="1651784295247" />
     <state width="1340" height="309" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.182.1600.860@0.0.1920.1040" timestamp="1650852031129" />
-    <state width="1340" height="310" key="GridCell.Tab.0.center" timestamp="1651112841013">
+    <state width="1514" height="310" key="GridCell.Tab.0.center" timestamp="1651784295247">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1340" height="310" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1600.860@0.0.1920.1040" timestamp="1651112841013" />
+    <state width="1514" height="310" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1600.860@0.0.1920.1040" timestamp="1651784295247" />
     <state width="1340" height="309" key="GridCell.Tab.0.center/0.0.1920.1040/1920.182.1600.860@0.0.1920.1040" timestamp="1650852031128" />
-    <state width="1340" height="310" key="GridCell.Tab.0.left" timestamp="1651112841013">
+    <state width="1514" height="310" key="GridCell.Tab.0.left" timestamp="1651784295247">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1340" height="310" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1600.860@0.0.1920.1040" timestamp="1651112841013" />
+    <state width="1514" height="310" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1600.860@0.0.1920.1040" timestamp="1651784295247" />
     <state width="1340" height="309" key="GridCell.Tab.0.left/0.0.1920.1040/1920.182.1600.860@0.0.1920.1040" timestamp="1650852031128" />
-    <state width="1340" height="310" key="GridCell.Tab.0.right" timestamp="1651112841013">
+    <state width="1514" height="310" key="GridCell.Tab.0.right" timestamp="1651784295247">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1340" height="310" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1600.860@0.0.1920.1040" timestamp="1651112841013" />
+    <state width="1514" height="310" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1600.860@0.0.1920.1040" timestamp="1651784295247" />
     <state width="1340" height="309" key="GridCell.Tab.0.right/0.0.1920.1040/1920.182.1600.860@0.0.1920.1040" timestamp="1650852031128" />
     <state x="201" y="175" key="SettingsEditor" timestamp="1649636473960">
       <screen x="0" y="0" width="1920" height="1040" />

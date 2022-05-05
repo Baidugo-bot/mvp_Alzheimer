@@ -31,7 +31,41 @@ class BorderedTextFieldState extends State<BorderedTextField> {
           bottom: BorderSide(width: 2, color: Colors.grey),
         ),
       ),
-      child: Row(
+      child: (widget.haveFrame==true)?
+      Column(
+        children: [
+          BorderedText(
+              strokeWidth: 2,
+              strokeColor: Colors.brown,
+              child: Text(
+                widget.title,
+                style: TextStyle(fontSize: 20),
+              )
+          ),
+          Row(
+            children: [
+
+              Expanded(
+                child: Container(
+                  height: 100,
+                  color: Colors.white,
+                  child: TextField(
+                    controller: widget.myResult  ,
+                    //onChanged: ,
+                    keyboardType: TextInputType.multiline,
+                    maxLines: null,
+                    decoration: InputDecoration(
+                      border: InputBorder.none,
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          )
+        ],
+      )
+          :
+      Row(
         children: [
           BorderedText(
               strokeWidth: 2,
@@ -94,7 +128,8 @@ class DateBorderedFieldState extends State<DateBorderedField> {
                 },
                 mode: DateTimeFieldPickerMode.date,
                 initialDate: holderDate,
-                dateTextStyle: TextStyle(color: Colors.black),
+                dateTextStyle: TextStyle(color: Colors.white),
+
                 decoration: InputDecoration(
                     border: InputBorder.none
                 ),

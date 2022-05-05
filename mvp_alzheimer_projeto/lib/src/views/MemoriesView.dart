@@ -1,5 +1,6 @@
 import 'package:bordered_text/bordered_text.dart';
 import 'package:flutter/material.dart';
+import 'package:projeto_estudo/AppController.dart';
 
 import '../models/MemoryModel.dart';
 
@@ -21,6 +22,7 @@ class MemoriesViewState extends State<MemoriesView> {
     return Scaffold(
       backgroundColor: Colors.lightBlue[100],
       appBar: AppBar(
+        backgroundColor: AppController.instance.mainColor,
         title: Center(child: Text("Memorias",)),
       ),
 
@@ -29,7 +31,7 @@ class MemoriesViewState extends State<MemoriesView> {
           itemBuilder: (BuildContext build,int index) {
 
             return Card(
-                color: Colors.lightBlue[100],
+                color: AppController.instance.mainColor,
                 child: InkWell(
                   splashColor: Colors.grey.withAlpha(70),
                   onTap: () {
