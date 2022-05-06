@@ -22,6 +22,7 @@ class AddMemoryViewState extends State<AddMemoryView> {
   Widget build(BuildContext context) {
     TextEditingController titleController = new TextEditingController();
     TextEditingController descController = new TextEditingController();
+    Image imageController ;
     DateTime dateController = DateTime.now();
     return Scaffold(
       backgroundColor: AppController.instance.mainColor,
@@ -44,7 +45,7 @@ class AddMemoryViewState extends State<AddMemoryView> {
                   bottom: BorderSide(width: 2, color: Colors.grey),
                 ),
               ),
-              child: ,
+              child: ImagePickerContainer(imageController : imageController,image: XFile("assets/images/pelezin.jpg"),),
             ),
             Container(
               height: 30,

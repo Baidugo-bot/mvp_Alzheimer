@@ -5,7 +5,8 @@ import 'dart:io';
 
 class ImagePickerContainer extends StatefulWidget {
   XFile? image ;
-  ImagePickerContainer({Key? key, required this.image }) : super(key: key);
+  Image imageController;
+  ImagePickerContainer({Key? key, required this.image,required this.imageController }) : super(key: key);
 
   @override
   ImagePickerContainerState createState() => ImagePickerContainerState();
@@ -20,6 +21,7 @@ class ImagePickerContainerState extends State<ImagePickerContainer> {
 
     setState(() {
       widget.image = image;
+      widget.this
     });
   }
 
@@ -29,6 +31,7 @@ class ImagePickerContainerState extends State<ImagePickerContainer> {
       child: Container(
           child: Image(
             image: FileImage(File(widget.image!.path)),
+            height: 250,
           ),
       ),
     );
