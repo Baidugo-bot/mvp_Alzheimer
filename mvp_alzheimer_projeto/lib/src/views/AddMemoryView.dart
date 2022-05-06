@@ -2,6 +2,7 @@ import 'package:bordered_text/bordered_text.dart';
 import 'package:date_field/date_field.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:jiffy/jiffy.dart';
 import 'package:projeto_estudo/AppController.dart';
 import 'package:projeto_estudo/src/components/EditMemoryComponents.dart';
@@ -43,15 +44,7 @@ class AddMemoryViewState extends State<AddMemoryView> {
                   bottom: BorderSide(width: 2, color: Colors.grey),
                 ),
               ),
-              child: GestureDetector(
-                onTap: () {},
-                child: Image(
-                  image: AssetImage(
-                    'assets/images/pelezin.jpg',
-                  ),
-                  height: 250,
-                ),
-              ),
+              child: ,
             ),
             Container(
               height: 30,

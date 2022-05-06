@@ -46,6 +46,7 @@ class EditMemoryViewState extends State<EditMemoryView> {
         backgroundColor: AppController.instance.mainColor,
         title: Center(child: Text("Edit Memory")),
 
+
       ),
       body: SingleChildScrollView(
         child: Column(

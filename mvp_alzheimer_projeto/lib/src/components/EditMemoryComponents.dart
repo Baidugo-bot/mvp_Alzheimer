@@ -36,30 +36,33 @@ class BorderedTextFieldState extends State<BorderedTextField> {
         children: [
           BorderedText(
               strokeWidth: 2,
-              strokeColor: Colors.brown,
+              strokeColor: Colors.black26,
               child: Text(
                 widget.title,
-                style: TextStyle(fontSize: 20),
+                style: TextStyle(fontSize: 20,fontFamily: "Gidugu-Regular"),
               )
           ),
           Row(
             children: [
-
+              Container(width: 10,),
               Expanded(
                 child: Container(
                   height: 100,
                   color: Colors.white,
                   child: TextField(
+                    style: TextStyle(color: Colors.black,fontFamily: "Gidugu-Regular"),
                     controller: widget.myResult  ,
                     //onChanged: ,
                     keyboardType: TextInputType.multiline,
                     maxLines: null,
                     decoration: InputDecoration(
                       border: InputBorder.none,
+
                     ),
                   ),
                 ),
               ),
+              Container(width: 10,),
             ],
           )
         ],
@@ -69,14 +72,15 @@ class BorderedTextFieldState extends State<BorderedTextField> {
         children: [
           BorderedText(
               strokeWidth: 2,
-              strokeColor: Colors.brown,
+              strokeColor: Colors.black26,
               child: Text(
                 widget.title,
-                style: TextStyle(fontSize: 20),
+                style: TextStyle(fontSize: 20,fontFamily: "Gidugu-Regular"),
               )),
           Expanded(
             child: Container(
               child: TextField(
+                style: TextStyle(color: Colors.black,fontFamily: "Gidugu-Regular"),
                 controller: widget.myResult  ,
                 //onChanged: ,
                 keyboardType: TextInputType.multiline,
@@ -115,9 +119,9 @@ class DateBorderedFieldState extends State<DateBorderedField> {
       child: Row(
         children: [
           BorderedText(
-            strokeColor: Colors.brown,
+            strokeColor: Colors.black26,
             strokeWidth: 2,
-            child: Text("Data:",style: TextStyle(fontSize: 20),),
+            child: Text("Data:",style: TextStyle(fontSize: 20,fontFamily: "Gidugu-Regular"),),
           ),
           Container(
 
@@ -128,7 +132,7 @@ class DateBorderedFieldState extends State<DateBorderedField> {
                 },
                 mode: DateTimeFieldPickerMode.date,
                 initialDate: holderDate,
-                dateTextStyle: TextStyle(color: Colors.white),
+                dateTextStyle: TextStyle(color: Colors.black,fontFamily: "Gidugu-Regular"),
 
                 decoration: InputDecoration(
                     border: InputBorder.none

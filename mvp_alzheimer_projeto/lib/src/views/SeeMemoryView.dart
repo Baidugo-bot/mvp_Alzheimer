@@ -41,11 +41,11 @@ class SeeMemoryView extends StatelessWidget {
                 width: 500,
                 child: Center(
                     child: BorderedText(
-                      strokeColor: Colors.blue,
-                      strokeWidth: 3,
+                      strokeColor: Colors.black,
+                      strokeWidth: 2,
                       child: Text(
                           args["memory"]!.getTitle().toUpperCase(),
-                          style: TextStyle(fontSize: 25, color: Colors.white,)
+                          style: TextStyle(fontSize: 22, color: Colors.white,)
                       ),
                     )
                 ),
@@ -55,14 +55,14 @@ class SeeMemoryView extends StatelessWidget {
                 decoration: BoxDecoration(
                     border: Border(
                       bottom: BorderSide(
-                        width: 2,color: Colors.lightBlue
+                        width: 1,color: Colors.black45,
                       ),
                     ),
                 ),
                 child: Center(
                     child: BorderedText(
-                      strokeColor: Colors.lightBlue,
-                      strokeWidth: 3,
+                      strokeColor: Colors.black,
+                      strokeWidth: 2,
 
                       child: Text(
                           Jiffy(AppController.instance.now).EEEE.toString()+" "+args["memory"]!.getDate().toString().substring(0,10),
@@ -74,27 +74,27 @@ class SeeMemoryView extends StatelessWidget {
 
               Container(height: 30,),
               Container(
-                height: 150,
-                width: 300,
+                height: 200,
+                width: 350,
                 
                 decoration: BoxDecoration(
-                  color: Colors.white,
+                  color: Color.fromRGBO(228, 241, 247, 1),
                   borderRadius: BorderRadius.only(
                     topLeft:Radius.circular(20),
                     topRight: Radius.circular(20),
                     bottomLeft:Radius.circular(20),
                     bottomRight: Radius.circular(20),
                   ),
-                  border: Border(
-                  ),
                 ),
 
                 child: BorderedText(
-                  strokeWidth: 3,
+                  strokeWidth: 2,
                   strokeColor: Colors.black,
                   child: Text(
-                      args["memory"]!.getDescription().toUpperCase(),
-                      style: TextStyle(fontSize: 20, color: Colors.white,)
+
+                      args["memory"]!.getDescription(),
+                      textAlign: TextAlign.justify,
+                      style: TextStyle(fontSize: 18, color: Colors.white,fontFamily: "Gidugu-Regular",height: 1.5)
                   ),
                 ),
               ),
