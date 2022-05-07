@@ -1,14 +1,12 @@
-import 'package:bordered_text/bordered_text.dart';
-import 'package:date_field/date_field.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:jiffy/jiffy.dart';
 import 'package:projeto_estudo/AppController.dart';
 import 'package:projeto_estudo/src/components/EditMemoryComponents.dart';
 
 import '../components/AddMemoryComponents.dart';
 import '../models/MemoryModel.dart';
+import 'dart:io';
 
 class AddMemoryView extends StatefulWidget {
   const AddMemoryView({Key? key}) : super(key: key);
@@ -22,7 +20,7 @@ class AddMemoryViewState extends State<AddMemoryView> {
   Widget build(BuildContext context) {
     TextEditingController titleController = new TextEditingController();
     TextEditingController descController = new TextEditingController();
-    Image imageController ;
+    FileImage imageController = FileImage(File("assets/images/pelezin.jpg"));
     DateTime dateController = DateTime.now();
     return Scaffold(
       backgroundColor: AppController.instance.mainColor,
@@ -45,7 +43,7 @@ class AddMemoryViewState extends State<AddMemoryView> {
                   bottom: BorderSide(width: 2, color: Colors.grey),
                 ),
               ),
-              child: ImagePickerContainer(imageController : imageController,image: XFile("assets/images/pelezin.jpg"),),
+              //child: ImagePickerContainer(imageController : imageController,image: XFile("assets/images/pelezin.jpg"),),
             ),
             Container(
               height: 30,
@@ -74,7 +72,7 @@ class AddMemoryViewState extends State<AddMemoryView> {
                   print("Preencha");
                 }else{
 
-                  MemoryModel.instance.memories.add(new Memory(title: titleController.text, date: DateTime.now(), description: descController.text, identifier: MemoryModel.instance.memories.length));
+                  MemoryModel.instance.memories.add(new Memory(title: titleController.text, date: DateTime.now(), description: descController.text, identifier: MemoryModel.instance.memories.length, image: ));
                   Navigator.of(context).pushNamed('/memories', arguments: {});
                 }
 

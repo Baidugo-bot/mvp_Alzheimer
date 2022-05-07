@@ -1,13 +1,11 @@
-import 'package:bordered_text/bordered_text.dart';
-import 'package:date_field/date_field.dart';
 import 'package:flutter/material.dart';
-import 'package:jiffy/jiffy.dart';
 import 'package:projeto_estudo/AppController.dart';
 import 'package:projeto_estudo/src/components/EditMemoryComponents.dart';
 import 'package:projeto_estudo/src/controller/EditMemoryController.dart';
 
 import '../components/AddMemoryComponents.dart';
 import '../models/MemoryModel.dart';
+import 'dart:io';
 
 class EditMemoryView extends StatefulWidget {
   const EditMemoryView({Key? key}) : super(key: key);
@@ -39,6 +37,7 @@ class EditMemoryViewState extends State<EditMemoryView> {
     TextEditingController titleController = new TextEditingController();
     TextEditingController descController = new TextEditingController();
     DateTime dateController = DateTime.now() ;
+    FileImage imageController = FileImage(File());
     return Scaffold(
 
       backgroundColor: AppController.instance.mainColor,
@@ -102,7 +101,14 @@ class EditMemoryViewState extends State<EditMemoryView> {
                       print("Preencha");
                     }else{
 
-                        EditMemoryController.instance.changeById(args["memory"]!.getIdentifier(), Memory(title: titleController.text, date: dateController, description: descController.text, identifier: args["memory"]!.getIdentifier()));
+                        EditMemoryController.instance.changeById(args["memory"]!.getIdentifier(),
+                            Memory(
+                                title: titleController.text,
+                                date: dateController,
+                                description: descController.text,
+                                identifier: args["memory"]!.getIdentifier(),
+                                image: imageController,
+                            ));
                         Navigator.of(context).pushNamed('/memories', arguments: {});
                     }
                   },

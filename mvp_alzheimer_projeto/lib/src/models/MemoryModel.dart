@@ -1,4 +1,4 @@
-import 'dart:ui';
+
 import 'package:flutter/material.dart';
 class MemoryModel{
   static MemoryModel instance = MemoryModel();
@@ -30,6 +30,10 @@ class Memory {
   int getIdentifier(){
     return identifier;
   }
+
+   Image getImage(){
+     return image;
+   }
 
   void changeMemory(Memory newMemory){
     this.title = newMemory.getTitle();

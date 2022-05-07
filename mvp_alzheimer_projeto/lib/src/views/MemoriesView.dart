@@ -31,6 +31,7 @@ class MemoriesViewState extends State<MemoriesView> {
           itemBuilder: (BuildContext build,int index) {
 
             return Card(
+
                 color: AppController.instance.mainColor,
                 child: InkWell(
                   splashColor: Colors.grey.withAlpha(70),
@@ -42,7 +43,7 @@ class MemoriesViewState extends State<MemoriesView> {
                     child: Row(
 
                       children: [
-                        Image(image: AssetImage('assets/images/pelezin.jpg'),height: 120,),
+                        //Image(image: MemoryModel.instance.memories[index].image,height: 120,),
                         Expanded(
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,

@@ -29,6 +29,9 @@
       <change beforePath="$PROJECT_DIR$/mvp_alzheimer_projeto/lib/src/components/AddMemoryComponents.dart" beforeDir="false" afterPath="$PROJECT_DIR$/mvp_alzheimer_projeto/lib/src/components/AddMemoryComponents.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mvp_alzheimer_projeto/lib/src/models/MemoryModel.dart" beforeDir="false" afterPath="$PROJECT_DIR$/mvp_alzheimer_projeto/lib/src/models/MemoryModel.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mvp_alzheimer_projeto/lib/src/views/AddMemoryView.dart" beforeDir="false" afterPath="$PROJECT_DIR$/mvp_alzheimer_projeto/lib/src/views/AddMemoryView.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mvp_alzheimer_projeto/lib/src/views/EditMemoryView.dart" beforeDir="false" afterPath="$PROJECT_DIR$/mvp_alzheimer_projeto/lib/src/views/EditMemoryView.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mvp_alzheimer_projeto/lib/src/views/MemoriesView.dart" beforeDir="false" afterPath="$PROJECT_DIR$/mvp_alzheimer_projeto/lib/src/views/MemoriesView.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mvp_alzheimer_projeto/lib/src/views/SeeMemoryView.dart" beforeDir="false" afterPath="$PROJECT_DIR$/mvp_alzheimer_projeto/lib/src/views/SeeMemoryView.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,7 +51,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="io.flutter.reload.alreadyRun" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Downloads/flutter_windows_2.10.5-stable/flutter/bin/cache/dart-sdk" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="flutter.settings" />
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
@@ -99,49 +102,49 @@
     <state x="100" y="200" width="1200" height="660" key="AVDManager/0.0.1920.1040/1920.0.1600.860@0.0.1920.1040" timestamp="1651862582809" />
     <state x="100" y="200" width="1200" height="660" key="AVDManager/0.0.1920.1040/1920.182.1600.860@0.0.1920.1040" timestamp="1650848613465" />
     <state x="100" y="200" width="1200" height="660" key="AVDManager/0.0.1920.1040@0.0.1920.1040" timestamp="1651789604011" />
-    <state x="1010" y="273" key="FileChooserDialogImpl" timestamp="1651863239870">
+    <state x="1010" y="273" key="FileChooserDialogImpl" timestamp="1651877543450">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="1010" y="273" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1600.860@0.0.1920.1040" timestamp="1651863239870" />
     <state x="1010" y="273" key="FileChooserDialogImpl/0.0.1920.1040/1920.182.1600.860@0.0.1920.1040" timestamp="1649276028344" />
-    <state x="1010" y="273" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1651789602314" />
-    <state width="1514" height="310" key="GridCell.Tab.0.bottom" timestamp="1651867606552">
+    <state x="1010" y="273" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1651877543450" />
+    <state width="1352" height="244" key="GridCell.Tab.0.bottom" timestamp="1651884449430">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1514" height="310" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1600.860@0.0.1920.1040" timestamp="1651867606552" />
     <state width="1340" height="309" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.182.1600.860@0.0.1920.1040" timestamp="1650852031129" />
-    <state width="1877" height="264" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1651799281001" />
-    <state width="1514" height="310" key="GridCell.Tab.0.center" timestamp="1651867606552">
+    <state width="1352" height="244" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1651884449430" />
+    <state width="1352" height="244" key="GridCell.Tab.0.center" timestamp="1651884449430">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1514" height="310" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1600.860@0.0.1920.1040" timestamp="1651867606552" />
     <state width="1340" height="309" key="GridCell.Tab.0.center/0.0.1920.1040/1920.182.1600.860@0.0.1920.1040" timestamp="1650852031128" />
-    <state width="1877" height="264" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1651799281001" />
-    <state width="1514" height="310" key="GridCell.Tab.0.left" timestamp="1651867606552">
+    <state width="1352" height="244" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1651884449430" />
+    <state width="1352" height="244" key="GridCell.Tab.0.left" timestamp="1651884449429">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1514" height="310" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1600.860@0.0.1920.1040" timestamp="1651867606552" />
     <state width="1340" height="309" key="GridCell.Tab.0.left/0.0.1920.1040/1920.182.1600.860@0.0.1920.1040" timestamp="1650852031128" />
-    <state width="1877" height="264" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1651799281001" />
-    <state width="1514" height="310" key="GridCell.Tab.0.right" timestamp="1651867606552">
+    <state width="1352" height="244" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1651884449429" />
+    <state width="1352" height="244" key="GridCell.Tab.0.right" timestamp="1651884449430">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1514" height="310" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1600.860@0.0.1920.1040" timestamp="1651867606552" />
     <state width="1340" height="309" key="GridCell.Tab.0.right/0.0.1920.1040/1920.182.1600.860@0.0.1920.1040" timestamp="1650852031128" />
-    <state width="1877" height="264" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1651799281001" />
-    <state x="201" y="175" key="SettingsEditor" timestamp="1651863240953">
+    <state width="1352" height="244" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1651884449430" />
+    <state x="201" y="175" key="SettingsEditor" timestamp="1651877544341">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="201" y="175" key="SettingsEditor/0.0.1920.1040/1920.0.1600.860@0.0.1920.1040" timestamp="1651863240953" />
     <state x="201" y="175" key="SettingsEditor/0.0.1920.1040/1920.182.1600.860@0.0.1920.1040" timestamp="1649636473960" />
-    <state x="201" y="175" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1651789603318" />
+    <state x="201" y="175" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1651877544341" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="Dart">
           <url>file://$PROJECT_DIR$/mvp_alzheimer_projeto/lib/src/components/AddMemoryComponents.dart</url>
-          <line>22</line>
+          <line>28</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>

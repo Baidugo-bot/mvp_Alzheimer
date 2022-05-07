@@ -15,6 +15,7 @@ class SeeMemoryView extends StatelessWidget {
     return Scaffold(
       backgroundColor: AppController.instance.mainColor,
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         backgroundColor: AppController.instance.mainColor,
         title: Text("Ver memoria"),
         actions: [
@@ -35,7 +36,7 @@ class SeeMemoryView extends StatelessWidget {
             //mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Container(height: 15,),
-              Image(image: AssetImage('assets/images/pelezin.jpg'),height: 200,),
+              Image(image: args["memory"]!.getImage(),height: 200,),
               Container(height: 10,),
               Container(
                 width: 500,

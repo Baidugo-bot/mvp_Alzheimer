@@ -1,3 +1,7 @@
+
+
+
+
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'dart:io';
@@ -21,7 +25,7 @@ class ImagePickerContainerState extends State<ImagePickerContainer> {
 
     setState(() {
       widget.image = image;
-      widget.this
+      //widget.imageController ;
     });
   }
 
