@@ -33,7 +33,7 @@ class MyApp extends StatelessWidget {
             '/family': (context) => FamilyView(),
             '/addperson': (context) => MyHomePage(title: '',),
             '/editperson': (context) => MyHomePage(title: '',),
-            '/profile': (context) =>  ProfileView(),
+            '/profile': (context) =>  ProfileView(title: '',),
             '/editprofile': (context) =>  MyHomePage(title: ''),
             '/localization': (context) => MyHomePage(title: '',),
           },

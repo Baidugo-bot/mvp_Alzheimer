@@ -2,7 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="01374189-c916-4464-add0-3260a260741b" name="Default Changelist" comment="">
+<<<<<<< Updated upstream
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
+=======
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+>>>>>>> Stashed changes
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -14,7 +20,25 @@
   </component>
   <component name="PropertiesComponent">
     <property name="dart.analysis.tool.window.visible" value="false" />
+<<<<<<< Updated upstream
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+=======
+    <property name="io.flutter.reload.alreadyRun" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/mvp_alzheimer_projeto" />
+    <property name="settings.editor.selected.configurable" value="dart.settings" />
+    <property name="show.migrate.to.gradle.popup" value="false" />
+  </component>
+  <component name="RunManager">
+    <configuration name="main.dart" type="FlutterRunConfigurationType" factoryName="Flutter" temporary="true" nameIsGenerated="true">
+      <option name="filePath" value="$PROJECT_DIR$/mvp_alzheimer_projeto/lib/main.dart" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Flutter.main.dart" />
+      </list>
+    </recent_temporary>
+>>>>>>> Stashed changes
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -23,9 +47,53 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
+<<<<<<< Updated upstream
     <state x="1010" y="273" key="FileChooserDialogImpl" timestamp="1648168753457">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="1010" y="273" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1648168753457" />
+=======
+    <state x="71" y="138" width="854" height="457" key="AVDManager" timestamp="1651188470482">
+      <screen x="0" y="0" width="1366" height="720" />
+    </state>
+    <state x="71" y="138" width="854" height="457" key="AVDManager/0.0.1366.720@0.0.1366.720" timestamp="1651188470482" />
+    <state x="100" y="200" width="1200" height="660" key="AVDManager/0.0.1920.1040/1920.0.1600.860@0.0.1920.1040" timestamp="1651109279847" />
+    <state x="100" y="200" width="1200" height="660" key="AVDManager/0.0.1920.1040/1920.182.1600.860@0.0.1920.1040" timestamp="1650848613465" />
+    <state x="719" y="189" key="FileChooserDialogImpl" timestamp="1651188731852">
+      <screen x="0" y="0" width="1366" height="720" />
+    </state>
+    <state x="719" y="189" key="FileChooserDialogImpl/0.0.1366.720@0.0.1366.720" timestamp="1651188731852" />
+    <state x="1010" y="273" key="FileChooserDialogImpl/0.0.1920.1040/1920.182.1600.860@0.0.1920.1040" timestamp="1649276028344" />
+    <state x="1010" y="273" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1648168753457" />
+    <state width="1340" height="310" key="GridCell.Tab.0.bottom" timestamp="1651112841013">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1340" height="310" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1600.860@0.0.1920.1040" timestamp="1651112841013" />
+    <state width="1340" height="309" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.182.1600.860@0.0.1920.1040" timestamp="1650852031129" />
+    <state width="1340" height="310" key="GridCell.Tab.0.center" timestamp="1651112841013">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1340" height="310" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1600.860@0.0.1920.1040" timestamp="1651112841013" />
+    <state width="1340" height="309" key="GridCell.Tab.0.center/0.0.1920.1040/1920.182.1600.860@0.0.1920.1040" timestamp="1650852031128" />
+    <state width="1340" height="310" key="GridCell.Tab.0.left" timestamp="1651112841013">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1340" height="310" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1600.860@0.0.1920.1040" timestamp="1651112841013" />
+    <state width="1340" height="309" key="GridCell.Tab.0.left/0.0.1920.1040/1920.182.1600.860@0.0.1920.1040" timestamp="1650852031128" />
+    <state width="1340" height="310" key="GridCell.Tab.0.right" timestamp="1651112841013">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1340" height="310" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1600.860@0.0.1920.1040" timestamp="1651112841013" />
+    <state width="1340" height="309" key="GridCell.Tab.0.right/0.0.1920.1040/1920.182.1600.860@0.0.1920.1040" timestamp="1650852031128" />
+    <state x="143" y="10" key="SettingsEditor" timestamp="1651188674711">
+      <screen x="0" y="0" width="1366" height="720" />
+    </state>
+    <state x="143" y="10" key="SettingsEditor/0.0.1366.720@0.0.1366.720" timestamp="1651188674711" />
+    <state x="201" y="175" key="SettingsEditor/0.0.1920.1040/1920.182.1600.860@0.0.1920.1040" timestamp="1649636473960" />
+    <state x="492" y="274" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1651188618127">
+      <screen x="0" y="0" width="1366" height="720" />
+    </state>
+    <state x="492" y="274" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.720@0.0.1366.720" timestamp="1651188618127" />
+>>>>>>> Stashed changes
   </component>
 </project>
