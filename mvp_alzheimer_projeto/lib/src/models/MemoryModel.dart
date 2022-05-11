@@ -13,7 +13,7 @@ class Memory {
    DateTime date;
    String description;
    int identifier;
-   Image image;
+   ImageProvider<Object> image;
 
   String getTitle(){
     return title;
@@ -31,7 +31,7 @@ class Memory {
     return identifier;
   }
 
-   Image getImage(){
+   ImageProvider<Object> getImage(){
      return image;
    }
 

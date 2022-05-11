@@ -23,20 +23,32 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="01374189-c916-4464-add0-3260a260741b" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/mvp_alzheimer_projeto/lib/src/views/MenuLocalizacaoView.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mvp_alzheimer_projeto/lib/MyApp.dart" beforeDir="false" afterPath="$PROJECT_DIR$/mvp_alzheimer_projeto/lib/MyApp.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mvp_alzheimer_projeto/lib/MyHomePage.dart" beforeDir="false" afterPath="$PROJECT_DIR$/mvp_alzheimer_projeto/lib/MyHomePage.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mvp_alzheimer_projeto/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/mvp_alzheimer_projeto/lib/main.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mvp_alzheimer_projeto/lib/src/components/AddMemoryComponents.dart" beforeDir="false" afterPath="$PROJECT_DIR$/mvp_alzheimer_projeto/lib/src/components/AddMemoryComponents.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mvp_alzheimer_projeto/lib/src/components/EditMemoryComponents.dart" beforeDir="false" afterPath="$PROJECT_DIR$/mvp_alzheimer_projeto/lib/src/components/EditMemoryComponents.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mvp_alzheimer_projeto/lib/src/models/MemoryModel.dart" beforeDir="false" afterPath="$PROJECT_DIR$/mvp_alzheimer_projeto/lib/src/models/MemoryModel.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mvp_alzheimer_projeto/lib/src/views/AddMemoryView.dart" beforeDir="false" afterPath="$PROJECT_DIR$/mvp_alzheimer_projeto/lib/src/views/AddMemoryView.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mvp_alzheimer_projeto/lib/src/views/EditMemoryView.dart" beforeDir="false" afterPath="$PROJECT_DIR$/mvp_alzheimer_projeto/lib/src/views/EditMemoryView.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mvp_alzheimer_projeto/lib/src/views/MemoriesView.dart" beforeDir="false" afterPath="$PROJECT_DIR$/mvp_alzheimer_projeto/lib/src/views/MemoriesView.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mvp_alzheimer_projeto/lib/src/views/SeeMemoryView.dart" beforeDir="false" afterPath="$PROJECT_DIR$/mvp_alzheimer_projeto/lib/src/views/SeeMemoryView.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mvp_alzheimer_projeto/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/mvp_alzheimer_projeto/pubspec.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mvp_alzheimer_projeto/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/mvp_alzheimer_projeto/pubspec.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Dart File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -50,8 +62,9 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="dart.analysis.tool.window.visible" value="false" />
     <property name="io.flutter.reload.alreadyRun" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../eletronic_point" />
     <property name="settings.editor.selected.configurable" value="flutter.settings" />
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
@@ -96,55 +109,59 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="648" y="208" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1651789589304" />
-    <state x="100" y="200" width="1200" height="660" key="AVDManager" timestamp="1651862582809">
+    <state x="100" y="200" width="1200" height="660" key="AVDManager" timestamp="1652307052396">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="100" y="200" width="1200" height="660" key="AVDManager/0.0.1920.1040/1920.0.1600.860@0.0.1920.1040" timestamp="1651862582809" />
     <state x="100" y="200" width="1200" height="660" key="AVDManager/0.0.1920.1040/1920.182.1600.860@0.0.1920.1040" timestamp="1650848613465" />
-    <state x="100" y="200" width="1200" height="660" key="AVDManager/0.0.1920.1040@0.0.1920.1040" timestamp="1651789604011" />
-    <state x="1010" y="273" key="FileChooserDialogImpl" timestamp="1651877543450">
+    <state x="100" y="200" width="1200" height="660" key="AVDManager/0.0.1920.1040@0.0.1920.1040" timestamp="1652307052396" />
+    <state x="1010" y="273" key="FileChooserDialogImpl" timestamp="1652138120377">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="1010" y="273" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1600.860@0.0.1920.1040" timestamp="1651863239870" />
     <state x="1010" y="273" key="FileChooserDialogImpl/0.0.1920.1040/1920.182.1600.860@0.0.1920.1040" timestamp="1649276028344" />
-    <state x="1010" y="273" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1651877543450" />
-    <state width="1352" height="244" key="GridCell.Tab.0.bottom" timestamp="1651884449430">
+    <state x="1010" y="273" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1652138120377" />
+    <state width="1877" height="243" key="GridCell.Tab.0.bottom" timestamp="1652308019983">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1514" height="310" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1600.860@0.0.1920.1040" timestamp="1651867606552" />
     <state width="1340" height="309" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.182.1600.860@0.0.1920.1040" timestamp="1650852031129" />
-    <state width="1352" height="244" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1651884449430" />
-    <state width="1352" height="244" key="GridCell.Tab.0.center" timestamp="1651884449430">
+    <state width="1877" height="243" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1652308019983" />
+    <state width="1877" height="243" key="GridCell.Tab.0.center" timestamp="1652308019982">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1514" height="310" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1600.860@0.0.1920.1040" timestamp="1651867606552" />
     <state width="1340" height="309" key="GridCell.Tab.0.center/0.0.1920.1040/1920.182.1600.860@0.0.1920.1040" timestamp="1650852031128" />
-    <state width="1352" height="244" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1651884449430" />
-    <state width="1352" height="244" key="GridCell.Tab.0.left" timestamp="1651884449429">
+    <state width="1877" height="243" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1652308019982" />
+    <state width="1877" height="243" key="GridCell.Tab.0.left" timestamp="1652308019979">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1514" height="310" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1600.860@0.0.1920.1040" timestamp="1651867606552" />
     <state width="1340" height="309" key="GridCell.Tab.0.left/0.0.1920.1040/1920.182.1600.860@0.0.1920.1040" timestamp="1650852031128" />
-    <state width="1352" height="244" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1651884449429" />
-    <state width="1352" height="244" key="GridCell.Tab.0.right" timestamp="1651884449430">
+    <state width="1877" height="243" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1652308019979" />
+    <state width="1877" height="243" key="GridCell.Tab.0.right" timestamp="1652308019982">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1514" height="310" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1600.860@0.0.1920.1040" timestamp="1651867606552" />
     <state width="1340" height="309" key="GridCell.Tab.0.right/0.0.1920.1040/1920.182.1600.860@0.0.1920.1040" timestamp="1650852031128" />
-    <state width="1352" height="244" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1651884449430" />
+    <state width="1877" height="243" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1652308019982" />
     <state x="201" y="175" key="SettingsEditor" timestamp="1651877544341">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="201" y="175" key="SettingsEditor/0.0.1920.1040/1920.0.1600.860@0.0.1920.1040" timestamp="1651863240953" />
     <state x="201" y="175" key="SettingsEditor/0.0.1920.1040/1920.182.1600.860@0.0.1920.1040" timestamp="1649636473960" />
     <state x="201" y="175" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1651877544341" />
+    <state x="92" y="92" width="1736" height="856" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1652307882910">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="92" y="92" width="1736" height="856" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1652307882910" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="Dart">
           <url>file://$PROJECT_DIR$/mvp_alzheimer_projeto/lib/src/components/AddMemoryComponents.dart</url>
-          <line>28</line>
+          <line>26</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>

@@ -43,7 +43,8 @@ class MemoriesViewState extends State<MemoriesView> {
                     child: Row(
 
                       children: [
-                        //Image(image: MemoryModel.instance.memories[index].image,height: 120,),
+                        Image(image: MemoryModel.instance.memories[index].image,height: 120,),
+                        Container(width: 10,),
                         Expanded(
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,

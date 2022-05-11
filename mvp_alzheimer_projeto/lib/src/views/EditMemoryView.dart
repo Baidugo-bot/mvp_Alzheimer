@@ -5,8 +5,6 @@ import 'package:projeto_estudo/src/controller/EditMemoryController.dart';
 
 import '../components/AddMemoryComponents.dart';
 import '../models/MemoryModel.dart';
-import 'dart:io';
-
 class EditMemoryView extends StatefulWidget {
   const EditMemoryView({Key? key}) : super(key: key);
 
@@ -37,7 +35,6 @@ class EditMemoryViewState extends State<EditMemoryView> {
     TextEditingController titleController = new TextEditingController();
     TextEditingController descController = new TextEditingController();
     DateTime dateController = DateTime.now() ;
-    FileImage imageController = FileImage(File());
     return Scaffold(
 
       backgroundColor: AppController.instance.mainColor,
@@ -65,9 +62,7 @@ class EditMemoryViewState extends State<EditMemoryView> {
               child: GestureDetector(
                 onTap: () {},
                 child: Image(
-                  image: AssetImage(
-                    'assets/images/pelezin.jpg',
-                  ),
+                  image: args["memory"]!.getImage(),
                   height: 250,
                 ),
               ),
@@ -107,7 +102,7 @@ class EditMemoryViewState extends State<EditMemoryView> {
                                 date: dateController,
                                 description: descController.text,
                                 identifier: args["memory"]!.getIdentifier(),
-                                image: imageController,
+                                image: args["memory"]!.getImage(),
                             ));
                         Navigator.of(context).pushNamed('/memories', arguments: {});
                     }

@@ -3,9 +3,6 @@ import 'package:flutter/material.dart';
 
 import 'package:bordered_text/bordered_text.dart';
 import 'package:date_field/date_field.dart';
-import 'package:flutter/material.dart';
-
-import '../models/MemoryModel.dart';
 
 class BorderedTextField extends StatefulWidget {
   String title;

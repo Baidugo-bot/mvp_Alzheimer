@@ -63,6 +63,7 @@ flutter:
   uses-material-design: true
   assets:
     - assets/images/pelezin.jpg
+    - assets/images/imagemEscolha.png
     - assets/fonts/Gidugu-Regular.ttf
 
   # To add assets to your application, add an assets section, like this:
