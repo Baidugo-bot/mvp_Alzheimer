@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:projeto_estudo/src/views/AddMemoryView.dart';
 import 'package:projeto_estudo/src/views/ConfigurationsView.dart';
 import 'package:projeto_estudo/src/views/EditMemoryView.dart';
+import 'package:projeto_estudo/src/views/LocalizationView.dart';
 import 'package:projeto_estudo/src/views/MemoriesView.dart';
-import 'package:projeto_estudo/src/views/MenuLocalizacaoView.dart';
+import 'package:projeto_estudo/src/views/MenuLocalizationView.dart';
 import 'package:projeto_estudo/src/views/ReminderView.dart';
 import 'package:projeto_estudo/src/views/FamilyView.dart';
 import 'package:projeto_estudo/src/views/ProfileView.dart';
@@ -41,7 +42,8 @@ class MyApp extends StatelessWidget {
             '/editperson': (context) => MyHomePage(title: '',),
             '/profile': (context) =>  ProfileView(),
             '/editprofile': (context) =>  MyHomePage(title: ''),
-            '/localization': (context) => MenuLocalizacaoView(title: '',),
+            '/localization': (context) => LocalizationView(title: '',),
+            '/localizationMenu': (context) => MenuLocalizationView(title: '',),
           },
 
         );

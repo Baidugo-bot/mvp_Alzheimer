@@ -105,7 +105,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
                   style: ElevatedButton.styleFrom(primary: Colors.white,fixedSize: Size(260, 70) ),
                   onPressed: () {
-                    Navigator.of(context).pushNamed('/localization');
+                    Navigator.of(context).pushNamed('/localizationMenu');
                     print("teste");
                   },
                   child: Text("LOCALIZACAO",style: TextStyle(color: Colors.black),),
