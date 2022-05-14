@@ -2,8 +2,9 @@
     package="com.example.projeto_estudo">
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.INTERNET"/>
    <application
-        android:label="projeto_estudo"
+        android:label="Alzheimer"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

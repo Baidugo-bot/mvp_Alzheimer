@@ -42,7 +42,7 @@ class MenuLocalizationViewState extends State<MenuLocalizationView> {
             ),
             InkWell(
               onTap: (){
-                Navigator.of(context).pushNamed('/localization');
+                //Navigator.of(context).pushNamed('/localization');
               },
               child: Container(
                 child: Icon(
