@@ -1,47 +1,33 @@
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:projeto_estudo/src/views/AddMemoryView.dart';
+import 'package:jiffy/jiffy.dart';
+import 'package:projeto_estudo/AppController.dart';
+
 import 'package:projeto_estudo/src/views/EditProfileView.dart';
 
-class ProfileView extends StatelessWidget {
-  final String title;
-  const ProfileView({Key? key, required this.title}) : super(key: key);
+class ProfileView extends StatefulWidget {
+  
+  String nome ="";
+  int data=0;
+  
+  ProfileView();
+
   @override
-  Widget build(BuildContext context) {
-     theme: ThemeData.dark();
-    automaticamenteImplyLeading:
-    false;
-    int counter = 0;
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData.dark(),
-      home: HomePage(),
-    );
-  }
+  _ProfileViewState createState() => _ProfileViewState();
 }
 
-class HomePage extends StatefulWidget {
-  @override
-  State<HomePage> createState() {
-    // TODO: implement createState
-    return HomePageStates();
-  }
-}
-
-class HomePageStates extends State<HomePage> {
-  int counter = 0;
+class _ProfileViewState extends State<ProfileView> {
   @override
   Widget build(BuildContext context) {
+    DateTime agora = DateTime.now();
+    print((agora.difference(AppController.instance.profile.dataNasc).inDays/365).toString().substring(0,2) );
+    
     return Scaffold(
       appBar: AppBar(
         title: Text(" Perfil"),
         actions: [
           ElevatedButton(
             onPressed: () {
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (BuildContext context) => EditProfile()));
+              Navigator.pushNamed(context, '/editProfile');
             },
             child: Icon(
               Icons.edit,
@@ -56,21 +42,12 @@ class HomePageStates extends State<HomePage> {
         children: [
           Center(
               child: CircleAvatar(
-            backgroundImage: AssetImage('assets/images/pelezin.jpg'),
+            backgroundImage: AppController.instance.profile.image,
             radius: 100,
           )),
-          Text(
-            "Pele",
-            style: TextStyle(fontSize: 20),
-          ),
-          Text(
-            "Nascimento: 05/10/2001",
-            style: TextStyle(fontSize: 20),
-          ),
-          Text(
-            "Idade: 35 anos",
-            style: TextStyle(fontSize: 20),
-          ),
+          Text("Nome: ${AppController.instance.profile.nome}",style: TextStyle(fontSize: 20),),
+          Text("Nascimento: ${Jiffy(AppController.instance.profile.dataNasc).format("MMMM do yyyy")}",style: TextStyle(fontSize: 20),),
+          Text("Idade: ${(agora.difference(AppController.instance.profile.dataNasc).inDays/365).toString().substring(0,2)}",style: TextStyle(fontSize: 20),),
           Container(
             height: 80,
           ),

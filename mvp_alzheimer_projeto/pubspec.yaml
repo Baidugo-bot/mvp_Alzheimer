@@ -32,6 +32,9 @@ dependencies:
   flutter_slidable: ^1.2.0
   jiffy: ^5.0.0
   image_picker: ^0.8.5
+  date_field: ^3.0.0
+
+
 
 
   # The following adds the Cupertino Icons font to your application.

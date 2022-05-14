@@ -4,17 +4,17 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:jiffy/jiffy.dart';
 import 'package:projeto_estudo/AppController.dart';
-
 class MyHomePage extends StatefulWidget {
   const MyHomePage({Key? key, required this.title}) : super(key: key);
-
   final String title;
-
+  
   @override
   State<MyHomePage> createState() => _MyHomePageState();
+  
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  
   final myInstance = AppController.instance;
   final style =
       ElevatedButton.styleFrom(primary: Colors.white, fixedSize: Size(120, 70));
@@ -23,13 +23,10 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-<<<<<<< Updated upstream
 
-    return Scaffold(// map dos botoes
-=======
     return Scaffold(
       // map dos botoes
->>>>>>> Stashed changes
+
       appBar: AppBar(
         title: Center(
             child: Text("Dia " +
@@ -143,28 +140,6 @@ class _MyHomePageState extends State<MyHomePage> {
           ],
         ),
       ),
-<<<<<<< Updated upstream
-  //     floatingActionButton:  Container(
-  //       height: 90.0,
-  //       width: 90.0,
-  //
-  //       child: FloatingActionButton(
-  //         shape: BeveledRectangleBorder(
-  //             borderRadius: BorderRadius.zero
-  //         ),
-  //         backgroundColor: Colors.greenAccent,
-  //         onPressed: () {
-  //
-  //         },
-  //         child: Text('''+ Adicionar
-  // lembretes
-  //         '''),
-  //
-  //       ),
-  //     ),
-
-=======
->>>>>>> Stashed changes
     );
   }
 }

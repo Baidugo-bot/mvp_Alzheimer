@@ -4,6 +4,7 @@ import 'package:projeto_estudo/src/views/MemoriesView.dart';
 import 'package:projeto_estudo/src/views/ReminderView.dart';
 import 'package:projeto_estudo/src/views/FamilyView.dart';
 import 'package:projeto_estudo/src/views/ProfileView.dart';
+import 'package:projeto_estudo/src/views/EditProfileView.dart';
 import 'AppController.dart';
 import 'MyHomePage.dart';
 
@@ -33,8 +34,8 @@ class MyApp extends StatelessWidget {
             '/family': (context) => FamilyView(),
             '/addperson': (context) => MyHomePage(title: '',),
             '/editperson': (context) => MyHomePage(title: '',),
-            '/profile': (context) =>  ProfileView(title: '',),
-            '/editprofile': (context) =>  MyHomePage(title: ''),
+            '/profile': (context) =>  ProfileView(),
+            '/editProfile': (context) =>  EditProfile(),
             '/localization': (context) => MyHomePage(title: '',),
           },
 
