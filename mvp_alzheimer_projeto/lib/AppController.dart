@@ -13,6 +13,7 @@ class AppController extends ChangeNotifier{
 
 
 
+
   void addMemory() {
       memories.add(
         Text("")

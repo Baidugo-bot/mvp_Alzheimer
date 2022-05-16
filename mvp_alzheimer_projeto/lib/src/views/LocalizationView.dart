@@ -6,6 +6,7 @@ import 'package:flutter_map/flutter_map.dart';
 import 'package:jiffy/jiffy.dart';
 import 'package:latlong2/latlong.dart';
 import 'package:projeto_estudo/AppController.dart';
+import 'package:projeto_estudo/src/controller/LocalizationController.dart';
 
 
 class LocalizationView extends StatefulWidget {
@@ -21,7 +22,9 @@ class LocalizationView extends StatefulWidget {
 class LocalizationViewState extends State<LocalizationView> {
   @override
   Widget build(BuildContext context) {
-    MapController mapController = MapController();
+    var lat=-24.94558;
+    var lng=-53.50780;
+    LocalizationController myController = LocalizationController.instance;
     return Scaffold(// map dos botoes
       backgroundColor: AppController.instance.mainColor,
       appBar: AppBar(
@@ -31,7 +34,10 @@ class LocalizationViewState extends State<LocalizationView> {
           InkWell(
             onTap: (){
               setState(() {
-                print("reload");
+                lat = 0;
+                lng = 0;
+                print(lat+lng);
+                myController.mapController.move(LatLng(10, 101), 15.9);
               });
             },
             child: Icon(Icons.refresh),
@@ -39,8 +45,11 @@ class LocalizationViewState extends State<LocalizationView> {
         ],
       ),
       body: FlutterMap(
+        mapController: (){
+          return null;
+        },
         options: MapOptions(
-          center: LatLng(-24.94558, -53.50780),
+          center: LatLng(lat, lng),
           zoom: 15.9,
         ),
         layers: [
@@ -60,7 +69,7 @@ class LocalizationViewState extends State<LocalizationView> {
               Marker(
                 width: 24.0,
                 height: 24.0,
-                point: LatLng(-24.94558, -53.50780),
+                point: LatLng(lat,lng),
                 builder: (ctx) =>
                     Row(
                       children: [
