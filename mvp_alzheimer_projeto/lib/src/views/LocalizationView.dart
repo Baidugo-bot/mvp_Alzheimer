@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_map/flutter_map.dart';
+import 'package:geolocator/geolocator.dart';
 import 'package:jiffy/jiffy.dart';
 import 'package:latlong2/latlong.dart';
 import 'package:projeto_estudo/AppController.dart';
@@ -22,8 +23,8 @@ class LocalizationView extends StatefulWidget {
 class LocalizationViewState extends State<LocalizationView> {
   @override
   Widget build(BuildContext context) {
-    var lat=-24.94558;
-    var lng=-53.50780;
+    var lat=-20.0;
+    var lng=-40.0;
     LocalizationController myController = LocalizationController.instance;
     return Scaffold(// map dos botoes
       backgroundColor: AppController.instance.mainColor,
@@ -34,10 +35,11 @@ class LocalizationViewState extends State<LocalizationView> {
           InkWell(
             onTap: (){
               setState(() {
-                lat = 0;
-                lng = 0;
-                print(lat+lng);
-                myController.mapController.move(LatLng(10, 101), 15.9);
+                myController.getPosition();
+                print(Geolocator.getCurrentPosition().toString());
+                lat =  myController.mapController.center.latitude;
+                lng = myController.mapController.center.longitude;
+                myController.mapController.move(LatLng(lat,lng), 15.9);
               });
             },
             child: Icon(Icons.refresh),
@@ -45,9 +47,7 @@ class LocalizationViewState extends State<LocalizationView> {
         ],
       ),
       body: FlutterMap(
-        mapController: (){
-          return null;
-        },
+        mapController: myController.mapController,
         options: MapOptions(
           center: LatLng(lat, lng),
           zoom: 15.9,
@@ -73,10 +73,22 @@ class LocalizationViewState extends State<LocalizationView> {
                 builder: (ctx) =>
                     Row(
                       children: [
-                        Icon(Icons.circle),
+                        Icon(Icons.square),
 
                       ],
                     )
+              ),
+              Marker(
+                  width: 24.0,
+                  height: 24.0,
+                  point: LatLng(24.94558,53.50780),
+                  builder: (ctx) =>
+                      Row(
+                        children: [
+                          Icon(Icons.circle),
+
+                        ],
+                      )
               ),
             ],
           ),
