@@ -4,10 +4,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:geolocator/geolocator.dart';
+import 'package:latlong2/latlong.dart';
 
 class LocalizationController extends ChangeNotifier {
   static LocalizationController instance = LocalizationController();
   final MapController mapController = MapController();
+  final Geolocator geoLocator = Geolocator();
   bool controllerAlreadySet = false;
 
   Future<void> initializeMapController() async {
@@ -50,5 +52,11 @@ class LocalizationController extends ChangeNotifier {
 
     return await Geolocator.getCurrentPosition();
 
+  }
+
+  Future<LatLng> getCurrentLocation() async {
+    var position = await Geolocator.getCurrentPosition(desiredAccuracy:  LocationAccuracy.high);
+    print(position.latitude.toString()+position.longitude.toString());
+    return  LatLng(position.latitude,position.longitude);
   }
 }

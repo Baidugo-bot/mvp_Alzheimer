@@ -34,10 +34,9 @@ class LocalizationViewState extends State<LocalizationView> {
           InkWell(
             onTap: (){
               setState(() {
-                LocalizationController.instance.getPosition();
-                lat =   LocalizationController.instance.mapController.center.latitude;
-                lng =  LocalizationController.instance.mapController.center.longitude;
-                LocalizationController.instance.mapController.move(LatLng(-22.948946,-43.225631), 15.9);
+                LocalizationController.instance.getCurrentLocation().then(
+                        (value) => LocalizationController.instance.mapController.move(value, 15.9));
+
               });
             },
             child: Icon(Icons.refresh),
