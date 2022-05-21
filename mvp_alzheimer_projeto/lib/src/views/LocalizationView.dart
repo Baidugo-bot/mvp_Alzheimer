@@ -25,6 +25,14 @@ class LocalizationViewState extends State<LocalizationView> {
   Widget build(BuildContext context) {
     var lat=-24.94558;
     var lng=-53.50780;
+    bool isMapReady = false;
+
+
+    void updateLocalization(LatLng value){
+      LocalizationController.instance.mapController.move(value, 15.9);
+      isMapReady=true;
+    }
+
     return Scaffold(// map dos botoes
       backgroundColor: AppController.instance.mainColor,
       appBar: AppBar(
@@ -35,7 +43,7 @@ class LocalizationViewState extends State<LocalizationView> {
             onTap: (){
               setState(() {
                 LocalizationController.instance.getCurrentLocation().then(
-                        (value) => LocalizationController.instance.mapController.move(value, 15.9));
+                        (value) => updateLocalization(value));
 
               });
             },
@@ -66,7 +74,7 @@ class LocalizationViewState extends State<LocalizationView> {
               Marker(
                 width: 24.0,
                 height: 24.0,
-                point: LatLng(lat,lng),
+                point: (isMapReady)?LocalizationController.instance.mapController.center:LatLng(lat, lng),
                 builder: (ctx) =>
                     Row(
                       children: [
@@ -78,7 +86,7 @@ class LocalizationViewState extends State<LocalizationView> {
               Marker(
                   width: 24.0,
                   height: 24.0,
-                  point: LatLng(24.94558,53.50780),
+                  point: (isMapReady)?LocalizationController.instance.mapController.center:LatLng(lat, lng),
                   builder: (ctx) =>
                       Row(
                         children: [
@@ -93,6 +101,7 @@ class LocalizationViewState extends State<LocalizationView> {
       ),
 
     );
+
   }
 
 
