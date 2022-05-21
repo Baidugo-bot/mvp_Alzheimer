@@ -23,7 +23,8 @@ class LocalizationView extends StatefulWidget {
 class LocalizationViewState extends State<LocalizationView> {
   @override
   Widget build(BuildContext context) {
-    MapController myInstance = LocalizationController.instance.mapController;
+    var lat=-24.94558;
+    var lng=-53.50780;
     return Scaffold(// map dos botoes
       backgroundColor: AppController.instance.mainColor,
       appBar: AppBar(
@@ -34,7 +35,7 @@ class LocalizationViewState extends State<LocalizationView> {
             onTap: (){
               setState(() {
                 LocalizationController.instance.getCurrentLocation().then(
-                        (value) => myInstance.move(value, 15.9));
+                        (value) => LocalizationController.instance.mapController.move(value, 15.9));
 
               });
             },
@@ -43,9 +44,9 @@ class LocalizationViewState extends State<LocalizationView> {
         ],
       ),
       body: FlutterMap(
-        mapController:  myInstance,
+        mapController:  LocalizationController.instance.mapController,
         options: MapOptions(
-          center: LatLng(myInstance.center.latitude, myInstance.center.longitude),
+          center: LatLng(lat, lng),
           zoom: 15.9,
         ),
         layers: [
@@ -65,11 +66,11 @@ class LocalizationViewState extends State<LocalizationView> {
               Marker(
                 width: 24.0,
                 height: 24.0,
-                point: LatLng(myInstance.center.latitude, myInstance.center.longitude),
+                point: LatLng(lat,lng),
                 builder: (ctx) =>
                     Row(
                       children: [
-                        Icon(Icons.square,color: Colors.red,),
+                        Icon(Icons.square),
 
                       ],
                     )
