@@ -52,7 +52,7 @@ class LocalizationViewState extends State<LocalizationView> {
         ],
       ),
       body: FlutterMap(
-        mapController:  LocalizationController.instance.mapController,
+        mapController:  (isMapReady)?LocalizationController.instance.mapController:null,
         options: MapOptions(
           center: LatLng(lat, lng),
           zoom: 15.9,
@@ -78,7 +78,7 @@ class LocalizationViewState extends State<LocalizationView> {
                 builder: (ctx) =>
                     Row(
                       children: [
-                        Icon(Icons.square),
+                        Icon(Icons.square,color: Colors.blue,),
 
                       ],
                     )
@@ -90,7 +90,7 @@ class LocalizationViewState extends State<LocalizationView> {
                   builder: (ctx) =>
                       Row(
                         children: [
-                          Icon(Icons.circle),
+                          Icon(Icons.circle,color: Colors.lightBlueAccent),
 
                         ],
                       )

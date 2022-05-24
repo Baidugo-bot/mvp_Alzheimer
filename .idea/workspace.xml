@@ -26,6 +26,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="01374189-c916-4464-add0-3260a260741b" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mvp_alzheimer_projeto/lib/src/views/LocalizationView.dart" beforeDir="false" afterPath="$PROJECT_DIR$/mvp_alzheimer_projeto/lib/src/views/LocalizationView.dart" afterDir="false" />
     </list>
@@ -56,7 +58,7 @@
     <property name="dart.analysis.tool.window.visible" value="false" />
     <property name="io.flutter.reload.alreadyRun" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../eletronic_point" />
-    <property name="settings.editor.selected.configurable" value="dart.settings" />
+    <property name="settings.editor.selected.configurable" value="flutter.settings" />
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
   <component name="RunManager">
@@ -100,19 +102,19 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="648" y="208" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1651789589304" />
-    <state x="100" y="200" width="1200" height="660" key="AVDManager" timestamp="1652898794564">
+    <state x="100" y="200" width="1200" height="662" key="AVDManager" timestamp="1653344073571">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="100" y="200" width="1200" height="660" key="AVDManager/0.0.1920.1040/1920.0.1600.860@0.0.1920.1040" timestamp="1651862582809" />
     <state x="100" y="200" width="1200" height="660" key="AVDManager/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1652898794563" />
     <state x="100" y="200" width="1200" height="660" key="AVDManager/0.0.1920.1040/1920.182.1600.860@0.0.1920.1040" timestamp="1650848613465" />
-    <state x="100" y="200" width="1200" height="662" key="AVDManager/0.0.1920.1040@0.0.1920.1040" timestamp="1652743260894" />
-    <state x="1010" y="273" key="FileChooserDialogImpl" timestamp="1652739339097">
+    <state x="100" y="200" width="1200" height="662" key="AVDManager/0.0.1920.1040@0.0.1920.1040" timestamp="1653344073571" />
+    <state x="1010" y="273" key="FileChooserDialogImpl" timestamp="1653344070738">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="1010" y="273" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1600.860@0.0.1920.1040" timestamp="1651863239870" />
     <state x="1010" y="273" key="FileChooserDialogImpl/0.0.1920.1040/1920.182.1600.860@0.0.1920.1040" timestamp="1649276028344" />
-    <state x="1010" y="273" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1652739339097" />
+    <state x="1010" y="273" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1653344070738" />
     <state width="757" height="310" key="GridCell.Tab.0.bottom" timestamp="1653174265116">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -141,13 +143,13 @@
     <state width="1514" height="310" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1652902752051" />
     <state width="1340" height="309" key="GridCell.Tab.0.right/0.0.1920.1040/1920.182.1600.860@0.0.1920.1040" timestamp="1650852031128" />
     <state width="1396" height="227" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1652748269557" />
-    <state x="201" y="175" key="SettingsEditor" timestamp="1652816434529">
+    <state x="201" y="175" key="SettingsEditor" timestamp="1653344072479">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="201" y="175" key="SettingsEditor/0.0.1920.1040/1920.0.1600.860@0.0.1920.1040" timestamp="1651863240953" />
     <state x="201" y="175" key="SettingsEditor/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1652816434529" />
     <state x="201" y="175" key="SettingsEditor/0.0.1920.1040/1920.182.1600.860@0.0.1920.1040" timestamp="1649636473960" />
-    <state x="201" y="175" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1652739341227" />
+    <state x="201" y="175" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1653344072479" />
     <state x="92" y="92" width="1736" height="856" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1652307882910">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
