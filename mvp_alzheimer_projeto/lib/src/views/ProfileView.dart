@@ -34,8 +34,19 @@ class _ProfileViewState extends State<ProfileView> {
               color: Colors.red,
               size: 30.0,
             ),
+          ),
+  
+        ElevatedButton(
+            onPressed: () {
+              Navigator.pushNamed(context, '/');
+            },
+            child: Icon(
+              Icons.keyboard_return,
+              color: Colors.red,
+              size: 30.0,
+            ),
           )
-        ],
+      ],
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -53,7 +64,6 @@ class _ProfileViewState extends State<ProfileView> {
           ),
         ],
       ),
-      backgroundColor: Colors.lightBlue[100],
     );
   }
 }
