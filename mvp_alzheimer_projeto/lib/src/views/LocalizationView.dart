@@ -23,14 +23,14 @@ class LocalizationView extends StatefulWidget {
 class LocalizationViewState extends State<LocalizationView> {
   @override
   Widget build(BuildContext context) {
-    var lat=-24.94558;
-    var lng=-53.50780;
+    var lat=-22.845909747356586;
+    var lng=-43.48764694474549;
+
     bool isMapReady = false;
 
 
 
     print("iniciado: "+isMapReady.toString());
-    return StatefulBuilder(builder: (context,setState){
       return Scaffold(// map dos botoes
         backgroundColor: AppController.instance.mainColor,
         appBar: AppBar(
@@ -38,27 +38,30 @@ class LocalizationViewState extends State<LocalizationView> {
           title: Center(child: Text("Map Page ")),
           actions: [
             InkWell(
-              onTap: (){
-                void updateLocalization(LatLng value){
+              onTap: ()async{
 
-                  setState(() {
-                    LocalizationController.instance.mapController.move(value, 15.9);
-                    isMapReady=true;
-                  });
+                updateLocalization(LatLng value) async {
+                  print("Ready!");
+                  LocalizationController.instance.mapController.move(value, 15.9);
+                  isMapReady=true;
 
                 }
+                print(LocalizationController.instance.mapController.center);
+                await LocalizationController.instance.getCurrentLocation().then(
+                        (value)  =>  LocalizationController.instance.mapController.onReady.then((result) =>print("reached")));
                 setState(() {
-                  LocalizationController.instance.getCurrentLocation().then(
-                          (value) => LocalizationController.instance.mapController.onReady.then((result) =>updateLocalization(value)));
+
                 });
+
               },
               child: Icon(Icons.refresh),
-            )
+            ),
+
           ],
         ),
         body: FlutterMap(
-          mapController:  (isMapReady)?LocalizationController.instance.mapController:null,
           options: MapOptions(
+            controller:  (isMapReady)?LocalizationController.instance.mapController:null,
             center: LatLng(lat, lng),
             zoom: 15.9,
           ),
@@ -106,7 +109,6 @@ class LocalizationViewState extends State<LocalizationView> {
         ),
 
       );
-    });
 
   }
 

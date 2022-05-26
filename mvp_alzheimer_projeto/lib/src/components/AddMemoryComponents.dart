@@ -29,7 +29,7 @@ class ImagePickerContainerState extends State<ImagePickerContainer> {
 
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: getImage,
+      onTap: ()async {await getImage();},
       child: Container(
           child: Image(
             image: widget.imageController,

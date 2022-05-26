@@ -8,12 +8,16 @@ import 'package:latlong2/latlong.dart';
 
 class LocalizationController extends ChangeNotifier {
   static LocalizationController instance = LocalizationController();
-  final MapController mapController = MapController();
+  late MapController mapController ;
   final Geolocator geoLocator = Geolocator();
   bool controllerAlreadySet = false;
 
   Future<void> initializeMapController() async {
-    await mapController.onReady;
+    print("trying");
+    mapController = await MapController();
+
+    await mapController.onReady.then((value) => print("Ready!"));
+
   }
 
   Future<Position> getPosition() async {
