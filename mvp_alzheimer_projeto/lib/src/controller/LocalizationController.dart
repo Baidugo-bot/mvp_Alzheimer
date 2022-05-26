@@ -10,7 +10,12 @@ class LocalizationController extends ChangeNotifier {
   static LocalizationController instance = LocalizationController();
   late MapController mapController ;
   final Geolocator geoLocator = Geolocator();
-  bool controllerAlreadySet = false;
+  bool isUpdating = false;
+   LatLng _myPos = LatLng(0,0);
+
+  set myPos(LatLng val) => _myPos = val; // optionally perform validation, etc
+
+  LatLng get myPos => _myPos;
 
   Future<void> initializeMapController() async {
     print("trying");

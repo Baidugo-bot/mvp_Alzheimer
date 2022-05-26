@@ -23,14 +23,20 @@ class LocalizationView extends StatefulWidget {
 class LocalizationViewState extends State<LocalizationView> {
   @override
   Widget build(BuildContext context) {
-    var lat=-22.845909747356586;
-    var lng=-43.48764694474549;
 
     bool isMapReady = false;
 
+    MapController mapController = LocalizationController.instance.mapController;
 
 
-    print("iniciado: "+isMapReady.toString());
+
+    void updateMarkers(LatLng value){
+      mapController.move(value, 16.5);
+      LocalizationController.instance.myPos = value;
+      LocalizationController.instance.isUpdating == false;
+    }
+
+    print("iniciado: "+LocalizationController.instance.myPos.toString());
       return Scaffold(// map dos botoes
         backgroundColor: AppController.instance.mainColor,
         appBar: AppBar(
@@ -38,31 +44,38 @@ class LocalizationViewState extends State<LocalizationView> {
           title: Center(child: Text("Map Page ")),
           actions: [
             InkWell(
-              onTap: ()async{
+              onTap: (){
 
-                updateLocalization(LatLng value) async {
-                  print("Ready!");
-                  LocalizationController.instance.mapController.move(value, 15.9);
-                  isMapReady=true;
+                if(!LocalizationController.instance.isUpdating){
+                  LocalizationController.instance.isUpdating == true;
+                  LocalizationController.instance.getCurrentLocation().then(
+                          (value)  =>  updateMarkers(value));
+                  setState(() {
 
+                    print(LocalizationController.instance.myPos.toString() + " update");
+                  });
+                }else{
+                  print("To atualizando ja caralho, paciencia");
                 }
-                print(LocalizationController.instance.mapController.center);
-                await LocalizationController.instance.getCurrentLocation().then(
-                        (value)  =>  LocalizationController.instance.mapController.onReady.then((result) =>print("reached")));
-                setState(() {
-
-                });
 
               },
-              child: Icon(Icons.refresh),
+              child: Icon(Icons.refresh,size: 45,),
             ),
 
           ],
         ),
         body: FlutterMap(
+
           options: MapOptions(
-            controller:  (isMapReady)?LocalizationController.instance.mapController:null,
-            center: LatLng(lat, lng),
+            onMapCreated: (map){
+
+              mapController = map;
+              LocalizationController.instance.getCurrentLocation().then(
+                      (value)  => updateMarkers(value));
+
+            },
+            controller:  (isMapReady)?mapController:null,
+            center: LocalizationController.instance.myPos,
             zoom: 15.9,
           ),
           layers: [
@@ -82,7 +95,7 @@ class LocalizationViewState extends State<LocalizationView> {
                 Marker(
                     width: 24.0,
                     height: 24.0,
-                    point: (isMapReady)?LocalizationController.instance.mapController.center:LatLng(lat, lng),
+                    point: LocalizationController.instance.myPos,
                     builder: (ctx) =>
                         Row(
                           children: [
@@ -94,7 +107,7 @@ class LocalizationViewState extends State<LocalizationView> {
                 Marker(
                     width: 24.0,
                     height: 24.0,
-                    point: (isMapReady)?LocalizationController.instance.mapController.center:LatLng(lat, lng),
+                    point: LocalizationController.instance.myPos,
                     builder: (ctx) =>
                         Row(
                           children: [
