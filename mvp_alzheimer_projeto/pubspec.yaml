@@ -39,6 +39,7 @@ dependencies:
   latlong2: ^0.8.1
   geolocator: #latest version
   geocoding:  #latest version
+  loading_overlay: ^0.3.0
 
 
 
