@@ -22,8 +22,21 @@ class MenuLocalizationViewState extends State<MenuLocalizationView> {
     return Scaffold(// map dos botoes
       backgroundColor: AppController.instance.mainColor,
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         backgroundColor: AppController.instance.mainColor,
-        title: Center(child: Text("Dia ")),
+        title: Row(
+          children: [
+            InkWell(
+              onTap: (){
+                Navigator.of(context).pushNamed('/');
+
+              },
+              child: Icon(Icons.arrow_back,size: 45,),
+            ),
+            Container(width: 10,),
+            Center(child: Text("Map Page "))
+          ],
+        ),
       ),
       body: Center(
         child: Column(
@@ -31,7 +44,7 @@ class MenuLocalizationViewState extends State<MenuLocalizationView> {
           children: [
             InkWell(
               onTap: (){
-                Navigator.of(context).pushNamed('/localization');
+                Navigator.of(context).pushNamed('/localConfig');
               },
               child: Container(
                 child: Icon(
@@ -42,11 +55,11 @@ class MenuLocalizationViewState extends State<MenuLocalizationView> {
             ),
             InkWell(
               onTap: (){
-                //Navigator.of(context).pushNamed('/localization');
+                Navigator.of(context).pushNamed('/localization');
               },
               child: Container(
                 child: Icon(
-                    Icons.qr_code,
+                    Icons.location_on,
                     size: 200
                 ),
               ),

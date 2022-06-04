@@ -10,6 +10,9 @@ class AppController extends ChangeNotifier{
   DateTime now = DateTime.now().toUtc();
   int counter = 0;
   Color mainColor = Color.fromRGBO(121,188,218, 1) ;
+  String myCode = "";
+  String targetCode = "";
+  bool isCodeGenerated = false;
 
 
 

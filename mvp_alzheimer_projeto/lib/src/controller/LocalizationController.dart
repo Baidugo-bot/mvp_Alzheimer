@@ -11,6 +11,8 @@ class LocalizationController extends ChangeNotifier {
   late MapController mapController ;
   final Geolocator geoLocator = Geolocator();
   bool isUpdating = false;
+  bool onLocalPage = false;
+  bool firstOpening=true;
    LatLng _myPos = LatLng(0,0);
 
   set myPos(LatLng val) => _myPos = val; // optionally perform validation, etc
