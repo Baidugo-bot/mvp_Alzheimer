@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:projeto_estudo/AppController.dart';
 import 'package:projeto_estudo/src/components/ProfileComponents.dart';
-import '../components/EditProfileComponents.dart';
 import 'package:image_picker/image_picker.dart';
-
 
 class EditProfile extends StatefulWidget {
   @override
@@ -36,24 +34,21 @@ class EditProfileState extends State<EditProfile> {
 
     return Scaffold(
       appBar: AppBar(
-         automaticallyImplyLeading: false,
-        
-         actions: [
-            ElevatedButton(
-              onPressed: () {
-                Navigator.pushNamed(context, '/profile');
-              },
-              child: Icon(
-                Icons.keyboard_return,
-                color: Color.fromARGB(255, 12, 58, 184),
-                size: 30.0,
-              ),
-            )
-          ],
-          
-          title: Text("Editar Pagina "),
-          
-          ),
+        automaticallyImplyLeading: false,
+        actions: [
+          ElevatedButton(
+            onPressed: () {
+              Navigator.pushNamed(context, '/profile');
+            },
+            child: Icon(
+              Icons.keyboard_return,
+              color: Color.fromARGB(255, 12, 58, 184),
+              size: 30.0,
+            ),
+          )
+        ],
+        title: Text("Editar Pagina "),
+      ),
       body: Container(
         padding: EdgeInsets.only(top: 60, left: 40, right: 40),
         color: Colors.black12,
@@ -69,29 +64,31 @@ class EditProfileState extends State<EditProfile> {
                   bottom: BorderSide(width: 2, color: Colors.grey),
                 ),
               ),
-              child: ImagePickerContainer(imageController: imageController),
             ),
+            ImagePickerContainer(imageController: imageController),
             Text("This is pelezin from brazil"),
 //campo nome do usuario
             TextField(
               controller: txtNome,
               decoration: InputDecoration(
                   labelText: 'Nome',
-                  hintStyle: TextStyle(color: Colors.black),
+                  hintStyle: TextStyle(color: Color.fromARGB(255, 0, 255, 242)),
                   border: OutlineInputBorder()),
             ),
 //campo calendario nacimento
-            // DateBorderedField(
-            //   onChangeFunction: (DateTime date) {
-            //     dataController = date;
-            //   },
-            // ),
-//campo data
-            TextField(
-             keyboardType: TextInputType.datetime,
-              decoration: InputDecoration(
-                  labelText: 'Idade', hintStyle: TextStyle(color: Colors.black),border: OutlineInputBorder()),
+            DateBorderedField(
+              onChangeFunction: (DateTime date ) {
+                dataController = date;
+              },
             ),
+//campo data
+            // TextField(
+            //   keyboardType: TextInputType.datetime,
+            //   decoration: InputDecoration(
+            //       labelText: 'Idade',
+            //       hintStyle: TextStyle(color: Colors.black),
+            //       border: OutlineInputBorder()),
+            // ),
 //função salvar
             RaisedButton(
                 child: Text(
@@ -106,3 +103,11 @@ class EditProfileState extends State<EditProfile> {
     );
   }
 }
+//  _getFromGallery()  {
+    
+//     if (pickedFile != null) {
+//       setState(() {
+//         imageFile = File(pickedFile.path);
+//       });
+//     }
+//   }

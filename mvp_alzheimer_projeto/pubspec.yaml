@@ -31,6 +31,15 @@ dependencies:
     sdk: flutter
   flutter_slidable: ^1.2.0
   jiffy: ^5.0.0
+  image_picker: ^0.8.1
+  bordered_text: ^2.0.0
+  date_field: ^3.0.0
+  permission_handler: ^9.2.0
+  flutter_map: 
+  latlong2: ^0.8.1
+  geolocator:
+  geocoding:
+  loading_overlay: ^0.3.0
 
 
   # The following adds the Cupertino Icons font to your application.

@@ -3,14 +3,17 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
+import 'package:projeto_estudo/src/controller/ProfileController.dart';
 
 class AppController extends ChangeNotifier{
   static AppController instance = AppController();
   List<Widget> memories = <Widget>[];
   DateTime now = DateTime.now().toUtc();
   int counter = 0;
-
-
+  Profile profile = Profile();
+  
+  
+  
 
   void addMemory() {
       memories.add(
