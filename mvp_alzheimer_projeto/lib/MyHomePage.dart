@@ -1,12 +1,15 @@
 import 'dart:async';
+import 'dart:ui';
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:jiffy/jiffy.dart';
-import 'package:projeto_estudo/AppController.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({Key? key, required this.title}) : super(key: key);
+
   final String title;
 
   @override
@@ -14,110 +17,112 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  final myInstance = AppController.instance;
   final style =
       ElevatedButton.styleFrom(primary: Colors.white, fixedSize: Size(120, 70));
   //light style theme =
   final defaultPadding = 20.0;
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      
       // map dos botoes
-      
-
+      backgroundColor: Colors.lightBlue,
       appBar: AppBar(
-        automaticallyImplyLeading: false,
-        title: Center(
-            child: Text("Dia " +
-                myInstance.now.day.toString() +
-                " - " +
-                Jiffy(myInstance.now).EEEE.toString())),
+        title: Center(child: Text("Menu")),
       ),
       body: SizedBox(
-        width: MediaQuery.of(context).size.width,
-        height: double.infinity,
         child: Column(
           children: [
-            CircleAvatar(
-              backgroundImage: AssetImage('assets/images/pelezin.jpg'),
-              radius: 100,
-            ),
-            Text(
-              "Pele",
-              style: TextStyle(fontSize: 20),
-            ),
-            Text(
-              "Nascimento: 05/10/2001",
-              style: TextStyle(fontSize: 20),
-            ),
-            Text(
-              "Idade: 35 anos",
-              style: TextStyle(fontSize: 20),
-            ),
-            Container(
-              height: 80,
-            ),
             Row(
-              mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                ElevatedButton(
-                  style: style,
-                  onPressed: () {
-                    Navigator.of(context).pushNamed('/reminders');
-                    print("teste");
-                    automaticallyImplyLeading:
-                    false;
-                  },
-                  child: Text(
-                    "LEMBRETES",
-                    style: TextStyle(color: Colors.black),
-                  ),
-                ),
-                Container(
-                  width: defaultPadding,
-                ),
-                ElevatedButton(
-                  style: style,
-                  onPressed: () {
-                    Navigator.of(context).pushNamed('/memories');
-                    print("teste");
-                  },
-                  child: Text(
-                    "MEMORIA",
-                    style: TextStyle(color: Colors.black),
+                Positioned(
+                  child: Container(
+                    child: IconButton(
+                      onPressed: () {},
+                      color: Colors.black,
+                      icon: Icon(
+                        Icons.account_circle_outlined,
+                      ),
+                      iconSize: 50.0,
+                    ),
                   ),
                 ),
               ],
             ),
-            Container(height: 10),
+            CircleAvatar(
+              backgroundColor: Colors.white,
+              radius: 85,
+              child: CircleAvatar(
+                radius: 80,
+                backgroundImage: AssetImage('assets/images/pelezin.jpg'),
+              ),
+            ),
+            Container(
+              height: 10,
+            ),
+            Text(
+              "Pele",
+              style: TextStyle(
+                fontSize: 24,
+              ),
+            ),
+            Container(
+              height: 10,
+            ),
+            Text(
+              "Nascimento: 05/10/2001",
+              style: TextStyle(fontSize: 24),
+            ),
+            Container(
+              height: 10,
+            ),
+            Text(
+              "Idade: 35 anos",
+              style: TextStyle(fontSize: 24),
+            ),
+            Container(
+              height: 50,
+            ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 ElevatedButton(
-                  style: style,
-                  onPressed: () {
-                    Navigator.of(context).pushNamed('/family');
-                    print("teste");
-                  },
-                  child: Text(
-                    "FAMILIA",
-                    style: TextStyle(color: Colors.black),
+                  style: ElevatedButton.styleFrom(
+                      primary: Colors.lightBlue, padding: EdgeInsets.all(15.0)),
+                  onPressed: () {},
+                  child: Ink.image(
+                    image: AssetImage("assets/icons/Remedio.png"),
+                    height: 58,
+                    width: 58,
                   ),
                 ),
                 Container(
                   width: defaultPadding,
                 ),
                 ElevatedButton(
-                  style: style,
-                  onPressed: () {
-                    Navigator.of(context).pushNamed('/profile');
-                    print("teste");
-                  },
-                  child: Text(
-                    "PERFIL",
-                    style: TextStyle(color: Colors.black),
+                  style: ElevatedButton.styleFrom(
+                    padding: EdgeInsets.all(15.0),
+                    primary: Colors.lightBlue,
+                  ),
+                  onPressed: () {},
+                  child: Ink.image(
+                    image: AssetImage("assets/icons/Memoria.png"),
+                    height: 58,
+                    width: 58,
+                  ),
+                ),
+                Container(
+                  width: defaultPadding,
+                ),
+                ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    primary: Colors.lightBlue,
+                    padding: EdgeInsets.all(15.0),
+                  ),
+                  onPressed: () {},
+                  child: Ink.image(
+                    image: AssetImage("assets/icons/Familia.png"),
+                    height: 58,
+                    width: 58,
                   ),
                 ),
               ],
@@ -128,14 +133,14 @@ class _MyHomePageState extends State<MyHomePage> {
               children: [
                 ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                      primary: Colors.white, fixedSize: Size(260, 70)),
-                  onPressed: () {
-                    Navigator.of(context).pushNamed('/configurations');
-                    print("teste");
-                  },
-                  child: Text(
-                    "CONFIGURACAO",
-                    style: TextStyle(color: Colors.black),
+                    primary: Colors.lightBlue,
+                    padding: EdgeInsets.all(15.0),
+                  ),
+                  onPressed: () {},
+                  child: Ink.image(
+                    image: AssetImage("assets/icons/Mapa.png"),
+                    height: 58,
+                    width: 58,
                   ),
                 ),
               ],
@@ -143,6 +148,24 @@ class _MyHomePageState extends State<MyHomePage> {
           ],
         ),
       ),
+      /*     floatingActionButton:  Container(
+         height: 90.0,
+         width: 90.0,
+  
+         child: FloatingActionButton(
+           shape: BeveledRectangleBorder(
+               borderRadius: BorderRadius.zero
+           ),
+           backgroundColor: Colors.greenAccent,
+           onPressed: () {
+  
+           },
+           child: Text('''+ Adicionar
+   lembretes
+           '''),
+  
+         ),
+       ), */
     );
   }
 }
