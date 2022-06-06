@@ -41,6 +41,9 @@ dependencies:
   geocoding:  #latest version
   loading_overlay: ^0.3.0
   qr_flutter: ^4.0.0
+  flutter_barcode_scanner: #latest version
+
+
 
 
 

@@ -1,10 +1,14 @@
 import 'dart:async';
+import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:latlong2/latlong.dart';
+
 
 class LocalizationController extends ChangeNotifier {
   static LocalizationController instance = LocalizationController();
@@ -13,6 +17,10 @@ class LocalizationController extends ChangeNotifier {
   bool isUpdating = false;
   bool onLocalPage = false;
   bool firstOpening=true;
+  String myCode = "";
+  String targetCode = "";
+  bool isCodeGenerated = false;
+  bool isTargetCodeGenerated = false;
    LatLng _myPos = LatLng(0,0);
 
   set myPos(LatLng val) => _myPos = val; // optionally perform validation, etc
@@ -20,7 +28,6 @@ class LocalizationController extends ChangeNotifier {
   LatLng get myPos => _myPos;
 
   Future<void> initializeMapController() async {
-    print("trying");
     mapController = await MapController();
 
     await mapController.onReady.then((value) => print("Ready!"));
@@ -70,4 +77,27 @@ class LocalizationController extends ChangeNotifier {
     print(position.latitude.toString()+position.longitude.toString());
     return  LatLng(position.latitude,position.longitude);
   }
+  
+  
+  void generateCode(){
+    myCode = generateRandomString(9);
+    isCodeGenerated=true;
+  }
+  
+  void tryFindTargetCode() async {
+
+    try {
+      targetCode = await FlutterBarcodeScanner.scanBarcode("#ff6666", "Cancel Scan", false, ScanMode.QR);
+    } on PlatformException{
+      print("Error!");
+    }
+
+  }
+
+  String generateRandomString(int len) {
+    var r = Random();
+    return String.fromCharCodes(List.generate(len, (index) => r.nextInt(33) + 89));
+  }
+
+  
 }
