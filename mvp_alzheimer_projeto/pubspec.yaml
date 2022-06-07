@@ -29,7 +29,6 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  flutter_slidable: ^1.2.0
   bordered_text: ^2.0.0
   jiffy: ^5.0.0
   date_field: ^3.0.0
@@ -39,10 +38,8 @@ dependencies:
   latlong2: ^0.8.1
   geolocator: #latest version
   geocoding:  #latest version
-  loading_overlay: ^0.3.0
   qr_flutter: ^4.0.0
   flutter_barcode_scanner: #latest version
-
 
 
 

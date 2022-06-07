@@ -2,10 +2,10 @@ import 'dart:async';
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
+
 import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
 import 'package:flutter_map/flutter_map.dart';
-import 'package:flutter_slidable/flutter_slidable.dart';
+
 import 'package:geolocator/geolocator.dart';
 import 'package:latlong2/latlong.dart';
 
@@ -86,11 +86,8 @@ class LocalizationController extends ChangeNotifier {
   
   void tryFindTargetCode() async {
 
-    try {
       targetCode = await FlutterBarcodeScanner.scanBarcode("#ff6666", "Cancel Scan", false, ScanMode.QR);
-    } on PlatformException{
-      print("Error!");
-    }
+
 
   }
 
