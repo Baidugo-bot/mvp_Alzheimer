@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:bordered_text/bordered_text.dart';
 import 'package:date_field/date_field.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:projeto_estudo/src/controller/ProfileController.dart';
 
 class ImagePickerContainer extends StatefulWidget {
   ImageProvider<Object> imageController;
@@ -19,7 +20,7 @@ class ImagePickerContainerState extends State<ImagePickerContainer> {
   Future getImage() async {
     ImagePicker picker = new ImagePicker();
     var image = await picker.pickImage(source: ImageSource.gallery);
-
+    ProfileController.instance.imagemTemporaria = FileImage(File(image!.path));
     setState(() {
       widget.imageController = FileImage(File(image!.path));
     });
@@ -73,14 +74,14 @@ class DateBorderedFieldState extends State<DateBorderedField> {
           Container(
             width: 200,
             child: DateTimeFormField(
-
               onDateSelected: (DateTime date) {
                 widget.onChangeFunction(date);
               },
               mode: DateTimeFieldPickerMode.date,
               initialDate: holderDate,
-              dateTextStyle:
-                  TextStyle(color: Color.fromARGB(255, 0, 247, 255), fontFamily: "Gidugu-Regular"),
+              dateTextStyle: TextStyle(
+                  color: Color.fromARGB(255, 0, 247, 255),
+                  fontFamily: "Gidugu-Regular"),
               decoration: InputDecoration(border: InputBorder.none),
             ),
           ),

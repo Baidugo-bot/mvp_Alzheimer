@@ -22,6 +22,7 @@ class _MyHomePageState extends State<MyHomePage> {
   //light style theme =
   final defaultPadding = 20.0;
   @override
+  
   Widget build(BuildContext context) {
     return Scaffold(
       // map dos botoes
@@ -37,7 +38,9 @@ class _MyHomePageState extends State<MyHomePage> {
                 Positioned(
                   child: Container(
                     child: IconButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.pushNamed(context, '/profile');
+                      },
                       color: Colors.black,
                       icon: Icon(
                         Icons.account_circle_outlined,
