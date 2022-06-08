@@ -82,7 +82,7 @@ class LocalizationViewState extends State<LocalizationView> {
 
           ],
         ),
-        body: FlutterMap(
+        body: FlutterMap(// if target generated then show, after getting location from API, catch last known location
 
           options: MapOptions(
             onPositionChanged: (MapPosition pos,bool){
@@ -102,7 +102,7 @@ class LocalizationViewState extends State<LocalizationView> {
                   LocalizationController.instance.getCurrentLocation().then(
                           (value)  =>
                           (LocalizationController.instance.onLocalPage)?updateMarkers(value):timer.cancel()
-                  )
+                  )//send that location to SQL
 
               );
             },

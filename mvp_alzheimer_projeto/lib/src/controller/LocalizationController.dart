@@ -17,7 +17,7 @@ class LocalizationController extends ChangeNotifier {
   bool isUpdating = false;
   bool onLocalPage = false;
   bool firstOpening=true;
-  String myCode = "";
+  String myCode = ""; //send a update of location each x seconds, already have the function  on flutter map
   String targetCode = "";
   bool isCodeGenerated = false;
   bool isTargetCodeGenerated = false;
@@ -89,6 +89,26 @@ class LocalizationController extends ChangeNotifier {
       targetCode = await FlutterBarcodeScanner.scanBarcode("#ff6666", "Cancel Scan", false, ScanMode.QR);
 
 
+
+
+  }
+
+  void sendLocation() async {
+    LatLng myPosition;
+    getCurrentLocation().then((value) => myPosition = value);
+
+  }
+
+  void getUpdatedTargetLocation() async {
+    try {
+      var url = Uri.parse("");
+      var response = await http.get(url);
+      if (response.statusCode == 200) {
+          //return latitute and longitude as latlng
+      }
+    } catch (e) {
+      log(e.toString());
+    }
   }
 
   String generateRandomString(int len) {

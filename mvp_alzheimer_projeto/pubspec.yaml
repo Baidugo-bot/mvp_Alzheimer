@@ -40,7 +40,7 @@ dependencies:
   geocoding:  #latest version
   qr_flutter: ^4.0.0
   flutter_barcode_scanner: #latest version
-
+  http: #latest version
 
 
 
