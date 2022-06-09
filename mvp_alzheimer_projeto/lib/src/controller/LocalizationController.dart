@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:convert';
 import 'dart:math';
 
 import 'package:flutter/material.dart';
@@ -24,6 +25,7 @@ class LocalizationController extends ChangeNotifier {
   bool isCodeGenerated = false;
   bool isTargetCodeGenerated = false;
    LatLng _myPos = LatLng(0,0);
+   late LocationContainer myPosition ;
 
   set myPos(LatLng val) => _myPos = val; // optionally perform validation, etc
 
@@ -98,39 +100,42 @@ class LocalizationController extends ChangeNotifier {
   void sendLocation() async {
     LatLng myPosition;
     getCurrentLocation().then((value) => myPosition = value);
-    /*
-    * final response = await http.post(
-    Uri.parse('https://jsonplaceholder.typicode.com/albums'),
-    headers: <String, String>{
-      'Content-Type': 'application/json; charset=UTF-8',
-    },
-    body: jsonEncode(<String, String>{
-      'title': title,
-    }),
-  );
 
-  if (response.statusCode == 201) {
-    // If the server did return a 201 CREATED response,
-    // then parse the JSON.
-    return Album.fromJson(jsonDecode(response.body));
-  } else {
-    // If the server did not return a 201 CREATED response,
-    // then throw an exception.
-    throw Exception('Failed to create album.');
-  }
-    * */
+
+
   }
 
-  void getUpdatedTargetLocation() async {
-    try {
-      var url = Uri.parse("");
+  void getUpdatedTargetLocation() async {//http://10.0.2.2:8080/main/
+      print(myCode);
+      final response = await http.post(
+      Uri.parse('http://10.0.2.2:8080/main/response/'),
+      headers: <String, String>{
+        'Content-Type': 'application/json; charset=UTF-8',
+      },
+      body: jsonEncode(<String, String>{
+        'token': myCode,
+      }),
+    );
+      print(response.body);
+    if (response.statusCode == 201) {
+      // If the server did return a 201 CREATED response,
+      // then parse the JSON.
+
+    } else {
+      // If the server did not return a 201 CREATED response,
+      // then throw an exception.
+      throw Exception('Failed to create album.');
+    }
+
+      /*var url = Uri.parse("");
       var response = await http.get(url);
+      print(response.body);
       if (response.statusCode == 201) {
-          //return latitute and longitude as latlng
+          print("Sucesso");
       }
     } catch (e) {
       print(e.toString());
-    }
+    }*/
   }
 
   String generateRandomString(int len) {

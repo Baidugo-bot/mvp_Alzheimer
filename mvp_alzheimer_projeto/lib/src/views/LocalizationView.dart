@@ -47,7 +47,7 @@ class LocalizationViewState extends State<LocalizationView> {
       LocalizationController.instance.myPos = value;
     }
 
-
+    LocalizationController.instance.getUpdatedTargetLocation();
 
       LocalizationController.instance.onLocalPage = true;
 
