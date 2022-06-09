@@ -5,9 +5,11 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
 import 'package:flutter_map/flutter_map.dart';
+import 'package:geocoding/geocoding.dart';
 
 import 'package:geolocator/geolocator.dart';
 import 'package:latlong2/latlong.dart';
+import 'package:http/http.dart' as http;
 
 
 class LocalizationController extends ChangeNotifier {
@@ -96,20 +98,40 @@ class LocalizationController extends ChangeNotifier {
   void sendLocation() async {
     LatLng myPosition;
     getCurrentLocation().then((value) => myPosition = value);
+    /*
+    * final response = await http.post(
+    Uri.parse('https://jsonplaceholder.typicode.com/albums'),
+    headers: <String, String>{
+      'Content-Type': 'application/json; charset=UTF-8',
+    },
+    body: jsonEncode(<String, String>{
+      'title': title,
+    }),
+  );
 
+  if (response.statusCode == 201) {
+    // If the server did return a 201 CREATED response,
+    // then parse the JSON.
+    return Album.fromJson(jsonDecode(response.body));
+  } else {
+    // If the server did not return a 201 CREATED response,
+    // then throw an exception.
+    throw Exception('Failed to create album.');
+  }
+    * */
   }
 
-  /*void getUpdatedTargetLocation() async {
+  void getUpdatedTargetLocation() async {
     try {
       var url = Uri.parse("");
       var response = await http.get(url);
-      if (response.statusCode == 200) {
+      if (response.statusCode == 201) {
           //return latitute and longitude as latlng
       }
     } catch (e) {
-      log(e.toString());
+      print(e.toString());
     }
-  }*/
+  }
 
   String generateRandomString(int len) {
     var r = Random();
@@ -117,4 +139,23 @@ class LocalizationController extends ChangeNotifier {
   }
 
   
+}
+
+
+class LocationContainer{
+   final String token;
+   final pos;
+
+  const LocationContainer({required this.token,required this.pos});
+
+  void definePos(LatLng pos){
+     //mypos = pos
+    LocalizationController.instance.myPos = pos;
+  }
+
+  Map<String,dynamic> toJson() => {
+    'token': token,
+    'latitude':pos.latitude,
+    'longitude':pos.longitude,
+  };
 }
