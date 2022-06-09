@@ -1,4 +1,5 @@
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:latlong2/latlong.dart';
@@ -82,7 +83,21 @@ class LocalizationViewState extends State<LocalizationView> {
 
           ],
         ),
-        body: FlutterMap(// if target generated then show, after getting location from API, catch last known location
+        body:(!LocalizationController.instance.isTargetCodeGenerated)?
+          Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text("Codigo de alvo nao registrado, para acessar o recurso de localizacao registre um codigo."),
+              ElevatedButton(
+                onPressed: (){
+                  LocalizationController.instance.tryFindTargetCode();
+                },
+                child: Text("Registrar codigo.",textAlign: TextAlign.center),
+              ),
+            ],
+          )
+          :
+          FlutterMap(// if target generated then show, after getting location from API, catch last known location
 
           options: MapOptions(
             onPositionChanged: (MapPosition pos,bool){
@@ -101,7 +116,7 @@ class LocalizationViewState extends State<LocalizationView> {
               Timer.periodic(Duration(seconds: 8), (Timer timer) =>
                   LocalizationController.instance.getCurrentLocation().then(
                           (value)  =>
-                          (LocalizationController.instance.onLocalPage)?updateMarkers(value):timer.cancel()
+                          (LocalizationController.instance.onLocalPage && LocalizationController.instance.isTargetCodeGenerated)?updateMarkers(value):timer.cancel()
                   )//send that location to SQL
 
               );
