@@ -99,7 +99,7 @@ class LocalizationController extends ChangeNotifier {
 
   }
 
-  void getUpdatedTargetLocation() async {
+  /*void getUpdatedTargetLocation() async {
     try {
       var url = Uri.parse("");
       var response = await http.get(url);
@@ -109,7 +109,7 @@ class LocalizationController extends ChangeNotifier {
     } catch (e) {
       log(e.toString());
     }
-  }
+  }*/
 
   String generateRandomString(int len) {
     var r = Random();
