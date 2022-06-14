@@ -47,7 +47,7 @@ class LocalizationViewState extends State<LocalizationView> {
       LocalizationController.instance.myPos = value;
     }
 
-    LocalizationController.instance.getUpdatedTargetLocation();
+
 
       LocalizationController.instance.onLocalPage = true;
 
@@ -107,19 +107,17 @@ class LocalizationViewState extends State<LocalizationView> {
 
 
               mapController = map;
-              LocalizationController.instance.getCurrentLocation().then(
+              LocalizationController.instance.getUpdatedTargetLocation().then(
                       (value)  =>
                   updateMarkers(value)
               );
-
-
               Timer.periodic(Duration(seconds: 8), (Timer timer) =>
-                  LocalizationController.instance.getCurrentLocation().then(
+                  LocalizationController.instance.getUpdatedTargetLocation().then(
                           (value)  =>
-                          (LocalizationController.instance.onLocalPage && LocalizationController.instance.isTargetCodeGenerated)?updateMarkers(value):timer.cancel()
+                      (LocalizationController.instance.isTargetCodeGenerated)?updateMarkers(value):timer.cancel()
                   )//send that location to SQL
-
               );
+
             },
             controller:  mapController,
             center: LocalizationController.instance.myPos,

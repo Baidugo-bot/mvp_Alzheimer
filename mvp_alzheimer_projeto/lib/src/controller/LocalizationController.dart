@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:convert';
 import 'dart:math';
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
@@ -98,13 +99,30 @@ class LocalizationController extends ChangeNotifier {
   }
 
   void sendLocation(LatLng pos) async {
-
+    print("mandando local");
+    final response = await http.post(
+      Uri.parse('http://10.0.2.2:8080/main/request/'),
+      headers: <String, String>{
+        'Content-Type': 'application/json; charset=UTF-8',
+      },
+      body: jsonEncode(<String, String>{
+        'token': myCode,
+        'lat':pos.latitude.toString(),
+        'long':pos.longitude.toString(),
+      }),
+    );
+    print(response.body);
+    if (response.statusCode == 201) {
+      print("success");
+    } else {
+      throw Exception('Failed to create album.');
+    }
 
 
 
   }
 
-  void getUpdatedTargetLocation() async {//http://10.0.2.2:8080/main/
+  Future<LatLng> getUpdatedTargetLocation() async {//http://10.0.2.2:8080/main/
       print(myCode);
       final response = await http.post(
       Uri.parse('http://10.0.2.2:8080/main/response/'),
@@ -115,12 +133,10 @@ class LocalizationController extends ChangeNotifier {
         'token': myCode,
       }),
     );
-      print(response.body);
-    if (response.statusCode == 201) {
+      print(myCode.toString()+" :Resposta: "+response.body);
+      dynamic posCollected = jsonDecode(response.body);
 
-    } else {
-      throw Exception('Failed to create album.');
-    }
+      return LatLng(double.parse(posCollected["lat"]) ,double.parse(posCollected["long"]));
 
       /*var url = Uri.parse("");
       var response = await http.get(url);
