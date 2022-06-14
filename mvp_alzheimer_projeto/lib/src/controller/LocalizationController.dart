@@ -79,7 +79,6 @@ class LocalizationController extends ChangeNotifier {
 
   Future<LatLng> getCurrentLocation() async {
     var position = await Geolocator.getCurrentPosition(desiredAccuracy:  LocationAccuracy.high);
-    print(position.latitude.toString()+position.longitude.toString());
     return  LatLng(position.latitude,position.longitude);
   }
   
@@ -92,7 +91,6 @@ class LocalizationController extends ChangeNotifier {
   void tryFindTargetCode() async {
 
       targetCode = await FlutterBarcodeScanner.scanBarcode("#ff6666", "Cancel Scan", false, ScanMode.QR);
-
 
 
 
@@ -123,7 +121,6 @@ class LocalizationController extends ChangeNotifier {
   }
 
   Future<LatLng> getUpdatedTargetLocation() async {//http://10.0.2.2:8080/main/
-      print(myCode);
       final response = await http.post(
       Uri.parse('http://10.0.2.2:8080/main/response/'),
       headers: <String, String>{
@@ -133,20 +130,14 @@ class LocalizationController extends ChangeNotifier {
         'token': myCode,
       }),
     );
-      print(myCode.toString()+" :Resposta: "+response.body);
       dynamic posCollected = jsonDecode(response.body);
 
-      return LatLng(double.parse(posCollected["lat"]) ,double.parse(posCollected["long"]));
-
-      /*var url = Uri.parse("");
-      var response = await http.get(url);
-      print(response.body);
-      if (response.statusCode == 201) {
-          print("Sucesso");
+      if(posCollected["message"]!="Não encontrado"){
+        return LatLng(double.parse(posCollected["lat"]) ,double.parse(posCollected["long"]));
+      }else{
+        return LatLng(0,0);
       }
-    } catch (e) {
-      print(e.toString());
-    }*/
+
   }
 
   String generateRandomString(int len) {
