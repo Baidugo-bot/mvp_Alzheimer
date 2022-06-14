@@ -97,9 +97,8 @@ class LocalizationController extends ChangeNotifier {
 
   }
 
-  void sendLocation() async {
-    LatLng myPosition;
-    getCurrentLocation().then((value) => myPosition = value);
+  void sendLocation(LatLng pos) async {
+
 
 
 
@@ -118,12 +117,8 @@ class LocalizationController extends ChangeNotifier {
     );
       print(response.body);
     if (response.statusCode == 201) {
-      // If the server did return a 201 CREATED response,
-      // then parse the JSON.
 
     } else {
-      // If the server did not return a 201 CREATED response,
-      // then throw an exception.
       throw Exception('Failed to create album.');
     }
 
