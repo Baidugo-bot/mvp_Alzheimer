@@ -36,7 +36,7 @@ class LocalizationViewState extends State<LocalizationView> {
 
     void updateMarkers(LatLng value){
 
-
+      LocalizationController.instance.myPos = value;
       mapController.move(value, 18);
 
       carregando=false;
@@ -44,7 +44,7 @@ class LocalizationViewState extends State<LocalizationView> {
 
     void updateMarkerOnly(LatLng value){
 
-      LocalizationController.instance.myPos = value;
+
     }
 
 
