@@ -9,7 +9,7 @@ import 'MyApp.dart';
 void main() {
   LocalizationController.instance.initializeMapController();
 
-
+  /*
   LocalizationController.instance.generateCode();
   LocalizationController.instance.targetCode = LocalizationController.instance.myCode;
   LocalizationController.instance.isTargetCodeGenerated=true;
@@ -20,7 +20,7 @@ void main() {
             (LocalizationController.instance.isTargetCodeGenerated)?LocalizationController.instance.sendLocation(value):timer.cancel()
         )//send that location to SQL
     );
-  }
+  }*/
   runApp( MyApp());
   LocalizationController.instance.getPosition();
 

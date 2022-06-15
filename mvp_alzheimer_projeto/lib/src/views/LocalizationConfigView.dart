@@ -57,6 +57,9 @@ class LocalizationConfigViewState extends State<LocalizationConfigView> {
                   onPressed: (){
                     setState(() {
                       LocalizationController.instance.tryFindTargetCode();
+                      setState(() {
+
+                      });
                     });
                   },
                 ),

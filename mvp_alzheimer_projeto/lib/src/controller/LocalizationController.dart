@@ -25,6 +25,7 @@ class LocalizationController extends ChangeNotifier {
   String targetCode = "";
   bool isCodeGenerated = false;
   bool isTargetCodeGenerated = false;
+  bool updateRoutineRunning = false;
    LatLng _myPos = LatLng(0,0);
    late LocationContainer myPosition ;
 
@@ -86,12 +87,27 @@ class LocalizationController extends ChangeNotifier {
   void generateCode(){
     myCode = generateRandomString(9);
     isCodeGenerated=true;
+
+    if(!updateRoutineRunning){
+      updateRoutineRunning= true;
+      Timer.periodic(Duration(seconds: 30), (Timer timer) =>
+          LocalizationController.instance.getCurrentLocation().then(
+                  (value)  =>
+              (LocalizationController.instance.isTargetCodeGenerated)?LocalizationController.instance.sendLocation(value):timer.cancel()
+          )//send that location to SQL
+      );
+    }
   }
   
   void tryFindTargetCode() async {
 
       targetCode = await FlutterBarcodeScanner.scanBarcode("#ff6666", "Cancel Scan", false, ScanMode.QR);
+      print("CUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU"+targetCode.toString() + isTargetCodeGenerated.toString()+(targetCode.compareTo("-1")!=0).toString());
+      if(targetCode!="" && targetCode!=null && targetCode.compareTo("-1")!=0){
+        isTargetCodeGenerated = true;
+        print("PINTOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO"+targetCode.toString() + isTargetCodeGenerated.toString());
 
+      }
 
 
   }
@@ -127,7 +143,7 @@ class LocalizationController extends ChangeNotifier {
         'Content-Type': 'application/json; charset=UTF-8',
       },
       body: jsonEncode(<String, String>{
-        'token': myCode,
+        'token': targetCode,
       }),
     );
       dynamic posCollected = jsonDecode(response.body);

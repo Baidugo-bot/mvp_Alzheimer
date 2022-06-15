@@ -74,7 +74,7 @@ class LocalizationViewState extends State<LocalizationView> {
 
             InkWell(
               onTap: (){
-                  LocalizationController.instance.getCurrentLocation().then(
+                  LocalizationController.instance.getUpdatedTargetLocation().then(
                           (value)  =>  updateMarkers(value));
 
               },
