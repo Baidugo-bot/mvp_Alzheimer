@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:bordered_text/bordered_text.dart';
 import 'package:date_field/date_field.dart';
 import 'package:image_picker/image_picker.dart';
+
 import 'package:projeto_estudo/src/controller/ProfileController.dart';
 
 class ImagePickerContainer extends StatefulWidget {

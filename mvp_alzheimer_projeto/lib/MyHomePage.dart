@@ -22,7 +22,6 @@ class _MyHomePageState extends State<MyHomePage> {
   //light style theme =
   final defaultPadding = 20.0;
   @override
-  
   Widget build(BuildContext context) {
     return Scaffold(
       // map dos botoes
@@ -121,7 +120,10 @@ class _MyHomePageState extends State<MyHomePage> {
                     primary: Colors.lightBlue,
                     padding: EdgeInsets.all(15.0),
                   ),
-                  onPressed: () {},
+                  onPressed: () {
+                        Navigator.pushNamed(context, '/family');
+
+                  },
                   child: Ink.image(
                     image: AssetImage("assets/icons/Familia.png"),
                     height: 58,
