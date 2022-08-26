@@ -26,11 +26,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="01374189-c916-4464-add0-3260a260741b" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/mvp_alzheimer_projeto/assets/images/theme.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mvp_alzheimer_projeto/assets/images/theme.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mvp_alzheimer_projeto/lib/src/components/CustomButton.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mvp_alzheimer_projeto/lib/src/components/CustomInputs.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mvp_alzheimer_projeto/lib/src/views/LoginView.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mvp_alzheimer_projeto/lib/src/views/PatientsView.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mvp_alzheimer_projeto/lib/src/views/RegisterPatientView.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mvp_alzheimer_projeto/lib/src/views/RegisterView.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mvp_alzheimer_projeto/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/mvp_alzheimer_projeto/lib/main.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mvp_alzheimer_projeto/lib/src/controller/LocalizationController.dart" beforeDir="false" afterPath="$PROJECT_DIR$/mvp_alzheimer_projeto/lib/src/controller/LocalizationController.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mvp_alzheimer_projeto/lib/src/views/LocalizationConfigView.dart" beforeDir="false" afterPath="$PROJECT_DIR$/mvp_alzheimer_projeto/lib/src/views/LocalizationConfigView.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mvp_alzheimer_projeto/lib/src/views/LocalizationView.dart" beforeDir="false" afterPath="$PROJECT_DIR$/mvp_alzheimer_projeto/lib/src/views/LocalizationView.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mvp_alzheimer_projeto/lib/MyApp.dart" beforeDir="false" afterPath="$PROJECT_DIR$/mvp_alzheimer_projeto/lib/MyApp.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mvp_alzheimer_projeto/lib/MyHomePage.dart" beforeDir="false" afterPath="$PROJECT_DIR$/mvp_alzheimer_projeto/lib/MyHomePage.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mvp_alzheimer_projeto/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/mvp_alzheimer_projeto/pubspec.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,6 +56,14 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
   <component name="ProjectId" id="27REI4o7hxCXnJMIYpWpkplAXqp" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -55,12 +72,19 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="RunOnceActivity.cidr.known.project.marker" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="cidr.known.project.marker" value="true" />
     <property name="dart.analysis.tool.window.visible" value="false" />
     <property name="io.flutter.reload.alreadyRun" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../eletronic_point" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Downloads/flutter_windows_2.10.4-stable/flutter/bin/cache/dart-sdk" />
     <property name="settings.editor.selected.configurable" value="dart.settings" />
     <property name="show.migrate.to.gradle.popup" value="false" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\User\Documents\GitHub\mvp_Alzheimer\mvp_alzheimer_projeto\assets\images" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration name="main.dart" type="FlutterRunConfigurationType" factoryName="Flutter" temporary="true" nameIsGenerated="true">
@@ -73,6 +97,7 @@
       </list>
     </recent_temporary>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -97,68 +122,6 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="648" y="208" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1651789589304">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="648" y="208" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1651789589304" />
-    <state x="90" y="239" width="1200" height="660" key="AVDManager" timestamp="1655316208066">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="90" y="239" width="1200" height="660" key="AVDManager/0.0.1920.1040/1920.0.1600.860@0.0.1920.1040" timestamp="1655316208066" />
-    <state x="100" y="200" width="1200" height="660" key="AVDManager/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1652898794563" />
-    <state x="100" y="200" width="1200" height="660" key="AVDManager/0.0.1920.1040/1920.182.1600.860@0.0.1920.1040" timestamp="1650848613465" />
-    <state x="100" y="200" width="1200" height="662" key="AVDManager/0.0.1920.1040@0.0.1920.1040" timestamp="1654814361526" />
-    <state x="1010" y="273" key="FileChooserDialogImpl" timestamp="1655168148643">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="1010" y="273" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1600.860@0.0.1920.1040" timestamp="1654589441430" />
-    <state x="1010" y="273" key="FileChooserDialogImpl/0.0.1920.1040/1920.182.1600.860@0.0.1920.1040" timestamp="1649276028344" />
-    <state x="1010" y="273" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1655168148643" />
-    <state width="750" height="304" key="GridCell.Tab.0.bottom" timestamp="1655260300717">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="750" height="304" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1600.860@0.0.1920.1040" timestamp="1655260300717" />
-    <state width="1514" height="310" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1652902752051" />
-    <state width="1340" height="309" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.182.1600.860@0.0.1920.1040" timestamp="1650852031129" />
-    <state width="938" height="240" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1654728230891" />
-    <state width="750" height="304" key="GridCell.Tab.0.center" timestamp="1655260300717">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="750" height="304" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1600.860@0.0.1920.1040" timestamp="1655260300717" />
-    <state width="1514" height="310" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1652902752051" />
-    <state width="1340" height="309" key="GridCell.Tab.0.center/0.0.1920.1040/1920.182.1600.860@0.0.1920.1040" timestamp="1650852031128" />
-    <state width="938" height="240" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1654728230890" />
-    <state width="750" height="304" key="GridCell.Tab.0.left" timestamp="1655260300717">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="750" height="304" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1600.860@0.0.1920.1040" timestamp="1655260300717" />
-    <state width="1514" height="310" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1652902752051" />
-    <state width="1340" height="309" key="GridCell.Tab.0.left/0.0.1920.1040/1920.182.1600.860@0.0.1920.1040" timestamp="1650852031128" />
-    <state width="938" height="240" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1654728230890" />
-    <state width="750" height="304" key="GridCell.Tab.0.right" timestamp="1655260300717">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="750" height="304" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1600.860@0.0.1920.1040" timestamp="1655260300717" />
-    <state width="1514" height="310" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1652902752051" />
-    <state width="1340" height="309" key="GridCell.Tab.0.right/0.0.1920.1040/1920.182.1600.860@0.0.1920.1040" timestamp="1650852031128" />
-    <state width="938" height="240" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1654728230890" />
-    <state x="201" y="175" key="SettingsEditor" timestamp="1655168151864">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="201" y="175" key="SettingsEditor/0.0.1920.1040/1920.0.1600.860@0.0.1920.1040" timestamp="1654799947496" />
-    <state x="201" y="175" key="SettingsEditor/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1652816434529" />
-    <state x="201" y="175" key="SettingsEditor/0.0.1920.1040/1920.182.1600.860@0.0.1920.1040" timestamp="1649636473960" />
-    <state x="201" y="175" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1655168151864" />
-    <state x="92" y="92" width="1736" height="856" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1652307882910">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="92" y="92" width="1736" height="856" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1652307882910" />
-    <state x="803" y="229" width="672" height="678" key="search.everywhere.popup" timestamp="1654523034433">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="803" y="229" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/1920.0.1600.860@0.0.1920.1040" timestamp="1654523034433" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -37,7 +37,7 @@ class _MyHomePageState extends State<MyHomePage> {
           children: [
             CircleAvatar(
               backgroundImage: AssetImage('assets/images/pelezin.jpg'),
-              radius: 100,
+              radius: 40,
             ),
             Text("Pele",style: TextStyle(fontSize: 20),),
             Text("Nascimento: 05/10/2001",style: TextStyle(fontSize: 20),),
@@ -51,10 +51,10 @@ class _MyHomePageState extends State<MyHomePage> {
                 ElevatedButton(
                   style: style,
                   onPressed: () {
-                    Navigator.of(context).pushNamed('/reminders');
+                    Navigator.of(context).pushNamed('/login');
                     print("teste");
                   },
-                  child: Text("LEMBRETES",style: TextStyle(color: Colors.black),),
+                  child: Text("Login",style: TextStyle(color: Colors.black),),
 
 
                 ),

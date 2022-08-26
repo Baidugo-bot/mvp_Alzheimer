@@ -4,8 +4,12 @@ import 'package:projeto_estudo/src/views/ConfigurationsView.dart';
 import 'package:projeto_estudo/src/views/EditMemoryView.dart';
 import 'package:projeto_estudo/src/views/LocalizationConfigView.dart';
 import 'package:projeto_estudo/src/views/LocalizationView.dart';
+import 'package:projeto_estudo/src/views/LoginView.dart';
 import 'package:projeto_estudo/src/views/MemoriesView.dart';
 import 'package:projeto_estudo/src/views/MenuLocalizationView.dart';
+import 'package:projeto_estudo/src/views/PatientsView.dart';
+import 'package:projeto_estudo/src/views/RegisterPatientView.dart';
+import 'package:projeto_estudo/src/views/RegisterView.dart';
 import 'package:projeto_estudo/src/views/ReminderView.dart';
 import 'package:projeto_estudo/src/views/FamilyView.dart';
 import 'package:projeto_estudo/src/views/ProfileView.dart';
@@ -45,7 +49,12 @@ class MyApp extends StatelessWidget {
             '/editprofile': (context) =>  MyHomePage(title: ''),
             '/localization': (context) => LocalizationView(title: '',),
             '/localizationMenu': (context) => MenuLocalizationView(title: '',),
-            '/localConfig': (context) => LocalizationConfigView(),
+            '/patients': (context) => PatientsView(),
+            '/login': (context) => LoginView(),
+            '/register': (context) => RegisterView(),
+            '/registerPatient': (context) => RegisterPatientView(),
+
+
           },
 
         );
