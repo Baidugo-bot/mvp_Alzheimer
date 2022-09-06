@@ -76,7 +76,7 @@ class DefaultTextFieldState extends State<DefaultTextField> {
           Expanded(
             child: Container(
               child: TextField(
-                style: TextStyle(color: Colors.black,fontFamily: "Gidugu-Regular"),
+                style: TextStyle(color: Colors.white,fontFamily: "Gidugu-Regular"),
                 controller: widget.myResult  ,
                 //onChanged: ,
                 keyboardType: TextInputType.multiline,
@@ -96,8 +96,9 @@ class DefaultTextFieldState extends State<DefaultTextField> {
 class DefaultMarkBox extends StatefulWidget {
   String title;
   Color color;
+  bool myController;
   //Funtion(String) onChanged;//on both
-  DefaultMarkBox({Key? key, required this.title,required this.color}) : super(key: key);
+  DefaultMarkBox({Key? key, required this.title,required this.color,required this.myController}) : super(key: key);
 
 
   @override
@@ -116,7 +117,7 @@ class DefaultMarkBoxState extends State<DefaultMarkBox> {
             strokeColor: widget.color,
             child: Text(widget.title)
         ),
-        Checkbox(value: true, onChanged: (value){})
+        Checkbox(value: widget.myController, onChanged: (value){widget.myController = !widget.myController;})
       ],
     );
   }

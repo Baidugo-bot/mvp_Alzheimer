@@ -19,8 +19,12 @@ class RegisterView extends StatefulWidget {
 class RegisterViewState extends State<RegisterView> {
   @override
   Widget build(BuildContext context) {
+    TextEditingController nameController = new TextEditingController();
     TextEditingController emailController = new TextEditingController();
     TextEditingController passwordController = new TextEditingController();
+    TextEditingController confirmController = new TextEditingController();
+    bool cuidadorController = false;
+    bool pacienteController = false;
 
     return Scaffold(
       backgroundColor: AppController.instance.mainColor,
@@ -46,11 +50,11 @@ class RegisterViewState extends State<RegisterView> {
               child:  Image.asset('assets/images/theme.png',height: 100),
             ),
 
-            DefaultTextField(haveFrame: false, title: 'Nome: ', myResult: emailController,),
+            DefaultTextField(haveFrame: false, title: 'Nome: ', myResult: nameController,),
             DefaultTextField(haveFrame: false, title: 'Email: ', myResult: emailController,),
-            DefaultTextField(haveFrame: false, title: 'Senha: ', myResult: emailController,),
-            DefaultTextField(haveFrame: false, title: 'Confirmar senha: ', myResult: emailController,),
-            DefaultMarkBox(title: "Cuidador: ",color: Colors.green,),
+            DefaultTextField(haveFrame: false, title: 'Senha: ', myResult: passwordController,),
+            DefaultTextField(haveFrame: false, title: 'Confirmar senha: ', myResult: confirmController,),
+            DefaultMarkBox(title: "Cuidador: ",color: Colors.green,myController: cuidadorController),
 
             Container(
               width: double.infinity,
@@ -62,7 +66,7 @@ class RegisterViewState extends State<RegisterView> {
                   ),
                 ),
               ),
-              child: DefaultMarkBox(title: "Paciente:",color: Colors.red,),
+              child: DefaultMarkBox(title: "Paciente:",color: Colors.red,myController: pacienteController,),
             ),
             Container(height: 10,),
             DefaultButton(color: Color.fromRGBO(173, 216, 230, 1), title: 'Cadastrar-se', response: () { Navigator.of(context).pushNamed('/patients'); }, enableBounds: true, bounds: {250.0:50.0},),

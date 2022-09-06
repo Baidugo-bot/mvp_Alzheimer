@@ -19,9 +19,10 @@ class RegisterPatientView extends StatefulWidget {
 class RegisterPatientViewState extends State<RegisterPatientView> {
   @override
   Widget build(BuildContext context) {
-    TextEditingController emailController = new TextEditingController();
-    TextEditingController passwordController = new TextEditingController();
-
+    TextEditingController nameController = new TextEditingController();
+    TextEditingController dateController = new TextEditingController();
+    TextEditingController diseaseController = new TextEditingController();
+    TextEditingController casesController = new TextEditingController();
     return Scaffold(
       backgroundColor: AppController.instance.mainColor,
       appBar: AppBar(
@@ -44,9 +45,9 @@ class RegisterPatientViewState extends State<RegisterPatientView> {
               child:  Image.asset('assets/images/theme.png',height: 100),
             ),
 
-            DefaultTextField(haveFrame: false, title: 'Nome: ', myResult: emailController,),
-            DefaultTextField(haveFrame: false, title: 'Data de Nascimento: ', myResult: emailController,),
-            DefaultTextField(haveFrame: false, title: 'Doença: ', myResult: emailController,),
+            DefaultTextField(haveFrame: false, title: 'Nome: ', myResult: nameController,),
+            DefaultTextField(haveFrame: false, title: 'Data de Nascimento: ', myResult: dateController,),
+            DefaultTextField(haveFrame: false, title: 'Doença: ', myResult: diseaseController,),
 
 
             Container(
@@ -59,7 +60,7 @@ class RegisterPatientViewState extends State<RegisterPatientView> {
                   ),
                 ),
               ),
-              child: DefaultTextField(haveFrame: false, title: 'Casos Especiais: ', myResult: emailController,),
+              child: DefaultTextField(haveFrame: false, title: 'Casos Especiais: ', myResult: casesController,),
             ),
             Container(height: 100,),
             DefaultButton(color: Color.fromRGBO(173, 216, 230, 1), title: 'Salvar', response: () { Navigator.of(context).pushNamed('/patients'); }, enableBounds: true, bounds: {125.0:50.0},),
