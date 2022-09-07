@@ -20,6 +20,7 @@ class AddMemoryViewState extends State<AddMemoryView> {
     TextEditingController descController = new TextEditingController();
     ImageProvider<Object> imageController = AssetImage("assets/images/imagemEscolha.png");
     DateTime dateController = DateTime.now();
+    print(imageController);
     return Scaffold(
       backgroundColor: AppController.instance.mainColor,
       appBar: AppBar(
