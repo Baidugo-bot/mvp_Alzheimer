@@ -64,7 +64,9 @@ class _MyHomePageState extends State<MyHomePage> {
                 Positioned(
                   child: Container(
                     child: IconButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.pushNamed(context, '/profile');
+                      },
                       color: Colors.black,
                       icon: Icon(
                         Icons.account_circle_outlined,
@@ -145,7 +147,10 @@ class _MyHomePageState extends State<MyHomePage> {
                     primary: Colors.lightBlue,
                     padding: EdgeInsets.all(15.0),
                   ),
-                  onPressed: () {},
+                  onPressed: () {
+                        Navigator.pushNamed(context, '/family');
+
+                  },
                   child: Ink.image(
                     image: AssetImage("assets/icons/Familia.png"),
                     height: 58,

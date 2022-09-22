@@ -1,35 +1,36 @@
 import 'package:flutter/material.dart';
-import 'package:projeto_estudo/src/controller/ProfileController.dart';
-import 'package:projeto_estudo/src/components/ProfileComponents.dart';
+import 'package:projeto_estudo/src/controller/FamilyController.dart';
+import 'package:projeto_estudo/src/components/FamilyComponents.dart';
 import 'package:image_picker/image_picker.dart';
 
-class EditProfile extends StatefulWidget {
+class AddFamily extends StatefulWidget {
   @override
-  State<EditProfile> createState() => EditProfileState();
+  State<AddFamily> createState() => AddFamilyState();
 }
 
-class EditProfileState extends State<EditProfile> {
+class AddFamilyState extends State<AddFamily> {
   TextEditingController txtNome = TextEditingController();
+  TextEditingController txtParentesco = TextEditingController();
   DateTime dataController = DateTime.now();
 
   void Salvar() {
     String nome;
+    String parentesco;
     int data;
 
+
     setState(() {
-      ProfileController.instance.nome = txtNome.text;
-      ProfileController.instance.dataNasc = dataController;
-      ProfileController.instance.image =
-          ProfileController.instance.imagemTemporaria;
-      Navigator.pushNamed(context, '/profile');
+      FamilyController.instance.nome = txtNome.text;
+      FamilyController.instance.parentesco = txtParentesco.text;
+      FamilyController.instance.dataNasc = dataController;
+      FamilyController.instance.image =
+          FamilyController.instance.imagemTemporaria;
+      Navigator.pushNamed(context, '/Family');
     });
   }
 
   @override
   Widget build(BuildContext context) {
-    final ImagePicker picker = ImagePicker();
-    XFile? Img;
-
     return Scaffold(
       backgroundColor: Colors.lightBlue,
       appBar: AppBar(
@@ -37,6 +38,7 @@ class EditProfileState extends State<EditProfile> {
         title: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
+
 //botão volta menu principal
             InkWell(
               onTap: () {
@@ -48,16 +50,18 @@ class EditProfileState extends State<EditProfile> {
                 size: 50.0,
               ),
             ),
-            Text(" Editar Perfil"),
+            Text(" Cadastrar Familiar"),
           ],
         ),
       ),
+
       body: Container(
         padding: EdgeInsets.only(top: 60, left: 40, right: 40),
         color: Colors.black12,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
+
 //container pega imagen
             Container(
               padding: EdgeInsets.only(bottom: 10),
@@ -66,38 +70,44 @@ class EditProfileState extends State<EditProfile> {
                 border: Border(),
               ),
             ),
-            Text(
-              "Escolha uma imagen da galeria",
-              style: TextStyle(
-                fontSize: 24,
-               
-              ),
-            ),
-            // //ImagePickerContainer(
-            //     imageController: ProfileController.instance.image),
+            // ImagePickerContainer(
+            //     imageController: FamilyController.instance.image),
 
 //campo nome do usuario
             TextField(
               controller: txtNome,
               decoration: InputDecoration(
                   labelText: 'Nome',
-                  hintStyle: TextStyle(color: Color.fromARGB(255, 255, 255, 255)),
+                  hintStyle:
+                      TextStyle(color: Color.fromARGB(255, 255, 255, 255)),
                   border: OutlineInputBorder()),
             ),
+
+//campo nome do Parentesco
+            TextField(
+              controller: txtParentesco,
+              decoration: InputDecoration(
+                  labelText: 'Parentesco',
+                  hintStyle:
+                      TextStyle(color: Color.fromARGB(255, 255, 255, 255)),
+                  border: OutlineInputBorder()),
+            ),
+
 //campo calendario nacimento
             DateBorderedField(
               onChangeFunction: (DateTime date) {
                 dataController = date;
               },
             ),
-//campo data
-            // TextField(
-            //   keyboardType: TextInputType.datetime,
-            //   decoration: InputDecoration(
-            //       labelText: 'Idade',
-            //       hintStyle: TextStyle(color: Colors.black),
-            //       border: OutlineInputBorder()),
-            // ),
+            
+//campo telefone
+            TextField(
+              keyboardType: TextInputType.number,
+              decoration: InputDecoration(
+                  labelText: 'Idade',
+                  hintStyle: TextStyle(color: Colors.black),
+                  border: OutlineInputBorder()),
+            ),
 //função salvar
             RaisedButton(
                 child: Text(
@@ -112,11 +122,5 @@ class EditProfileState extends State<EditProfile> {
     );
   }
 }
-//  _getFromGallery()  {
-    
-//     if (pickedFile != null) {
-//       setState(() {
-//         imageFile = File(pickedFile.path);
-//       });
-//     }
-//   }
+
+
