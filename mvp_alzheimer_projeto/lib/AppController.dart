@@ -1,6 +1,7 @@
 
 import 'package:flutter/material.dart';
-
+import 'package:flutter_slidable/flutter_slidable.dart';
+import 'package:projeto_estudo/src/controller/ProfileController.dart';
 
 class AppController extends ChangeNotifier{
   static AppController instance = AppController();
@@ -12,6 +13,10 @@ class AppController extends ChangeNotifier{
 
 
 
+  Profile profile = Profile();
+  
+  
+  
 
   void addMemory() {
       memories.add(
