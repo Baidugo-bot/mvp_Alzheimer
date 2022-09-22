@@ -5,7 +5,7 @@ import 'package:projeto_estudo/src/views/ReminderView.dart';
 import 'package:projeto_estudo/src/views/FamilyView.dart';
 import 'package:projeto_estudo/src/views/ProfileView.dart';
 import 'package:projeto_estudo/src/views/EditProfileView.dart';
-import 'package:projeto_estudo/src/views/AddFamilyView.dart';
+import 'package:projeto_estudo/src/views/AddFamily.dart';
 import 'AppController.dart';
 import 'MyHomePage.dart';
 
@@ -34,9 +34,10 @@ class MyApp extends StatelessWidget {
             '/seeReminder': (context) => MyHomePage(title: '',),
             '/configurations': (context) =>  ConfigurationsView(),
             '/family': (context) => FamilyView(),
-            '/addFamily':(context) => AddFamilyView(),
+            '/addFamily':(context) => AddFamily(),
             '/addperson': (context) => MyHomePage(title: '',),
-            '/editperson': (context) => MyHomePage(title: '',),
+            '/editperso/n': (context) 
+            => MyHomePage(title: '',),
             '/profile': (context) =>  ProfileView(),
             '/editProfile': (context) =>  EditProfile(),
             '/localization': (context) => MyHomePage(title: '',),

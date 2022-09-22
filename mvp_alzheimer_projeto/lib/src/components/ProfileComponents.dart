@@ -7,40 +7,40 @@ import 'package:image_picker/image_picker.dart';
 
 import 'package:projeto_estudo/src/controller/ProfileController.dart';
 
-class ImagePickerContainer extends StatefulWidget {
-  ImageProvider<Object> imageController;
-  ImagePickerContainer({Key? key, required this.imageController})
-      : super(key: key);
+// class ImagePickerContainer extends StatefulWidget {
+//   ImageProvider<Object> imageController;
+//   ImagePickerContainer({Key? key, required this.imageController})
+//       : super(key: key);
 
-  @override
-  ImagePickerContainerState createState() => ImagePickerContainerState();
-}
+//   @override
+//   //ImagePickerContainerState createState() => ImagePickerContainerState();
+// }
 
-class ImagePickerContainerState extends State<ImagePickerContainer> {
-  @override
-  Future getImage() async {
-    ImagePicker picker = new ImagePicker();
-    var image = await picker.pickImage(source: ImageSource.gallery);
-    ProfileController.instance.imagemTemporaria = FileImage(File(image!.path));
-    setState(() {
-      widget.imageController = FileImage(File(image!.path));
-    });
-  }
+// class ImagePickerContainerState extends State<ImagePickerContainer> {
+//   @override
+//   Future getImage() async {
+//     ImagePicker picker = new ImagePicker();
+//     var image = await picker.pickImage(source: ImageSource.gallery);
+//     ProfileController.instance.imagemTemporaria = FileImage(File(image!.path));
+//     setState(() {
+//       widget.imageController = FileImage(File(image!.path));
+//     });
+//   }
 
-  Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () async {
-        await getImage();
-      },
-      child: Container(
-        child: Image(
-          image: widget.imageController,
-          height: 250,
-        ),
-      ),
-    );
-  }
-}
+//   Widget build(BuildContext context) {
+//     return GestureDetector(
+//       onTap: () async {
+//         await getImage();
+//       },
+//       child: Container(
+//         child: Image(
+//           image: widget.imageController,
+//           height: 250,
+//         ),
+//       ),
+//     );
+//   }
+// }
 
 class DateBorderedField extends StatefulWidget {
   Function(DateTime) onChangeFunction = (DateTime date) {};

@@ -73,8 +73,8 @@ class EditProfileState extends State<EditProfile> {
                
               ),
             ),
-            ImagePickerContainer(
-                imageController: ProfileController.instance.image),
+            // //ImagePickerContainer(
+            //     imageController: ProfileController.instance.image),
 
 //campo nome do usuario
             TextField(

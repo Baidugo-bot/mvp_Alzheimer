@@ -3,12 +3,12 @@ import 'package:projeto_estudo/src/controller/FamilyController.dart';
 import 'package:projeto_estudo/src/components/FamilyComponents.dart';
 import 'package:image_picker/image_picker.dart';
 
-class AddFamilyView extends StatefulWidget {
+class AddFamily extends StatefulWidget {
   @override
-  State<AddFamilyView> createState() => AddFamilyState();
+  State<AddFamily> createState() => AddFamilyState();
 }
 
-class AddFamilyState extends State<AddFamilyView> {
+class AddFamilyState extends State<AddFamily> {
   TextEditingController txtNome = TextEditingController();
   TextEditingController txtParentesco = TextEditingController();
   DateTime dataController = DateTime.now();
@@ -70,8 +70,8 @@ class AddFamilyState extends State<AddFamilyView> {
                 border: Border(),
               ),
             ),
-            ImagePickerContainer(
-                imageController: FamilyController.instance.image),
+            // ImagePickerContainer(
+            //     imageController: FamilyController.instance.image),
 
 //campo nome do usuario
             TextField(
@@ -122,3 +122,5 @@ class AddFamilyState extends State<AddFamilyView> {
     );
   }
 }
+
+
