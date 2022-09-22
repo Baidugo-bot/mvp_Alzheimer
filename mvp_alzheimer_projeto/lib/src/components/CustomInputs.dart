@@ -1,23 +1,21 @@
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
 
 import 'package:bordered_text/bordered_text.dart';
-import 'package:date_field/date_field.dart';
+import 'package:flutter/material.dart';
 
-class BorderedTextField extends StatefulWidget {
+class DefaultTextField extends StatefulWidget {
   String title;
   bool haveFrame;
   TextEditingController myResult;
   bool beenChanged= false;
-   //Funtion(String) onChanged;//on both
-  BorderedTextField({Key? key, required this.title, required this.haveFrame, required this.myResult,}) : super(key: key);
+  //Funtion(String) onChanged;//on both
+  DefaultTextField({Key? key, required this.title, required this.haveFrame, required this.myResult,}) : super(key: key);
 
 
   @override
-  BorderedTextFieldState createState() => BorderedTextFieldState();
+  DefaultTextFieldState createState() => DefaultTextFieldState();
 }
 
-class BorderedTextFieldState extends State<BorderedTextField> {
+class DefaultTextFieldState extends State<DefaultTextField> {
 
 
   @override
@@ -43,6 +41,7 @@ class BorderedTextFieldState extends State<BorderedTextField> {
             children: [
               Container(width: 10,),
               Expanded(
+
                 child: Container(
                   height: 100,
                   color: Colors.white,
@@ -77,7 +76,7 @@ class BorderedTextFieldState extends State<BorderedTextField> {
           Expanded(
             child: Container(
               child: TextField(
-                style: TextStyle(color: Colors.black,fontFamily: "Gidugu-Regular"),
+                style: TextStyle(color: Colors.white,fontFamily: "Gidugu-Regular"),
                 controller: widget.myResult  ,
                 //onChanged: ,
                 keyboardType: TextInputType.multiline,
@@ -94,50 +93,32 @@ class BorderedTextFieldState extends State<BorderedTextField> {
   }
 }
 
-class DateBorderedField extends StatefulWidget {
-  Function(DateTime) onChangeFunction = (DateTime date){};
-  DateBorderedField({Key? key, required this.onChangeFunction}) : super(key: key);
+class DefaultMarkBox extends StatefulWidget {
+  String title;
+  Color color;
+  bool myController;
+  //Funtion(String) onChanged;//on both
+  DefaultMarkBox({Key? key, required this.title,required this.color,required this.myController}) : super(key: key);
+
 
   @override
-  DateBorderedFieldState createState() => DateBorderedFieldState();
+  DefaultMarkBoxState createState() => DefaultMarkBoxState();
 }
 
-class DateBorderedFieldState extends State<DateBorderedField> {
+class DefaultMarkBoxState extends State<DefaultMarkBox> {
+
+
   @override
   Widget build(BuildContext context) {
-    DateTime holderDate = DateTime.now();
-
-    return Container(
-      decoration: BoxDecoration(
-        border: Border(
-          bottom: BorderSide(width: 2, color: Colors.grey),
+    return Row(
+      children: [
+        BorderedText(
+            strokeWidth: 3,
+            strokeColor: widget.color,
+            child: Text(widget.title)
         ),
-      ),
-      child: Row(
-        children: [
-          BorderedText(
-            strokeColor: Colors.black26,
-            strokeWidth: 2,
-            child: Text("Data:",style: TextStyle(fontSize: 20,fontFamily: "Gidugu-Regular"),),
-          ),
-          Container(
-
-            width: 200,
-            child: DateTimeFormField(
-                onDateSelected: (DateTime date){
-                  widget.onChangeFunction(date);
-                },
-                mode: DateTimeFieldPickerMode.date,
-                initialDate: holderDate,
-                dateTextStyle: TextStyle(color: Colors.black,fontFamily: "Gidugu-Regular"),
-
-                decoration: InputDecoration(
-                    border: InputBorder.none
-                ),
-              ),
-          ),
-        ],
-      ),
+        Checkbox(value: widget.myController, onChanged: (value){widget.myController = !widget.myController;})
+      ],
     );
   }
 }

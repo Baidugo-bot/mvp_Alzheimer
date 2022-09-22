@@ -29,8 +29,21 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  flutter_slidable: ^1.2.0
+  bordered_text: ^2.0.0
   jiffy: ^5.0.0
+
+  date_field: ^3.0.0
+  image_picker: ^0.8.5
+  permission_handler: ^9.2.0
+  flutter_map: #latest version
+  latlong2: ^0.8.1
+  geolocator: #latest version
+  geocoding:  #latest version
+  qr_flutter: ^4.0.0
+  flutter_barcode_scanner: #latest version
+  http: #latest version
+
+
   image_picker: ^0.8.1
   bordered_text: ^2.0.0
   date_field: ^3.0.0
@@ -40,6 +53,7 @@ dependencies:
   geolocator:
   geocoding:
   loading_overlay: ^0.3.0
+
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -70,10 +84,14 @@ flutter:
   uses-material-design: true
   assets:
     - assets/images/pelezin.jpg
+    - assets/images/theme.png
+    - assets/images/imagemEscolha.png
+    - assets/fonts/Gidugu-Regular.ttf
     - assets/icons/Memoria.png
     - assets/icons/Familia.png
     - assets/icons/Mapa.png
     - assets/icons/Remedio.png
+
 
   # To add assets to your application, add an assets section, like this:
   # assets:
