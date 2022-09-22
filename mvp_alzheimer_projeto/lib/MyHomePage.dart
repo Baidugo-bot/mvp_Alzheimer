@@ -23,17 +23,44 @@ class _MyHomePageState extends State<MyHomePage> {
   final defaultPadding = 20.0;
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      // map dos botoes
-      backgroundColor: Colors.lightBlue,
+    return Scaffold(// map dos botoes
+      backgroundColor: AppController.instance.mainColor,
       appBar: AppBar(
-        title: Center(child: Text("Menu")),
+        backgroundColor: AppController.instance.mainColor,
+        title: Center(child: Text("Dia "+myInstance.now.day.toString()+" - "+ Jiffy(myInstance.now).EEEE.toString())),
       ),
       body: SizedBox(
         child: Column(
           children: [
+
+            CircleAvatar(
+              backgroundImage: AssetImage('assets/images/pelezin.jpg'),
+              radius: 40,
+            ),
+            Text("Pele",style: TextStyle(fontSize: 20),),
+            Text("Nascimento: 05/10/2001",style: TextStyle(fontSize: 20),),
+            Text("Idade: 35 anos",style: TextStyle(fontSize: 20),),
+            Container(height: 80,),
             Row(
               children: [
+                ElevatedButton(
+                  style: style,
+                  onPressed: () {
+                    Navigator.of(context).pushNamed('/login');
+                    print("teste");
+                  },
+                  child: Text("Login",style: TextStyle(color: Colors.black),),
+
+
+                ),
+                Container(width: defaultPadding,),
+                ElevatedButton(
+                  style: style,
+                  onPressed: () {
+                    Navigator.of(context).pushNamed('/memories');
+                    print("teste");
+                  },
+                  child: Text("MEMORIA",style: TextStyle(color: Colors.black),),
                 Positioned(
                   child: Container(
                     child: IconButton(
@@ -132,40 +159,18 @@ class _MyHomePageState extends State<MyHomePage> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    primary: Colors.lightBlue,
-                    padding: EdgeInsets.all(15.0),
-                  ),
-                  onPressed: () {},
-                  child: Ink.image(
-                    image: AssetImage("assets/icons/Mapa.png"),
-                    height: 58,
-                    width: 58,
-                  ),
+                  style: ElevatedButton.styleFrom(primary: Colors.white,fixedSize: Size(260, 70) ),
+                  onPressed: () {
+                    Navigator.of(context).pushNamed('/localizationMenu');
+                    print("teste");
+                  },
+                  child: Text("LOCALIZACAO",style: TextStyle(color: Colors.black),),
                 ),
               ],
             ),
           ],
         ),
       ),
-      /*     floatingActionButton:  Container(
-         height: 90.0,
-         width: 90.0,
-  
-         child: FloatingActionButton(
-           shape: BeveledRectangleBorder(
-               borderRadius: BorderRadius.zero
-           ),
-           backgroundColor: Colors.greenAccent,
-           onPressed: () {
-  
-           },
-           child: Text('''+ Adicionar
-   lembretes
-           '''),
-  
-         ),
-       ), */
     );
   }
 }

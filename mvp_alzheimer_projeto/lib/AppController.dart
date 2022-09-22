@@ -1,6 +1,4 @@
 
-import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:projeto_estudo/src/controller/ProfileController.dart';
@@ -10,6 +8,11 @@ class AppController extends ChangeNotifier{
   List<Widget> memories = <Widget>[];
   DateTime now = DateTime.now().toUtc();
   int counter = 0;
+  Color mainColor = Color.fromRGBO(121,188,218, 1) ;
+
+
+
+
   Profile profile = Profile();
   
   
@@ -22,5 +25,7 @@ class AppController extends ChangeNotifier{
       counter++;
       notifyListeners();
   }
+
+
 
 }
