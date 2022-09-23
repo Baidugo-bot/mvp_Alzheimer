@@ -18,14 +18,12 @@ class AddFamilyState extends State<AddFamily> {
     String parentesco;
     int data;
 
-
     setState(() {
       FamilyController.instance.nome = txtNome.text;
       FamilyController.instance.parentesco = txtParentesco.text;
       FamilyController.instance.dataNasc = dataController;
       FamilyController.instance.image =
           FamilyController.instance.imagemTemporaria;
-      Navigator.pushNamed(context, '/Family');
     });
   }
 
@@ -38,30 +36,27 @@ class AddFamilyState extends State<AddFamily> {
         title: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-
 //botão volta menu principal
             InkWell(
               onTap: () {
-                Navigator.pushNamed(context, '/profile');
+                Navigator.pushNamed(context, '/family');
               },
               child: Icon(
                 Icons.keyboard_return,
                 color: Color.fromARGB(255, 255, 255, 255),
-                size: 50.0,
+                size: 40.0,
               ),
             ),
             Text(" Cadastrar Familiar"),
           ],
         ),
       ),
-
       body: Container(
         padding: EdgeInsets.only(top: 60, left: 40, right: 40),
         color: Colors.black12,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-
 //container pega imagen
             Container(
               padding: EdgeInsets.only(bottom: 10),
@@ -99,7 +94,7 @@ class AddFamilyState extends State<AddFamily> {
                 dataController = date;
               },
             ),
-            
+
 //campo telefone
             TextField(
               keyboardType: TextInputType.number,
@@ -109,18 +104,21 @@ class AddFamilyState extends State<AddFamily> {
                   border: OutlineInputBorder()),
             ),
 //função salvar
-            RaisedButton(
-                child: Text(
-                  "salvar",
-                  style: TextStyle(color: Colors.black, fontSize: 20),
-                ),
-                color: Color.fromARGB(255, 19, 117, 121),
-                onPressed: Salvar),
+            InkWell(
+              child: Text(
+                "salvar",
+                style: TextStyle(color: Colors.black, fontSize: 20),
+              ),
+              // color: Color.fromARGB(255, 19, 117, 121),
+              // onPressed: Salvar),
+              onTap: () {
+                Salvar();
+                Navigator.pushNamed(context, '/');
+              },
+            ),
           ],
         ),
       ),
     );
   }
 }
-
-

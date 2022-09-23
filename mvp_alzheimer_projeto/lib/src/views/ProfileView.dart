@@ -32,7 +32,7 @@ class _ProfileViewState extends State<ProfileView> {
 //botão volta menu principal
             InkWell(
               onTap: () {
-                Navigator.pushNamed(context, '/');
+                Navigator.pushNamed(context, '/addFamily');
               },
               child: Icon(
                 Icons.keyboard_return,
