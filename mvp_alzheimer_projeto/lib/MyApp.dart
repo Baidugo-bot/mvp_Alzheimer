@@ -55,7 +55,7 @@ class MyApp extends StatelessWidget {
             '/addperson': (context) => MyHomePage(title: '',),
             '/editperson': (context) => MyHomePage(title: '',),
             '/profile': (context) =>  ProfileView(),
-            '/editprofile': (context) =>  MyHomePage(title: ''),
+            '/editProfile': (context) =>  EditProfile(),
             '/localization': (context) => LocalizationView(title: '',),
             '/localizationMenu': (context) => MenuLocalizationView(title: '',),
             '/patients': (context) => PatientsView(),

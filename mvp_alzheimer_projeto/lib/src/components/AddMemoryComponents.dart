@@ -24,7 +24,7 @@ class ImagePickerContainerState extends State<ImagePickerContainer> {
 
     setState(() {
       print(image!.path);
-      widget.imageController =   FileImage(File(image!.path));
+      widget.imageController =   FileImage(File(image.path));
       print(widget.imageController);
     });
   }

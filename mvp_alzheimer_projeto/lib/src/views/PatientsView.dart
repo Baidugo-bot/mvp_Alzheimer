@@ -38,7 +38,7 @@ class PatientsViewState extends State<PatientsView> {
             child: DefaultButton(
               color: Color.fromRGBO(173, 216, 230, 1),
               title: 'Paciente '+number.toString(),
-              response: () { Navigator.of(context).pushNamed('/patients'); },
+              response: () { Navigator.of(context).pushNamed('/'); },
               enableBounds: true,
               bounds: {310.0:50.0},),
           ),

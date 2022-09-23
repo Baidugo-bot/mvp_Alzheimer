@@ -52,12 +52,11 @@ class EditProfileState extends State<EditProfile> {
           ],
         ),
       ),
-      body: Container(
-        padding: EdgeInsets.only(top: 60, left: 40, right: 40),
-        color: Colors.black12,
+      body: SingleChildScrollView(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
+            Container(height: 130,),
 //container pega imagen
             Container(
               padding: EdgeInsets.only(bottom: 10),
@@ -67,7 +66,7 @@ class EditProfileState extends State<EditProfile> {
               ),
             ),
             Text(
-              "Escolha uma imagen da galeria",
+              "Escolha uma imagem da galeria",
               style: TextStyle(
                 fontSize: 24,
                

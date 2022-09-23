@@ -51,12 +51,13 @@ class AddFamilyState extends State<AddFamily> {
           ],
         ),
       ),
-      body: Container(
-        padding: EdgeInsets.only(top: 60, left: 40, right: 40),
-        color: Colors.black12,
+      body: SingleChildScrollView(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
+          children:
+
+          [
+            Container(height: 100,),
 //container pega imagen
             Container(
               padding: EdgeInsets.only(bottom: 10),

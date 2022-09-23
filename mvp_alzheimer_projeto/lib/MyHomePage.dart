@@ -7,6 +7,8 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:jiffy/jiffy.dart';
 
+import 'package:projeto_estudo/MyApp.dart';
+
 class MyHomePage extends StatefulWidget {
   const MyHomePage({Key? key, required this.title}) : super(key: key);
 
@@ -18,54 +20,27 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   final style =
-      ElevatedButton.styleFrom(primary: Colors.white, fixedSize: Size(120, 70));
+  ElevatedButton.styleFrom(primary: Colors.white, fixedSize: Size(120, 70));
   //light style theme =
   final defaultPadding = 20.0;
   @override
   Widget build(BuildContext context) {
-    return Scaffold(// map dos botoes
-      backgroundColor: AppController.instance.mainColor,
+    return Scaffold(
+      // map dos botoes
+      backgroundColor: Colors.lightBlue,
       appBar: AppBar(
-        backgroundColor: AppController.instance.mainColor,
-        title: Center(child: Text("Dia "+myInstance.now.day.toString()+" - "+ Jiffy(myInstance.now).EEEE.toString())),
+        title: Center(child: Text("Menu")),
       ),
       body: SizedBox(
         child: Column(
           children: [
-
-            CircleAvatar(
-              backgroundImage: AssetImage('assets/images/pelezin.jpg'),
-              radius: 40,
-            ),
-            Text("Pele",style: TextStyle(fontSize: 20),),
-            Text("Nascimento: 05/10/2001",style: TextStyle(fontSize: 20),),
-            Text("Idade: 35 anos",style: TextStyle(fontSize: 20),),
-            Container(height: 80,),
             Row(
               children: [
-                ElevatedButton(
-                  style: style,
-                  onPressed: () {
-                    Navigator.of(context).pushNamed('/login');
-                    print("teste");
-                  },
-                  child: Text("Login",style: TextStyle(color: Colors.black),),
-
-
-                ),
-                Container(width: defaultPadding,),
-                ElevatedButton(
-                  style: style,
-                  onPressed: () {
-                    Navigator.of(context).pushNamed('/memories');
-                    print("teste");
-                  },
-                  child: Text("MEMORIA",style: TextStyle(color: Colors.black),),
                 Positioned(
                   child: Container(
                     child: IconButton(
                       onPressed: () {
-                        Navigator.pushNamed(context, '/profile');
+                        Navigator.of(context).pushNamed('/profile');
                       },
                       color: Colors.black,
                       icon: Icon(
@@ -79,14 +54,14 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             CircleAvatar(
               backgroundColor: Colors.white,
-              radius: 85,
+              radius: 60,
               child: CircleAvatar(
                 radius: 80,
                 backgroundImage: AssetImage('assets/images/pelezin.jpg'),
               ),
             ),
             Container(
-              height: 10,
+              height: 5,
             ),
             Text(
               "Pele",
@@ -95,21 +70,21 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
             ),
             Container(
-              height: 10,
+              height: 5,
             ),
             Text(
               "Nascimento: 05/10/2001",
               style: TextStyle(fontSize: 24),
             ),
             Container(
-              height: 10,
+              height: 5,
             ),
             Text(
               "Idade: 35 anos",
               style: TextStyle(fontSize: 24),
             ),
             Container(
-              height: 50,
+              height: 30,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -117,7 +92,9 @@ class _MyHomePageState extends State<MyHomePage> {
                 ElevatedButton(
                   style: ElevatedButton.styleFrom(
                       primary: Colors.lightBlue, padding: EdgeInsets.all(15.0)),
-                  onPressed: () {},
+                  onPressed: () {
+
+                  },
                   child: Ink.image(
                     image: AssetImage("assets/icons/Remedio.png"),
                     height: 58,
@@ -132,7 +109,9 @@ class _MyHomePageState extends State<MyHomePage> {
                     padding: EdgeInsets.all(15.0),
                     primary: Colors.lightBlue,
                   ),
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.of(context).pushNamed('/memories');
+                  },
                   child: Ink.image(
                     image: AssetImage("assets/icons/Memoria.png"),
                     height: 58,
@@ -148,8 +127,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     padding: EdgeInsets.all(15.0),
                   ),
                   onPressed: () {
-                        Navigator.pushNamed(context, '/family');
-
+                    Navigator.of(context).pushNamed('/family');
                   },
                   child: Ink.image(
                     image: AssetImage("assets/icons/Familia.png"),
@@ -159,23 +137,47 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
               ],
             ),
-            Container(height: 10),
+            Container(height: 5),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 ElevatedButton(
-                  style: ElevatedButton.styleFrom(primary: Colors.white,fixedSize: Size(260, 70) ),
+                  style: ElevatedButton.styleFrom(
+                    primary: Colors.lightBlue,
+                    padding: EdgeInsets.all(15.0),
+                  ),
                   onPressed: () {
-                    Navigator.of(context).pushNamed('/localizationMenu');
-                    print("teste");
+                    Navigator.of(context).pushNamed('/login');
                   },
-                  child: Text("LOCALIZACAO",style: TextStyle(color: Colors.black),),
+                  child: Ink.image(
+                    image: AssetImage("assets/icons/Mapa.png"),
+                    height: 58,
+                    width: 58,
+                  ),
                 ),
               ],
             ),
           ],
         ),
       ),
+      /*     floatingActionButton:  Container(
+         height: 90.0,
+         width: 90.0,
+
+         child: FloatingActionButton(
+           shape: BeveledRectangleBorder(
+               borderRadius: BorderRadius.zero
+           ),
+           backgroundColor: Colors.greenAccent,
+           onPressed: () {
+
+           },
+           child: Text('''+ Adicionar
+   lembretes
+           '''),
+
+         ),
+       ), */
     );
   }
 }
