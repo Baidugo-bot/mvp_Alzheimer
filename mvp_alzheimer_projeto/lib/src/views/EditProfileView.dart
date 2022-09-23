@@ -110,6 +110,8 @@ class EditProfileState extends State<EditProfile> {
       ),
     );
   }
+  
+  RaisedButton({required Text child, required Color color, required void Function() onPressed}) {}
 }
 //  _getFromGallery()  {
     
