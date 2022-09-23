@@ -1,22 +1,28 @@
 import 'package:flutter/material.dart';
+import 'package:jiffy/jiffy.dart';
+//
+import 'package:projeto_estudo/src/controller/FamilyController.dart';
+import 'package:projeto_estudo/src/views/AddFamily.dart';
 
 class FamilyView extends StatelessWidget {
-  String nome = "";
-  int data = 0;
   @override
   Widget build(BuildContext context) {
     debugShowCheckedModeBanner:
     false;
+  
     return Tela();
+
   }
 }
 
-class Tela extends StatelessWidget {
+ class Tela extends StatelessWidget {
+  int cont = 0;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.red,
+        backgroundColor: Colors.lightBlue,
         elevation: 0,
         centerTitle: true,
         automaticallyImplyLeading: false,
@@ -31,7 +37,7 @@ class Tela extends StatelessWidget {
               child: Icon(
                 Icons.keyboard_return,
                 color: Color.fromARGB(255, 255, 255, 255),
-                size: 50.0,
+                size: 40.0,
               ),
             ),
             Text(
@@ -40,22 +46,20 @@ class Tela extends StatelessWidget {
                 fontSize: 30,
               ),
             ),
-//botão editar perfil
-            // InkWell(
-            //   onTap: () {
-            //     Navigator.pushNamed(context, '/addFamily');
-            //   },
-            //   child: Icon(
-            //     Icons.plus_one,
-            //     color: Color.fromARGB(255, 255, 255, 255),
-            //     size: 50.0,
-            //   ),
-            // ),
-//botao pesuisar
+//botão add perfil
             Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
-                  IconButton(icon: Icon(Icons.search), onPressed: () {}),
+                  IconButton(icon: Icon(Icons.add,size: 40.0,), onPressed: () {
+                        GestureDetector(
+                          onTap:() => cont++
+                        );
+                          Navigator.pushNamed(context, '/addFamily');
+
+                       
+                     
+                  }),
+                  
                 ]),
           ],
         ),
@@ -70,17 +74,24 @@ class Tela extends StatelessWidget {
 }
 
 class TopBar extends StatelessWidget {
-  const TopBar({Key? key}) : super(key: key);
+  final int contBox = 2;
+  const TopBar({Key? key,}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    DateTime agora = DateTime.now();
+     
+    print(
+        (agora.difference(FamilyController.instance.dataNasc).inDays / 365)
+            .toString()
+            .substring(0, 2));
     return Stack(
       children: <Widget>[
         Container(
           height: 50,
           alignment: Alignment.bottomCenter,
           width: MediaQuery.of(context).size.width,
-          color: Colors.red,
+          color: Colors.lightBlue,
         ),
         Padding(
           padding: EdgeInsets.only(top: 10),
@@ -94,105 +105,66 @@ class TopBar extends StatelessWidget {
             height: MediaQuery.of(context).size.height - 99,
             child: Column(
               children: <Widget>[
-                // Padding(
-                //   padding: EdgeInsets.only(top: 15, left: 20, right: 20),
-                //   child: Row(
-                //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                //     // children: <Widget>[
-                //     //   Text(
-                //     //     "favoritos",
-                //     //     style: TextStyle(color: Colors.black),
-                //     //   ),
-                //     //   IconButton(
-                //     //     icon: Icon(
-                //     //       Icons.more_vert,
-                //     //       color: Colors.black,
-                //     //     ),
-                //     //     onPressed: () {},
-                //     //   ),
-                //     // ],
-                //   ),
-                // ),
-                // Padding(
-                //   padding: EdgeInsets.only(left: 20, right: 20),
-                //   child: Container(
-                //     height: 60,
-                //     child: ListView.builder(
-                //       scrollDirection: Axis.horizontal,
-                //       itemCount: 10,
-                //       itemBuilder: (BuildContext context, index) {
-                //         return Container(
-                //           child: CircleAvatar(
-                //             radius: 35,
-                //             backgroundColor: Colors.red,
-                //             child: CircleAvatar(
-                //               backgroundColor: Colors.white,
-                //               radius: 28,
-                //               backgroundImage: NetworkImage(
-                //                   "https://loremflickr.com/320/32$index"),
-                //             ),
-                //           ),
-                //         );
-                //       },
-                //     ),
-                //   ),
-                // ),
+                Padding(
+                  padding: EdgeInsets.only(left: 25, right: 25),
+                  child: Container(
+                    height: MediaQuery.of(context).size.height - 150,
+                    child: ListView.builder(
+                      itemCount: contBox,
+                      itemBuilder: (BuildContext context, int index) {
+                        return Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: <Widget>[
+                            Padding(
+                              padding: EdgeInsets.all(8),
+                              child: Container(
+                                child: CircleAvatar(
+                                  radius: 30,
+                                  backgroundColor: Colors.white,
+                                  backgroundImage: NetworkImage(
+                                      "https://loremflickr.com/320/32$index"),
+                                ),
+                              ),
+                            ),
+                            Container(
+                              width: MediaQuery.of(context).size.width - 160,
+                              child: Column(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: <Widget>[
+                                  Text(
+                                    "Nome${FamilyController.instance.nome}",
+                                    style: TextStyle(
+                                      color: Colors.black,
+                                      fontSize: 20,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                  Text(
+                                    "Idade${(agora.difference(FamilyController.instance.dataNasc).inDays / 365).toString().substring(0, 2)}",
+                                    style: TextStyle(
+                                      color: Colors.black,
+                                      fontSize: 17,
+                                      overflow: TextOverflow.ellipsis,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            )
+                          ],
+                        );
+                      },
+                    ),
+                  ),
+                ),
               ],
             ),
           ),
         ),
         Padding(
           padding: EdgeInsets.only(top: 150, right: 5, left: 5, bottom: 10),
-          child: Container(
-            height: MediaQuery.of(context).size.height - 240,
-            child: ListView.builder(
-              itemCount: 10,
-              itemBuilder: (BuildContext context, int index) {
-                return Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: <Widget>[
-                    Padding(
-                      padding: EdgeInsets.all(8),
-                      child: Container(
-                        child: CircleAvatar(
-                          radius: 30,
-                          backgroundColor: Colors.white,
-                          backgroundImage: NetworkImage(
-                              "https://loremflickr.com/320/32$index"),
-                        ),
-                      ),
-                    ),
-                    Container(
-                      width: MediaQuery.of(context).size.width - 160,
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: <Widget>[
-                          Text(
-                            "Nome",
-                            style: TextStyle(
-                              color: Colors.black,
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                          Text(
-                            "Endereço da pessoa que esta nessa aba do perfel",
-                            style: TextStyle(
-                              color: Colors.black,
-                              fontSize: 17,
-                              overflow: TextOverflow.ellipsis,
-                            ),
-                          ),
-                        ],
-                      ),
-                    )
-                  ],
-                  
-                );
-              },
-            ),
-          ),
+          child: Container(),
         )
       ],
     );
