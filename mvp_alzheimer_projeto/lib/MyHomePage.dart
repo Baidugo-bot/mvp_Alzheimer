@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:jiffy/jiffy.dart';
-
 import 'package:projeto_estudo/MyApp.dart';
 
 class MyHomePage extends StatefulWidget {
@@ -19,7 +18,7 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   final style =
-  ElevatedButton.styleFrom(primary: Colors.white, fixedSize: Size(120, 70));
+      ElevatedButton.styleFrom(primary: Colors.white, fixedSize: Size(120, 70));
   //light style theme =
   final defaultPadding = 20.0;
   @override
@@ -29,7 +28,7 @@ class _MyHomePageState extends State<MyHomePage> {
       backgroundColor: Colors.lightBlue,
       appBar: AppBar(
         title: Center(child: Text("Menu")),
-      ), 
+      ),
       body: SizedBox(
         child: Column(
           children: [
@@ -91,9 +90,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 ElevatedButton(
                   style: ElevatedButton.styleFrom(
                       primary: Colors.lightBlue, padding: EdgeInsets.all(15.0)),
-                  onPressed: () {
-
-                  },
+                  onPressed: () {},
                   child: Ink.image(
                     image: AssetImage("assets/icons/Remedio.png"),
                     height: 58,

@@ -22,6 +22,7 @@ class MemoriesViewState extends State<MemoriesView> {
     return Scaffold(
       backgroundColor: Colors.lightBlue[100],
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         backgroundColor: AppController.instance.mainColor,
         title: Center(child: Text("Memorias",)),
       ),

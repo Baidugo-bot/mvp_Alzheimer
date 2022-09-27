@@ -49,8 +49,6 @@ class DefaultTextFieldState extends State<DefaultTextField> {
                     style: TextStyle(color: Colors.black,fontFamily: "Gidugu-Regular"),
                     controller: widget.myResult  ,
                     //onChanged: ,
-                    keyboardType: TextInputType.multiline,
-                    maxLines: null,
                     decoration: InputDecoration(
                       border: InputBorder.none,
 
@@ -79,8 +77,6 @@ class DefaultTextFieldState extends State<DefaultTextField> {
                 style: TextStyle(color: Colors.white,fontFamily: "Gidugu-Regular"),
                 controller: widget.myResult  ,
                 //onChanged: ,
-                keyboardType: TextInputType.multiline,
-                maxLines: null,
                 decoration: InputDecoration(
                   border: InputBorder.none,
                 ),

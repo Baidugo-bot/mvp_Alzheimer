@@ -47,14 +47,15 @@ class BorderedTextFieldState extends State<BorderedTextField> {
                   height: 100,
                   color: Colors.white,
                   child: TextField(
+                    
                     style: TextStyle(color: Colors.black,fontFamily: "Gidugu-Regular"),
                     controller: widget.myResult  ,
+                    
+
                     //onChanged: ,
-                    keyboardType: TextInputType.multiline,
-                    maxLines: null,
                     decoration: InputDecoration(
                       border: InputBorder.none,
-
+                      
                     ),
                   ),
                 ),
@@ -80,8 +81,7 @@ class BorderedTextFieldState extends State<BorderedTextField> {
                 style: TextStyle(color: Colors.black,fontFamily: "Gidugu-Regular"),
                 controller: widget.myResult  ,
                 //onChanged: ,
-                keyboardType: TextInputType.multiline,
-                maxLines: null,
+                
                 decoration: InputDecoration(
                   border: InputBorder.none,
                 ),

@@ -23,9 +23,10 @@ class ImagePickerContainerState extends State<ImagePickerContainer> {
     var image = await picker.pickImage(source: ImageSource.gallery);
 
     setState(() {
-      print(image!.path);
-      widget.imageController =   FileImage(File(image.path));
-      print(widget.imageController);
+      if(image!.path!=null){
+        widget.imageController =   FileImage(File(image!.path));
+      }
+      
     });
   }
 
