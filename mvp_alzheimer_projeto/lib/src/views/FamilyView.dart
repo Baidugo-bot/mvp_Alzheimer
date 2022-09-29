@@ -4,6 +4,8 @@ import 'package:jiffy/jiffy.dart';
 import 'package:projeto_estudo/src/controller/FamilyController.dart';
 import 'package:projeto_estudo/src/views/AddFamily.dart';
 
+import '../models/FamilyModel.dart';
+
 class FamilyView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -16,7 +18,7 @@ class FamilyView extends StatelessWidget {
 }
 
  class Tela extends StatelessWidget {
-  int cont = 0;
+   int contBox = 12;
 
   @override
   Widget build(BuildContext context) {
@@ -52,7 +54,7 @@ class FamilyView extends StatelessWidget {
                 children: <Widget>[
                   IconButton(icon: Icon(Icons.add,size: 40.0,), onPressed: () {
                         GestureDetector(
-                          onTap:() => cont++
+                          onTap:() => contBox++
                         );
                           Navigator.pushNamed(context, '/addFamily');
 
@@ -66,7 +68,7 @@ class FamilyView extends StatelessWidget {
       ),
       body: Column(
         children: <Widget>[
-          TopBar(),
+          TopBar(contBox: contBox),
         ],
       ),
     );
@@ -74,8 +76,9 @@ class FamilyView extends StatelessWidget {
 }
 
 class TopBar extends StatelessWidget {
-  final int contBox = 2;
-  const TopBar({Key? key,}) : super(key: key);
+  final int contBox;
+  
+  const TopBar({Key? key, this.contBox = 0}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -110,7 +113,7 @@ class TopBar extends StatelessWidget {
                   child: Container(
                     height: MediaQuery.of(context).size.height - 150,
                     child: ListView.builder(
-                      itemCount: contBox,
+                      itemCount: FamilyModel.instance.family.length,
                       itemBuilder: (BuildContext context, int index) {
                         return Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -134,7 +137,7 @@ class TopBar extends StatelessWidget {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: <Widget>[
                                   Text(
-                                    "Nome${FamilyController.instance.nome}",
+                                    "Nome${FamilyModel.instance.family[index].title}",
                                     style: TextStyle(
                                       color: Colors.black,
                                       fontSize: 20,
@@ -142,7 +145,15 @@ class TopBar extends StatelessWidget {
                                     ),
                                   ),
                                   Text(
-                                    "Idade${(agora.difference(FamilyController.instance.dataNasc).inDays / 365).toString().substring(0, 2)}",
+                                    "Idade${(agora.difference(FamilyModel.instance.family[index].date).inDays / 365).toString().substring(0, 2)}",
+                                    style: TextStyle(
+                                      color: Colors.black,
+                                      fontSize: 17,
+                                      overflow: TextOverflow.ellipsis,
+                                    ),
+                                  ),
+                                  Text(
+                                    "Telefone${(agora.difference(FamilyModel.instance.family[index].date).inDays / 365).toString().substring(0, 2)}",
                                     style: TextStyle(
                                       color: Colors.black,
                                       fontSize: 17,
