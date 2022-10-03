@@ -8,9 +8,10 @@ class FamilyModel{
 }
 
 class Family {
-   Family(  {Key? key, required this.title, required this.date}) ;
+   Family(  {Key? key, required this.title, required this.date, required this.Telephone}) ;
    String title ;
    DateTime date;
+   int Telephone;
   //  String description;
   //  int identifier;
   //  ImageProvider<Object> image;
@@ -27,6 +28,10 @@ class Family {
     return date;
   }
 
+  int getTelephone(){
+    return Telephone;
+  }
+
   // int getIdentifier(){
   //   return identifier;
   // }
@@ -38,6 +43,7 @@ class Family {
   void changeMemory(Family newFamily){
     this.title = newFamily.getTitle();
     this.date = newFamily.getDate();
+    this.Telephone = newFamily.getTelephone();
     //this.description = newFamily.getDescription();
   }
 

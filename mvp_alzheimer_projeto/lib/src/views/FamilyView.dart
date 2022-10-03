@@ -137,7 +137,7 @@ class TopBar extends StatelessWidget {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: <Widget>[
                                   Text(
-                                    "Nome${FamilyModel.instance.family[index].title}",
+                                    "Nome: ${FamilyModel.instance.family[index].title}",
                                     style: TextStyle(
                                       color: Colors.black,
                                       fontSize: 20,
@@ -145,7 +145,7 @@ class TopBar extends StatelessWidget {
                                     ),
                                   ),
                                   Text(
-                                    "Idade${(agora.difference(FamilyModel.instance.family[index].date).inDays / 365).toString().substring(0, 2)}",
+                                    "Idade: ${(agora.difference(FamilyModel.instance.family[index].date).inDays / 365).toString().substring(0, 2)}",
                                     style: TextStyle(
                                       color: Colors.black,
                                       fontSize: 17,
@@ -153,7 +153,7 @@ class TopBar extends StatelessWidget {
                                     ),
                                   ),
                                   Text(
-                                    "Telefone${(agora.difference(FamilyModel.instance.family[index].date).inDays / 365).toString().substring(0, 2)}",
+                                    "Telefone: ${FamilyModel.instance.family[index].Telephone}",
                                     style: TextStyle(
                                       color: Colors.black,
                                       fontSize: 17,
