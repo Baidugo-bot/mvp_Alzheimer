@@ -29,8 +29,10 @@ class AddFamilyState extends State<AddFamily> {
       FamilyController.instance.dataNasc = dataController;
       FamilyController.instance.image =
           FamilyController.instance.imagemTemporaria;
-      FamilyModel.instance.family
-          .add(new Family(title: txtNome.text, date: dataController,Telephone:txtTelephone.hashCode ));
+      FamilyModel.instance.family.add(new Family(
+          title: txtNome.text,
+          date: dataController,
+          Telephone: txtTelephone.hashCode));
     });
   }
 
@@ -119,7 +121,7 @@ class AddFamilyState extends State<AddFamily> {
                               ),
                               controller: txtNome,
                               decoration: InputDecoration(
-                                labelText: 'Nomes: ',
+                                hintText: 'Nome: ',
                                 hintStyle: TextStyle(color: Colors.black),
                                 border: OutlineInputBorder(),
                                 enabledBorder: OutlineInputBorder(
@@ -129,6 +131,14 @@ class AddFamilyState extends State<AddFamily> {
                                       color: Colors.black),
                                 ),
                               ),
+                            ),
+//campo calendario nacimento
+
+                              
+                            DateBorderedField(
+                              onChangeFunction: (DateTime date) {
+                                dataController = date;
+                              },
                             ),
 
 //campo nome do Parentesco
@@ -138,7 +148,7 @@ class AddFamilyState extends State<AddFamily> {
                               ),
                               controller: txtParentesco,
                               decoration: InputDecoration(
-                                labelText: 'Parentesco: ',
+                                hintText: 'Parentesco: ',
                                 hintStyle: TextStyle(color: Colors.black),
                                 border: OutlineInputBorder(),
                                 enabledBorder: OutlineInputBorder(
@@ -150,14 +160,6 @@ class AddFamilyState extends State<AddFamily> {
                               ),
                             ),
 
-//campo calendario nacimento
-
-                            DateBorderedField(
-                              onChangeFunction: (DateTime date) {
-                                dataController = date;
-                              },
-                            ),
-
 //campo telefone
                             TextField(
                               style: TextStyle(
@@ -165,7 +167,7 @@ class AddFamilyState extends State<AddFamily> {
                               ),
                               keyboardType: TextInputType.number,
                               decoration: InputDecoration(
-                                labelText: 'Telefone: ',
+                                hintText: 'Telefone: ',
                                 hintStyle: TextStyle(color: Colors.black),
                                 border: OutlineInputBorder(),
                                 enabledBorder: OutlineInputBorder(
@@ -178,7 +180,6 @@ class AddFamilyState extends State<AddFamily> {
                             ),
 //função salvar
                             InkWell(
-                              
                               child: Text(
                                 "salvar",
                                 style: TextStyle(

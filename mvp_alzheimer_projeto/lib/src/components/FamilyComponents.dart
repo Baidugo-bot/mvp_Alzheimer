@@ -57,18 +57,28 @@ class DateBorderedFieldState extends State<DateBorderedField> {
 
     return Container(
       decoration: BoxDecoration(
-        border: Border(
-          bottom: BorderSide(width: 2, color: Colors.grey),
+        border: Border.all(
+          width: 1,
+        ),
+        color: Colors.white,
+        borderRadius: BorderRadius.only(
+          topLeft: Radius.circular(20),
+          topRight: Radius.circular(20),
+          bottomLeft: Radius.circular(20),
+          bottomRight: Radius.circular(20),
         ),
       ),
+      height: 60,
+      alignment: Alignment.bottomCenter,
+      width: MediaQuery.of(context).size.width,
       child: Row(
         children: [
           BorderedText(
-            strokeColor: Color.fromARGB(66, 243, 89, 89),
-            strokeWidth: 2,
+            strokeColor: Colors.white,
+            strokeWidth: 0,
             child: Text(
-              "Data:",
-              style: TextStyle(fontSize: 20, fontFamily: "Gidugu-Regular"),
+              "  Data:",
+              style: TextStyle(fontSize: 20, color: Colors.black ,fontFamily: "Gidugu-Regular"),
             ),
           ),
           Container(
@@ -79,14 +89,18 @@ class DateBorderedFieldState extends State<DateBorderedField> {
               },
               mode: DateTimeFieldPickerMode.date,
               initialDate: holderDate,
-              dateTextStyle: TextStyle(
-                  color: Color.fromARGB(255, 0, 247, 255),
-                  fontFamily: "Gidugu-Regular"),
+              dateTextStyle:
+                  TextStyle(color: Colors.black, fontFamily: "Gidugu-Regular"),
               decoration: InputDecoration(border: InputBorder.none),
             ),
           ),
         ],
       ),
+    );
+    child:
+    const Text(
+      "FlutterBeads",
+      style: TextStyle(fontSize: 34.0),
     );
   }
 }
