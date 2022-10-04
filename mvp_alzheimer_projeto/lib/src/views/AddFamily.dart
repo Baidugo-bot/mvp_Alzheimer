@@ -25,14 +25,15 @@ class AddFamilyState extends State<AddFamily> {
     setState(() {
       FamilyController.instance.nome = txtNome.text;
       FamilyController.instance.parentesco = txtParentesco.text;
-      FamilyController.instance.Telephone = txtTelephone.hashCode;
+      //FamilyController.instance.Telephone = int.parse(txtTelephone.text);
       FamilyController.instance.dataNasc = dataController;
       FamilyController.instance.image =
           FamilyController.instance.imagemTemporaria;
       FamilyModel.instance.family.add(new Family(
           title: txtNome.text,
           date: dataController,
-          Telephone: txtTelephone.hashCode));
+          Telephone: int.parse(txtTelephone.text),
+          ));
     });
   }
 
@@ -162,6 +163,7 @@ class AddFamilyState extends State<AddFamily> {
 
 //campo telefone
                             TextField(
+                              controller: txtTelephone,
                               style: TextStyle(
                                 color: Colors.black,
                               ),

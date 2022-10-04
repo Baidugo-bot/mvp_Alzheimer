@@ -89,14 +89,6 @@ class EditProfileState extends State<EditProfile> {
                 dataController = date;
               },
             ),
-//campo data
-            // TextField(
-            //   keyboardType: TextInputType.datetime,
-            //   decoration: InputDecoration(
-            //       labelText: 'Idade',
-            //       hintStyle: TextStyle(color: Colors.black),
-            //       border: OutlineInputBorder()),
-            // ),
 //função salvar
             RaisedButton(
                 child: Text(
