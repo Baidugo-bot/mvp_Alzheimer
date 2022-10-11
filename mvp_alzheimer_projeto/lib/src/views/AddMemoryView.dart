@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:projeto_estudo/AppController.dart';
@@ -19,6 +21,7 @@ class AddMemoryViewState extends State<AddMemoryView> {
     TextEditingController titleController = new TextEditingController();
     TextEditingController descController = new TextEditingController();
     ImageProvider<Object> imageController = AssetImage("assets/images/imagemEscolha.png");
+    String imageLink = "assets/images/imagemEscolha.png";
     DateTime dateController = DateTime.now();
     print(imageController);
     return Scaffold(
@@ -42,7 +45,7 @@ class AddMemoryViewState extends State<AddMemoryView> {
                   bottom: BorderSide(width: 2, color: Colors.grey),
                 ),
               ),
-              child: ImagePickerContainer(imageController : imageController),
+              child: ImagePickerContainer(imageLink : imageLink),
             ),
             Container(
               height: 30,
@@ -70,13 +73,13 @@ class AddMemoryViewState extends State<AddMemoryView> {
                 if(titleController.text=="" || descController.text==""){
                   print("Preencha");
                 }else{
-
+                  print(imageLink);
                   MemoryModel.instance.memories.add(new Memory(
                       title: titleController.text, date: DateTime.now(),
                       description: descController.text,
                       identifier: MemoryModel.instance.memories.length,
-                      image: imageController));
-                  Navigator.of(context).pushNamed('/memories', arguments: {});
+                      image: FileImage(File(imageLink))));
+                  //Navigator.of(context).pushNamed('/memories', arguments: {});
                 }
 
 
