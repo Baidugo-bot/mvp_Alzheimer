@@ -21,9 +21,10 @@ class DefaultTextFieldState extends State<DefaultTextField> {
   @override
   Widget build(BuildContext context) {
     return Container(
+      margin: EdgeInsets.only(top: 10,bottom: 10),
       decoration: BoxDecoration(
         border: Border(
-          bottom: BorderSide(width: 2, color: Colors.grey),
+          bottom: BorderSide(width: 2, color: Colors.black),
         ),
       ),
       child: (widget.haveFrame==true)?
@@ -109,7 +110,7 @@ class DefaultMarkBoxState extends State<DefaultMarkBox> {
     return Row(
       children: [
         BorderedText(
-            strokeWidth: 3,
+            strokeWidth: 1.5,
             strokeColor: widget.color,
             child: Text(widget.title)
         ),

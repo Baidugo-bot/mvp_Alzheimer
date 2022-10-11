@@ -44,7 +44,7 @@ class RegisterViewState extends State<RegisterView> {
               width: double.infinity,
               decoration: BoxDecoration(
                 border: Border(
-                  bottom: BorderSide(color: Colors.grey),
+                  bottom: BorderSide(color: Colors.black),
                 ),
               ),
               child:  Image.asset('assets/images/theme.png',height: 100),
@@ -54,7 +54,7 @@ class RegisterViewState extends State<RegisterView> {
             DefaultTextField(haveFrame: false, title: 'Email: ', myResult: emailController,),
             DefaultTextField(haveFrame: false, title: 'Senha: ', myResult: passwordController,),
             DefaultTextField(haveFrame: false, title: 'Confirmar senha: ', myResult: confirmController,),
-            DefaultMarkBox(title: "Cuidador: ",color: Colors.green,myController: cuidadorController),
+            DefaultMarkBox(title: "Cuidador: ",color: Colors.black,myController: cuidadorController),
 
             Container(
               width: double.infinity,
@@ -66,7 +66,7 @@ class RegisterViewState extends State<RegisterView> {
                   ),
                 ),
               ),
-              child: DefaultMarkBox(title: "Paciente:",color: Colors.red,myController: pacienteController,),
+              child: DefaultMarkBox(title: "Paciente:",color: Colors.black,myController: pacienteController,),
             ),
             Container(height: 10,),
             DefaultButton(color: Color.fromRGBO(173, 216, 230, 1), title: 'Cadastrar-se', response: () { Navigator.of(context).pushNamed('/patients'); }, enableBounds: true, bounds: {250.0:50.0},),
