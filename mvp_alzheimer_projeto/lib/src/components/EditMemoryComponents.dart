@@ -96,7 +96,8 @@ class BorderedTextFieldState extends State<BorderedTextField> {
 
 class DateBorderedField extends StatefulWidget {
   Function(DateTime) onChangeFunction = (DateTime date){};
-  DateBorderedField({Key? key, required this.onChangeFunction}) : super(key: key);
+  DateTime initialDate = DateTime.now();
+  DateBorderedField({Key? key, required this.onChangeFunction, required this.initialDate}) : super(key: key);
 
   @override
   DateBorderedFieldState createState() => DateBorderedFieldState();
@@ -124,11 +125,16 @@ class DateBorderedFieldState extends State<DateBorderedField> {
 
             width: 200,
             child: DateTimeFormField(
+
                 onDateSelected: (DateTime date){
                   widget.onChangeFunction(date);
                 },
+              firstDate: DateTime.now(),
+
                 mode: DateTimeFieldPickerMode.date,
-                initialDate: holderDate,
+                //initialDate: DateTime.now().subtract(Duration(days: 1000000000000)),
+                //lastDate: DateTime.now().add(Duration(days: 1)),
+
                 dateTextStyle: TextStyle(color: Colors.black,fontFamily: "Gidugu-Regular"),
 
                 decoration: InputDecoration(

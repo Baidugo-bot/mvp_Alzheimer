@@ -18,12 +18,23 @@ class AddMemoryView extends StatefulWidget {
 class AddMemoryViewState extends State<AddMemoryView> {
   @override
   Widget build(BuildContext context) {
+    var args ;
     TextEditingController titleController = new TextEditingController();
     TextEditingController descController = new TextEditingController();
-    ImageProvider<Object> imageController = AssetImage("assets/images/imagemEscolha.png");
+    ImageProvider<Object> imageController ;
     String imageLink = "assets/images/imagemEscolha.png";
     DateTime dateController = DateTime.now();
-    print(imageController);
+
+    if(ModalRoute.of(context)!.settings.arguments != null){
+      args = ModalRoute.of(context)!.settings.arguments as Map<String,String>;
+      titleController.text = (args['title']!=null)?args['title'].toString():"";
+      descController.text = (args['desc']!=null)?args['desc'].toString():"";
+      dateController = (args['date']!=DateTime.now())?DateTime.parse(args['date'].toString()):DateTime.now();
+      imageLink = (args['imageLink']!=null)?args['imageLink'].toString():"";
+      print(titleController.text);
+      print(descController.text);
+      print(dateController.toString());
+    }
     return Scaffold(
       backgroundColor: AppController.instance.mainColor,
       appBar: AppBar(
@@ -45,7 +56,13 @@ class AddMemoryViewState extends State<AddMemoryView> {
                   bottom: BorderSide(width: 2, color: Colors.grey),
                 ),
               ),
-              child: ImagePickerContainer(imageLink : imageLink),
+              child: ImagePickerContainer(
+                  imageLink : imageLink,
+                  response: () async {
+                      imageLink =  await AppController.instance.getImage().then((value) => imageLink = value);
+                      Navigator.of(context).pushNamed('/addMemory', arguments: {'title':titleController.text, 'date': dateController.toString(),'desc':descController.text, 'imageLink': imageLink});
+                      },
+              ),
             ),
             Container(
               height: 30,
@@ -56,8 +73,10 @@ class AddMemoryViewState extends State<AddMemoryView> {
               myResult: titleController,
             ),
             DateBorderedField(
+              initialDate: dateController,
               onChangeFunction: (DateTime date){
-
+                dateController = date;
+                print(date.toString());
               },
             ),
             BorderedTextField(
@@ -70,16 +89,17 @@ class AddMemoryViewState extends State<AddMemoryView> {
               title: "Adicionar",
               color: Colors.green,
               response: (){
+                print("Cheggou, adicionar");
                 if(titleController.text=="" || descController.text==""){
                   print("Preencha");
                 }else{
-                  print(imageLink);
                   MemoryModel.instance.memories.add(new Memory(
-                      title: titleController.text, date: DateTime.now(),
+                      title: titleController.text,
+                      date: dateController,
                       description: descController.text,
                       identifier: MemoryModel.instance.memories.length,
                       image: FileImage(File(imageLink))));
-                  //Navigator.of(context).pushNamed('/memories', arguments: {});
+                  Navigator.of(context).pushNamed('/memories', arguments: {});
                 }
 
 

@@ -27,11 +27,9 @@ class RegisterViewState extends State<RegisterView> {
     bool pacienteController = false;
 
     return Scaffold(
+
       backgroundColor: AppController.instance.mainColor,
-      appBar: AppBar(
-        toolbarHeight: 35,
-        backgroundColor: AppController.instance.mainColor,
-      ),
+      appBar: CustomAppBar.instance.getDefault(context,"login"),
       body: SingleChildScrollView(
         child: Column(
           children: [

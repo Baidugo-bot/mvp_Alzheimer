@@ -15,10 +15,23 @@ class SeeMemoryView extends StatelessWidget {
     print(args["memory"]!.getImage());
     return Scaffold(
       backgroundColor: AppController.instance.mainColor,
+
       appBar: AppBar(
         automaticallyImplyLeading: false,
         backgroundColor: AppController.instance.mainColor,
-        title: Text("Ver memoria"),
+        title: Row(
+          children: [
+            InkWell(
+                onTap: (){
+                  Navigator.of(context).pushNamed('/memories',arguments: { "memory": args["memory"] as Memory});
+                },
+                splashColor: Colors.blue,
+                child: Icon(Icons.keyboard_return)
+
+            ),
+            Text("Ver memoria")
+          ],
+        ),
         actions: [
           InkWell(
               onTap: (){

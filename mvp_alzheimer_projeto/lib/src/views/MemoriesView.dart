@@ -2,6 +2,7 @@ import 'package:bordered_text/bordered_text.dart';
 import 'package:flutter/material.dart';
 import 'package:projeto_estudo/AppController.dart';
 
+import '../components/CustomButton.dart';
 import '../models/MemoryModel.dart';
 
 class MemoriesView extends StatefulWidget {
@@ -21,14 +22,10 @@ class MemoriesViewState extends State<MemoriesView> {
 
     return Scaffold(
       backgroundColor: Colors.lightBlue[100],
-      appBar: AppBar(
-        automaticallyImplyLeading: false,
-        backgroundColor: AppController.instance.mainColor,
-        title: Center(child: Text("Memorias",)),
-      ),
+      appBar: CustomAppBar.instance.getNamedDefault(context,"memories",Text(" Memorias ")),
 
       body: ListView.builder(
-          itemCount: MemoryModel.instance.memories.length,
+          itemCount: MemoryModel.instance.memories.length, // if 0 then show message
           itemBuilder: (BuildContext build,int index) {
 
             return Card(

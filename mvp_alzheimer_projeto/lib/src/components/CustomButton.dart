@@ -1,5 +1,10 @@
 import 'package:bordered_text/bordered_text.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/src/foundation/diagnostics.dart';
+
+import '../../AppController.dart';
+
+
 
 
 class DefaultButton extends StatefulWidget {
@@ -31,6 +36,72 @@ class DefaultButtonState extends State<DefaultButton> {
             child: Text(widget.title,style: TextStyle(fontSize: 30),),
           ),
         )
+    );
+  }
+}
+
+
+/*class CustomAppBar extends StatefulWidget {
+
+  CustomAppBar({Key? key,}) : super(key: key);
+
+  @override
+  CustomAppBarState createState() => CustomAppBarState();
+}
+
+class CustomAppBarState extends State<CustomAppBar> {
+  @override
+  Widget build(BuildContext context) {
+    return
+  }
+}*/
+
+class CustomAppBar {
+  static CustomAppBar instance = CustomAppBar();
+  PreferredSizeWidget getNamedDefault(BuildContext context,String routeName,Widget additionals){
+    return AppBar(
+      automaticallyImplyLeading: false,
+      toolbarHeight: 35,
+      backgroundColor: AppController.instance.mainColor,
+      title: Row(
+
+        children: [
+          InkWell(
+            onTap: () {
+              Navigator.pushNamed(context, '/login');
+            },
+            child: Icon(
+              Icons.arrow_back,
+              color: Color.fromARGB(255, 255, 255, 255),
+              size: 40.0,
+            ),
+          ),
+          additionals
+        ],
+      ),
+    );
+  }
+
+  PreferredSizeWidget getDefault(BuildContext context, String routeName){
+    return AppBar(
+      automaticallyImplyLeading: false,
+      toolbarHeight: 35,
+      backgroundColor: AppController.instance.mainColor,
+      title: Column(
+        children: [
+          InkWell(
+            onTap: () {
+              Navigator.pushNamed(context, '/login');
+            },
+            child: Icon(
+              Icons.arrow_back,
+              color: Color.fromARGB(255, 255, 255, 255),
+              size: 40.0,
+            ),
+          ),
+
+        ],
+      ),
     );
   }
 }

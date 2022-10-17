@@ -26,6 +26,7 @@ class LoginViewState extends State<LoginView> {
       backgroundColor: AppController.instance.mainColor,
       appBar: AppBar(
         backgroundColor: AppController.instance.mainColor,
+        automaticallyImplyLeading: false,
       ),
       body: SingleChildScrollView(
         child: Column(

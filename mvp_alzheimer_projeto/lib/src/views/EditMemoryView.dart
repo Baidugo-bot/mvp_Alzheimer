@@ -35,6 +35,11 @@ class EditMemoryViewState extends State<EditMemoryView> {
     TextEditingController titleController = new TextEditingController();
     TextEditingController descController = new TextEditingController();
     DateTime dateController = DateTime.now() ;
+
+    titleController.text = args["memory"]!.getTitle();
+    dateController = args["memory"]!.getDate();
+    descController.text = args["memory"]!.getDescription();
+
     return Scaffold(
 
       backgroundColor: AppController.instance.mainColor,
@@ -78,6 +83,7 @@ class EditMemoryViewState extends State<EditMemoryView> {
             ),
             DateBorderedField(
               onChangeFunction: (DateTime date){dateController = date;},
+              initialDate: dateController,
             ),
             BorderedTextField(
               title: "Anotacoes:",

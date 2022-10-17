@@ -9,7 +9,8 @@ import 'dart:io';
 
 class ImagePickerContainer extends StatefulWidget {
   String imageLink;
-  ImagePickerContainer({Key? key,required this.imageLink }) : super(key: key);
+  VoidCallback  response = (){};
+  ImagePickerContainer({Key? key,required this.imageLink, required this.response }) : super(key: key);
 
   @override
   ImagePickerContainerState createState() => ImagePickerContainerState();
@@ -18,31 +19,30 @@ class ImagePickerContainer extends StatefulWidget {
 class ImagePickerContainerState extends State<ImagePickerContainer> {
   @override
 
-  Future getImage() async {
+   Future<String> getImage() async {
     ImagePicker picker = new ImagePicker();
     var image = await picker.pickImage(source: ImageSource.gallery);
-
     setState(() {
-      if(image!.path!=null){
-        print(image.path);
-        widget.imageLink =  image.path;
-        print(widget.imageLink );
-      }
-      
+
     });
+    if(image!.path!=null){
+      //print(image.path);
+      return image.path;
+    }
+    return "none";
     print(widget.imageLink );
   }
 
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: ()async {await getImage();},
-      child: Container(
-          child: Image(
-            image: FileImage(File(widget.imageLink)),
-            height: 250,
+        return GestureDetector(
+          onTap: widget.response,
+          child: Container(
+            child: Image(
+              image: FileImage(File(widget.imageLink)),
+              height: 250,
+            ),
           ),
-      ),
-    );
+        );
   }
 }
 
