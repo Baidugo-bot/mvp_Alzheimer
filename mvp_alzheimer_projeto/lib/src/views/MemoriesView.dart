@@ -22,7 +22,7 @@ class MemoriesViewState extends State<MemoriesView> {
 
     return Scaffold(
       backgroundColor: Colors.lightBlue[100],
-      appBar: CustomAppBar.instance.getNamedDefault(context,"memories",Text(" Memorias ")),
+      appBar: CustomAppBar.instance.getNamedDefault(context,"/",Text(" Memorias ")),
 
       body: ListView.builder(
           itemCount: MemoryModel.instance.memories.length, // if 0 then show message

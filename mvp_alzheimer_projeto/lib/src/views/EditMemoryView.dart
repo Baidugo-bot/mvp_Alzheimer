@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:projeto_estudo/AppController.dart';
 import 'package:projeto_estudo/src/components/EditMemoryComponents.dart';
@@ -35,10 +37,29 @@ class EditMemoryViewState extends State<EditMemoryView> {
     TextEditingController titleController = new TextEditingController();
     TextEditingController descController = new TextEditingController();
     DateTime dateController = DateTime.now() ;
+    String imageLink = "assets/images/imagemEscolha.png";
 
     titleController.text = args["memory"]!.getTitle();
     dateController = args["memory"]!.getDate();
     descController.text = args["memory"]!.getDescription();
+
+    if(ModalRoute.of(context)!.settings.arguments != null){
+      args = ModalRoute.of(context)!.settings.arguments as Map<String,Memory>;
+      titleController.text = (args['title']!=null)?args['title'].toString():"";
+      descController.text = (args['desc']!=null)?args['desc'].toString():"";
+      dateController = (args['date']!=DateTime.now())?DateTime.parse(args['date'].toString()):DateTime.now();
+      imageLink = (args['imageLink']!=null)?args['imageLink'].toString():"";
+      print(titleController.text);
+      print(descController.text);
+      print(dateController.toString());
+    }
+    /*
+    * new Memory(
+                      title: titleController.text,
+                      date: dateController,
+                      description: descController.text,
+                      identifier: MemoryModel.instance.memories.length,
+                      image: FileImage(File(imageLink)))*/
 
     return Scaffold(
 
@@ -64,12 +85,19 @@ class EditMemoryViewState extends State<EditMemoryView> {
                   bottom: BorderSide(width: 2, color: Colors.grey),
                 ),
               ),
-              child: GestureDetector(
-                onTap: () {},
-                child: Image(
-                  image: args["memory"]!.getImage(),
-                  height: 250,
-                ),
+              child: ImagePickerContainer(
+                imageLink : imageLink,
+                response: () async {
+                  imageLink =  await AppController.instance.getImage().then((value) => imageLink = value);
+                  Navigator.of(context).pushNamed('/addMemory', arguments: {
+                    'memory': new Memory(
+                        title: titleController.text,
+                        date: dateController,
+                        description: descController.text,
+                        identifier: MemoryModel.instance.memories.length,
+                        image: FileImage(File(imageLink)))
+                  });
+                },
               ),
             ),
             Container(
