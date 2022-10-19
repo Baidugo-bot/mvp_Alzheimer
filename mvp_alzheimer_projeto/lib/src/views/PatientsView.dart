@@ -47,6 +47,7 @@ class PatientsViewState extends State<PatientsView> {
       }
       ),
       floatingActionButton: FloatingActionButton(
+        child: Icon(Icons.add),
         onPressed: () { Navigator.of(context).pushNamed('/registerPatient'); },
 
       ),

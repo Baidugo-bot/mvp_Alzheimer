@@ -43,16 +43,6 @@ class EditMemoryViewState extends State<EditMemoryView> {
     dateController = args["memory"]!.getDate();
     descController.text = args["memory"]!.getDescription();
 
-    if(ModalRoute.of(context)!.settings.arguments != null){
-      args = ModalRoute.of(context)!.settings.arguments as Map<String,Memory>;
-      titleController.text = (args['title']!=null)?args['title'].toString():"";
-      descController.text = (args['desc']!=null)?args['desc'].toString():"";
-      dateController = (args['date']!=DateTime.now())?DateTime.parse(args['date'].toString()):DateTime.now();
-      imageLink = (args['imageLink']!=null)?args['imageLink'].toString():"";
-      print(titleController.text);
-      print(descController.text);
-      print(dateController.toString());
-    }
     /*
     * new Memory(
                       title: titleController.text,
@@ -89,7 +79,7 @@ class EditMemoryViewState extends State<EditMemoryView> {
                 imageLink : imageLink,
                 response: () async {
                   imageLink =  await AppController.instance.getImage().then((value) => imageLink = value);
-                  Navigator.of(context).pushNamed('/addMemory', arguments: {
+                  Navigator.of(context).pushNamed('/editMemory', arguments: {
                     'memory': new Memory(
                         title: titleController.text,
                         date: dateController,

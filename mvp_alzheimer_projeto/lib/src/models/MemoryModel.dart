@@ -31,6 +31,10 @@ class Memory {
     return identifier;
   }
 
+  void setIdentifier(int id){
+    this.identifier = id;
+  }
+
    ImageProvider<Object> getImage(){
      return image;
    }
@@ -40,6 +44,8 @@ class Memory {
     this.date = newMemory.getDate();
     this.description = newMemory.getDescription();
   }
+
+
 
 
   // Image image = Image();

@@ -34,11 +34,12 @@ class ImagePickerContainerState extends State<ImagePickerContainer> {
   }
 
   Widget build(BuildContext context) {
+
         return GestureDetector(
           onTap: widget.response,
           child: Container(
             child: Image(
-              image: FileImage(File(widget.imageLink)),
+              image:  (widget.imageLink!="assets/images/imagemEscolha.png")?FileImage(File(widget.imageLink)):Image.asset("assets/images/imagemEscolha.png").image,
               height: 250,
             ),
           ),

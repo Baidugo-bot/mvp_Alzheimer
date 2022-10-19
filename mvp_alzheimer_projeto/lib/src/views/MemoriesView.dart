@@ -19,7 +19,9 @@ class MemoriesViewState extends State<MemoriesView> {
 
   @override
   Widget build(BuildContext context) {
-
+    MemoryModel.instance.memories.forEach((element) {
+      print("code: "+element.getIdentifier().toString());
+    });
     return Scaffold(
       backgroundColor: Colors.lightBlue[100],
       appBar: CustomAppBar.instance.getNamedDefault(context,"/",Text(" Memorias ")),

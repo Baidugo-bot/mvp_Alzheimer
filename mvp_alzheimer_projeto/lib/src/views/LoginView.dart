@@ -46,12 +46,24 @@ class LoginViewState extends State<LoginView> {
               ),
             ),
 
-            DefaultTextField(haveFrame: false, title: 'Email: ', myResult: emailController,),
-            DefaultTextField(haveFrame: false, title: 'Senha: ', myResult: passwordController,),
+            DefaultTextField(title: 'Email: ', myResult: emailController,),
+            DefaultTextField( title: 'Senha: ', myResult: passwordController,isPassword: true),
             Container(height: 25,),
-            DefaultButton(color: Color.fromRGBO(173, 216, 230, 1), title: 'Entrar', response: () { Navigator.of(context).pushNamed('/patients'); }, enableBounds: true, bounds: {280.0:50.0},),
+            DefaultButton(color: Color.fromRGBO(173, 216, 230, 1), title: 'Entrar',
+              response: () {
+              if(emailController.text=="hugo" && passwordController.text=="123"){
+                Navigator.of(context).pushNamed('/patients');
+              }else{
+                print("incorreto,cadaste-se");
+              }
+              },
+              enableBounds: true, bounds: {280.0:50.0},
+            ),
             Container(height: 25,),
-            DefaultButton(color: Color.fromRGBO(173, 216, 230, 1), title: 'Cadastrar-se', response: () { Navigator.of(context).pushNamed('/register'); }, enableBounds: true, bounds: {280.0:50.0},),
+            DefaultButton(color: Color.fromRGBO(173, 216, 230, 1), title: 'Cadastrar-se',
+              response: () { Navigator.of(context).pushNamed('/register'); },
+              enableBounds: true, bounds: {280.0:50.0},
+            ),
           ],
         ),
       ),

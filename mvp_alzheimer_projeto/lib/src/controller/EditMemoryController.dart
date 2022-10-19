@@ -5,7 +5,11 @@ class EditMemoryController{
   static EditMemoryController instance = EditMemoryController();
   void excludeById(int identifier){
     MemoryModel.instance.memories.removeAt(identifier);
-
+    int memCount = 0;
+    MemoryModel.instance.memories.forEach((element) {
+      element.setIdentifier(memCount);
+      memCount++;
+    });
   }
 
   void changeById(int identifier, Memory newMemory){

@@ -4,11 +4,12 @@ import 'package:flutter/material.dart';
 
 class DefaultTextField extends StatefulWidget {
   String title;
-  bool haveFrame;
+  bool? haveFrame;
   TextEditingController myResult;
   bool beenChanged= false;
+  bool? isPassword=false;
   //Funtion(String) onChanged;//on both
-  DefaultTextField({Key? key, required this.title, required this.haveFrame, required this.myResult,}) : super(key: key);
+  DefaultTextField({Key? key, required this.title, required this.myResult, this.isPassword ,  this.haveFrame}) : super(key: key);
 
 
   @override
@@ -75,6 +76,7 @@ class DefaultTextFieldState extends State<DefaultTextField> {
           Expanded(
             child: Container(
               child: TextField(
+                obscureText: widget.isPassword ??false,
                 style: TextStyle(color: Colors.white,fontFamily: "Gidugu-Regular"),
                 controller: widget.myResult  ,
                 //onChanged: ,
