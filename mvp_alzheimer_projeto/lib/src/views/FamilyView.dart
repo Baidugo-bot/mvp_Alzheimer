@@ -11,14 +11,13 @@ class FamilyView extends StatelessWidget {
   Widget build(BuildContext context) {
     debugShowCheckedModeBanner:
     false;
-  
-    return Tela();
 
+    return Tela();
   }
 }
 
- class Tela extends StatelessWidget {
-   int contBox = 12;
+class Tela extends StatelessWidget {
+  int contBox = 12;
 
   @override
   Widget build(BuildContext context) {
@@ -52,16 +51,11 @@ class FamilyView extends StatelessWidget {
             Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
-                  IconButton(icon: Icon(Icons.add,size: 40.0,), onPressed: () {
-                        GestureDetector(
-                          onTap:() => contBox++
-                        );
-                          Navigator.pushNamed(context, '/addFamily');
-
-                       
-                     
-                  }),
-                  
+                  IconButton(
+                      icon: Icon(null),
+                      onPressed: () {
+                        GestureDetector(onTap: () => contBox++);
+                      }),
                 ]),
           ],
         ),
@@ -71,99 +65,123 @@ class FamilyView extends StatelessWidget {
           TopBar(contBox: contBox),
         ],
       ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.of(context).pushNamed('/addFamily');
+        },
+        backgroundColor: Colors.grey,
+        child: Icon(
+          Icons.add,
+          color: Colors.lightBlue,
+          size: 40.0,
+        ),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );
   }
 }
 
 class TopBar extends StatelessWidget {
   final int contBox;
-  
+
   const TopBar({Key? key, this.contBox = 0}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     DateTime agora = DateTime.now();
-     
-    print(
-        (agora.difference(FamilyController.instance.dataNasc).inDays / 365)
-            .toString()
-            .substring(0, 2));
+
+    print((agora.difference(FamilyController.instance.dataNasc).inDays / 365)
+        .toString()
+        .substring(0, 2));
     return Stack(
       children: <Widget>[
         Container(
           height: 50,
           alignment: Alignment.bottomCenter,
           width: MediaQuery.of(context).size.width,
-          color: Colors.lightBlue,
+          decoration:
+              BoxDecoration(border: Border.all(), color: Colors.lightBlue),
         ),
         Padding(
           padding: EdgeInsets.only(top: 10),
           child: Container(
-            decoration: BoxDecoration(
-                borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(40),
-                  topRight: Radius.circular(40),
-                ),
-                color: Colors.white),
+            decoration: BoxDecoration(color: Colors.lightBlue),
             height: MediaQuery.of(context).size.height - 99,
             child: Column(
               children: <Widget>[
                 Padding(
-                  padding: EdgeInsets.only(left: 25, right: 25),
+                  padding: EdgeInsets.only(),
                   child: Container(
+                    decoration: BoxDecoration(
+                      color: Colors.lightBlue,
+                     
+                    ),
                     height: MediaQuery.of(context).size.height - 150,
                     child: ListView.builder(
                       itemCount: FamilyModel.instance.family.length,
                       itemBuilder: (BuildContext context, int index) {
-                        return Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: <Widget>[
-                            Padding(
-                              padding: EdgeInsets.all(8),
-                              child: Container(
-                                child: CircleAvatar(
-                                  radius: 30,
-                                  backgroundColor: Colors.white,
-                                  backgroundImage: NetworkImage(
-                                      "https://loremflickr.com/320/32$index"),
-                                ),
-                              ),
+                        return InkWell(
+                          splashColor: Colors.grey.withAlpha(70),
+                  onTap: () {
+                    Navigator.of(context).pushNamed('/seeFamily',arguments: {"memory": FamilyModel.instance.family[index]});
+                  },
+                          child: Container(
+                            decoration: BoxDecoration(
+                              color: Colors.lightBlue,
+                              border: Border.all(),
                             ),
-                            Container(
-                              width: MediaQuery.of(context).size.width - 160,
-                              child: Column(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: <Widget>[
-                                  Text(
-                                    "Nome: ${FamilyModel.instance.family[index].title}",
-                                    style: TextStyle(
-                                      color: Colors.black,
-                                      fontSize: 20,
-                                      fontWeight: FontWeight.bold,
+                            
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: <Widget>[
+                                Padding(
+                                  padding: EdgeInsets.all(8),
+                                  child: Container(
+                                    child: CircleAvatar(
+                                      radius: 30,
+                                      backgroundColor: Colors.black,
+                                      backgroundImage: NetworkImage(
+                                          "https://loremflickr.com/320/32$index"),
                                     ),
                                   ),
-                                  Text(
-                                    "Idade: ${(agora.difference(FamilyModel.instance.family[index].date).inDays / 365).toString().substring(0, 2)}",
-                                    style: TextStyle(
-                                      color: Colors.black,
-                                      fontSize: 17,
-                                      overflow: TextOverflow.ellipsis,
-                                    ),
+                                ),
+                                Container(
+                                  width: MediaQuery.of(context).size.width - 160,
+                                  child: Column(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    children: <Widget>[
+                                      Text(
+                                        "Nome: ${FamilyModel.instance.family[index].title}",
+                                        style: TextStyle(
+                                          color: Colors.black,
+                                          fontSize: 20,
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                      ),
+                                      Text(
+                                        "Idade: ${(agora.difference(FamilyModel.instance.family[index].date).inDays / 365).toString().substring(0, 2)}",
+                                        style: TextStyle(
+                                          color: Colors.black,
+                                          fontSize: 17,
+                                          overflow: TextOverflow.ellipsis,
+                                        ),
+                                      ),
+                                      Text(
+                                        "Telefone: ${FamilyModel.instance.family[index].Telephone}",
+                                        style: TextStyle(
+                                          color: Colors.black,
+                                          fontSize: 17,
+                                          overflow: TextOverflow.ellipsis,
+                                        ),
+                                      ),
+                                    ],
                                   ),
-                                  Text(
-                                    "Telefone: ${FamilyModel.instance.family[index].Telephone}",
-                                    style: TextStyle(
-                                      color: Colors.black,
-                                      fontSize: 17,
-                                      overflow: TextOverflow.ellipsis,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            )
-                          ],
+                                )
+                              ],
+                            ),
+                          ),
                         );
                       },
                     ),

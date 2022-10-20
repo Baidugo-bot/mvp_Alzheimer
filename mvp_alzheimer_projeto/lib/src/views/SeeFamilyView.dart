@@ -4,24 +4,24 @@ import 'package:flutter/material.dart';
 import 'package:jiffy/jiffy.dart';
 
 import '../../AppController.dart';
-import '../models/MemoryModel.dart';
+import '../models/FamilyModel.dart';
 
 class SeeFamilyView extends StatelessWidget {
 
 
   @override
   Widget build(BuildContext context) {
-    var args = ModalRoute.of(context)!.settings.arguments as Map<String,Memory>;
+    var args = ModalRoute.of(context)!.settings.arguments as Map<String,Family>;
     return Scaffold(
       backgroundColor: AppController.instance.mainColor,
       appBar: AppBar(
         automaticallyImplyLeading: false,
         backgroundColor: AppController.instance.mainColor,
-        title: Text("Ver memoria"),
+        title: Text("Ver familiar"),
         actions: [
           InkWell(
               onTap: (){
-                Navigator.of(context).pushNamed('/editMemory',arguments: { "memory": args["memory"] as Memory});
+                Navigator.of(context).pushNamed('/editFamily',arguments: { "family": args["family"] as Family});
               },
               splashColor: Colors.blue,
               child: Icon(Icons.edit)
@@ -36,7 +36,7 @@ class SeeFamilyView extends StatelessWidget {
             //mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Container(height: 15,),
-              Image(image: args["memory"]!.getImage(),height: 200,),
+              //Image(image: args["family"]!.getImage(),height: 200,),
               Container(height: 10,),
               Container(
                 width: 500,
@@ -88,16 +88,16 @@ class SeeFamilyView extends StatelessWidget {
                   ),
                 ),
 
-                child: BorderedText(
-                  strokeWidth: 2,
-                  strokeColor: Colors.black,
-                  child: Text(
+                // child: BorderedText(
+                //   strokeWidth: 2,
+                //   strokeColor: Colors.black,
+                //   child: Text(
 
-                      args["memory"]!.getDescription(),
-                      textAlign: TextAlign.justify,
-                      style: TextStyle(fontSize: 18, color: Colors.white,fontFamily: "Gidugu-Regular",height: 1.5)
-                  ),
-                ),
+                //       args["memory"]!.getDescription(),
+                //       textAlign: TextAlign.justify,
+                //       style: TextStyle(fontSize: 18, color: Colors.white,fontFamily: "Gidugu-Regular",height: 1.5)
+                //   ),
+                // ),
               ),
             ],
           ),

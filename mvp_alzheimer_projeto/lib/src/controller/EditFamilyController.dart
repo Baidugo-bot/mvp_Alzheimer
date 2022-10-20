@@ -8,12 +8,12 @@ class EditFamilyController{
 
   }
 
-  // void changeById(int identifier, Family newFamily){
-  //   FamilyModel.instance.family.forEach((e) {
-  //     print(newFamily.getDescription()+" - "+newFamily.getTitle());
-  //     if(e.identifier==identifier){
-  //       e.changeMemory(newFamily);
-  //     }
-  //   });
-  // }
+  void changeById(int identifier, Family newFamily){
+    FamilyModel.instance.family.forEach((e) {
+      // print(newFamily.getDescription()+" - "+newFamily.getTitle());
+      // if(e.identifier==identifier){
+      //   e.changeFamily(newFamily);
+      // }
+    });
+  }
 }

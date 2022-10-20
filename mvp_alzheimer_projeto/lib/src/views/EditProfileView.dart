@@ -56,7 +56,9 @@ class EditProfileState extends State<EditProfile> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Container(height: 130,),
+            Container(
+              height: 130,
+            ),
 //container pega imagen
             Container(
               padding: EdgeInsets.only(bottom: 10),
@@ -69,7 +71,6 @@ class EditProfileState extends State<EditProfile> {
               "Escolha uma imagem da galeria",
               style: TextStyle(
                 fontSize: 24,
-               
               ),
             ),
             // //ImagePickerContainer(
@@ -80,7 +81,8 @@ class EditProfileState extends State<EditProfile> {
               controller: txtNome,
               decoration: InputDecoration(
                   labelText: 'Nome',
-                  hintStyle: TextStyle(color: Color.fromARGB(255, 255, 255, 255)),
+                  hintStyle:
+                      TextStyle(color: Color.fromARGB(255, 255, 255, 255)),
                   border: OutlineInputBorder()),
             ),
 //campo calendario nacimento
@@ -90,6 +92,7 @@ class EditProfileState extends State<EditProfile> {
               },
             ),
 //função salvar
+
             RaisedButton(
                 child: Text(
                   "salvar",
@@ -102,8 +105,11 @@ class EditProfileState extends State<EditProfile> {
       ),
     );
   }
-  
-  RaisedButton({required Text child, required Color color, required void Function() onPressed}) {}
+
+  RaisedButton(
+      {required Text child,
+      required Color color,
+      required void Function() onPressed}) {}
 }
 //  _getFromGallery()  {
     
