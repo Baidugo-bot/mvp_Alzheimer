@@ -23,11 +23,10 @@ class RegisterViewState extends State<RegisterView> {
     TextEditingController emailController = new TextEditingController();
     TextEditingController passwordController = new TextEditingController();
     TextEditingController confirmController = new TextEditingController();
-    bool cuidadorController = false;
-    bool pacienteController = false;
+    bool cuidadorController = true;
+    bool pacienteController = true;
 
     return Scaffold(
-
       backgroundColor: AppController.instance.mainColor,
       appBar: CustomAppBar.instance.getDefault(context,"login"),
       body: SingleChildScrollView(
@@ -52,6 +51,7 @@ class RegisterViewState extends State<RegisterView> {
             DefaultTextField(haveFrame: false, title: 'Email: ', myResult: emailController,),
             DefaultTextField(haveFrame: false, title: 'Senha: ', myResult: passwordController,),
             DefaultTextField(haveFrame: false, title: 'Confirmar senha: ', myResult: confirmController,),
+
             DefaultMarkBox(title: "Cuidador: ",color: Colors.black,myController: cuidadorController),
 
             Container(

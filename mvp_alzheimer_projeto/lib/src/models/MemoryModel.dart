@@ -8,12 +8,13 @@ class MemoryModel{
 }
 
 class Memory {
-   Memory(  {Key? key, required this.title, required this.date,required this.description,required this.identifier,required this.image}) ;
+   Memory(  {Key? key, required this.title, required this.date,required this.description,required this.identifier,required this.image,this.imgLink}) ;
    String title ;
    DateTime date;
    String description;
    int identifier;
    ImageProvider<Object> image;
+   String? imgLink = "";
 
   String getTitle(){
     return title;
@@ -43,6 +44,8 @@ class Memory {
     this.title = newMemory.getTitle();
     this.date = newMemory.getDate();
     this.description = newMemory.getDescription();
+    this.image = newMemory.getImage();
+    this.imgLink = newMemory.imgLink;
   }
 
 

@@ -9,7 +9,6 @@ class BorderedTextField extends StatefulWidget {
   bool haveFrame;
   TextEditingController myResult;
   bool beenChanged= false;
-   //Funtion(String) onChanged;//on both
   BorderedTextField({Key? key, required this.title, required this.haveFrame, required this.myResult,}) : super(key: key);
 
 
@@ -80,7 +79,6 @@ class BorderedTextFieldState extends State<BorderedTextField> {
               child: TextField(
                 style: TextStyle(color: Colors.black,fontFamily: "Gidugu-Regular"),
                 controller: widget.myResult  ,
-                //onChanged: ,
                 
                 decoration: InputDecoration(
                   border: InputBorder.none,
@@ -96,8 +94,9 @@ class BorderedTextFieldState extends State<BorderedTextField> {
 
 class DateBorderedField extends StatefulWidget {
   Function(DateTime) onChangeFunction = (DateTime date){};
-  DateTime initialDate = DateTime.now();
-  DateBorderedField({Key? key, required this.onChangeFunction, required this.initialDate}) : super(key: key);
+  DateTime lastDate = DateTime.now();
+  DateTime initialValue = DateTime.now();
+  DateBorderedField({Key? key, required this.onChangeFunction, required this.lastDate,required this.initialValue}) : super(key: key);
 
   @override
   DateBorderedFieldState createState() => DateBorderedFieldState();
@@ -129,14 +128,10 @@ class DateBorderedFieldState extends State<DateBorderedField> {
                 onDateSelected: (DateTime date){
                   widget.onChangeFunction(date);
                 },
-              firstDate: DateTime.now(),
-
+              lastDate: DateTime.now(),
+              initialValue: widget.initialValue,
                 mode: DateTimeFieldPickerMode.date,
-                //initialDate: DateTime.now().subtract(Duration(days: 1000000000000)),
-                //lastDate: DateTime.now().add(Duration(days: 1)),
-
                 dateTextStyle: TextStyle(color: Colors.black,fontFamily: "Gidugu-Regular"),
-
                 decoration: InputDecoration(
                     border: InputBorder.none
                 ),

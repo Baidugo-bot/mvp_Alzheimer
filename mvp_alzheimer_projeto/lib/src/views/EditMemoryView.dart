@@ -6,6 +6,7 @@ import 'package:projeto_estudo/src/components/EditMemoryComponents.dart';
 import 'package:projeto_estudo/src/controller/EditMemoryController.dart';
 
 import '../components/AddMemoryComponents.dart';
+import '../components/CustomButton.dart';
 import '../models/MemoryModel.dart';
 class EditMemoryView extends StatefulWidget {
   const EditMemoryView({Key? key}) : super(key: key);
@@ -37,29 +38,17 @@ class EditMemoryViewState extends State<EditMemoryView> {
     TextEditingController titleController = new TextEditingController();
     TextEditingController descController = new TextEditingController();
     DateTime dateController = DateTime.now() ;
-    String imageLink = "assets/images/imagemEscolha.png";
+    String imageLink;
 
     titleController.text = args["memory"]!.getTitle();
     dateController = args["memory"]!.getDate();
     descController.text = args["memory"]!.getDescription();
-
-    /*
-    * new Memory(
-                      title: titleController.text,
-                      date: dateController,
-                      description: descController.text,
-                      identifier: MemoryModel.instance.memories.length,
-                      image: FileImage(File(imageLink)))*/
-
+    imageLink = args['memory']!.imgLink?? "assets/images/imagemEscolha.png";
+    print("Modify: "+args['memory']!.getIdentifier().toString());
     return Scaffold(
 
       backgroundColor: AppController.instance.mainColor,
-      appBar: AppBar(
-        backgroundColor: AppController.instance.mainColor,
-        title: Center(child: Text("Edit Memory")),
-
-
-      ),
+      appBar: CustomAppBar.instance.getDefault(context,"/memories"),
       body: SingleChildScrollView(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
@@ -84,8 +73,11 @@ class EditMemoryViewState extends State<EditMemoryView> {
                         title: titleController.text,
                         date: dateController,
                         description: descController.text,
-                        identifier: MemoryModel.instance.memories.length,
-                        image: FileImage(File(imageLink)))
+                        identifier: args['memory']!.getIdentifier(),
+                        image: FileImage(File(imageLink)),
+                        imgLink: imageLink
+                    ),
+
                   });
                 },
               ),
@@ -100,8 +92,9 @@ class EditMemoryViewState extends State<EditMemoryView> {
 
             ),
             DateBorderedField(
+              initialValue: dateController,
               onChangeFunction: (DateTime date){dateController = date;},
-              initialDate: dateController,
+              lastDate: dateController,
             ),
             BorderedTextField(
               title: "Anotacoes:",
@@ -115,18 +108,22 @@ class EditMemoryViewState extends State<EditMemoryView> {
                 CustomButton(
                   title: "Salvar",
                   color: Colors.green,
-                  response: (){
+                  response: () async {
                     if(titleController.text=="" || descController.text==""){
                       print("Preencha");
                     }else{
 
-                        EditMemoryController.instance.changeById(args["memory"]!.getIdentifier(),
+                      bool imgExists = false;
+                      await File(imageLink).exists().then((value) =>imgExists=value);
+                      ImageProvider<Object>? finalImg = ((imgExists)?FileImage(File(imageLink)):AssetImage("assets/images/imagemEscolha.png")) as ImageProvider<Object>?;
+                      EditMemoryController.instance.changeById(args["memory"]!.getIdentifier(),
                             Memory(
                                 title: titleController.text,
                                 date: dateController,
                                 description: descController.text,
                                 identifier: args["memory"]!.getIdentifier(),
-                                image: args["memory"]!.getImage(),
+                                image: finalImg ?? AssetImage("assets/images/imagemEscolha.png"),
+                                imgLink: (imgExists)?imageLink:"assets/images/imagemEscolha.png"
                             ));
                         Navigator.of(context).pushNamed('/memories', arguments: {});
                     }

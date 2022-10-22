@@ -14,7 +14,7 @@ class EditMemoryController{
 
   void changeById(int identifier, Memory newMemory){
     MemoryModel.instance.memories.forEach((e) {
-      print(newMemory.getDescription()+" - "+newMemory.getTitle());
+      print(newMemory.getImage().toString()+" - "+newMemory.imgLink.toString());
       if(e.identifier==identifier){
         e.changeMemory(newMemory);
       }

@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:bordered_text/bordered_text.dart';
 import 'package:flutter/material.dart';
 import 'package:projeto_estudo/AppController.dart';
@@ -19,9 +21,6 @@ class MemoriesViewState extends State<MemoriesView> {
 
   @override
   Widget build(BuildContext context) {
-    MemoryModel.instance.memories.forEach((element) {
-      print("code: "+element.getIdentifier().toString());
-    });
     return Scaffold(
       backgroundColor: Colors.lightBlue[100],
       appBar: CustomAppBar.instance.getNamedDefault(context,"/",Text(" Memorias ")),
@@ -29,6 +28,7 @@ class MemoriesViewState extends State<MemoriesView> {
       body: ListView.builder(
           itemCount: MemoryModel.instance.memories.length, // if 0 then show message
           itemBuilder: (BuildContext build,int index) {
+            print("Sequencia :"+MemoryModel.instance.memories[index].identifier.toString());
 
             return Card(
 
@@ -43,7 +43,9 @@ class MemoriesViewState extends State<MemoriesView> {
                     child: Row(
 
                       children: [
-                        Image(image: MemoryModel.instance.memories[index].image,height: 120,),
+                        Image(
+                          image: MemoryModel.instance.memories[index].getImage(),
+                          height: 120,),
                         Container(width: 10,),
                         Expanded(
                           child: Column(

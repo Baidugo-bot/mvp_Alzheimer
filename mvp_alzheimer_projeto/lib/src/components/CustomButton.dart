@@ -91,7 +91,7 @@ class CustomAppBar {
         children: [
           InkWell(
             onTap: () {
-              Navigator.pushNamed(context, '/login');
+              Navigator.pushNamed(context, routeName);
             },
             child: Icon(
               Icons.arrow_back,

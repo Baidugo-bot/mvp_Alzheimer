@@ -31,9 +31,6 @@ class AddMemoryViewState extends State<AddMemoryView> {
       descController.text = (args['desc']!=null)?args['desc'].toString():"";
       dateController = (args['date']!=DateTime.now())?DateTime.parse(args['date'].toString()):DateTime.now();
       imageLink = (args['imageLink']!=null)?args['imageLink'].toString():"";
-      print(titleController.text);
-      print(descController.text);
-      print(dateController.toString());
     }
     return Scaffold(
       backgroundColor: AppController.instance.mainColor,
@@ -60,7 +57,7 @@ class AddMemoryViewState extends State<AddMemoryView> {
                   imageLink : imageLink,
                   response: () async {
                       imageLink =  await AppController.instance.getImage().then((value) => imageLink = value);
-                      Navigator.of(context).pushNamed('/addMemory', arguments: {'title':titleController.text, 'date': dateController.toString(),'desc':descController.text, 'imageLink': imageLink});
+                      Navigator.of(context).pushNamed('/addMemory', arguments: {'title':titleController.text, 'date': dateController.toString(),'desc':descController.text, 'imageLink': imageLink, 'identifier': MemoryModel.instance.memories.length});
                       },
               ),
             ),
@@ -73,10 +70,10 @@ class AddMemoryViewState extends State<AddMemoryView> {
               myResult: titleController,
             ),
             DateBorderedField(
-              initialDate: dateController,
+              initialValue: dateController,
+              lastDate: dateController,
               onChangeFunction: (DateTime date){
                 dateController = date;
-                print(date.toString());
               },
             ),
             BorderedTextField(
@@ -88,20 +85,22 @@ class AddMemoryViewState extends State<AddMemoryView> {
             CustomButton(
               title: "Adicionar",
               color: Colors.green,
-              response: (){
-                print("Cheggou, adicionar");
+              response: () async {
                 if(titleController.text=="" || descController.text==""){
                   print("Preencha");
                 }else{
-                  ImageProvider<Object>? validatedIMGLink ;
-                  File(imageLink).exists().then((value) =>
-                  (value==true)?validatedIMGLink=FileImage(File(imageLink)):AssetImage("assets/images/imagemEscolha.png"));
+                  bool imgExists = false;
+                  int memCount = MemoryModel.instance.memories.length;
+                  await File(imageLink).exists().then((value) =>imgExists=value);
+                  ImageProvider<Object>? finalImg = ((imgExists)?FileImage(File(imageLink)):AssetImage("assets/images/imagemEscolha.png")) as ImageProvider<Object>?;
+                  print(MemoryModel.instance.memories.length);
                   MemoryModel.instance.memories.add(new Memory(
                       title: titleController.text,
                       date: dateController,
                       description: descController.text,
-                      identifier: MemoryModel.instance.memories.length,
-                      image: validatedIMGLink ?? AssetImage("assets/images/imagemEscolha.png")
+                      identifier: memCount,
+                      image: finalImg ?? AssetImage("assets/images/imagemEscolha.png"),
+                      imgLink: (imgExists)?imageLink:"assets/images/imagemEscolha.png"
                   ));
                   Navigator.of(context).pushNamed('/memories', arguments: {});
                 }

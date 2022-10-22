@@ -26,11 +26,9 @@ class ImagePickerContainerState extends State<ImagePickerContainer> {
 
     });
     if(image!.path!=null){
-      //print(image.path);
       return image.path;
     }
     return "none";
-    print(widget.imageLink );
   }
 
   Widget build(BuildContext context) {
@@ -39,7 +37,8 @@ class ImagePickerContainerState extends State<ImagePickerContainer> {
           onTap: widget.response,
           child: Container(
             child: Image(
-              image:  (widget.imageLink!="assets/images/imagemEscolha.png")?FileImage(File(widget.imageLink)):Image.asset("assets/images/imagemEscolha.png").image,
+              image:
+              (widget.imageLink!="assets/images/imagemEscolha.png")?FileImage(File(widget.imageLink)):Image.asset("assets/images/imagemEscolha.png").image,
               height: 250,
             ),
           ),

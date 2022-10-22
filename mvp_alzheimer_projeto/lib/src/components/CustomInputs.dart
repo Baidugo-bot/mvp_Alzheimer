@@ -99,13 +99,11 @@ class DefaultMarkBox extends StatefulWidget {
   //Funtion(String) onChanged;//on both
   DefaultMarkBox({Key? key, required this.title,required this.color,required this.myController}) : super(key: key);
 
-
   @override
   DefaultMarkBoxState createState() => DefaultMarkBoxState();
 }
 
 class DefaultMarkBoxState extends State<DefaultMarkBox> {
-
 
   @override
   Widget build(BuildContext context) {
@@ -116,7 +114,16 @@ class DefaultMarkBoxState extends State<DefaultMarkBox> {
             strokeColor: widget.color,
             child: Text(widget.title)
         ),
-        Checkbox(value: widget.myController, onChanged: (value){widget.myController = !widget.myController;})
+        Checkbox(
+          value: widget.myController,
+          onChanged: (bool? value){
+
+            setState(() {
+              widget.myController = value!;
+            });
+          }
+
+        )
       ],
     );
   }

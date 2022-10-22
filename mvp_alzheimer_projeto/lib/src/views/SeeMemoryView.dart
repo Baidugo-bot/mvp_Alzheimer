@@ -12,7 +12,6 @@ class SeeMemoryView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var args = ModalRoute.of(context)!.settings.arguments as Map<String,Memory>;
-    print(args["memory"]!.getImage());
     return Scaffold(
       backgroundColor: AppController.instance.mainColor,
 

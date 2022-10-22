@@ -20,7 +20,7 @@ class RegisterPatientViewState extends State<RegisterPatientView> {
   @override
   Widget build(BuildContext context) {
     TextEditingController nameController = new TextEditingController();
-    TextEditingController dateController = new TextEditingController();
+    DateTime dateController = DateTime.now();
     TextEditingController diseaseController = new TextEditingController();
     TextEditingController casesController = new TextEditingController();
     return Scaffold(
@@ -46,7 +46,7 @@ class RegisterPatientViewState extends State<RegisterPatientView> {
             ),
 
             DefaultTextField(haveFrame: false, title: 'Nome: ', myResult: nameController,),
-            DefaultTextField(haveFrame: false, title: 'Data de Nascimento: ', myResult: dateController,),
+            DateBorderedField(onChangeFunction: (value){dateController = value;}, lastDate: dateController, initialValue: dateController),
             DefaultTextField(haveFrame: false, title: 'Doença: ', myResult: diseaseController,),
 
 
