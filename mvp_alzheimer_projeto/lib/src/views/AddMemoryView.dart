@@ -57,7 +57,7 @@ class AddMemoryViewState extends State<AddMemoryView> {
                   imageLink : imageLink,
                   response: () async {
                       imageLink =  await AppController.instance.getImage().then((value) => imageLink = value);
-                      Navigator.of(context).pushNamed('/addMemory', arguments: {'title':titleController.text, 'date': dateController.toString(),'desc':descController.text, 'imageLink': imageLink, 'identifier': MemoryModel.instance.memories.length});
+                      Navigator.of(context).pushNamed('/addMemory', arguments: {'title':titleController.text, 'date': dateController.toString(),'desc':descController.text, 'imageLink': imageLink, 'identifier': MemoryModel.instance.memories.length.toString()});
                       },
               ),
             ),
