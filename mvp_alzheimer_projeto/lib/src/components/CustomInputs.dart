@@ -25,7 +25,8 @@ class DefaultTextFieldState extends State<DefaultTextField> {
       margin: EdgeInsets.only(top: 10,bottom: 10),
       decoration: BoxDecoration(
         border: Border(
-          bottom: BorderSide(width: 2, color: Colors.black),
+
+          bottom: BorderSide(width: 1.3, color: Colors.black),
         ),
       ),
       child: (widget.haveFrame==true)?
@@ -45,6 +46,7 @@ class DefaultTextFieldState extends State<DefaultTextField> {
               Expanded(
 
                 child: Container(
+
                   height: 100,
                   color: Colors.white,
                   child: TextField(
@@ -75,9 +77,10 @@ class DefaultTextFieldState extends State<DefaultTextField> {
               )),
           Expanded(
             child: Container(
+
               child: TextField(
                 obscureText: widget.isPassword ??false,
-                style: TextStyle(color: Colors.white,fontFamily: "Gidugu-Regular"),
+                style: TextStyle(color: Colors.black,fontFamily: "Gidugu-Regular"),
                 controller: widget.myResult  ,
                 //onChanged: ,
                 decoration: InputDecoration(

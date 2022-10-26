@@ -50,7 +50,7 @@ class AddMemoryViewState extends State<AddMemoryView> {
               width: 430,
               decoration: BoxDecoration(
                 border: Border(
-                  bottom: BorderSide(width: 2, color: Colors.grey),
+                  bottom: BorderSide(width: 2, color: Colors.black),
                 ),
               ),
               child: ImagePickerContainer(

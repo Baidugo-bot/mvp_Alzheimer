@@ -37,7 +37,7 @@ class LoginViewState extends State<LoginView> {
               width: double.infinity,
               decoration: BoxDecoration(
                 border: Border(
-                  bottom: BorderSide(color: Colors.grey),
+                  bottom: BorderSide(color: Colors.black),
                 ),
               ),
               child: BorderedText(
@@ -57,12 +57,12 @@ class LoginViewState extends State<LoginView> {
                 print("incorreto,cadaste-se");
               }
               },
-              enableBounds: true, bounds: {280.0:50.0},
+              enableBounds: true, bounds: {320.0:60.0},
             ),
-            Container(height: 25,),
+            Container(height: 35,),
             DefaultButton(color: Color.fromRGBO(173, 216, 230, 1), title: 'Cadastrar-se',
               response: () { Navigator.of(context).pushNamed('/register'); },
-              enableBounds: true, bounds: {280.0:50.0},
+              enableBounds: true, bounds: {320.0:60.0},
             ),
           ],
         ),

@@ -23,13 +23,10 @@ class RegisterPatientViewState extends State<RegisterPatientView> {
     DateTime dateController = DateTime.now();
     TextEditingController diseaseController = new TextEditingController();
     TextEditingController casesController = new TextEditingController();
+    String imageLink = "assets/images/imagemEscolha.png";
     return Scaffold(
       backgroundColor: AppController.instance.mainColor,
-      appBar: AppBar(
-        toolbarHeight: 35,
-        backgroundColor: AppController.instance.mainColor,
-        title: Center(child: Text("Registrar paciente")),
-      ),
+      appBar: CustomAppBar.instance.getDefault(context,"patients"),
       body: SingleChildScrollView(
         child: Column(
           children: [
@@ -38,11 +35,13 @@ class RegisterPatientViewState extends State<RegisterPatientView> {
             Container(
               width: double.infinity,
               decoration: BoxDecoration(
-                border: Border(
-                  bottom: BorderSide(color: Colors.grey),
-                ),
+                border: Border(bottom: BorderSide(color: Colors.black,width: 1.3)),
               ),
-              child:  Image.asset('assets/images/theme.png',height: 100),
+              child: ImagePickerContainer(imageLink: imageLink, response: ()async{
+                imageLink =  await AppController.instance.getImage().then((value) => imageLink = value);
+                Navigator.of(context).pushNamed('/addMemory', arguments: {'name':nameController.text, 'date': dateController.toString(),'disease':diseaseController.text, 'imageLink': imageLink});
+                }
+              ),
             ),
 
             DefaultTextField(haveFrame: false, title: 'Nome: ', myResult: nameController,),
@@ -52,17 +51,9 @@ class RegisterPatientViewState extends State<RegisterPatientView> {
 
             Container(
               width: double.infinity,
-              decoration: BoxDecoration(
-                border: Border(
-                  bottom: BorderSide(
-                    color: Colors.grey,
-
-                  ),
-                ),
-              ),
               child: DefaultTextField(haveFrame: false, title: 'Casos Especiais: ', myResult: casesController,),
             ),
-            Container(height: 100,),
+            Container(height: 35,),
             DefaultButton(color: Color.fromRGBO(173, 216, 230, 1), title: 'Salvar', response: () { Navigator.of(context).pushNamed('/patients'); }, enableBounds: true, bounds: {125.0:50.0},),
           ],
         ),

@@ -34,14 +34,16 @@ class PatientsViewState extends State<PatientsView> {
         return Align(
           alignment: Alignment.center,
           child: Container(
+
             height: 100,
             margin: EdgeInsets.only(top: 22,bottom: 22),
             child: DefaultButton(
-              color: Color.fromRGBO(173, 216, 230, 1),
+              circularBounds: true,
+              color: Color.fromRGBO(228, 241, 247, 1),
               title: 'Paciente '+number.toString(),
               response: () { Navigator.of(context).pushNamed('/'); },
               enableBounds: true,
-              bounds: {310.0:50.0},),
+              bounds: {340.0:50.0},),
           ),
         );
       }

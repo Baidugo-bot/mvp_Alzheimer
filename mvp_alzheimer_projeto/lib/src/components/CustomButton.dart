@@ -13,7 +13,8 @@ class DefaultButton extends StatefulWidget {
   String title="";
   Map bounds = {};
   bool enableBounds= false;
-  DefaultButton({Key? key, required this.color, required this.response,required this.title,required this.bounds,required this.enableBounds}) : super(key: key);
+  bool? circularBounds = false;
+  DefaultButton({Key? key, this.circularBounds,required this.color, required this.response,required this.title,required this.bounds,required this.enableBounds}) : super(key: key);
 
   @override
   DefaultButtonState createState() => DefaultButtonState();
@@ -25,15 +26,25 @@ class DefaultButtonState extends State<DefaultButton> {
     return SizedBox(
         width: (widget.enableBounds)?widget.bounds.keys.first:100,
         height: (widget.enableBounds)?widget.bounds.values.first:50,
-        child: ElevatedButton(
-          style: TextButton.styleFrom(
-            backgroundColor: widget.color,
-
+        child: Container(
+          decoration: BoxDecoration(
+            border: Border.all(
+              width: 1,
+              color: Colors.black,
+              style: BorderStyle.solid,
+            ),
+            borderRadius: (widget.circularBounds==true)? BorderRadius.all(Radius.circular(50.0)):null,
           ),
-          onPressed: widget.response,
-          child: BorderedText(
-            strokeWidth: 1.0,
-            child: Text(widget.title,style: TextStyle(fontSize: 30),),
+          child: ElevatedButton(
+            style: TextButton.styleFrom(
+              backgroundColor: widget.color,
+
+            ),
+            onPressed: widget.response,
+            child: BorderedText(
+              strokeWidth: 1.0,
+              child: Text(widget.title,style: TextStyle(fontSize: 30),),
+            ),
           ),
         )
     );

@@ -23,9 +23,9 @@ class BorderedTextFieldState extends State<BorderedTextField> {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        border: Border(
-          bottom: BorderSide(width: 2, color: Colors.grey),
-        ),
+        border:(widget.haveFrame==false)? Border(
+          bottom: BorderSide(width: 2, color: Colors.black),
+        ):null,
       ),
       child: (widget.haveFrame==true)?
       Column(
@@ -110,7 +110,7 @@ class DateBorderedFieldState extends State<DateBorderedField> {
     return Container(
       decoration: BoxDecoration(
         border: Border(
-          bottom: BorderSide(width: 2, color: Colors.grey),
+          bottom: BorderSide(width: 2, color: Colors.black),
         ),
       ),
       child: Row(
