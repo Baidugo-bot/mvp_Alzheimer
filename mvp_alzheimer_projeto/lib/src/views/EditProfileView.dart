@@ -56,9 +56,6 @@ class EditProfileState extends State<EditProfile> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Container(
-              height: 130,
-            ),
 //container pega imagen
             Container(
               padding: EdgeInsets.only(bottom: 10),
@@ -92,14 +89,22 @@ class EditProfileState extends State<EditProfile> {
               },
             ),
 //função salvar
-
-            RaisedButton(
+            Column(
+              children: [
+              InkWell(
                 child: Text(
                   "salvar",
                   style: TextStyle(color: Colors.black, fontSize: 20),
                 ),
-                color: Color.fromARGB(255, 19, 117, 121),
-                onPressed: Salvar),
+                // color: Color.fromARGB(255, 19, 117, 121),
+                // onPressed: Salvar),
+                onTap: () {
+                  Salvar();
+                  Navigator.pushNamed(context, '/profile');
+                },
+              ),
+              ],
+            ),
           ],
         ),
       ),
