@@ -65,6 +65,12 @@ class SeeFamilyView extends StatelessWidget {
         //   ),
         // ],
       ),
+
+
+
+
+
+      
       body: Container(
         
         height: double.infinity,
@@ -106,17 +112,17 @@ class SeeFamilyView extends StatelessWidget {
                           ),
                         ),
                     ),
-                    child: Center(
-                        child: BorderedText(
-                          strokeColor: Colors.black,
-                          strokeWidth: 2,
+                    // child: Center(
+                    //     child: BorderedText(
+                    //       strokeColor: Colors.black,
+                    //       strokeWidth: 2,
 
-                          child: Text(
-                              Jiffy(AppController.instance.now).EEEE.toString()+" "+args["memory"]!.getDate().toString().substring(0,10),
-                              style: TextStyle(fontSize: 25, color: Colors.white)
-                          ),
-                        )
-                    ),
+                    //       child: Text(
+                    //           Jiffy(AppController.instance.now).EEEE.toString()+" "+args["memory"]!.getDate().toString().substring(0,10),
+                    //           style: TextStyle(fontSize: 25, color: Colors.white)
+                    //       ),
+                    //     )
+                    // ),
                   ),
 
                   Container(height: 30,),

@@ -1,33 +1,15 @@
-import 'dart:ui';
 import 'package:flutter/material.dart';
-import 'package:projeto_estudo/src/models/FamilyModel.dart';
-class EditFamilyController{
+
+class EditFamilyController extends ChangeNotifier {
   static EditFamilyController instance = EditFamilyController();
 
-  get imagemTemporaria => null;
-
-  set image(image) {}
-
-  set dataNasc(DateTime dataNasc) {}
-
-  set nome(String nome) {}
-  void excludeById(int identifier){
-    FamilyModel.instance.family.removeAt(identifier);
-
-String nome = "";
+  String nome = "";
+  String parentesco = "";
+  int Telephone = 0;
   DateTime dataNasc = DateTime.now();
   ImageProvider<Object> image = AssetImage('assets/images/pelezin.jpg');
   ImageProvider<Object> imagemTemporaria =
       AssetImage('assets/images/pelezin.jpg');
-       final now = DateTime.now();
-  }
 
-  void changeById(int identifier, Family newFamily){
-    FamilyModel.instance.family.forEach((e) {
-      // print(newFamily.getDescription()+" - "+newFamily.getTitle());
-      // if(e.identifier==identifier){
-      //   e.changeFamily(newFamily);
-      // }
-    });
-  }
+  final now = DateTime.now();
 }
