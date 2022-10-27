@@ -87,7 +87,7 @@ class AddFamilyState extends State<AddFamily> {
               padding: EdgeInsets.only(top: 0),
               child: Container(
                 decoration: BoxDecoration(color: Colors.lightBlue),
-                height: MediaQuery.of(context).size.height - 130,
+                height: MediaQuery.of(context).size.height - 90,
                 child: Column(
                   children: <Widget>[
                     Padding(
@@ -99,7 +99,6 @@ class AddFamilyState extends State<AddFamily> {
                           children: [
                             Container(
                               height: 100,
-                            
                             ),
 //container pega imagen
                             Container(
@@ -125,7 +124,6 @@ class AddFamilyState extends State<AddFamily> {
                                 hintStyle: TextStyle(color: Colors.black),
                                 border: OutlineInputBorder(),
                                 enabledBorder: OutlineInputBorder(
-                                
                                   borderSide: BorderSide(
                                       style: BorderStyle.solid,
                                       color: Colors.black),
@@ -139,7 +137,6 @@ class AddFamilyState extends State<AddFamily> {
                                 color: Colors.lightBlue,
                               ),
                               child: DateBorderedField(
-                                
                                 onChangeFunction: (DateTime date) {
                                   dataController = date;
                                 },
@@ -157,7 +154,6 @@ class AddFamilyState extends State<AddFamily> {
                                 hintStyle: TextStyle(color: Colors.black),
                                 border: OutlineInputBorder(),
                                 enabledBorder: OutlineInputBorder(
-                    
                                   borderSide: BorderSide(
                                       style: BorderStyle.solid,
                                       color: Colors.black),
@@ -177,7 +173,6 @@ class AddFamilyState extends State<AddFamily> {
                                 hintStyle: TextStyle(color: Colors.black),
                                 border: OutlineInputBorder(),
                                 enabledBorder: OutlineInputBorder(
-                                  
                                   borderSide: BorderSide(
                                       style: BorderStyle.solid,
                                       color: Colors.black),
@@ -185,18 +180,39 @@ class AddFamilyState extends State<AddFamily> {
                               ),
                             ),
 //função salvar
-                            InkWell(
-                              child: Text(
-                                "salvar",
-                                style: TextStyle(
-                                    color: Colors.black, fontSize: 20),
+                            Container(
+                              child: Column(
+                                children: [
+                                  ElevatedButton(
+                                    onPressed: () {
+                                       Salvar();
+                                      Navigator.pushNamed(context, '/family');
+                                    },
+                                    child: Text('SALVAR'),
+                                    style: ElevatedButton.styleFrom(
+                                      primary: Colors.grey,
+                                      side: BorderSide(
+                                        width: 1.0,
+                                        
+                                        color: Colors.black,
+                                      ),
+                                    ),
+                                  ), // <-- Radius
+
+                                  // RaisedButton(
+
+                                  //   color: Colors.grey,
+                                  //   textColor: Colors.white,
+                                  //   child: Text('Salvar'),
+
+                                  //   onPressed: () {
+                                  //     Salvar();
+                                  //     Navigator.pushNamed(context, '/family');
+                                  //   },
+
+                                  // ),
+                                ],
                               ),
-                              // color: Color.fromARGB(255, 19, 117, 121),
-                              // onPressed: Salvar),
-                              onTap: () {
-                                Salvar();
-                                Navigator.pushNamed(context, '/family');
-                              },
                             ),
                           ],
                         ),

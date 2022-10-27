@@ -17,8 +17,6 @@ class FamilyView extends StatelessWidget {
 }
 
 class Tela extends StatelessWidget {
-  int contBox = 12;
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -51,18 +49,14 @@ class Tela extends StatelessWidget {
             Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
-                  IconButton(
-                      icon: Icon(null),
-                      onPressed: () {
-                        GestureDetector(onTap: () => contBox++);
-                      }),
+                  IconButton(icon: Icon(null), onPressed: () {}),
                 ]),
           ],
         ),
       ),
       body: Column(
         children: <Widget>[
-          TopBar(contBox: contBox),
+          TopBar(),
         ],
       ),
       floatingActionButton: FloatingActionButton(
@@ -114,7 +108,6 @@ class TopBar extends StatelessWidget {
                   child: Container(
                     decoration: BoxDecoration(
                       color: Colors.lightBlue,
-                     
                     ),
                     height: MediaQuery.of(context).size.height - 150,
                     child: ListView.builder(
@@ -122,15 +115,17 @@ class TopBar extends StatelessWidget {
                       itemBuilder: (BuildContext context, int index) {
                         return InkWell(
                           splashColor: Colors.grey.withAlpha(70),
-                  onTap: () {
-                    Navigator.of(context).pushNamed('/seeFamily',arguments: {"memory": FamilyModel.instance.family[index]});
-                  },
+                          onTap: () {
+                            Navigator.of(context).pushNamed('/seeFamily',
+                                arguments: {
+                                  "memory": FamilyModel.instance.family[index]
+                                });
+                          },
                           child: Container(
                             decoration: BoxDecoration(
                               color: Colors.lightBlue,
                               border: Border.all(),
                             ),
-                            
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: <Widget>[
@@ -146,11 +141,13 @@ class TopBar extends StatelessWidget {
                                   ),
                                 ),
                                 Container(
-                                  width: MediaQuery.of(context).size.width - 160,
+                                  width:
+                                      MediaQuery.of(context).size.width - 160,
                                   child: Column(
                                     mainAxisAlignment:
                                         MainAxisAlignment.spaceBetween,
-                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
                                     children: <Widget>[
                                       Text(
                                         "Nome: ${FamilyModel.instance.family[index].title}",
