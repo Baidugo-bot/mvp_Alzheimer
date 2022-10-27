@@ -30,17 +30,17 @@ class AddFamilyState extends State<AddFamily> {
       FamilyController.instance.image =
           FamilyController.instance.imagemTemporaria;
       FamilyModel.instance.family.add(new Family(
-          title: txtNome.text,
-          date: dataController,
-          Telephone: int.parse(txtTelephone.text),
-          ));
+        title: txtNome.text,
+        date: dataController,
+        Telephone: int.parse(txtTelephone.text),
+      ));
     });
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.lightBlue,
+      // backgroundColor: Colors.lightBlue,
       appBar: AppBar(
         backgroundColor: Colors.lightBlue,
         elevation: 0,
@@ -56,7 +56,7 @@ class AddFamilyState extends State<AddFamily> {
               },
               child: Icon(
                 Icons.keyboard_return,
-                color: Color.fromARGB(255, 255, 255, 255),
+                color: Colors.white,
                 size: 40.0,
               ),
             ),
@@ -66,6 +66,11 @@ class AddFamilyState extends State<AddFamily> {
                 fontSize: 30,
               ),
             ),
+            Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: <Widget>[
+                  IconButton(icon: Icon(null), onPressed: () {}),
+                ]),
           ],
         ),
       ),
@@ -81,26 +86,20 @@ class AddFamilyState extends State<AddFamily> {
             Padding(
               padding: EdgeInsets.only(top: 0),
               child: Container(
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(40),
-                      topRight: Radius.circular(40),
-                      bottomLeft: Radius.circular(40),
-                      bottomRight: Radius.circular(40),
-                    ),
-                    color: Colors.white),
+                decoration: BoxDecoration(color: Colors.lightBlue),
                 height: MediaQuery.of(context).size.height - 130,
                 child: Column(
                   children: <Widget>[
                     Padding(
-                      padding: EdgeInsets.only(left: 25, right: 25),
+                      padding: EdgeInsets.only(),
                       child: Container(
-                        decoration: BoxDecoration(color: Colors.white),
-                        height: MediaQuery.of(context).size.height - 150,
+                        decoration: BoxDecoration(color: Colors.lightBlue),
+                        // height: MediaQuery.of(context).size.height - 150,
                         child: Column(
                           children: [
                             Container(
                               height: 100,
+                            
                             ),
 //container pega imagen
                             Container(
@@ -126,7 +125,7 @@ class AddFamilyState extends State<AddFamily> {
                                 hintStyle: TextStyle(color: Colors.black),
                                 border: OutlineInputBorder(),
                                 enabledBorder: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(20),
+                                
                                   borderSide: BorderSide(
                                       style: BorderStyle.solid,
                                       color: Colors.black),
@@ -135,11 +134,16 @@ class AddFamilyState extends State<AddFamily> {
                             ),
 //campo calendario nacimento
 
-                              
-                            DateBorderedField(
-                              onChangeFunction: (DateTime date) {
-                                dataController = date;
-                              },
+                            Container(
+                              decoration: BoxDecoration(
+                                color: Colors.lightBlue,
+                              ),
+                              child: DateBorderedField(
+                                
+                                onChangeFunction: (DateTime date) {
+                                  dataController = date;
+                                },
+                              ),
                             ),
 
 //campo nome do Parentesco
@@ -153,7 +157,7 @@ class AddFamilyState extends State<AddFamily> {
                                 hintStyle: TextStyle(color: Colors.black),
                                 border: OutlineInputBorder(),
                                 enabledBorder: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(20),
+                    
                                   borderSide: BorderSide(
                                       style: BorderStyle.solid,
                                       color: Colors.black),
@@ -173,7 +177,7 @@ class AddFamilyState extends State<AddFamily> {
                                 hintStyle: TextStyle(color: Colors.black),
                                 border: OutlineInputBorder(),
                                 enabledBorder: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(20),
+                                  
                                   borderSide: BorderSide(
                                       style: BorderStyle.solid,
                                       color: Colors.black),
