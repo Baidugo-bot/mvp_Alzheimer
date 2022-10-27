@@ -60,12 +60,9 @@ class DateBorderedFieldState extends State<DateBorderedField> {
         border: Border.all(
           width: 1,
         ),
-        color: Colors.white,
+        color: Colors.lightBlue,
         borderRadius: BorderRadius.only(
-          topLeft: Radius.circular(20),
-          topRight: Radius.circular(20),
-          bottomLeft: Radius.circular(20),
-          bottomRight: Radius.circular(20),
+          
         ),
       ),
       height: 60,

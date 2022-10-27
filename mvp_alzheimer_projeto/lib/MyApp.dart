@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:projeto_estudo/src/views/ConfigurationsView.dart';
+import 'package:projeto_estudo/src/views/EditFamilyView.dart';
 import 'package:projeto_estudo/src/views/MemoriesView.dart';
 import 'package:projeto_estudo/src/views/ReminderView.dart';
 import 'package:projeto_estudo/src/views/FamilyView.dart';
@@ -53,6 +54,7 @@ class MyApp extends StatelessWidget {
             //push content on route
             '/seeReminder': (context) => MyHomePage(title: '',),
             '/configurations': (context) =>  ConfigurationsView(),
+            '/editfamily': (context) => EditFamilyView(),
             '/family': (context) => FamilyView(),
             '/addFamily':(context) => AddFamily(),
             '/addperson': (context) => MyHomePage(title: '',),

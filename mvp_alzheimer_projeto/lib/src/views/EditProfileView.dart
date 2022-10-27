@@ -21,7 +21,7 @@ class EditProfileState extends State<EditProfile> {
       ProfileController.instance.dataNasc = dataController;
       ProfileController.instance.image =
           ProfileController.instance.imagemTemporaria;
-      Navigator.pushNamed(context, '/profile');
+      Navigator.pushNamed(context, '/editprofile');
     });
   }
 
@@ -89,22 +89,27 @@ class EditProfileState extends State<EditProfile> {
               },
             ),
 //função salvar
-            Column(
-              children: [
-              InkWell(
-                child: Text(
-                  "salvar",
-                  style: TextStyle(color: Colors.black, fontSize: 20),
-                ),
-                // color: Color.fromARGB(255, 19, 117, 121),
-                // onPressed: Salvar),
-                onTap: () {
-                  Salvar();
-                  Navigator.pushNamed(context, '/profile');
-                },
-              ),
-              ],
-            ),
+            Container(
+                              child: Column(
+                                children: [
+                                  ElevatedButton(
+                                    onPressed: () {
+                                       Salvar();
+                                      Navigator.pushNamed(context, '/profile');
+                                    },
+                                    child: Text('SALVAR'),
+                                    style: ElevatedButton.styleFrom(
+                                      primary: Colors.grey,
+                                      side: BorderSide(
+                                        width: 1.0,
+                                        
+                                        color: Colors.black,
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
           ],
         ),
       ),

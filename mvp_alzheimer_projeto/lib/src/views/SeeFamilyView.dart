@@ -45,7 +45,7 @@ class SeeFamilyView extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
                   IconButton(icon: Icon(Icons.edit,size: 40.0,), onPressed: () {
-                     Navigator.pushNamed(context, '/family');
+                     Navigator.pushNamed(context, '/editfamily');
                   }),
                 ]),
           ],

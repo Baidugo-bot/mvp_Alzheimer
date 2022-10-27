@@ -197,20 +197,7 @@ class AddFamilyState extends State<AddFamily> {
                                         color: Colors.black,
                                       ),
                                     ),
-                                  ), // <-- Radius
-
-                                  // RaisedButton(
-
-                                  //   color: Colors.grey,
-                                  //   textColor: Colors.white,
-                                  //   child: Text('Salvar'),
-
-                                  //   onPressed: () {
-                                  //     Salvar();
-                                  //     Navigator.pushNamed(context, '/family');
-                                  //   },
-
-                                  // ),
+                                  ),
                                 ],
                               ),
                             ),
