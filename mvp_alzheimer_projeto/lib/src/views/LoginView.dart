@@ -7,6 +7,8 @@ import 'package:projeto_estudo/src/components/EditMemoryComponents.dart';
 import '../components/AddMemoryComponents.dart';
 import '../components/CustomButton.dart';
 import '../components/CustomInputs.dart';
+import '../controller/LoginController.dart';
+import '../controller/SessionController.dart';
 import '../models/MemoryModel.dart';
 
 class LoginView extends StatefulWidget {
@@ -51,11 +53,8 @@ class LoginViewState extends State<LoginView> {
             Container(height: 25,),
             DefaultButton(color: Color.fromRGBO(173, 216, 230, 1), title: 'Entrar',
               response: () {
-              if(emailController.text=="hugo" && passwordController.text=="123"){
+                SessionController.instance.tryLogin(emailController.text, passwordController.text);
                 Navigator.of(context).pushNamed('/patients');
-              }else{
-                print("incorreto,cadaste-se");
-              }
               },
               enableBounds: true, bounds: {320.0:60.0},
             ),

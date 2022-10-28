@@ -7,6 +7,7 @@ import 'package:projeto_estudo/src/components/EditMemoryComponents.dart';
 
 import '../components/AddMemoryComponents.dart';
 import '../components/CustomInputs.dart';
+import '../controller/SessionController.dart';
 import '../models/MemoryModel.dart';
 
 class RegisterView extends StatefulWidget {
@@ -67,7 +68,19 @@ class RegisterViewState extends State<RegisterView> {
               child: DefaultMarkBox(title: "Paciente:",color: Colors.black,myController: pacienteController,),
             ),
             Container(height: 10,),
-            DefaultButton(color: Color.fromRGBO(173, 216, 230, 1), title: 'Cadastrar-se', response: () { Navigator.of(context).pushNamed('/patients'); }, enableBounds: true, bounds: {250.0:50.0},),
+            DefaultButton(color: Color.fromRGBO(173, 216, 230, 1), title: 'Cadastrar-se', response: () {
+              //validar apenas um escolhido, mostrar mensagem
+              if(passwordController.text!=confirmController.text){}else{
+                SessionController.instance.register(
+                  (cuidadorController==true)?((cuidadorController==true) ? "1" : "0"):(pacienteController) ? "1" : "0",
+                  emailController.text,
+                  passwordController.text
+                );
+              }
+
+
+              //Navigator.of(context).pushNamed('/patients');
+              }, enableBounds: true, bounds: {250.0:50.0},),
           ],
         ),
       ),
