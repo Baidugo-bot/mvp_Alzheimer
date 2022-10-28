@@ -5,6 +5,7 @@ class FamilyController extends ChangeNotifier {
 
   String nome = "";
   String parentesco = "";
+  int Telephone = 0;
   DateTime dataNasc = DateTime.now();
   ImageProvider<Object> image = AssetImage('assets/images/pelezin.jpg');
   ImageProvider<Object> imagemTemporaria =
