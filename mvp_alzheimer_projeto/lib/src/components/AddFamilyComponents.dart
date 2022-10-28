@@ -7,7 +7,7 @@ import 'dart:io';
 class ImagePickerContainer extends StatefulWidget {
   String imageLink;
   VoidCallback  response = (){};
-  ImagePickerContainer({Key? key,required this.imageLink, required this.response }) : super(key: key);
+  ImagePickerContainer({Key? key,required this.imageLink, required this.response, imageController }) : super(key: key);
 
   @override
   ImagePickerContainerState createState() => ImagePickerContainerState();

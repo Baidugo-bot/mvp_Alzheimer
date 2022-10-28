@@ -62,7 +62,7 @@ class CustomAppBar {
       toolbarHeight: 35,
       backgroundColor: AppController.instance.mainColor,
       title: Row(
-
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           InkWell(
             onTap: () {

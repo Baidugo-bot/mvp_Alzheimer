@@ -106,17 +106,9 @@ class TopBar extends StatelessWidget {
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceBetween,
                                   children: <Widget>[
-                                    Padding(
-                                      padding: EdgeInsets.all(8),
-                                      child: Container(
-                                        child: CircleAvatar(
-                                          radius: 45,
-                                          backgroundColor: Colors.black,
-                                          backgroundImage: NetworkImage(
-                                              "https://loremflickr.com/320/32$index"),
-                                        ),
-                                      ),
-                                    ),
+                                    Image(
+                                      image: FamilyModel.instance.famili[index].getImage(),
+                                      height: 115,),
                                     Container(
                                       width: MediaQuery.of(context).size.width -
                                           120,
@@ -126,7 +118,7 @@ class TopBar extends StatelessWidget {
                                         crossAxisAlignment:
                                             CrossAxisAlignment.start,
                                         children: <Widget>[
-                                          
+
                                           Text(
                                             "Parentesco: ${FamilyModel.instance.famili[index].parentesco}",
                                             style: TextStyle(
@@ -159,7 +151,7 @@ class TopBar extends StatelessWidget {
                                               overflow: TextOverflow.ellipsis,
                                             ),
                                           ),
-                                           
+
                                         ],
                                       ),
                                     )

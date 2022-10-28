@@ -11,7 +11,7 @@ dependencies:
   bordered_text: ^2.0.0
   jiffy: ^5.0.0
 
-  date_field: ^3.0.0
+  date_field: #latest version
   image_picker: ^0.8.5
   permission_handler: ^9.2.0
   flutter_map: #latest version
