@@ -129,6 +129,7 @@ class TopBar extends StatelessWidget {
                                     arguments: {
                                       "family": FamilyModel.instance.famili[index]
                                     });
+                                    
                               },
                               child: Container(
                                 decoration: BoxDecoration(

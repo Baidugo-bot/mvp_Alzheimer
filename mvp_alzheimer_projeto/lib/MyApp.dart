@@ -54,7 +54,7 @@ class MyApp extends StatelessWidget {
             //push content on route
             '/seeReminder': (context) => MyHomePage(title: '',),
             '/configurations': (context) =>  ConfigurationsView(),
-            '/editfamily': (context) => EditFamilyView(),
+            '/editFamily': (context) => EditFamilyView(),
             '/family': (context) => FamilyView(),
             '/addFamily':(context) => AddFamily(),
             '/addperson': (context) => MyHomePage(title: '',),

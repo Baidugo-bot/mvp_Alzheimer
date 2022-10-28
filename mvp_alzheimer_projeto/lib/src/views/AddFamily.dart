@@ -36,7 +36,7 @@ class AddFamilyState extends State<AddFamily> {
       FamilyModel.instance.famili.add(new Family(
         title: txtNome.text,
         date: dataController, 
-        identifier: 0, 
+        identifier: FamilyModel.instance.famili.length, 
         description: '', 
         image: imageController,
         //Telephone: int.parse(txtTelephone.text),

@@ -21,7 +21,7 @@ class EditProfileState extends State<EditProfile> {
       ProfileController.instance.dataNasc = dataController;
       ProfileController.instance.image =
           ProfileController.instance.imagemTemporaria;
-      Navigator.pushNamed(context, '/editprofile');
+      Navigator.pushNamed(context, '/profile');
     });
   }
 

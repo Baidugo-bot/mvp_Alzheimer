@@ -11,6 +11,7 @@ class SeeFamilyView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var args = ModalRoute.of(context)!.settings.arguments as Map<String,Family>;
+    
     return Scaffold(
       backgroundColor: AppController.instance.mainColor,
       appBar: AppBar(
@@ -44,7 +45,10 @@ class SeeFamilyView extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
                   IconButton(icon: Icon(Icons.edit,size: 40.0,), onPressed: () {
-                     Navigator.pushNamed(context, '/editfamily');
+                     Navigator.of(context).pushNamed('/editFamily',
+                                    arguments: {
+                                      "family": FamilyModel.instance.famili[args["family"]!.identifier]
+                                    });
                   }),
                 ]),
           ],

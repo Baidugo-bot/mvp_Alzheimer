@@ -48,7 +48,7 @@ class EditFamilyViewState extends State<EditFamilyView> {
     print("Modify: "+args['family']!.getIdentifier().toString());
     
     //var criado apos erro
-    var CustomAppBar;
+    
     return Scaffold(
 
       backgroundColor: AppController.instance.mainColor,
