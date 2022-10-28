@@ -33,10 +33,13 @@ class AddFamilyState extends State<AddFamily> {
           FamilyController.instance.imagemTemporaria;
       ImageProvider<Object> imageController =
           AssetImage("assets/images/imagemEscolha.png");
-      FamilyModel.instance.family.add(new Family(
+      FamilyModel.instance.famili.add(new Family(
         title: txtNome.text,
-        date: dataController,
-        Telephone: int.parse(txtTelephone.text),
+        date: dataController, 
+        identifier: 0, 
+        description: '', 
+        image: imageController,
+        //Telephone: int.parse(txtTelephone.text),
       ));
     });
   }

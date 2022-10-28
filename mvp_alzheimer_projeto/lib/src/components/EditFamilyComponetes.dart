@@ -9,7 +9,6 @@ class BorderedTextField extends StatefulWidget {
   bool haveFrame;
   TextEditingController myResult;
   bool beenChanged= false;
-   //Funtion(String) onChanged;//on both
   BorderedTextField({Key? key, required this.title, required this.haveFrame, required this.myResult,}) : super(key: key);
 
 
@@ -24,9 +23,9 @@ class BorderedTextFieldState extends State<BorderedTextField> {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        border: Border(
-          bottom: BorderSide(width: 2, color: Colors.grey),
-        ),
+        border:(widget.haveFrame==false)? Border(
+          bottom: BorderSide(width: 2, color: Colors.black),
+        ):null,
       ),
       child: (widget.haveFrame==true)?
       Column(
@@ -47,14 +46,15 @@ class BorderedTextFieldState extends State<BorderedTextField> {
                   height: 100,
                   color: Colors.white,
                   child: TextField(
+                    
                     style: TextStyle(color: Colors.black,fontFamily: "Gidugu-Regular"),
                     controller: widget.myResult  ,
+                    
+
                     //onChanged: ,
-                    keyboardType: TextInputType.multiline,
-                    maxLines: null,
                     decoration: InputDecoration(
                       border: InputBorder.none,
-
+                      
                     ),
                   ),
                 ),
@@ -79,9 +79,7 @@ class BorderedTextFieldState extends State<BorderedTextField> {
               child: TextField(
                 style: TextStyle(color: Colors.black,fontFamily: "Gidugu-Regular"),
                 controller: widget.myResult  ,
-                //onChanged: ,
-                keyboardType: TextInputType.multiline,
-                maxLines: null,
+                
                 decoration: InputDecoration(
                   border: InputBorder.none,
                 ),
@@ -96,7 +94,9 @@ class BorderedTextFieldState extends State<BorderedTextField> {
 
 class DateBorderedField extends StatefulWidget {
   Function(DateTime) onChangeFunction = (DateTime date){};
-  DateBorderedField({Key? key, required this.onChangeFunction}) : super(key: key);
+  DateTime lastDate = DateTime.now();
+  DateTime initialValue = DateTime.now();
+  DateBorderedField({Key? key, required this.onChangeFunction, required this.lastDate,required this.initialValue}) : super(key: key);
 
   @override
   DateBorderedFieldState createState() => DateBorderedFieldState();
@@ -110,7 +110,7 @@ class DateBorderedFieldState extends State<DateBorderedField> {
     return Container(
       decoration: BoxDecoration(
         border: Border(
-          bottom: BorderSide(width: 2, color: Colors.grey),
+          bottom: BorderSide(width: 2, color: Colors.black),
         ),
       ),
       child: Row(
@@ -124,13 +124,14 @@ class DateBorderedFieldState extends State<DateBorderedField> {
 
             width: 200,
             child: DateTimeFormField(
+
                 onDateSelected: (DateTime date){
                   widget.onChangeFunction(date);
                 },
+              lastDate: DateTime.now(),
+              initialValue: widget.initialValue,
                 mode: DateTimeFieldPickerMode.date,
-                initialDate: holderDate,
                 dateTextStyle: TextStyle(color: Colors.black,fontFamily: "Gidugu-Regular"),
-
                 decoration: InputDecoration(
                     border: InputBorder.none
                 ),
@@ -141,4 +142,3 @@ class DateBorderedFieldState extends State<DateBorderedField> {
     );
   }
 }
-

@@ -1,15 +1,13 @@
 
-
-
-
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'dart:io';
 
 
 class ImagePickerContainer extends StatefulWidget {
-  ImageProvider<Object> imageController;
-  ImagePickerContainer({Key? key,required this.imageController }) : super(key: key);
+  String imageLink;
+  VoidCallback  response = (){};
+  ImagePickerContainer({Key? key,required this.imageLink, required this.response }) : super(key: key);
 
   @override
   ImagePickerContainerState createState() => ImagePickerContainerState();
@@ -18,27 +16,30 @@ class ImagePickerContainer extends StatefulWidget {
 class ImagePickerContainerState extends State<ImagePickerContainer> {
   @override
 
-  Future getImage() async {
+   Future<String> getImage() async {
     ImagePicker picker = new ImagePicker();
     var image = await picker.pickImage(source: ImageSource.gallery);
-
     setState(() {
-      print(image!.path);
-      widget.imageController =   FileImage(File(image.path));
-      print(widget.imageController);
+
     });
+    if(image!.path!=null){
+      return image.path;
+    }
+    return "none";
   }
 
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: ()async {await getImage();},
-      child: Container(
-          child: Image(
-            image: widget.imageController,
-            height: 250,
+
+        return GestureDetector(
+          onTap: widget.response,
+          child: Container(
+            child: Image(
+              image:
+              (widget.imageLink!="assets/images/imagemEscolha.png")?FileImage(File(widget.imageLink)):Image.asset("assets/images/imagemEscolha.png").image,
+              height: 250,
+            ),
           ),
-      ),
-    );
+        );
   }
 }
 

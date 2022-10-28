@@ -83,10 +83,12 @@ class TopBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     DateTime agora = DateTime.now();
+    
 
     print((agora.difference(FamilyController.instance.dataNasc).inDays / 365)
         .toString()
         .substring(0, 2));
+    var index;
     return Stack(
       children: <Widget>[
         Container(
@@ -96,97 +98,106 @@ class TopBar extends StatelessWidget {
           decoration:
               BoxDecoration(border: Border.all(), color: Colors.lightBlue),
         ),
-        Padding(
-          padding: EdgeInsets.only(top: 10),
-          child: Container(
-            decoration: BoxDecoration(color: Colors.lightBlue),
-            height: MediaQuery.of(context).size.height - 99,
-            child: Column(
-              children: <Widget>[
-                Padding(
-                  padding: EdgeInsets.only(),
-                  child: Container(
-                    decoration: BoxDecoration(
-                      color: Colors.lightBlue,
-                    ),
-                    height: MediaQuery.of(context).size.height - 150,
-                    child: ListView.builder(
-                      itemCount: FamilyModel.instance.family.length,
-                      itemBuilder: (BuildContext context, int index) {
-                        return InkWell(
-                          splashColor: Colors.grey.withAlpha(70),
-                          onTap: () {
-                            Navigator.of(context).pushNamed('/seeFamily',
-                                arguments: {
-                                  "family": FamilyModel.instance.family[index]
-                                });
-                          },
-                          child: Container(
-                            decoration: BoxDecoration(
-                              color: Colors.lightBlue,
-                              border: Border.all(),
-                            ),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: <Widget>[
-                                Padding(
-                                  padding: EdgeInsets.all(8),
-                                  child: Container(
-                                    child: CircleAvatar(
-                                      radius: 30,
-                                      backgroundColor: Colors.black,
-                                      backgroundImage: NetworkImage(
-                                          "https://loremflickr.com/320/32$index"),
-                                    ),
-                                  ),
+        Column(
+          children: [
+            // Image(
+            //               image: FamilyModel.instance.famili[index].getImage(),
+            //               height: 120,),
+            //             Container(width: 10,),
+        
+            Padding(
+              padding: EdgeInsets.only(top: 10),
+              child: Container(
+                decoration: BoxDecoration(color: Colors.lightBlue),
+                height: MediaQuery.of(context).size.height - 99,
+                child: Column(
+                  children: <Widget>[
+                    Padding(
+                      padding: EdgeInsets.only(),
+                      child: Container(
+                        decoration: BoxDecoration(
+                          color: Colors.lightBlue,
+                        ),
+                        height: MediaQuery.of(context).size.height - 150,
+                        child: ListView.builder(
+                          itemCount: FamilyModel.instance.famili.length,
+                          itemBuilder: (BuildContext context, int index) {
+                            return InkWell(
+                              splashColor: Colors.grey.withAlpha(70),
+                              onTap: () {
+                                Navigator.of(context).pushNamed('/seeFamily',
+                                    arguments: {
+                                      "family": FamilyModel.instance.famili[index]
+                                    });
+                              },
+                              child: Container(
+                                decoration: BoxDecoration(
+                                  color: Colors.lightBlue,
+                                  border: Border.all(),
                                 ),
-                                Container(
-                                  width:
-                                      MediaQuery.of(context).size.width - 160,
-                                  child: Column(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: <Widget>[
-                                      Text(
-                                        "Nome: ${FamilyModel.instance.family[index].title}",
-                                        style: TextStyle(
-                                          color: Colors.black,
-                                          fontSize: 20,
-                                          fontWeight: FontWeight.bold,
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                  children: <Widget>[
+                                    Padding(
+                                      padding: EdgeInsets.all(8),
+                                      child: Container(
+                                        child: CircleAvatar(
+                                          radius: 30,
+                                          backgroundColor: Colors.black,
+                                          backgroundImage: NetworkImage(
+                                              "https://loremflickr.com/320/32$index"),
                                         ),
                                       ),
-                                      Text(
-                                        "Idade: ${(agora.difference(FamilyModel.instance.family[index].date).inDays / 365).toString().substring(0, 2)}",
-                                        style: TextStyle(
-                                          color: Colors.black,
-                                          fontSize: 17,
-                                          overflow: TextOverflow.ellipsis,
-                                        ),
+                                    ),
+                                    Container(
+                                      width:
+                                          MediaQuery.of(context).size.width - 160,
+                                      child: Column(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: <Widget>[
+                                          Text(
+                                            "Nome: ${FamilyModel.instance.famili[index].title}",
+                                            style: TextStyle(
+                                              color: Colors.black,
+                                              fontSize: 20,
+                                              fontWeight: FontWeight.bold,
+                                            ),
+                                          ),
+                                          Text(
+                                            "Idade: ${(agora.difference(FamilyModel.instance.famili[index].date).inDays / 365).toString().substring(0, 2)}",
+                                            style: TextStyle(
+                                              color: Colors.black,
+                                              fontSize: 17,
+                                              overflow: TextOverflow.ellipsis,
+                                            ),
+                                          ),
+                                          // Text(
+                                          //   //"Telefone: ${FamilyModel.instance.famili[index].Telephone}",
+                                          //   style: TextStyle(
+                                          //     color: Colors.black,
+                                          //     fontSize: 17,
+                                          //     overflow: TextOverflow.ellipsis,
+                                          //   ),
+                                          // ),
+                                        ],
                                       ),
-                                      Text(
-                                        "Telefone: ${FamilyModel.instance.family[index].Telephone}",
-                                        style: TextStyle(
-                                          color: Colors.black,
-                                          fontSize: 17,
-                                          overflow: TextOverflow.ellipsis,
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                )
-                              ],
-                            ),
-                          ),
-                        );
-                      },
+                                    )
+                                  ],
+                                ),
+                              ),
+                            );
+                          },
+                        ),
+                      ),
                     ),
-                  ),
+                  ],
                 ),
-              ],
+              ),
             ),
-          ),
+          ],
         ),
         Padding(
           padding: EdgeInsets.only(top: 150, right: 5, left: 5, bottom: 10),

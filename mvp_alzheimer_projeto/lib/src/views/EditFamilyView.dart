@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:projeto_estudo/AppController.dart';
 import 'package:projeto_estudo/src/models/FamilyModel.dart';
+
 import '../components/AddFamilyComponents.dart';
 import '../components/CustomButton.dart';
 import '../components/EditFamilyComponetes.dart';
@@ -45,10 +46,13 @@ class EditFamilyViewState extends State<EditFamilyView> {
     descController.text = args["family"]!.getDescription();
     imageLink = args['family']!.imgLink?? "assets/images/imagemEscolha.png";
     print("Modify: "+args['family']!.getIdentifier().toString());
+    
+    //var criado apos erro
+    var CustomAppBar;
     return Scaffold(
 
       backgroundColor: AppController.instance.mainColor,
-      appBar: CustomAppBar.instance.getDefault(context,"/memories"),
+      appBar: CustomAppBar.instance.getDefault(context,"/Family"),
       body: SingleChildScrollView(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
@@ -67,8 +71,8 @@ class EditFamilyViewState extends State<EditFamilyView> {
               child: ImagePickerContainer(
                 imageLink : imageLink,
                 response: () async {
-                  imageLink =  await AppController.instance.getImage().then((value) => imageLink = value);
-                  Navigator.of(context).pushNamed('/Family', arguments: {
+                  //imageLink =  await AppController.instance.getImage().then((value) => imageLink = value);
+                  Navigator.of(context).pushNamed('/editFamily', arguments: {
                     'family': new Family(
                         title: titleController.text,
                         date: dateController,
