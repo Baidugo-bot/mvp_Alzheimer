@@ -52,20 +52,7 @@ class DefaultButtonState extends State<DefaultButton> {
 }
 
 
-/*class CustomAppBar extends StatefulWidget {
 
-  CustomAppBar({Key? key,}) : super(key: key);
-
-  @override
-  CustomAppBarState createState() => CustomAppBarState();
-}
-
-class CustomAppBarState extends State<CustomAppBar> {
-  @override
-  Widget build(BuildContext context) {
-    return
-  }
-}*/
 
 class CustomAppBar {
   static CustomAppBar instance = CustomAppBar();
