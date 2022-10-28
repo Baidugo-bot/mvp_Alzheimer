@@ -3,6 +3,7 @@ import 'package:projeto_estudo/src/controller/FamilyController.dart';
 import 'package:projeto_estudo/src/components/FamilyComponents.dart';
 
 import '../components/AddFamilyComponents.dart';
+import '../components/CustomButton.dart';
 import '../models/FamilyModel.dart';
 
 class AddFamily extends StatefulWidget {
@@ -35,11 +36,11 @@ class AddFamilyState extends State<AddFamily> {
           AssetImage("assets/images/imagemEscolha.png");
       FamilyModel.instance.famili.add(new Family(
         title: txtNome.text,
-        date: dataController, 
-        identifier: FamilyModel.instance.famili.length, 
-        description: '', 
+        date: dataController,
+        identifier: FamilyModel.instance.famili.length,
+        parentesco: '',
         image: imageController,
-        //Telephone: int.parse(txtTelephone.text),
+        Telephone: (txtTelephone.text),
       ));
     });
   }
@@ -49,39 +50,7 @@ class AddFamilyState extends State<AddFamily> {
     print(imageController);
     return Scaffold(
       // backgroundColor: Colors.lightBlue,
-      appBar: AppBar(
-        backgroundColor: Colors.lightBlue,
-        elevation: 0,
-        centerTitle: true,
-        automaticallyImplyLeading: false,
-        title: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-//botão volta menu principal
-            InkWell(
-              onTap: () {
-                Navigator.pushNamed(context, '/family');
-              },
-              child: Icon(
-                Icons.keyboard_return,
-                color: Colors.white,
-                size: 40.0,
-              ),
-            ),
-            Text(
-              " Familiares",
-              style: TextStyle(
-                fontSize: 30,
-              ),
-            ),
-            Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: <Widget>[
-                  IconButton(icon: Icon(null), onPressed: () {}),
-                ]),
-          ],
-        ),
-      ),
+     appBar: CustomAppBar.instance.getNamedDefault(context, "/family",Center(child: Text('Cadastro'))),
 
       body: Column(
         children: [
@@ -90,7 +59,7 @@ class AddFamilyState extends State<AddFamily> {
             alignment: Alignment.bottomCenter,
             width: MediaQuery.of(context).size.width,
             decoration:
-                BoxDecoration(border: Border.all(), color: Colors.lightBlue),
+                BoxDecoration(border: Border.all(), color: Color.fromRGBO(121,188,218, 1)),
           ),
           SingleChildScrollView(
             child: Column(
@@ -109,19 +78,19 @@ class AddFamilyState extends State<AddFamily> {
                   height: 10,
                   alignment: Alignment.bottomCenter,
                   width: MediaQuery.of(context).size.width,
-                  color: Colors.lightBlue,
+                  color: Color.fromRGBO(121,188,218, 1),
                 ),
                 Padding(
                   padding: EdgeInsets.only(top: 0),
                   child: Container(
-                    decoration: BoxDecoration(color: Colors.lightBlue),
+                    decoration: BoxDecoration(color: Color.fromRGBO(121,188,218, 1)),
                     height: MediaQuery.of(context).size.height - 0,
                     child: Column(
                       children: <Widget>[
                         Padding(
                           padding: EdgeInsets.only(),
                           child: Container(
-                            decoration: BoxDecoration(color: Colors.lightBlue),
+                            decoration: BoxDecoration(color: Color.fromRGBO(121,188,218, 1)),
                             // height: MediaQuery.of(context).size.height - 150,
                             child: Column(
                               children: [
@@ -133,7 +102,7 @@ class AddFamilyState extends State<AddFamily> {
                                   padding: EdgeInsets.only(bottom: 10),
                                   width: 40,
                                   decoration: BoxDecoration(
-                                    color: Colors.lightBlue,
+                                    color: Color.fromRGBO(121,188,218, 1),
                                     border: Border(),
                                   ),
                                   height: 30,
@@ -162,7 +131,7 @@ class AddFamilyState extends State<AddFamily> {
 
                                 Container(
                                   decoration: BoxDecoration(
-                                    color: Colors.lightBlue,
+                                    color: Color.fromRGBO(121,188,218, 1),
                                   ),
                                   child: DateBorderedField(
                                     onChangeFunction: (DateTime date) {

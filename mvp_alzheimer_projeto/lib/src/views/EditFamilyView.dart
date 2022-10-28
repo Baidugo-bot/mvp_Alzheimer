@@ -35,30 +35,32 @@ class EditFamilyViewState extends State<EditFamilyView> {
   * */
   @override
   Widget build(BuildContext context) {
-    var args = ModalRoute.of(context)!.settings.arguments as Map<String,Family>;
+    var args =
+        ModalRoute.of(context)!.settings.arguments as Map<String, Family>;
     TextEditingController titleController = new TextEditingController();
     TextEditingController descController = new TextEditingController();
-    DateTime dateController = DateTime.now() ;
+    TextEditingController Telephone = new TextEditingController();
+    DateTime dateController = DateTime.now();
     String imageLink;
 
     titleController.text = args["family"]!.getTitle();
     dateController = args["family"]!.getDate();
     descController.text = args["family"]!.getDescription();
-    imageLink = args['family']!.imgLink?? "assets/images/imagemEscolha.png";
-    print("Modify: "+args['family']!.getIdentifier().toString());
-    
-    //var criado apos erro
-    
-    return Scaffold(
+    imageLink = args['family']!.imgLink ?? "assets/images/imagemEscolha.png";
+    print("Modify: " + args['family']!.getIdentifier().toString());
+    Telephone.text = args['family']!.getTelephone();
 
+    //var criado apos erro
+
+    return Scaffold(
       backgroundColor: AppController.instance.mainColor,
-      appBar: CustomAppBar.instance.getDefault(context,"/Family"),
+      appBar: CustomAppBar.instance.getNamedDefault(context, "/family",Center(child: Text('Editar'))),
       body: SingleChildScrollView(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
             Container(
-              height: 30,
+              height: 10,
             ),
             Container(
               padding: EdgeInsets.only(bottom: 10),
@@ -69,43 +71,56 @@ class EditFamilyViewState extends State<EditFamilyView> {
                 ),
               ),
               child: ImagePickerContainer(
-                imageLink : imageLink,
+                imageLink: imageLink,
                 response: () async {
                   //imageLink =  await AppController.instance.getImage().then((value) => imageLink = value);
                   Navigator.of(context).pushNamed('/editFamily', arguments: {
                     'family': new Family(
                         title: titleController.text,
+                        Telephone: Telephone.text,
                         date: dateController,
-                        description: descController.text,
+                        parentesco: descController.text,
                         identifier: args['family']!.getIdentifier(),
                         image: FileImage(File(imageLink)),
-                        imgLink: imageLink
-                    ),
-
+                        imgLink: imageLink),
                   });
                 },
               ),
             ),
+            
             Container(
-              height: 30,
-            ),
+              height: 1,
+                    decoration: BoxDecoration(
+                      
+                      color: Colors.lightBlue,
+                      border: Border.all(),
+                    ),
+                  ),
             BorderedTextField(
-              title: 'Titulo:',
+              title: 'Nome:',
               haveFrame: false,
               myResult: titleController,
-
             ),
             DateBorderedField(
               initialValue: dateController,
-              onChangeFunction: (DateTime date){dateController = date;},
+              onChangeFunction: (DateTime date) {
+                dateController = date;
+              },
               lastDate: dateController,
             ),
             BorderedTextField(
-              title: "Anotacoes:",
-              haveFrame: true,
+              title: "Telefone: ",
+              haveFrame: false,
+              myResult: Telephone,
+            ),
+            BorderedTextField(
+              title: 'Parentesco: ',
+              haveFrame: false,
               myResult: descController,
             ),
-            Container(height: 10,),
+            Container(
+              height: 10,
+            ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
@@ -113,33 +128,46 @@ class EditFamilyViewState extends State<EditFamilyView> {
                   title: "Salvar",
                   color: Colors.green,
                   response: () async {
-                    if(titleController.text=="" || descController.text==""){
+                    if (titleController.text == "" ||
+                        descController.text == "") {
                       print("Preencha");
-                    }else{
-
+                    } else {
                       bool imgExists = false;
-                      await File(imageLink).exists().then((value) =>imgExists=value);
-                      ImageProvider<Object>? finalImg = ((imgExists)?FileImage(File(imageLink)):AssetImage("assets/images/imagemEscolha.png")) as ImageProvider<Object>?;
-                      EditFamilyController.instance.changeById(args["family"]!.getIdentifier(),
-                            Family(
-                                title: titleController.text,
-                                date: dateController,
-                                description: descController.text,
-                                identifier: args["family"]!.getIdentifier(),
-                                image: finalImg ?? AssetImage("assets/images/imagemEscolha.png"),
-                                imgLink: (imgExists)?imageLink:"assets/images/imagemEscolha.png"
-                            ));
-                        Navigator.of(context).pushNamed('/memories', arguments: {});
+                      await File(imageLink)
+                          .exists()
+                          .then((value) => imgExists = value);
+                      ImageProvider<Object>? finalImg = ((imgExists)
+                              ? FileImage(File(imageLink))
+                              : AssetImage("assets/images/imagemEscolha.png"))
+                          as ImageProvider<Object>?;
+                      EditFamilyController.instance.changeById(
+                          args["family"]!.getIdentifier(),
+                          Family(
+                              title: titleController.text,
+                              date: dateController,
+                              Telephone: Telephone.text,
+                              parentesco: descController.text,
+                              identifier: args["family"]!.getIdentifier(),
+                              image: finalImg ??
+                                  AssetImage("assets/images/imagemEscolha.png"),
+                              imgLink: (imgExists)
+                                  ? imageLink
+                                  : "assets/images/imagemEscolha.png"));
+                      Navigator.of(context)
+                          .pushNamed('/family', arguments: {});
                     }
                   },
                 ),
-                Container(width: 10,),
+                Container(
+                  width: 10,
+                ),
                 CustomButton(
                   title: "Apagar",
                   color: Colors.red,
-                  response: (){
-                    EditFamilyController.instance.excludeById(args["family"]!.getIdentifier());
-                    Navigator.of(context).pushNamed('/memories', arguments: {});
+                  response: () {
+                    EditFamilyController.instance
+                        .excludeById(args["family"]!.getIdentifier());
+                    Navigator.of(context).pushNamed('/Family', arguments: {});
                   },
                 ),
               ],

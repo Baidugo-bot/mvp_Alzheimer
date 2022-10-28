@@ -4,6 +4,7 @@ import 'package:jiffy/jiffy.dart';
 import 'package:projeto_estudo/src/controller/FamilyController.dart';
 import 'package:projeto_estudo/src/views/AddFamily.dart';
 
+import '../components/CustomButton.dart';
 import '../models/FamilyModel.dart';
 
 class FamilyView extends StatelessWidget {
@@ -20,40 +21,7 @@ class Tela extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.lightBlue,
-        elevation: 0,
-        centerTitle: true,
-        automaticallyImplyLeading: false,
-        title: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-//botão volta menu principal
-            InkWell(
-              onTap: () {
-                Navigator.pushNamed(context, '/');
-              },
-              child: Icon(
-                Icons.keyboard_return,
-                color: Color.fromARGB(255, 255, 255, 255),
-                size: 40.0,
-              ),
-            ),
-            Text(
-              " Familiares",
-              style: TextStyle(
-                fontSize: 30,
-              ),
-            ),
-//botão add perfil
-            Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: <Widget>[
-                  IconButton(icon: Icon(null), onPressed: () {}),
-                ]),
-          ],
-        ),
-      ),
+      appBar: CustomAppBar.instance.getNamedDefault(context, "/",Center(child: Text('Familia'))),
       body: Column(
         children: <Widget>[
           TopBar(),
@@ -66,7 +34,7 @@ class Tela extends StatelessWidget {
         backgroundColor: Colors.grey,
         child: Icon(
           Icons.add,
-          color: Colors.lightBlue,
+          color: Color.fromRGBO(121,188,218, 1),
           size: 40.0,
         ),
       ),
@@ -83,7 +51,6 @@ class TopBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     DateTime agora = DateTime.now();
-    
 
     print((agora.difference(FamilyController.instance.dataNasc).inDays / 365)
         .toString()
@@ -96,7 +63,7 @@ class TopBar extends StatelessWidget {
           alignment: Alignment.bottomCenter,
           width: MediaQuery.of(context).size.width,
           decoration:
-              BoxDecoration(border: Border.all(), color: Colors.lightBlue),
+              BoxDecoration(border: Border.all(), color: Color.fromRGBO(121,188,218, 1)),
         ),
         Column(
           children: [
@@ -104,11 +71,11 @@ class TopBar extends StatelessWidget {
             //               image: FamilyModel.instance.famili[index].getImage(),
             //               height: 120,),
             //             Container(width: 10,),
-        
+
             Padding(
               padding: EdgeInsets.only(top: 10),
               child: Container(
-                decoration: BoxDecoration(color: Colors.lightBlue),
+                decoration: BoxDecoration(color: Color.fromRGBO(121,188,218, 1)),
                 height: MediaQuery.of(context).size.height - 99,
                 child: Column(
                   children: <Widget>[
@@ -116,7 +83,7 @@ class TopBar extends StatelessWidget {
                       padding: EdgeInsets.only(),
                       child: Container(
                         decoration: BoxDecoration(
-                          color: Colors.lightBlue,
+                          color: Color.fromRGBO(121,188,218, 1),
                         ),
                         height: MediaQuery.of(context).size.height - 150,
                         child: ListView.builder(
@@ -125,25 +92,25 @@ class TopBar extends StatelessWidget {
                             return InkWell(
                               splashColor: Colors.grey.withAlpha(70),
                               onTap: () {
-                                Navigator.of(context).pushNamed('/seeFamily',
-                                    arguments: {
-                                      "family": FamilyModel.instance.famili[index]
-                                    });
-                                    
+                                Navigator.of(context)
+                                    .pushNamed('/seeFamily', arguments: {
+                                  "family": FamilyModel.instance.famili[index]
+                                });
                               },
                               child: Container(
                                 decoration: BoxDecoration(
-                                  color: Colors.lightBlue,
+                                  color: Color.fromRGBO(121,188,218, 1),
                                   border: Border.all(),
                                 ),
                                 child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
                                   children: <Widget>[
                                     Padding(
                                       padding: EdgeInsets.all(8),
                                       child: Container(
                                         child: CircleAvatar(
-                                          radius: 30,
+                                          radius: 45,
                                           backgroundColor: Colors.black,
                                           backgroundImage: NetworkImage(
                                               "https://loremflickr.com/320/32$index"),
@@ -151,14 +118,23 @@ class TopBar extends StatelessWidget {
                                       ),
                                     ),
                                     Container(
-                                      width:
-                                          MediaQuery.of(context).size.width - 160,
+                                      width: MediaQuery.of(context).size.width -
+                                          120,
                                       child: Column(
                                         mainAxisAlignment:
                                             MainAxisAlignment.spaceBetween,
                                         crossAxisAlignment:
                                             CrossAxisAlignment.start,
                                         children: <Widget>[
+                                          
+                                          Text(
+                                            "Parentesco: ${FamilyModel.instance.famili[index].parentesco}",
+                                            style: TextStyle(
+                                              color: Colors.black,
+                                              fontSize: 17,
+                                              overflow: TextOverflow.ellipsis,
+                                            ),
+                                          ),
                                           Text(
                                             "Nome: ${FamilyModel.instance.famili[index].title}",
                                             style: TextStyle(
@@ -175,14 +151,15 @@ class TopBar extends StatelessWidget {
                                               overflow: TextOverflow.ellipsis,
                                             ),
                                           ),
-                                          // Text(
-                                          //   //"Telefone: ${FamilyModel.instance.famili[index].Telephone}",
-                                          //   style: TextStyle(
-                                          //     color: Colors.black,
-                                          //     fontSize: 17,
-                                          //     overflow: TextOverflow.ellipsis,
-                                          //   ),
-                                          // ),
+                                          Text(
+                                            "Telefone: ${FamilyModel.instance.famili[index].Telephone}",
+                                            style: TextStyle(
+                                              color: Colors.black,
+                                              fontSize: 17,
+                                              overflow: TextOverflow.ellipsis,
+                                            ),
+                                          ),
+                                           
                                         ],
                                       ),
                                     )
