@@ -8,7 +8,7 @@ class FamilyModel{
 }
 
 class Family {
-   Family(  {Key? key, required this.title, required this.date, required this.Telephone}) ;
+   Family(  {Key? key, required this.title, required this.date, required this.Telephone, description, identifier, image}) ;
    String title ;
    DateTime date;
    int Telephone;
@@ -40,7 +40,7 @@ class Family {
   //    return image;
   //  }
 
-  void changeMemory(Family newFamily){
+  void changeFamily(Family newFamily){
     this.title = newFamily.getTitle();
     this.date = newFamily.getDate();
     this.Telephone = newFamily.getTelephone();

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import '../components/FamilyComponents.dart';
+import 'package:projeto_estudo/src/components/AddFamilyComponents.dart';
+import 'package:projeto_estudo/src/controller/EditFamilyController.dart';
+import '../components/EditFamilyComponetes.dart';
 import '../controller/EditFamilyController.dart';
 import '../models/FamilyModel.dart';
 class EditFamilyView extends StatefulWidget {
@@ -9,23 +11,25 @@ class EditFamilyView extends StatefulWidget {
 
 class EditFamilyViewState extends State<EditFamilyView> {
   TextEditingController txtNome = TextEditingController();
+    TextEditingController txtParentesco = TextEditingController();
+  TextEditingController txtTelephone = TextEditingController();
   DateTime dataController = DateTime.now();
 
-  get txtParentesco => null;
+  get args => null;
 
-  get txtTelephone => null;
+  
+
+  get imageController => null;
 
   void Salvar() {
-    String nome;
-        String parentesco;
-    int data;
-    int Telephone;
     setState(() {
+      TextEditingController titleController =  TextEditingController();
+      TextEditingController descController = TextEditingController();
       EditFamilyController.instance.nome = txtNome.text;
-      //EditFamilyController.instance.parentesco = txtParentesco.text;
-       EditFamilyController.instance.dataNasc = dataController;
+      EditFamilyController.instance.parentesco = txtParentesco.text;
+      EditFamilyController.instance.dataNasc = dataController;
       EditFamilyController.instance.image =
-          EditFamilyController.instance.imagemTemporaria;
+      EditFamilyController.instance.imagemTemporaria;
       FamilyModel.instance.family.add(new Family(
         title: txtNome.text,
         date: dataController,
@@ -78,145 +82,83 @@ class EditFamilyViewState extends State<EditFamilyView> {
 
       body: SingleChildScrollView(
         child: Column(
-          children: <Widget>[
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
             Container(
-          height: 50,
-          alignment: Alignment.bottomCenter,
-          width: MediaQuery.of(context).size.width,
-          decoration:
-              BoxDecoration(border: Border.all(), color: Colors.lightBlue),
-        ),
-            Container(
-              height: 10,
-              alignment: Alignment.bottomCenter,
-              width: MediaQuery.of(context).size.width,
-              color: Colors.lightBlue,
+              height: 30,
             ),
-            Padding(
-              padding: EdgeInsets.only(top: 0),
-              child: Container(
-                decoration: BoxDecoration(color: Colors.lightBlue),
-                height: MediaQuery.of(context).size.height - 90,
-                child: Column(
-                  children: <Widget>[
-                    Padding(
-                      padding: EdgeInsets.only(),
-                      child: Container(
-                        decoration: BoxDecoration(color: Colors.lightBlue),
-                        // height: MediaQuery.of(context).size.height - 150,
-                        child: Column(
-                          children: [
-                            Container(
-                              height: 100,
-                            ),
-//container pega imagen
-                            Container(
-                              padding: EdgeInsets.only(bottom: 10),
-                              width: 40,
-                              decoration: BoxDecoration(
-                                color: Colors.lightBlue,
-                                border: Border(),
-                              ),
-                              height: 30,
-                            ),
-                            // ImagePickerContainer(
-                            //     imageController: FamilyController.instance.image),
+            Container(
+              padding: EdgeInsets.only(bottom: 10),
+              width: 430,
+              decoration: BoxDecoration(
+                border: Border(
+                  bottom: BorderSide(width: 2, color: Colors.grey),
+                ),
+              ),
+              child: GestureDetector(
+                onTap: () {},
+                // child: Image(
+                //   image: args["family"]!.getImage(),
+                //   height: 250,
+                // ),
+              ),
+            ),
+            Container(
+              height: 30,
+            ),
+            BorderedTextField(
+              title: 'Titulo:',
+              haveFrame: false,
+              myResult: titleController,
 
-//campo nome do usuario
-                            TextField(
-                              style: TextStyle(
-                                color: Colors.black,
-                              ),
-                              controller: txtNome,
-                              decoration: InputDecoration(
-                                hintText: 'Nome: ',
-                                hintStyle: TextStyle(color: Colors.black),
-                                border: OutlineInputBorder(),
-                                enabledBorder: OutlineInputBorder(
-                                  borderSide: BorderSide(
-                                      style: BorderStyle.solid,
-                                      color: Colors.black),
-                                ),
-                              ),
-                            ),
-//campo calendario nacimento
-
-                            Container(
+            ),
+            Container(
                               decoration: BoxDecoration(
                                 color: Colors.lightBlue,
                               ),
                               child: DateBorderedField(
-                                onChangeFunction: (DateTime date) {
-                                  dataController = date;
-                                },
+                                onChangeFunction: (DateTime date) {dataController = date;},
                               ),
                             ),
+            BorderedTextField(
+              title: "Anotacoes:",
+              haveFrame: true,
+              myResult: descController,
+            ),
+            Container(height: 10,),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                CustomButton(
+                  title: "Salvar",
+                  color: Colors.green,
+                  response: (){
+                if(titleController.text=="" || descController.text==""){
+                  print("Preencha");
+                }else{
 
-//campo nome do Parentesco
-                            TextField(
-                              style: TextStyle(
-                                color: Colors.black,
-                              ),
-                              controller: txtParentesco,
-                              decoration: InputDecoration(
-                                hintText: 'Parentesco: ',
-                                hintStyle: TextStyle(color: Colors.black),
-                                border: OutlineInputBorder(),
-                                enabledBorder: OutlineInputBorder(
-                                  borderSide: BorderSide(
-                                      style: BorderStyle.solid,
-                                      color: Colors.black),
-                                ),
-                              ),
-                            ),
+                  FamilyModel.instance.family.add(new Family(
+                      title: titleController.text, date: DateTime.now(),
+                      description: descController.text,
+                      identifier: FamilyModel.instance.family.length,
+                    image: imageController, Telephone: 0));
+                  Navigator.of(context).pushNamed('/family', arguments: {});
+                }
 
-//campo telefone
-                            TextField(
-                              controller: txtTelephone,
-                              style: TextStyle(
-                                color: Colors.black,
-                              ),
-                              keyboardType: TextInputType.number,
-                              decoration: InputDecoration(
-                                hintText: 'Telefone: ',
-                                hintStyle: TextStyle(color: Colors.black),
-                                border: OutlineInputBorder(),
-                                enabledBorder: OutlineInputBorder(
-                                  borderSide: BorderSide(
-                                      style: BorderStyle.solid,
-                                      color: Colors.black),
-                                ),
-                              ),
-                            ),
-//função salvar
-                            Container(
-                              child: Column(
-                                children: [
-                                  ElevatedButton(
-                                    onPressed: () {
-                                       Salvar();
-                                      Navigator.pushNamed(context, '/family');
-                                    },
-                                    child: Text('SALVAR'),
-                                    style: ElevatedButton.styleFrom(
-                                      primary: Colors.grey,
-                                      side: BorderSide(
-                                        width: 1.0,
-                                        
-                                        color: Colors.black,
-                                      ),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                  ],
+
+
+              },
                 ),
-              ),
+                Container(width: 10,),
+                CustomButton(
+                  title: "Apagar",
+                  color: Colors.red,
+                  response: (){
+                    EditFamilyController.instance.excludeById(args["family"]!.getIdentifier());
+                    Navigator.of(context).pushNamed('/family', arguments: {});
+                  },
+                ),
+              ],
             ),
           ],
         ),

@@ -118,7 +118,7 @@ class TopBar extends StatelessWidget {
                           onTap: () {
                             Navigator.of(context).pushNamed('/seeFamily',
                                 arguments: {
-                                  "memory": FamilyModel.instance.family[index]
+                                  "family": FamilyModel.instance.family[index]
                                 });
                           },
                           child: Container(

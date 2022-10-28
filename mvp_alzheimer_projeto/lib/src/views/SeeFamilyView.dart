@@ -1,5 +1,4 @@
 import 'package:bordered_text/bordered_text.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:jiffy/jiffy.dart';
 
@@ -50,20 +49,6 @@ class SeeFamilyView extends StatelessWidget {
                 ]),
           ],
         ),
-
-        // automaticallyImplyLeading: false,
-        // backgroundColor: AppController.instance.mainColor,
-        // title: Text("Ver familiar"),
-        // actions: [
-        //   InkWell(
-        //       onTap: (){
-        //        
-        //       },
-        //       splashColor: Colors.blue,
-        //       child: Icon(Icons.edit)
-
-        //   ),
-        // ],
       ),
 
 
@@ -97,7 +82,7 @@ class SeeFamilyView extends StatelessWidget {
                           strokeColor: Colors.black,
                           strokeWidth: 2,
                           child: Text(
-                              args["memory"]!.getTitle().toUpperCase(),
+                              args["family"]!.getTitle().toUpperCase(),
                               style: TextStyle(fontSize: 22, color: Colors.white,)
                           ),
                         )
@@ -112,17 +97,17 @@ class SeeFamilyView extends StatelessWidget {
                           ),
                         ),
                     ),
-                    // child: Center(
-                    //     child: BorderedText(
-                    //       strokeColor: Colors.black,
-                    //       strokeWidth: 2,
+                    child: Center(
+                        child: BorderedText(
+                          strokeColor: Colors.black,
+                          strokeWidth: 2,
 
-                    //       child: Text(
-                    //           Jiffy(AppController.instance.now).EEEE.toString()+" "+args["memory"]!.getDate().toString().substring(0,10),
-                    //           style: TextStyle(fontSize: 25, color: Colors.white)
-                    //       ),
-                    //     )
-                    // ),
+                          child: Text(
+                              Jiffy(AppController.instance.now).EEEE.toString()+" "+args["family"]!.getDate().toString().substring(0,10),
+                              style: TextStyle(fontSize: 25, color: Colors.white)
+                          ),
+                        )
+                    ),
                   ),
 
                   Container(height: 30,),
@@ -140,16 +125,7 @@ class SeeFamilyView extends StatelessWidget {
                       ),
                     ),
 
-                    // child: BorderedText(
-                    //   strokeWidth: 2,
-                    //   strokeColor: Colors.black,
-                    //   child: Text(
 
-                    //       args["memory"]!.getDescription(),
-                    //       textAlign: TextAlign.justify,
-                    //       style: TextStyle(fontSize: 18, color: Colors.white,fontFamily: "Gidugu-Regular",height: 1.5)
-                    //   ),
-                    // ),
                   ),
                 ],
               ),
