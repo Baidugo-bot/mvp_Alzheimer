@@ -44,7 +44,7 @@ class ImagePickerContainerState extends State<ImagePickerContainer> {
 }
 
 class CustomButton extends StatefulWidget {
-  Color color = Colors.li;
+  Color color = Colors.lightBlue;
   VoidCallback  response = (){};
   String title="";
   CustomButton({Key? key, required this.color, required this.response,required this.title}) : super(key: key);
