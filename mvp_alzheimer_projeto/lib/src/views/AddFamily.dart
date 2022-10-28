@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:projeto_estudo/AppController.dart';
+import 'package:projeto_estudo/src/components/CustomButton.dart';
 import 'package:projeto_estudo/src/components/EditMemoryComponents.dart';
 
 import '../components/AddMemoryComponents.dart';
@@ -37,10 +38,7 @@ class AddFamilyViewState extends State<AddFamily> {
     }
     return Scaffold(
       backgroundColor: AppController.instance.mainColor,
-      appBar: AppBar(
-        backgroundColor: AppController.instance.mainColor,
-        title: Center(child: Text("Add Member")),
-      ),
+      appBar: CustomAppBar.instance.getNamedDefault(context, '/family',Text("Add Member")),
       body: SingleChildScrollView(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
