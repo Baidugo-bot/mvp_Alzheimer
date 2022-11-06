@@ -90,7 +90,9 @@ class _MyHomePageState extends State<MyHomePage> {
                 ElevatedButton(
                   style: ElevatedButton.styleFrom(
                       primary: Colors.lightBlue, padding: EdgeInsets.all(15.0)),
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.of(context).pushNamed('/remedioPage');
+                  },
                   child: Ink.image(
                     image: AssetImage("assets/icons/Remedio.png"),
                     height: 58,
@@ -151,8 +153,6 @@ class _MyHomePageState extends State<MyHomePage> {
                     width: 58,
                   ),
                 ),
-
-                
               ],
             ),
           ],
