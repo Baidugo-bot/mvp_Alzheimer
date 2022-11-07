@@ -14,10 +14,7 @@ dependencies:
   date_field: #latest version
   image_picker: ^0.8.5
   permission_handler: ^9.2.0
-  flutter_map: #latest version
   latlong2: ^0.8.1
-  geolocator: #latest version
-  geocoding:  #latest version
   qr_flutter: ^4.0.0
   flutter_barcode_scanner: #latest version
   http: #latest version

@@ -73,9 +73,6 @@ class MyApp extends StatelessWidget {
                 ),
             '/profile': (context) => ProfileView(),
             '/editProfile': (context) => EditProfile(),
-            '/localization': (context) => LocalizationView(
-                  title: '',
-                ),
             '/localizationMenu': (context) => MenuLocalizationView(
                   title: '',
                 ),
