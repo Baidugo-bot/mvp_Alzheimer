@@ -42,9 +42,10 @@ import 'package:projeto_estudo/src/controller/FamilyController.dart';
 // }
 
 class DateBorderedField extends StatefulWidget {
-  Function(DateTime) onChangeFunction = (DateTime date) {};
-  DateBorderedField({Key? key, required this.onChangeFunction})
-      : super(key: key);
+  Function(DateTime) onChangeFunction = (DateTime date){};
+  DateTime lastDate = DateTime.now();
+  DateTime initialValue = DateTime.now();
+  DateBorderedField({Key? key, required this.onChangeFunction, required this.lastDate,required this.initialValue}) : super(key: key);
 
   @override
   DateBorderedFieldState createState() => DateBorderedFieldState();
@@ -57,47 +58,36 @@ class DateBorderedFieldState extends State<DateBorderedField> {
 
     return Container(
       decoration: BoxDecoration(
-        border: Border.all(
-          width: 1,
-        ),
-        color: Colors.lightBlue,
-        borderRadius: BorderRadius.only(
-          
+        border: Border(
+          bottom: BorderSide(width: 2, color: Colors.black),
         ),
       ),
-      height: 60,
-      alignment: Alignment.bottomCenter,
-      width: MediaQuery.of(context).size.width,
       child: Row(
         children: [
           BorderedText(
-            strokeColor: Colors.white,
-            strokeWidth: 0,
-            child: Text(
-              "  Data:",
-              style: TextStyle(fontSize: 20, color: Colors.black ,fontFamily: "Gidugu-Regular"),
-            ),
+            strokeColor: Colors.black26,
+            strokeWidth: 2,
+            child: Text("Data:",style: TextStyle(fontSize: 20,fontFamily: "Gidugu-Regular"),),
           ),
           Container(
+
             width: 200,
             child: DateTimeFormField(
-              onDateSelected: (DateTime date) {
+
+              onDateSelected: (DateTime date){
                 widget.onChangeFunction(date);
               },
+              lastDate: DateTime.now(),
+              initialValue: widget.initialValue,
               mode: DateTimeFieldPickerMode.date,
-              initialDate: holderDate,
-              dateTextStyle:
-                  TextStyle(color: Colors.black, fontFamily: "Gidugu-Regular"),
-              decoration: InputDecoration(border: InputBorder.none),
+              dateTextStyle: TextStyle(color: Colors.black,fontFamily: "Gidugu-Regular"),
+              decoration: InputDecoration(
+                  border: InputBorder.none
+              ),
             ),
           ),
         ],
       ),
-    );
-    child:
-    const Text(
-      "FlutterBeads",
-      style: TextStyle(fontSize: 34.0),
     );
   }
 }

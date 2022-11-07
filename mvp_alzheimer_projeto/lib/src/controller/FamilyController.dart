@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
-
+import 'dart:ui';
+import 'package:flutter/material.dart';
+import 'package:projeto_estudo/src/models/FamilyModel.dart';
+import 'package:projeto_estudo/src/models/MemoryModel.dart';
 class FamilyController extends ChangeNotifier {
   static FamilyController instance = FamilyController();
 
@@ -12,4 +15,24 @@ class FamilyController extends ChangeNotifier {
       AssetImage('assets/images/pelezin.jpg');
 
   final now = DateTime.now();
+
+
+
+  void excludeById(int identifier){
+    MemoryModel.instance.memories.removeAt(identifier);
+    int memCount = 0;
+    MemoryModel.instance.memories.forEach((element) {
+      element.setIdentifier(memCount);
+      memCount++;
+    });
+  }
+
+  void changeById(int identifier, Family newFamily){
+    FamilyModel.instance.famili.forEach((e) {
+      print(newFamily.getImage().toString()+" - "+newFamily.imgLink.toString());
+      if(e.identifier==identifier){
+        e.changeFamily(newFamily);
+      }
+    });
+  }
 }

@@ -29,8 +29,8 @@ class SessionController {
       print(returned["auth"]);
       return "";
     }else{
-      return "";
       print("teste");
+      return "";
     }
   }
 

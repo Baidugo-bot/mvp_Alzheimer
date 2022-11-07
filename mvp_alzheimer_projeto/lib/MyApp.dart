@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:projeto_estudo/src/remedios/ViewRemedioPage.dart';
 import 'package:projeto_estudo/src/views/ConfigurationsView.dart';
 import 'package:projeto_estudo/src/views/EditFamilyView.dart';
 import 'package:projeto_estudo/src/views/MemoriesView.dart';
@@ -35,16 +36,21 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return AnimatedBuilder(
       animation: AppController.instance,
-      builder: (context,child){
+      builder: (context, child) {
         return MaterialApp(
-            debugShowCheckedModeBanner : false,
+          debugShowCheckedModeBanner: false,
           theme: ThemeData.dark(),
-
           initialRoute: '/',
           routes: {
-            '/': (context) => MyHomePage(title: '',),
-            '/addReminder': (context) => MyHomePage(title: '',),
-            '/editReminder': (context) => MyHomePage(title: '',),
+            '/': (context) => MyHomePage(
+                  title: '',
+                ),
+            '/addReminder': (context) => MyHomePage(
+                  title: '',
+                ),
+            '/editReminder': (context) => MyHomePage(
+                  title: '',
+                ),
             '/addMemory': (context) => AddMemoryView(),
             '/editMemory': (context) => EditMemoryView(),
             '/memories': (context) => MemoriesView(),
@@ -52,17 +58,27 @@ class MyApp extends StatelessWidget {
             '/seeMemory': (context) => SeeMemoryView(),
             '/seeFamily': (context) => SeeFamilyView(),
             //push content on route
-            '/seeReminder': (context) => MyHomePage(title: '',),
-            '/configurations': (context) =>  ConfigurationsView(),
+            '/seeReminder': (context) => MyHomePage(
+                  title: '',
+                ),
+            '/configurations': (context) => ConfigurationsView(),
             '/editFamily': (context) => EditFamilyView(),
             '/family': (context) => FamilyView(),
-            '/addFamily':(context) => AddFamily(),
-            '/addperson': (context) => MyHomePage(title: '',),
-            '/editperson': (context) => MyHomePage(title: '',),
-            '/profile': (context) =>  ProfileView(),
-            '/editProfile': (context) =>  EditProfile(),
-            '/localization': (context) => LocalizationView(title: '',),
-            '/localizationMenu': (context) => MenuLocalizationView(title: '',),
+            '/addFamily': (context) => AddFamily(),
+            '/addperson': (context) => MyHomePage(
+                  title: '',
+                ),
+            '/editperson': (context) => MyHomePage(
+                  title: '',
+                ),
+            '/profile': (context) => ProfileView(),
+            '/editProfile': (context) => EditProfile(),
+            '/localization': (context) => LocalizationView(
+                  title: '',
+                ),
+            '/localizationMenu': (context) => MenuLocalizationView(
+                  title: '',
+                ),
             '/patients': (context) => PatientsView(),
             '/login': (context) => LoginView(),
             '/register': (context) => RegisterView(),
@@ -70,11 +86,11 @@ class MyApp extends StatelessWidget {
             '/': (context) => MyHomePage(
                   title: '',
                 ),
+            '/remedioPage': (context) => ViewRemedio('Remedio'),
             /*'/addReminder': (context) => MyHomePage(
                   title: '',
                 ),*/
           },
-
         );
       },
     );
