@@ -61,22 +61,18 @@ class CustomAppBar {
       automaticallyImplyLeading: false,
       toolbarHeight: 35,
       backgroundColor: AppController.instance.mainColor,
-      title: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: [
-          InkWell(
-            onTap: () {
-              Navigator.pushNamed(context, routeName);
-            },
-            child: Icon(
-              Icons.arrow_back,
-              color: Color.fromARGB(255, 255, 255, 255),
-              size: 40.0,
-            ),
-          ),
-          additionals
-        ],
+      centerTitle: true,
+        leading: InkWell(
+        onTap: () {
+          Navigator.pushNamed(context, routeName);
+        },
+        child: Icon(
+          Icons.arrow_back,
+          color: Color.fromARGB(255, 255, 255, 255),
+          size: 40.0,
+        ),
       ),
+      title: additionals
     );
   }
 
@@ -102,4 +98,26 @@ class CustomAppBar {
       ),
     );
   }
+
+  PreferredSizeWidget actionDefault(BuildContext context,String routeName,Widget additionals,Widget action){
+    return AppBar(
+        automaticallyImplyLeading: false,
+        toolbarHeight: 35,
+        backgroundColor: AppController.instance.mainColor,
+        centerTitle: true,
+        leading: InkWell(
+          onTap: () {
+            Navigator.pushNamed(context, routeName);
+          },
+          child: Icon(
+            Icons.arrow_back,
+            color: Color.fromARGB(255, 255, 255, 255),
+            size: 40.0,
+          ),
+        ),
+        title: additionals,
+        actions: [action],
+    );
+  }
+
 }

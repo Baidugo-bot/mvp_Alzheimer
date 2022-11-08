@@ -2,6 +2,7 @@ import 'package:bordered_text/bordered_text.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:jiffy/jiffy.dart';
+import 'package:projeto_estudo/src/components/CustomButton.dart';
 
 import '../../AppController.dart';
 import '../models/MemoryModel.dart';
@@ -15,32 +16,16 @@ class SeeMemoryView extends StatelessWidget {
     return Scaffold(
       backgroundColor: AppController.instance.mainColor,
 
-      appBar: AppBar(
-        automaticallyImplyLeading: false,
-        backgroundColor: AppController.instance.mainColor,
-        title: Row(
-          children: [
-            InkWell(
-                onTap: (){
-                  Navigator.of(context).pushNamed('/memories',arguments: { "memory": args["memory"] as Memory});
-                },
-                splashColor: Colors.blue,
-                child: Icon(Icons.keyboard_return)
+      appBar: CustomAppBar.instance.actionDefault(context, "/memories",
+          Text("Ver Memoria"),
+        InkWell(
+            onTap: (){
+              Navigator.of(context).pushNamed('/editMemory',arguments: { "memory": args["memory"] as Memory});
+            },
+            splashColor: Colors.blue,
+            child: Icon(Icons.edit)
 
-            ),
-            Text("Ver memoria")
-          ],
         ),
-        actions: [
-          InkWell(
-              onTap: (){
-                Navigator.of(context).pushNamed('/editMemory',arguments: { "memory": args["memory"] as Memory});
-              },
-              splashColor: Colors.blue,
-              child: Icon(Icons.edit)
-
-          ),
-        ],
       ),
       body: Container(
         height: double.infinity,

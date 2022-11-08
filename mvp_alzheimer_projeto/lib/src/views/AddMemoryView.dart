@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:projeto_estudo/AppController.dart';
+import 'package:projeto_estudo/src/components/CustomButton.dart';
 import 'package:projeto_estudo/src/components/EditMemoryComponents.dart';
 
 import '../components/AddMemoryComponents.dart';
@@ -34,10 +35,7 @@ class AddMemoryViewState extends State<AddMemoryView> {
     }
     return Scaffold(
       backgroundColor: AppController.instance.mainColor,
-      appBar: AppBar(
-        backgroundColor: AppController.instance.mainColor,
-        title: Center(child: Text("Add Memory")),
-      ),
+      appBar: CustomAppBar.instance.getNamedDefault(context, "/memories", Text("Adicionar Memoria")),
       body: SingleChildScrollView(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
