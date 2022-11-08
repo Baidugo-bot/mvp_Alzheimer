@@ -39,7 +39,7 @@ class SeeFamilyView extends StatelessWidget {
                 alignment: Alignment.bottomCenter,
                 width: MediaQuery.of(context).size.width,
                 decoration: BoxDecoration(
-                    border: Border.all(), color: Color.fromRGBO(121,188,218, 1) ),
+                    border: Border.all(),  color: AppController.instance.mainColor ),
               ),
               Column(
                 mainAxisAlignment: MainAxisAlignment.center,

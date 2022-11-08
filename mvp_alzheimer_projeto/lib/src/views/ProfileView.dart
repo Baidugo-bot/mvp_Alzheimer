@@ -5,6 +5,8 @@ import 'package:jiffy/jiffy.dart';
 import 'package:projeto_estudo/src/controller/ProfileController.dart';
 import 'package:projeto_estudo/src/views/EditProfileView.dart';
 
+import '../components/CustomButton.dart';
+
 class ProfileView extends StatefulWidget {
   String nome = "";
   int data = 0;
@@ -24,38 +26,7 @@ class _ProfileViewState extends State<ProfileView> {
 
     return Scaffold(
       backgroundColor: Colors.lightBlue,
-      appBar: AppBar(
-        automaticallyImplyLeading: false,
-        title: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-//botão volta menu principal
-            InkWell(
-              onTap: () {
-                Navigator.pushNamed(context, '/');
-              },
-              child: Icon(
-                Icons.keyboard_return,
-                color: Color.fromARGB(255, 255, 255, 255),
-                size: 50.0,
-              ),
-            ),
-            Text(" Perfil"),
-
-//botão editar perfil
-            InkWell(
-              onTap: () {
-                Navigator.pushNamed(context, '/editProfile');
-              },
-              child: Icon(
-                Icons.edit,
-                color: Color.fromARGB(255, 255, 255, 255),
-                size: 50.0,
-              ),
-            ),
-          ],
-        ),
-      ),
+      appBar: CustomAppBar.instance.getNamedDefault(context,"/",Text(" Perfil ")),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [

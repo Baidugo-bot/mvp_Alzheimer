@@ -22,7 +22,7 @@ class MemoriesViewState extends State<MemoriesView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.lightBlue[100],
+      backgroundColor:  AppController.instance.mainColor,
       appBar: CustomAppBar.instance.getNamedDefault(context,"/",Text(" Memorias ")),
 
       body: ListView.builder(

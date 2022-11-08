@@ -28,15 +28,12 @@ class Tela extends StatelessWidget {
         ],
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {
+        backgroundColor: Colors.grey,
+
+        onPressed: (){
           Navigator.of(context).pushNamed('/addFamily');
         },
-        backgroundColor: Colors.grey,
-        child: Icon(
-          Icons.add,
-          color: Color.fromRGBO(121,188,218, 1),
-          size: 40.0,
-        ),
+        child: Icon(Icons.add),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );
