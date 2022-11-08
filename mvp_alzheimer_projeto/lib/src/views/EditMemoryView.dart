@@ -38,19 +38,17 @@ class EditMemoryViewState extends State<EditMemoryView> {
   Widget build(BuildContext context) {
     var args ;
     TextEditingController titleController = new TextEditingController();
-    TextEditingController parentescoController = new TextEditingController();
-    TextEditingController telefoneController = new TextEditingController();
+    TextEditingController descController = new TextEditingController();
     ImageProvider<Object> imageController ;
     String imageLink = "assets/images/imagemEscolha.png";
     DateTime dateController = DateTime.now();
 
     if(ModalRoute.of(context)!.settings.arguments != null){
       args = ModalRoute.of(context)!.settings.arguments as Map<String,Memory>;
-      titleController.text = (args['memory']!.title!=null)?args['nome'].toString():"";
-      telefoneController.text = (args['memory']!.Telephone!=null)?args['telefone'].toString():"";
-      parentescoController.text = (args['memory']!.parentesco!=null)?args['parentesco'].toString():"";
-      dateController = (args['memory']!.getDate()!=DateTime.now())?DateTime.parse(args['date'].toString()):DateTime.now();
-      imageLink = (args['memory']!.imgLink!=null)?args['Family']!.imgLink:"";
+      titleController.text = (args['memory']!.title!=null)?args['memory'].title:"";
+      descController.text = (args['memory']!.description!=null)?args['memory'].description:"";
+      dateController = args['memory'].getDate()!=DateTime.now()?args['memory'].getDate():DateTime.now();
+      imageLink = (args['memory']!.imgLink!=null)?args['memory']!.imgLink:"";
     }
     return Scaffold(
 
@@ -68,29 +66,6 @@ class EditMemoryViewState extends State<EditMemoryView> {
               width: 430,
               decoration: BoxDecoration(
                 border: Border(
-                  bottom: BorderSide(width: 2, color: Colors.black),
-                ),
-              ),
-              child: ImagePickerContainer(
-                imageLink : imageLink,
-                response: () async {
-                  imageLink =  await AppController.instance.getImage().then((value) => imageLink = value);
-                  Navigator.of(context).pushNamed('/editFamily', arguments: {
-                    'nome':titleController.text,
-                    'date': dateController.toString(),
-                    'parentesco':parentescoController.text,
-                    'imageLink': imageLink,
-                    'identifier': MemoryModel.instance.memories.length.toString(),
-                    'telefone':telefoneController.text
-                  });
-                },
-              ),
-            ),
-            Container(
-              padding: EdgeInsets.only(bottom: 10),
-              width: 430,
-              decoration: BoxDecoration(
-                border: Border(
                   bottom: BorderSide(width: 2, color: Colors.grey),
                 ),
               ),
@@ -102,7 +77,7 @@ class EditMemoryViewState extends State<EditMemoryView> {
                     'memory': new Memory(
                         title: titleController.text,
                         date: dateController,
-                        description: parentescoController.text,
+                        description: descController.text,
                         identifier: args['memory']!.getIdentifier(),
                         image: FileImage(File(imageLink)),
                         imgLink: imageLink
@@ -129,7 +104,7 @@ class EditMemoryViewState extends State<EditMemoryView> {
             BorderedTextField(
               title: "Anotacoes:",
               haveFrame: true,
-              myResult: parentescoController,
+              myResult: descController,
             ),
             Container(height: 10,),
             Row(
@@ -139,21 +114,21 @@ class EditMemoryViewState extends State<EditMemoryView> {
                   title: "Salvar",
                   color: Colors.green,
                   response: () async {
-                    if(titleController.text=="" || parentescoController.text==""){
+                    if(titleController.text=="" || descController.text==""){
                       print("Preencha");
                     }else{
 
                       bool imgExists = false;
                       await File(imageLink).exists().then((value) =>imgExists=value);
                       ImageProvider<Object>? finalImg = ((imgExists)?FileImage(File(imageLink)):AssetImage("assets/images/imagemEscolha.png")) as ImageProvider<Object>?;
-                      EditMemoryController.instance.changeById(args["family"]!.getIdentifier(),
+                      EditMemoryController.instance.changeById(args["memory"]!.getIdentifier(),
                             Memory(
                                 title: titleController.text,
                                 date: dateController,
                                 identifier: args["memory"]!.getIdentifier(),
                                 image: finalImg ?? AssetImage("assets/images/imagemEscolha.png"),
                                 imgLink: (imgExists)?imageLink:"assets/images/imagemEscolha.png",
-                                description: ''
+                                description: descController.text
                             ));
                         Navigator.of(context).pushNamed('/memories', arguments: {});
                     }
@@ -164,8 +139,8 @@ class EditMemoryViewState extends State<EditMemoryView> {
                   title: "Apagar",
                   color: Colors.red,
                   response: (){
-                    FamilyController.instance.excludeById(args["family"]!.getIdentifier());
-                    Navigator.of(context).pushNamed('/family', arguments: {});
+                    FamilyController.instance.excludeById(args["memory"]!.getIdentifier());
+                    Navigator.of(context).pushNamed('/memories', arguments: {});
                   },
                 ),
               ],

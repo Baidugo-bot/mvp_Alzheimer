@@ -21,7 +21,7 @@ class Tela extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomAppBar.instance.getNamedDefault(context, "/",Center(child: Text('Familia'))),
+      appBar: CustomAppBar.instance.getNamedDefault(context, "/",Text('Familia')),
       body: Column(
         children: <Widget>[
           TopBar(),

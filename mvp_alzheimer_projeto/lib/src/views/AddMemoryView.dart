@@ -87,6 +87,7 @@ class AddMemoryViewState extends State<AddMemoryView> {
                 if(titleController.text=="" || descController.text==""){
                   print("Preencha");
                 }else{
+                  print(dateController);
                   bool imgExists = false;
                   int memCount = MemoryModel.instance.memories.length;
                   await File(imageLink).exists().then((value) =>imgExists=value);
