@@ -4,6 +4,9 @@ import 'package:projeto_estudo/src/remedios/masage_responce.dart';
 
 import 'package:flutter/material.dart';
 
+import '../../AppController.dart';
+import '../components/CustomButton.dart';
+
 class ViewRemedio extends StatefulWidget {
   final String _title;
   ViewRemedio(this._title);
@@ -13,18 +16,13 @@ class ViewRemedio extends StatefulWidget {
 
 class _ViewRemedio extends State<ViewRemedio> {
   List<Remedio> remedio = [
-    Remedio(nome: 'Paracetamol', dosagem: '2 pilulas', hora: '12:00'),
-    Remedio(nome: 'Dipirona', dosagem: '1 pilula', hora: '20:00'),
-    Remedio(nome: 'Ibuprofeno', dosagem: '1 pilula', hora: '08:30'),
-    Remedio(nome: 'Ácido acetilsalicílico', dosagem: '15ml', hora: '15:20')
   ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(widget._title),
-      ),
+      backgroundColor: AppController.instance.mainColor,
+      appBar: CustomAppBar.instance.getNamedDefault(context,"/",Text(" Remédio ")),
       body: ListView.builder(
         itemCount: remedio.length,
         itemBuilder: (context, index) {
@@ -63,6 +61,7 @@ class _ViewRemedio extends State<ViewRemedio> {
         },
       ),
       floatingActionButton: FloatingActionButton(
+        backgroundColor: Colors.grey,
         onPressed: () {
           Navigator.push(
                   context, MaterialPageRoute(builder: (_) => RegisterRemedio()))
@@ -78,6 +77,7 @@ class _ViewRemedio extends State<ViewRemedio> {
         tooltip: "Add Remedio",
         child: Icon(Icons.add),
       ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );
   }
 

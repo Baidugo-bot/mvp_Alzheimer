@@ -26,9 +26,7 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       // map dos botoes
       backgroundColor: Colors.lightBlue,
-      appBar: AppBar(
-        title: Center(child: Text("Menu")),
-      ),
+
       body: SizedBox(
         child: Column(
           children: [
