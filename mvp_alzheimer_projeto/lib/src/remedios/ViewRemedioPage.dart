@@ -77,6 +77,7 @@ class _ViewRemedio extends State<ViewRemedio> {
         tooltip: "Add Remedio",
         child: Icon(Icons.add),
       ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );
   }
 
