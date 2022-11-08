@@ -21,7 +21,8 @@ class Tela extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomAppBar.instance.getNamedDefault(context, "/",Center(child: Text('Familia'))),
+      appBar:
+          CustomAppBar.instance.getNamedDefault(context, "/", Text('Familia')),
       body: Column(
         children: <Widget>[
           TopBar(),
@@ -34,7 +35,7 @@ class Tela extends StatelessWidget {
         backgroundColor: Colors.grey,
         child: Icon(
           Icons.add,
-          color: Color.fromRGBO(121,188,218, 1),
+          color: Color.fromRGBO(121, 188, 218, 1),
           size: 40.0,
         ),
       ),
@@ -62,8 +63,8 @@ class TopBar extends StatelessWidget {
           height: 50,
           alignment: Alignment.bottomCenter,
           width: MediaQuery.of(context).size.width,
-          decoration:
-              BoxDecoration(border: Border.all(), color: Color.fromRGBO(121,188,218, 1)),
+          decoration: BoxDecoration(
+              border: Border.all(), color: Color.fromRGBO(121, 188, 218, 1)),
         ),
         Column(
           children: [
@@ -75,7 +76,8 @@ class TopBar extends StatelessWidget {
             Padding(
               padding: EdgeInsets.only(top: 10),
               child: Container(
-                decoration: BoxDecoration(color: Color.fromRGBO(121,188,218, 1)),
+                decoration:
+                    BoxDecoration(color: Color.fromRGBO(121, 188, 218, 1)),
                 height: MediaQuery.of(context).size.height - 99,
                 child: Column(
                   children: <Widget>[
@@ -83,7 +85,7 @@ class TopBar extends StatelessWidget {
                       padding: EdgeInsets.only(),
                       child: Container(
                         decoration: BoxDecoration(
-                          color: Color.fromRGBO(121,188,218, 1),
+                          color: Color.fromRGBO(121, 188, 218, 1),
                         ),
                         height: MediaQuery.of(context).size.height - 150,
                         child: ListView.builder(
@@ -99,7 +101,7 @@ class TopBar extends StatelessWidget {
                               },
                               child: Container(
                                 decoration: BoxDecoration(
-                                  color: Color.fromRGBO(121,188,218, 1),
+                                  color: Color.fromRGBO(121, 188, 218, 1),
                                   border: Border.all(),
                                 ),
                                 child: Row(
@@ -107,8 +109,10 @@ class TopBar extends StatelessWidget {
                                       MainAxisAlignment.spaceBetween,
                                   children: <Widget>[
                                     Image(
-                                      image: FamilyModel.instance.famili[index].getImage(),
-                                      height: 115,),
+                                      image: FamilyModel.instance.famili[index]
+                                          .getImage(),
+                                      height: 115,
+                                    ),
                                     Container(
                                       width: MediaQuery.of(context).size.width -
                                           120,
@@ -118,7 +122,6 @@ class TopBar extends StatelessWidget {
                                         crossAxisAlignment:
                                             CrossAxisAlignment.start,
                                         children: <Widget>[
-
                                           Text(
                                             "Parentesco: ${FamilyModel.instance.famili[index].parentesco}",
                                             style: TextStyle(
@@ -151,7 +154,6 @@ class TopBar extends StatelessWidget {
                                               overflow: TextOverflow.ellipsis,
                                             ),
                                           ),
-
                                         ],
                                       ),
                                     )
