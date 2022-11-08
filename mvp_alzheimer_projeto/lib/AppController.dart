@@ -13,7 +13,7 @@ class AppController extends ChangeNotifier{
   DateTime now = DateTime.now().toUtc();
   int counter = 0;
   String lastImgURL = "none";
-  Color mainColor = Color.fromRGBO(121,188,218, 1) ;
+  Color mainColor = const Color.fromRGBO(121,188,218, 1) ;
   void addMemory() {
       memories.add(
         Text("")
