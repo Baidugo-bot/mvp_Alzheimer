@@ -105,15 +105,17 @@ class _ProfileViewState extends State<ProfileView> {
   
 }
 class TopBar extends StatelessWidget {
+  var index;
+
 @override
-  Future<Widget> build(BuildContext context) async {
+  Widget build(BuildContext context) {
     DateTime agora = DateTime.now();
     print(
         (agora.difference(ProfileController.instance.dataNasc).inDays / 365)
             .toString()
             .substring(0, 2));
 
-itemBuilder: (BuildContext context, int index) {
+
 return Stack(
   
   children: <Widget>[
@@ -153,6 +155,6 @@ return Stack(
       ),
   ]
 );
-  };
+  
   }
 }
