@@ -62,7 +62,7 @@ class CustomAppBar {
       toolbarHeight: 35,
       backgroundColor: AppController.instance.mainColor,
       title: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           InkWell(
             onTap: () {
@@ -70,6 +70,16 @@ class CustomAppBar {
             },
             child: Icon(
               Icons.arrow_back,
+              color: Color.fromARGB(255, 255, 255, 255),
+              size: 40.0,
+            ),
+          ),
+          InkWell(
+            onTap: () {
+              Navigator.pushNamed(context, routeName);
+            },
+            child: Icon(
+              Icons.edit,
               color: Color.fromARGB(255, 255, 255, 255),
               size: 40.0,
             ),

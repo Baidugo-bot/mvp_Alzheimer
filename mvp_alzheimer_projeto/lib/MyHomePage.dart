@@ -25,10 +25,8 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       // map dos botoes
-      backgroundColor: Colors.lightBlue,
-      appBar: AppBar(
-        title: Center(child: Text("Menu")),
-      ),
+      backgroundColor: Color.fromRGBO(121, 188, 218, 1),
+
       body: SizedBox(
         child: Column(
           children: [
@@ -89,7 +87,7 @@ class _MyHomePageState extends State<MyHomePage> {
               children: [
                 ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                      primary: Colors.lightBlue, padding: EdgeInsets.all(15.0)),
+                      primary: Color.fromRGBO(121, 188, 218, 1), padding: EdgeInsets.all(15.0)),
                   onPressed: () {
                     Navigator.of(context).pushNamed('/remedioPage');
                   },
@@ -105,7 +103,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 ElevatedButton(
                   style: ElevatedButton.styleFrom(
                     padding: EdgeInsets.all(15.0),
-                    primary: Colors.lightBlue,
+                    primary: Color.fromRGBO(121, 188, 218, 1),
                   ),
                   onPressed: () {
                     Navigator.of(context).pushNamed('/memories');
@@ -121,7 +119,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
                 ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                    primary: Colors.lightBlue,
+                    primary: Color.fromRGBO(121, 188, 218, 1),
                     padding: EdgeInsets.all(15.0),
                   ),
                   onPressed: () {
@@ -141,7 +139,7 @@ class _MyHomePageState extends State<MyHomePage> {
               children: [
                 ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                    primary: Colors.lightBlue,
+                    primary: Color.fromRGBO(121, 188, 218, 1),
                     padding: EdgeInsets.all(15.0),
                   ),
                   onPressed: () {

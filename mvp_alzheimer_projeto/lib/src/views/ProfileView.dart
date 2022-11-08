@@ -23,7 +23,7 @@ class _ProfileViewState extends State<ProfileView> {
             .substring(0, 2));
 
     return Scaffold(
-      backgroundColor: Colors.lightBlue,
+      backgroundColor: Color.fromRGBO(121,188,218, 1),
       appBar: AppBar(
         automaticallyImplyLeading: false,
         title: Row(
@@ -47,9 +47,9 @@ class _ProfileViewState extends State<ProfileView> {
               onTap: () {
                 Navigator.pushNamed(context, '/editProfile');
               },
-              child: Icon(
-                Icons.edit,
-                color: Color.fromARGB(255, 255, 255, 255),
+              child: Icon(null,
+                // Icons.edit,
+                // color: Color.fromARGB(255, 255, 255, 255),
                 size: 50.0,
               ),
             ),

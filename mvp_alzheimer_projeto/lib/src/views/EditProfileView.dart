@@ -3,6 +3,8 @@ import 'package:projeto_estudo/src/controller/ProfileController.dart';
 import 'package:projeto_estudo/src/components/ProfileComponents.dart';
 import 'package:image_picker/image_picker.dart';
 
+import '../components/CustomButton.dart';
+
 class EditProfile extends StatefulWidget {
   @override
   State<EditProfile> createState() => EditProfileState();
@@ -31,27 +33,9 @@ class EditProfileState extends State<EditProfile> {
     XFile? Img;
 
     return Scaffold(
-      backgroundColor: Colors.lightBlue,
-      appBar: AppBar(
-        automaticallyImplyLeading: false,
-        title: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-//botão volta menu principal
-            InkWell(
-              onTap: () {
-                Navigator.pushNamed(context, '/profile');
-              },
-              child: Icon(
-                Icons.keyboard_return,
-                color: Color.fromARGB(255, 255, 255, 255),
-                size: 50.0,
-              ),
-            ),
-            Text(" Editar Perfil"),
-          ],
-        ),
-      ),
+      backgroundColor: Color.fromRGBO(121,188,218, 1),
+      appBar:
+          CustomAppBar.instance.getNamedDefault(context, "/profile", Text('Editar Perfil')),
       body: SingleChildScrollView(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
