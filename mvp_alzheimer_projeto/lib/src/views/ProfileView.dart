@@ -27,7 +27,16 @@ class _ProfileViewState extends State<ProfileView> {
 
     return Scaffold(
       backgroundColor: AppController.instance.mainColor,
-      appBar: CustomAppBar.instance.getNamedDefault(context,"/",Text(" Perfil ")),
+      appBar: CustomAppBar.instance.actionDefault(context, "/profile", Text("Perfil"),
+        InkWell(
+            onTap: (){
+              Navigator.of(context).pushNamed('/editProfile');
+            },
+            splashColor: Colors.blue,
+            child: Icon(Icons.edit)
+
+        ),
+      ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [

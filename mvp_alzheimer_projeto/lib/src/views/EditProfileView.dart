@@ -3,6 +3,7 @@ import 'package:projeto_estudo/src/controller/ProfileController.dart';
 import 'package:projeto_estudo/src/components/ProfileComponents.dart';
 import 'package:image_picker/image_picker.dart';
 
+import '../components/AddFamilyComponents.dart';
 import '../components/CustomButton.dart';
 
 class EditProfile extends StatefulWidget {
@@ -39,6 +40,32 @@ class EditProfileState extends State<EditProfile> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
+            Container(
+              padding: EdgeInsets.only(bottom: 10),
+              width: 430,
+              decoration: BoxDecoration(
+                border: Border(
+                  bottom: BorderSide(width: 2, color: Colors.grey),
+                ),
+              ),
+              child: ImagePickerContainer(
+                imageLink : imageLink,
+                response: () async {
+                  imageLink =  await AppController.instance.getImage().then((value) => imageLink = value);
+                  Navigator.of(context).pushNamed('/editMemory', arguments: {
+                    'memory': new Memory(
+                        title: titleController.text,
+                        date: dateController,
+                        description: descController.text,
+                        identifier: args['memory']!.getIdentifier(),
+                        image: FileImage(File(imageLink)),
+                        imgLink: imageLink
+                    ),
+
+                  });
+                },
+              ),
+            ),
 //container pega imagen
             Container(
               padding: EdgeInsets.only(bottom: 10),
