@@ -167,7 +167,7 @@ class EditFamilyViewState extends State<EditFamilyView> {
                   response: () {
                     EditFamilyController.instance
                         .excludeById(args["family"]!.getIdentifier());
-                    Navigator.of(context).pushNamed('/Family', arguments: {});
+                    Navigator.of(context).pushNamed('/family', arguments: {});
                   },
                 ),
               ],
