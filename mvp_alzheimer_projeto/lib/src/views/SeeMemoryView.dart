@@ -16,8 +16,7 @@ class SeeMemoryView extends StatelessWidget {
     return Scaffold(
       backgroundColor: AppController.instance.mainColor,
 
-      appBar: CustomAppBar.instance.actionDefault(context, "/memories",
-          Text("Ver Memoria"),
+      appBar: CustomAppBar.instance.actionDefault(context, "/memories", Text("Ver Memoria"),
         InkWell(
             onTap: (){
               Navigator.of(context).pushNamed('/editMemory',arguments: { "memory": args["memory"] as Memory});

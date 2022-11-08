@@ -59,7 +59,7 @@ class CustomAppBar {
   PreferredSizeWidget getNamedDefault(BuildContext context,String routeName,Widget additionals){
     return AppBar(
       automaticallyImplyLeading: false,
-      toolbarHeight: 35,
+      toolbarHeight: 40,
       backgroundColor: AppController.instance.mainColor,
       centerTitle: true,
         leading: InkWell(
@@ -67,9 +67,9 @@ class CustomAppBar {
           Navigator.pushNamed(context, routeName);
         },
         child: Icon(
-          Icons.arrow_back,
+          Icons.arrow_circle_left_rounded,
           color: Color.fromARGB(255, 255, 255, 255),
-          size: 40.0,
+          size: 35.0,
         ),
       ),
       title: additionals
@@ -79,7 +79,7 @@ class CustomAppBar {
   PreferredSizeWidget getDefault(BuildContext context, String routeName){
     return AppBar(
       automaticallyImplyLeading: false,
-      toolbarHeight: 35,
+      toolbarHeight: 40,
       backgroundColor: AppController.instance.mainColor,
       title: Column(
         children: [
@@ -88,9 +88,9 @@ class CustomAppBar {
               Navigator.pushNamed(context, routeName);
             },
             child: Icon(
-              Icons.arrow_back,
+              Icons.arrow_back_ios_rounded,
               color: Color.fromARGB(255, 255, 255, 255),
-              size: 40.0,
+              size: 35.0,
             ),
           ),
 
@@ -102,7 +102,7 @@ class CustomAppBar {
   PreferredSizeWidget actionDefault(BuildContext context,String routeName,Widget additionals,Widget action){
     return AppBar(
         automaticallyImplyLeading: false,
-        toolbarHeight: 35,
+        toolbarHeight: 40,
         backgroundColor: AppController.instance.mainColor,
         centerTitle: true,
         leading: InkWell(
@@ -110,9 +110,9 @@ class CustomAppBar {
             Navigator.pushNamed(context, routeName);
           },
           child: Icon(
-            Icons.arrow_back,
+            Icons.arrow_circle_left_rounded,
             color: Color.fromARGB(255, 255, 255, 255),
-            size: 40.0,
+            size: 35.0,
           ),
         ),
         title: additionals,

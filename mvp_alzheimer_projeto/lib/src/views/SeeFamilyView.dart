@@ -14,17 +14,17 @@ class SeeFamilyView extends StatelessWidget {
 
     return Scaffold(
       backgroundColor: AppController.instance.mainColor,
-      appBar: CustomAppBar.instance.getNamedDefault(context, '/editFamily',
+      appBar: CustomAppBar.instance.actionDefault(context, "/family", Text("Familiares"),
+
         Row(
           children: [
-            Text("See Family"),
             InkWell(
+
                 onTap: (){
                   Navigator.of(context).pushNamed('/editFamily',arguments: { "family": args["family"] as Family});
                 },
-                splashColor: Colors.blue,
-                child: Icon(Icons.edit)
-
+                splashColor: Colors.grey.withAlpha(70),
+                child: Icon(Icons.edit),
             ),
           ],
         ),

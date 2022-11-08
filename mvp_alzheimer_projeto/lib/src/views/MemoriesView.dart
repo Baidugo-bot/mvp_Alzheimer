@@ -1,9 +1,7 @@
 import 'dart:io';
-
 import 'package:bordered_text/bordered_text.dart';
 import 'package:flutter/material.dart';
 import 'package:projeto_estudo/AppController.dart';
-
 import '../components/CustomButton.dart';
 import '../models/MemoryModel.dart';
 
@@ -19,8 +17,7 @@ class MemoriesViewState extends State<MemoriesView> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppController.instance.mainColor,
-      appBar: CustomAppBar.instance
-          .getNamedDefault(context, "/", Text(" Memorias ")),
+      appBar: CustomAppBar.instance.getNamedDefault(context, "/", Text(" Memorias ")),
       body: ListView.builder(
           itemCount: MemoryModel.instance.memories.length,
           // if 0 then show message
@@ -41,9 +38,10 @@ class MemoriesViewState extends State<MemoriesView> {
                   height: 160,
                   child: Row(
                     children: [
-                      Image(
-                        image: MemoryModel.instance.memories[index].getImage(),
-                        height: 120,
+                      CircleAvatar(
+                        radius: 60,
+                        backgroundImage:
+                            MemoryModel.instance.memories[index].getImage(),
                       ),
                       Container(
                         width: 10,
@@ -53,15 +51,18 @@ class MemoriesViewState extends State<MemoriesView> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             BorderedText(
-                                strokeColor: Colors.brown,
+                                strokeColor: Colors.black54,
                                 strokeWidth: 3,
                                 child: Text(
                                   MemoryModel.instance.memories[index]
                                       .getTitle(),
-                                  style: TextStyle(fontSize: 20),
+                                  style: TextStyle(
+                                    fontSize: 20,
+                                    color: Colors.white,
+                                  ),
                                 )),
                             BorderedText(
-                              strokeColor: Colors.white,
+                              strokeColor: Colors.black54,
                               strokeWidth: 1.3,
                               child: Text(
                                 MemoryModel.instance.memories[index]
@@ -69,7 +70,7 @@ class MemoriesViewState extends State<MemoriesView> {
                                     .toString()
                                     .substring(0, 10),
                                 style: TextStyle(
-                                    fontSize: 20, color: Colors.black26),
+                                    fontSize: 20, color: Colors.white,),
                               ),
                             ),
                           ],

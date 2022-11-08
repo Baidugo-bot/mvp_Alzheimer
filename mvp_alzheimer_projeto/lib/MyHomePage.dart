@@ -6,6 +6,7 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:jiffy/jiffy.dart';
 import 'package:projeto_estudo/MyApp.dart';
+import 'package:projeto_estudo/AppController.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({Key? key, required this.title}) : super(key: key);
@@ -25,7 +26,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       // map dos botoes
-      backgroundColor: Colors.lightBlue,
+      backgroundColor:AppController.instance.mainColor,
 
       body: SizedBox(
         child: Column(
@@ -87,7 +88,7 @@ class _MyHomePageState extends State<MyHomePage> {
               children: [
                 ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                      primary: Colors.lightBlue, padding: EdgeInsets.all(15.0)),
+                      primary: AppController.instance.mainColor, padding: EdgeInsets.all(15.0)),
                   onPressed: () {
                     Navigator.of(context).pushNamed('/remedioPage');
                   },
@@ -103,7 +104,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 ElevatedButton(
                   style: ElevatedButton.styleFrom(
                     padding: EdgeInsets.all(15.0),
-                    primary: Colors.lightBlue,
+                    primary: AppController.instance.mainColor,
                   ),
                   onPressed: () {
                     Navigator.of(context).pushNamed('/memories');
@@ -119,7 +120,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
                 ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                    primary: Colors.lightBlue,
+                    primary: AppController.instance.mainColor,
                     padding: EdgeInsets.all(15.0),
                   ),
                   onPressed: () {
@@ -139,7 +140,7 @@ class _MyHomePageState extends State<MyHomePage> {
               children: [
                 ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                    primary: Colors.lightBlue,
+                    primary: AppController.instance.mainColor,
                     padding: EdgeInsets.all(15.0),
                   ),
                   onPressed: () {

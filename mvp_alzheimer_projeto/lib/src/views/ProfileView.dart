@@ -5,6 +5,7 @@ import 'package:jiffy/jiffy.dart';
 import 'package:projeto_estudo/src/controller/ProfileController.dart';
 import 'package:projeto_estudo/src/views/EditProfileView.dart';
 
+import '../../AppController.dart';
 import '../components/CustomButton.dart';
 
 class ProfileView extends StatefulWidget {
@@ -25,7 +26,7 @@ class _ProfileViewState extends State<ProfileView> {
             .substring(0, 2));
 
     return Scaffold(
-      backgroundColor: Colors.lightBlue,
+      backgroundColor: AppController.instance.mainColor,
       appBar: CustomAppBar.instance.getNamedDefault(context,"/",Text(" Perfil ")),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
