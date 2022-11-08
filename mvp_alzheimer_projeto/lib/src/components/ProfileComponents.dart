@@ -1,5 +1,4 @@
 import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:bordered_text/bordered_text.dart';
 import 'package:date_field/date_field.dart';
@@ -7,6 +6,43 @@ import 'package:image_picker/image_picker.dart';
 
 import 'package:projeto_estudo/src/controller/ProfileController.dart';
 
+class ImagePickerContainer extends StatefulWidget {
+  String imageLink;
+  VoidCallback  response = (){};
+  ImagePickerContainer({Key? key,required this.imageLink, required this.response, imageController }) : super(key: key);
+
+  @override
+  ImagePickerContainerState createState() => ImagePickerContainerState();
+}
+class ImagePickerContainerState extends State<ImagePickerContainer> {
+  @override
+
+   Future<String> getImage() async {
+    ImagePicker picker = new ImagePicker();
+    var image = await picker.pickImage(source: ImageSource.gallery);
+    setState(() {
+
+    });
+    if(image!.path!=null){
+      return image.path;
+    }
+    return "none";
+  }
+
+  Widget build(BuildContext context) {
+
+        return GestureDetector(
+          onTap: widget.response,
+          child: Container(
+            child: Image(
+              image:
+              (widget.imageLink!="assets/images/imagemEscolha.png")?FileImage(File(widget.imageLink)):Image.asset("assets/images/imagemEscolha.png").image,
+              height: 250,
+            ),
+          ),
+        );
+  }
+}
 // class ImagePickerContainer extends StatefulWidget {
 //   ImageProvider<Object> imageController;
 //   ImagePickerContainer({Key? key, required this.imageController})

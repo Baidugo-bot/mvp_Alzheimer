@@ -3,6 +3,8 @@ import 'package:projeto_estudo/src/controller/ProfileController.dart';
 import 'package:projeto_estudo/src/components/ProfileComponents.dart';
 import 'package:image_picker/image_picker.dart';
 
+import '../../AppController.dart';
+
 import '../components/CustomButton.dart';
 
 class EditProfile extends StatefulWidget {
@@ -13,6 +15,7 @@ class EditProfile extends StatefulWidget {
 class EditProfileState extends State<EditProfile> {
   TextEditingController txtNome = TextEditingController();
   DateTime dataController = DateTime.now();
+   String imageLink = "assets/images/imagemEscolha.png";
 
   void Salvar() {
     String nome;
@@ -30,8 +33,12 @@ class EditProfileState extends State<EditProfile> {
   @override
   Widget build(BuildContext context) {
     final ImagePicker picker = ImagePicker();
-    XFile? Img;
-
+ 
+    var args ;
+if(ModalRoute.of(context)!.settings.arguments != null){
+     
+      imageLink = (args['imageLink']!=null)?args['imageLink'].toString():"";
+    }
     return Scaffold(
       backgroundColor: Color.fromRGBO(121,188,218, 1),
       appBar:
@@ -45,7 +52,20 @@ class EditProfileState extends State<EditProfile> {
               padding: EdgeInsets.only(bottom: 10),
               width: 430,
               decoration: BoxDecoration(
-                border: Border(),
+                border: Border(
+                  bottom: BorderSide(width: 2, color: Colors.black),
+                ),
+              ),
+              child: ImagePickerContainer(
+                imageLink : imageLink,
+                response: () async {
+                  imageLink =  await AppController.instance.getImage().then((value) => imageLink = value);
+                  Navigator.of(context).pushNamed('/profile', arguments: {
+                 
+                    'imageLink': imageLink,
+                    
+                  });
+                },
               ),
             ),
             Text(
@@ -54,9 +74,6 @@ class EditProfileState extends State<EditProfile> {
                 fontSize: 24,
               ),
             ),
-            // //ImagePickerContainer(
-            //     imageController: ProfileController.instance.image),
-
 //campo nome do usuario
             TextField(
               controller: txtNome,
