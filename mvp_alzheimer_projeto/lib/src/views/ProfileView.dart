@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 
 import 'package:jiffy/jiffy.dart';
@@ -16,21 +18,18 @@ class ProfileView extends StatefulWidget {
 }
 
 class _ProfileViewState extends State<ProfileView> {
-  // debugShowCheckedModeBanner: false;
   @override
   Widget build(BuildContext context) {
-    DateTime agora = DateTime.now();
-    print(
-        (agora.difference(ProfileController.instance.dataNasc).inDays / 365)
-            .toString()
-            .substring(0, 2));
-
     return Scaffold(
       backgroundColor: AppController.instance.mainColor,
-      appBar: CustomAppBar.instance.actionDefault(context, "/profile", Text("Perfil"),
+      appBar: CustomAppBar.instance.actionDefault(context, "/", Text("Perfil"),
         InkWell(
             onTap: (){
-              Navigator.of(context).pushNamed('/editProfile');
+              Navigator.of(context).pushNamed('/editProfile', arguments: {
+                'nome':ProfileController.instance.nome.toString(),
+                'data':ProfileController.instance.dataNasc.toString(),
+                'imageLink':ProfileController.instance.imageLink.toString(),
+              });
             },
             splashColor: Colors.blue,
             child: Icon(Icons.edit)
@@ -58,10 +57,6 @@ class _ProfileViewState extends State<ProfileView> {
           Text(
             "Nascimento: ${Jiffy(ProfileController.instance.dataNasc).format("MMMM do yyyy")}",
             style: TextStyle(fontSize: 24),
-          ),
-          Text(
-            "Idade: ${(agora.difference(ProfileController.instance.dataNasc).inDays / 365).toString().substring(0, 2)}",
-            style: TextStyle(fontSize: 20),
           ),
           Container(
             height: 80,

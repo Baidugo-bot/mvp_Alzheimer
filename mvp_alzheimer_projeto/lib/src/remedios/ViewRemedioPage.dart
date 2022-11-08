@@ -15,8 +15,7 @@ class ViewRemedio extends StatefulWidget {
 }
 
 class _ViewRemedio extends State<ViewRemedio> {
-  List<Remedio> remedio = [
-  ];
+
 
   @override
   Widget build(BuildContext context) {
@@ -24,20 +23,20 @@ class _ViewRemedio extends State<ViewRemedio> {
       backgroundColor: AppController.instance.mainColor,
       appBar: CustomAppBar.instance.getNamedDefault(context,"/",Text(" Remédio ")),
       body: ListView.builder(
-        itemCount: remedio.length,
+        itemCount: AppController.instance.remedio.length,
         itemBuilder: (context, index) {
           return ListTile(
             onTap: () {
               Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (_) => ModifyRemedio(remedio[index])))
+                          builder: (_) => ModifyRemedio(AppController.instance.remedio[index])))
                   .then((newRemedio) {
                 if (newRemedio != null) {
                   setState(() {
-                    remedio.removeAt(index);
+                    AppController.instance.remedio.removeAt(index);
 
-                    remedio.insert(index, newRemedio);
+                    AppController.instance.remedio.insert(index, newRemedio);
 
                     messageResponse(
                         context, newRemedio.nome + " foi modificado...!");
@@ -46,12 +45,12 @@ class _ViewRemedio extends State<ViewRemedio> {
               });
             },
             onLongPress: () {
-              removeClient(context, remedio[index]);
+              removeClient(context, AppController.instance.remedio[index]);
             },
-            title: Text(remedio[index].nome + " " + remedio[index].dosagem),
-            subtitle: Text(remedio[index].hora),
+            title: Text(AppController.instance.remedio[index].nome + " " + AppController.instance.remedio[index].dosagem),
+            subtitle: Text(AppController.instance.remedio[index].hora),
             leading: CircleAvatar(
-              child: Text(remedio[index].nome.substring(0, 1)),
+              child: Text(AppController.instance.remedio[index].nome.substring(0, 1)),
             ),
             trailing: Icon(
               Icons.delete,
@@ -68,7 +67,7 @@ class _ViewRemedio extends State<ViewRemedio> {
               .then((newRemedio) {
             if (newRemedio != null) {
               setState(() {
-                remedio.add(newRemedio);
+                AppController.instance.remedio.add(newRemedio);
                 messageResponse(context, newRemedio.nome + " Foi Armazenado!");
               });
             }
@@ -92,7 +91,7 @@ class _ViewRemedio extends State<ViewRemedio> {
                 TextButton(
                   onPressed: () {
                     setState(() {
-                      this.remedio.remove(remedio);
+                      AppController.instance.remedio.remove(remedio);
                       Navigator.pop(context);
                     });
                   },

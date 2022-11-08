@@ -7,6 +7,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:jiffy/jiffy.dart';
 import 'package:projeto_estudo/MyApp.dart';
 import 'package:projeto_estudo/AppController.dart';
+import 'package:projeto_estudo/src/controller/ProfileController.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({Key? key, required this.title}) : super(key: key);
@@ -54,14 +55,14 @@ class _MyHomePageState extends State<MyHomePage> {
               radius: 60,
               child: CircleAvatar(
                 radius: 80,
-                backgroundImage: AssetImage('assets/images/pelezin.jpg'),
+                backgroundImage:ProfileController.instance.image,
               ),
             ),
             Container(
               height: 5,
             ),
             Text(
-              "Pele",
+              ProfileController.instance.nome,
               style: TextStyle(
                 fontSize: 24,
               ),
@@ -69,17 +70,16 @@ class _MyHomePageState extends State<MyHomePage> {
             Container(
               height: 5,
             ),
-            Text(
-              "Nascimento: 05/10/2001",
-              style: TextStyle(fontSize: 24),
+            Center(
+              child: Text(
+                "Nascimento: "+ProfileController.instance.dataNasc.toString().substring(0,10),
+                style: TextStyle(fontSize: 24),
+              ),
             ),
             Container(
               height: 5,
             ),
-            Text(
-              "Idade: 35 anos",
-              style: TextStyle(fontSize: 24),
-            ),
+
             Container(
               height: 30,
             ),
