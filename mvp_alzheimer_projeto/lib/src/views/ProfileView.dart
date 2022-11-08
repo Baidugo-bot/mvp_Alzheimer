@@ -5,7 +5,9 @@ import 'package:jiffy/jiffy.dart';
 import 'package:projeto_estudo/src/controller/ProfileController.dart';
 import 'package:projeto_estudo/src/views/EditProfileView.dart';
 
-import '../models/FamilyModel.dart';
+import '../models/PofileModel.dart';
+
+
 
 class ProfileView extends StatefulWidget {
   String nome = "";
@@ -104,9 +106,12 @@ class _ProfileViewState extends State<ProfileView> {
   }
   
 }
-class TopBar extends StatelessWidget {
-  var index;
+class TopBar extends StatefulWidget {
+  @override
+  State<TopBar> createState() => _TopBarState();
+}
 
+class _TopBarState extends State<TopBar> {
 @override
   Widget build(BuildContext context) {
     DateTime agora = DateTime.now();
@@ -129,7 +134,7 @@ return Stack(
                                       MainAxisAlignment.spaceBetween,
                                   children: <Widget>[
                                     Image(
-                                      image: FamilyModel.instance.famili[index]
+                                      image: ProfileModel.instance.perfil[index]
                                           .getImage(),
                                       height: 115,
                                     ),
