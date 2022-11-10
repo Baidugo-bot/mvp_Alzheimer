@@ -77,7 +77,9 @@ class _RegisterRemedio extends State<RegisterRemedio> {
                           observacao: observacao));
                 }
               },
-              style: ElevatedButton.styleFrom(primary: Colors.grey),
+              style: ElevatedButton.styleFrom(
+                primary: Colors.grey,
+              ),
               child: const Text("Salvar Remedio",
                   style: TextStyle(color: Colors.black)),
             ),

@@ -104,7 +104,7 @@ class _ViewRemedio extends State<ViewRemedio> {
                     });
                   },
                   child: Text(
-                    "Eliminar",
+                    "Excluir",
                     style: TextStyle(color: Colors.red),
                   ),
                 ),
