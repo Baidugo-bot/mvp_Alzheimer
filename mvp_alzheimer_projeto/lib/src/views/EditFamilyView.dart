@@ -50,11 +50,10 @@ class EditFamilyViewState extends State<EditFamilyView> {
     print("Modify: " + args['family']!.getIdentifier().toString());
     Telephone.text = args['family']!.getTelephone();
 
-    //var criado apos erro
 
     return Scaffold(
       backgroundColor: AppController.instance.mainColor,
-      appBar: CustomAppBar.instance.getNamedDefault(context, "/family",Center(child: Text('Editar'))),
+      appBar: CustomAppBar.instance.getNamedDefault(context, "/family",Text('Editar',style: TextStyle(color: Colors.black),),),
       body: SingleChildScrollView(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
@@ -97,7 +96,7 @@ class EditFamilyViewState extends State<EditFamilyView> {
                     ),
                   ),
             BorderedTextField(
-              title: 'Nome:',
+              title: 'Nome: ',
               haveFrame: false,
               myResult: titleController,
             ),

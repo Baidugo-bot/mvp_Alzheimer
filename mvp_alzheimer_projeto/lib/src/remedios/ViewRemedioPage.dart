@@ -21,7 +21,7 @@ class _ViewRemedio extends State<ViewRemedio> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppController.instance.mainColor,
-      appBar: CustomAppBar.instance.getNamedDefault(context,"/",Text(" Remédio ")),
+      appBar: CustomAppBar.instance.getNamedDefault(context,"/",Text(" Remédio ",style: TextStyle(color: Colors.black),)),
       body: ListView.builder(
         itemCount: AppController.instance.remedio.length,
         itemBuilder: (context, index) {

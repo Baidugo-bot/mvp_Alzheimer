@@ -2,6 +2,9 @@ import 'package:projeto_estudo/src/remedios/ViewRemedioPage.dart';
 import 'package:flutter/material.dart';
 import 'package:projeto_estudo/src/remedios/text_box.dart';
 
+import '../../AppController.dart';
+import '../components/CustomButton.dart';
+
 class ModifyRemedio extends StatefulWidget {
   final Remedio _remedio;
   ModifyRemedio(this._remedio);
@@ -26,9 +29,8 @@ class _ModifyRemedio extends State<ModifyRemedio> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("Modificar Remedio"),
-      ),
+      backgroundColor: AppController.instance.mainColor,
+      appBar: CustomAppBar.instance.getNamedDefault(context,"/remedioPage",Text(" Remédio ",style: TextStyle(color: Colors.black),)),
       body: ListView(
         children: [
           TextBox(controllerNome, "Nome"),
@@ -45,7 +47,8 @@ class _ModifyRemedio extends State<ModifyRemedio> {
                       new Remedio(nome: nome, dosagem: dosagem, hora: hora));
                 }
               },
-              child: Text("Salvar Remedio")),
+            style: ElevatedButton.styleFrom(primary: Colors.grey),
+            child: const Text("Salvar Remedio",style: TextStyle(color: Colors.black)),),
         ],
       ),
     );

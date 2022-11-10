@@ -16,7 +16,7 @@ class SeeMemoryView extends StatelessWidget {
     return Scaffold(
       backgroundColor: AppController.instance.mainColor,
 
-      appBar: CustomAppBar.instance.actionDefault(context, "/memories", Text("Ver Memoria"),
+      appBar: CustomAppBar.instance.actionDefault(context, "/memories", Text("Ver Memoria",style: TextStyle(color: Colors.black),),
         InkWell(
             onTap: (){
               Navigator.of(context).pushNamed('/editMemory',arguments: { "memory": args["memory"] as Memory});
@@ -40,10 +40,10 @@ class SeeMemoryView extends StatelessWidget {
                 child: Center(
                     child: BorderedText(
                       strokeColor: Colors.black,
-                      strokeWidth: 2,
+                      strokeWidth: 0,
                       child: Text(
                           args["memory"]!.getTitle().toUpperCase(),
-                          style: TextStyle(fontSize: 22, color: Colors.white,)
+                          style: const TextStyle(fontSize: 22, color: Colors.black,)
                       ),
                     )
                 ),
@@ -60,11 +60,11 @@ class SeeMemoryView extends StatelessWidget {
                 child: Center(
                     child: BorderedText(
                       strokeColor: Colors.black,
-                      strokeWidth: 2,
+                      strokeWidth: 0,
 
                       child: Text(
                           Jiffy(AppController.instance.now).EEEE.toString()+" "+args["memory"]!.getDate().toString().substring(0,10),
-                          style: TextStyle(fontSize: 25, color: Colors.white)
+                          style: const TextStyle(fontSize: 25, color: Colors.black)
                       ),
                     )
                 ),
@@ -86,13 +86,12 @@ class SeeMemoryView extends StatelessWidget {
                 ),
 
                 child: BorderedText(
-                  strokeWidth: 2,
+                  strokeWidth: 0,
                   strokeColor: Colors.black,
                   child: Text(
-
                       args["memory"]!.getDescription(),
                       textAlign: TextAlign.justify,
-                      style: TextStyle(fontSize: 18, color: Colors.white,fontFamily: "Gidugu-Regular",height: 1.5)
+                      style: const TextStyle(fontSize: 18, color: Colors.black,fontFamily: "Gidugu-Regular",height: 1.5)
                   ),
                 ),
               ),

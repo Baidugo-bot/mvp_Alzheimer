@@ -27,12 +27,13 @@ class _RegisterRemedio extends State<RegisterRemedio> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppController.instance.mainColor,
-        appBar: CustomAppBar.instance.getNamedDefault(context,"/",Text(" Remédio ")),
+        appBar: CustomAppBar.instance.getNamedDefault(context,"/remedioPage",Text(" Remédio ",style: TextStyle(color: Colors.black),)),
         body: ListView(
           children: [
             TextBox(controllerNome, "Nome"),
             TextBox(controllerDosagem, "Dosagem"),
-            TextBox(controllerHora, "Horario"),
+            TextBox(controllerHora, "Horario",),
+
             ElevatedButton(
                 onPressed: () {
                   String nome = controllerNome.text;

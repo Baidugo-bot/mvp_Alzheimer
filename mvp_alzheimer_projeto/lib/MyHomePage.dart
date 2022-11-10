@@ -21,13 +21,15 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   final style =
       ElevatedButton.styleFrom(primary: Colors.white, fixedSize: Size(120, 70));
+
   //light style theme =
   final defaultPadding = 20.0;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       // map dos botoes
-      backgroundColor:AppController.instance.mainColor,
+      backgroundColor: AppController.instance.mainColor,
 
       body: SizedBox(
         child: Column(
@@ -55,7 +57,7 @@ class _MyHomePageState extends State<MyHomePage> {
               radius: 60,
               child: CircleAvatar(
                 radius: 80,
-                backgroundImage:ProfileController.instance.image,
+                backgroundImage: ProfileController.instance.image,
               ),
             ),
             Container(
@@ -63,8 +65,9 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             Text(
               ProfileController.instance.nome,
-              style: TextStyle(
-                fontSize: 24,
+              style: const TextStyle(
+                fontSize: 26,
+                color: Colors.black,
               ),
             ),
             Container(
@@ -72,14 +75,16 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             Center(
               child: Text(
-                "Nascimento: "+ProfileController.instance.dataNasc.toString().substring(0,10),
-                style: TextStyle(fontSize: 24),
+                "Nascimento: " +
+                    ProfileController.instance.dataNasc
+                        .toString()
+                        .substring(0, 10),
+                style: const TextStyle(fontSize: 26, color: Colors.black),
               ),
             ),
             Container(
               height: 5,
             ),
-
             Container(
               height: 30,
             ),
@@ -88,7 +93,7 @@ class _MyHomePageState extends State<MyHomePage> {
               children: [
                 ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                      primary: AppController.instance.mainColor, padding: EdgeInsets.all(15.0)),
+                      primary: Colors.lightBlue, padding: EdgeInsets.all(28.0)),
                   onPressed: () {
                     Navigator.of(context).pushNamed('/remedioPage');
                   },
@@ -103,8 +108,8 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
                 ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                    padding: EdgeInsets.all(15.0),
-                    primary: AppController.instance.mainColor,
+                    padding: EdgeInsets.all(28.0),
+                    primary: Colors.lightBlue,
                   ),
                   onPressed: () {
                     Navigator.of(context).pushNamed('/memories');
@@ -120,8 +125,8 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
                 ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                    primary: AppController.instance.mainColor,
-                    padding: EdgeInsets.all(15.0),
+                    primary: Colors.lightBlue,
+                    padding: EdgeInsets.all(28.0),
                   ),
                   onPressed: () {
                     Navigator.of(context).pushNamed('/family');
@@ -140,8 +145,8 @@ class _MyHomePageState extends State<MyHomePage> {
               children: [
                 ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                    primary: AppController.instance.mainColor,
-                    padding: EdgeInsets.all(15.0),
+                    primary: Colors.lightBlue,
+                    padding: EdgeInsets.all(28.0),
                   ),
                   onPressed: () {
                     Navigator.of(context).pushNamed('/login');

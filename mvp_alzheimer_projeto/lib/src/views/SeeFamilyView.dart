@@ -14,17 +14,22 @@ class SeeFamilyView extends StatelessWidget {
 
     return Scaffold(
       backgroundColor: AppController.instance.mainColor,
-      appBar: CustomAppBar.instance.actionDefault(context, "/family", Text("Familiares"),
-
+      appBar: CustomAppBar.instance.actionDefault(
+        context,
+        "/family",
+        Text(
+          "Familiares",
+          style: TextStyle(color: Colors.black),
+        ),
         Row(
           children: [
             InkWell(
-
-                onTap: (){
-                  Navigator.of(context).pushNamed('/editFamily',arguments: { "family": args["family"] as Family});
-                },
-                splashColor: Colors.grey.withAlpha(70),
-                child: Icon(Icons.edit),
+              onTap: () {
+                Navigator.of(context).pushNamed('/editFamily',
+                    arguments: {"family": args["family"] as Family});
+              },
+              splashColor: Colors.grey.withAlpha(70),
+              child: Icon(Icons.edit),
             ),
           ],
         ),
@@ -39,7 +44,8 @@ class SeeFamilyView extends StatelessWidget {
                 alignment: Alignment.bottomCenter,
                 width: MediaQuery.of(context).size.width,
                 decoration: BoxDecoration(
-                    border: Border.all(),  color: AppController.instance.mainColor ),
+                    border: Border.all(),
+                    color: AppController.instance.mainColor),
               ),
               Column(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -56,83 +62,71 @@ class SeeFamilyView extends StatelessWidget {
                   ),
                   Container(
                     decoration: BoxDecoration(
-                      color: Color.fromRGBO(121,188,218, 1) ,
+                      color: Color.fromRGBO(121, 188, 218, 1),
                     ),
                     width: 500,
                     height: 60,
                     child: Center(
-                      child: BorderedText(
-                        strokeColor: Colors.black,
-                        strokeWidth: 2,
-                        child: Text(args["family"]!.getDescription().toString(),
-                            style: TextStyle(
-                              fontSize: 30,
-                              color: Colors.white,
-                            )),
+                      child: Text(
+                        args["family"]!.getDescription().toString(),
+                        style: const TextStyle(
+                          fontSize: 30,
+                          color: Colors.black,
+                        ),
                       ),
                     ),
                   ),
                   Container(
                     decoration: BoxDecoration(
-                      color: Color.fromRGBO(121,188,218, 1) ,
+                      color: Color.fromRGBO(121, 188, 218, 1),
                     ),
                     width: 500,
                     height: 60,
                     child: Center(
-                      child: BorderedText(
-                        strokeColor: Colors.black,
-                        strokeWidth: 2,
-                        child: Text(args["family"]!.getTitle().toUpperCase(),
-                            style: TextStyle(
-                              fontSize: 30,
-                              color: Colors.white,
-                            )),
+                      child: Text(
+                        args["family"]!.getTitle().toUpperCase(),
+                        style: const TextStyle(
+                          fontSize: 30,
+                          color: Colors.black,
+                        ),
                       ),
                     ),
                   ),
                   Container(
                     decoration: BoxDecoration(
-                      color: Color.fromRGBO(121,188,218, 1) ,
+                      color: Color.fromRGBO(121, 188, 218, 1),
                       border: Border.all(),
                     ),
                   ),
                   Container(
                     decoration: BoxDecoration(
-                      color: Color.fromRGBO(121,188,218, 1) ,
+                      color: Color.fromRGBO(121, 188, 218, 1),
                     ),
                     width: 500,
                     height: 60,
                     child: Center(
-                      child: BorderedText(
-                        strokeColor: Colors.black,
-                        strokeWidth: 2,
-                        child: Text(
-                            args["family"]!
-                                .getDate()
-                                .toString()
-                                .substring(0, 10),
-                            style: TextStyle(
-                              fontSize: 30,
-                              color: Colors.white,
-                            )),
+                      child: Text(
+                        args["family"]!.getDate().toString().substring(0, 10),
+                        style: const TextStyle(
+                          fontSize: 30,
+                          color: Colors.black,
+                        ),
                       ),
                     ),
                   ),
                   Container(
                     decoration: BoxDecoration(
-                      color: Color.fromRGBO(121,188,218, 1) ,
+                      color: Color.fromRGBO(121, 188, 218, 1),
                     ),
                     width: 500,
                     height: 60,
                     child: Center(
-                      child: BorderedText(
-                        strokeColor: Colors.black,
-                        strokeWidth: 2,
-                        child: Text(args["family"]!.getTelephone().toString(),
-                            style: TextStyle(
-                              fontSize: 30,
-                              color: Colors.white,
-                            )),
+                      child: Text(
+                        args["family"]!.getTelephone().toString(),
+                        style: const TextStyle(
+                          fontSize: 30,
+                          color: Colors.black,
+                        ),
                       ),
                     ),
                   ),
