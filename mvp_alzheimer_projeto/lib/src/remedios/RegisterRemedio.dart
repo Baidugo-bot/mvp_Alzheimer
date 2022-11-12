@@ -1,5 +1,6 @@
 import 'package:projeto_estudo/src/remedios/ViewRemedioPage.dart';
 import 'package:projeto_estudo/src/remedios/text_box.dart';
+import 'package:projeto_estudo/src/remedios/circle_dat.dart';
 import 'package:flutter/material.dart';
 
 import '../../AppController.dart';
@@ -49,6 +50,48 @@ class _RegisterRemedio extends State<RegisterRemedio> {
             TextBox(
               controllerData,
               "Quantidade de Dias",
+            ),
+            GestureDetector(child: Text('    Dias da Semana :'), onTap: () {}),
+            SizedBox(height: 10.0),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                circleDay(
+                  'seg',
+                  context,
+                  false,
+                ),
+                circleDay(
+                  'ter',
+                  context,
+                  false,
+                ),
+                circleDay(
+                  'qua',
+                  context,
+                  false,
+                ),
+                circleDay(
+                  'qui',
+                  context,
+                  false,
+                ),
+                circleDay(
+                  'sex',
+                  context,
+                  false,
+                ),
+                circleDay(
+                  'sab',
+                  context,
+                  false,
+                ),
+                circleDay(
+                  'dom',
+                  context,
+                  false,
+                ),
+              ],
             ),
             TextBox(
               controllerObservacao,
