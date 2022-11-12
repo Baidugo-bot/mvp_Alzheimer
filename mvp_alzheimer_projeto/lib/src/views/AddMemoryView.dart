@@ -35,7 +35,7 @@ class AddMemoryViewState extends State<AddMemoryView> {
     }
     return Scaffold(
       backgroundColor: AppController.instance.mainColor,
-      appBar: CustomAppBar.instance.getNamedDefault(context, "/memories", Text("Adicionar Memoria")),
+      appBar: CustomAppBar.instance.getNamedDefault(context, "/memories", Text("Adicionar Memória",style: TextStyle(color: Colors.black),)),
       body: SingleChildScrollView(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,

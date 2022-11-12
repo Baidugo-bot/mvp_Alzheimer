@@ -39,7 +39,7 @@ class EditProfileState extends State<EditProfile> {
     }
     return Scaffold(
       backgroundColor: AppController.instance.mainColor,
-      appBar: CustomAppBar.instance.getNamedDefault(context,"/",Text(" Editar Perfil ")),
+      appBar: CustomAppBar.instance.getNamedDefault(context,"/",Text(" Editar Perfil ",style: TextStyle(color: Colors.black),)),
       body: SingleChildScrollView(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,

@@ -17,7 +17,7 @@ class MemoriesViewState extends State<MemoriesView> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppController.instance.mainColor,
-      appBar: CustomAppBar.instance.getNamedDefault(context, "/", Text(" Memorias ")),
+      appBar: CustomAppBar.instance.getNamedDefault(context, "/", Text(" Memórias ",style: TextStyle(color: Colors.black),)),
       body: ListView.builder(
           itemCount: MemoryModel.instance.memories.length,
           // if 0 then show message
@@ -50,29 +50,22 @@ class MemoriesViewState extends State<MemoriesView> {
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            BorderedText(
-                                strokeColor: Colors.black54,
-                                strokeWidth: 3,
-                                child: Text(
+                            Text(
                                   MemoryModel.instance.memories[index]
                                       .getTitle(),
                                   style: TextStyle(
-                                    fontSize: 20,
-                                    color: Colors.white,
+                                    fontSize: 22,
+                                    color: Colors.black,
                                   ),
-                                )),
-                            BorderedText(
-                              strokeColor: Colors.black54,
-                              strokeWidth: 1.3,
-                              child: Text(
+                                ),
+                             Text(
                                 MemoryModel.instance.memories[index]
                                     .getDate()
                                     .toString()
                                     .substring(0, 10),
                                 style: TextStyle(
-                                    fontSize: 20, color: Colors.white,),
+                                    fontSize: 22, color: Colors.black,),
                               ),
-                            ),
                           ],
                         ),
                       ),

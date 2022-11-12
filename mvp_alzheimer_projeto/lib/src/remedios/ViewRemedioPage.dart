@@ -15,13 +15,17 @@ class ViewRemedio extends StatefulWidget {
 }
 
 class _ViewRemedio extends State<ViewRemedio> {
-
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppController.instance.mainColor,
-      appBar: CustomAppBar.instance.getNamedDefault(context,"/",Text(" Remédio ")),
+      appBar: CustomAppBar.instance.getNamedDefault(
+          context,
+          "/",
+          Text(
+            " Remédio ",
+            style: TextStyle(color: Colors.black),
+          )),
       body: ListView.builder(
         itemCount: AppController.instance.remedio.length,
         itemBuilder: (context, index) {
@@ -30,7 +34,8 @@ class _ViewRemedio extends State<ViewRemedio> {
               Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (_) => ModifyRemedio(AppController.instance.remedio[index])))
+                          builder: (_) => ModifyRemedio(
+                              AppController.instance.remedio[index])))
                   .then((newRemedio) {
                 if (newRemedio != null) {
                   setState(() {
@@ -47,10 +52,13 @@ class _ViewRemedio extends State<ViewRemedio> {
             onLongPress: () {
               removeClient(context, AppController.instance.remedio[index]);
             },
-            title: Text(AppController.instance.remedio[index].nome + " " + AppController.instance.remedio[index].dosagem),
+            title: Text(AppController.instance.remedio[index].nome +
+                " " +
+                AppController.instance.remedio[index].dosagem),
             subtitle: Text(AppController.instance.remedio[index].hora),
             leading: CircleAvatar(
-              child: Text(AppController.instance.remedio[index].nome.substring(0, 1)),
+              child: Text(
+                  AppController.instance.remedio[index].nome.substring(0, 1)),
             ),
             trailing: Icon(
               Icons.delete,
@@ -96,7 +104,7 @@ class _ViewRemedio extends State<ViewRemedio> {
                     });
                   },
                   child: Text(
-                    "Eliminar",
+                    "Excluir",
                     style: TextStyle(color: Colors.red),
                   ),
                 ),
@@ -118,6 +126,8 @@ class Remedio {
   var nome;
   var dosagem;
   var hora;
+  var data;
+  var observacao;
 
-  Remedio({this.nome, this.dosagem, this.hora});
+  Remedio({this.nome, this.dosagem, this.hora, this.data, this.observacao});
 }

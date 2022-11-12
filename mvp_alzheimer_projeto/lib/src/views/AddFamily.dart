@@ -38,7 +38,7 @@ class AddFamilyViewState extends State<AddFamily> {
     }
     return Scaffold(
       backgroundColor: AppController.instance.mainColor,
-      appBar: CustomAppBar.instance.getNamedDefault(context, '/family',Text("Add Member")),
+      appBar: CustomAppBar.instance.getNamedDefault(context, '/family',Text("Adicionar Familiar",style: TextStyle(color: Colors.black),)),
       body: SingleChildScrollView(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,

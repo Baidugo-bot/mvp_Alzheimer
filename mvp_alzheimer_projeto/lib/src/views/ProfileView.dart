@@ -22,7 +22,7 @@ class _ProfileViewState extends State<ProfileView> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppController.instance.mainColor,
-      appBar: CustomAppBar.instance.actionDefault(context, "/", Text("Perfil"),
+      appBar: CustomAppBar.instance.actionDefault(context, "/", Text("Perfil",style: TextStyle(color: Colors.black),),
         InkWell(
             onTap: (){
               Navigator.of(context).pushNamed('/editProfile', arguments: {
