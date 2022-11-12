@@ -13,18 +13,16 @@ abstract class TipoUsuario {
 class Usuario {
   int idUsuario = 0;
   String tipoCuidador = "";
-  String email = "";
-  String senha = "";
   TipoUsuario userData;
 
-  Usuario({Key? key, required this.idUsuario, required this.tipoCuidador, required this.email, required this.senha,required this.userData});
+  Usuario({Key? key, required this.idUsuario, required this.tipoCuidador,required this.userData});
 }
 
 
 class Paciente implements TipoUsuario {
   String doenca = "";
   String anotacoes = "";
-  List<Remedio>? remedios;
+  List<Remedios>? remedios;
   List<Memory>? memorias;
   List<MembroFamilia>? familia;
 
@@ -63,13 +61,13 @@ class Cuidador implements TipoUsuario {
 
 }
 
-class Remedio{
+class Remedios{
   int idRemedio = 0;
   String nome="";
   int dosagem = 0;
   int duracao = 0;
 
-  Remedio({Key? key, required this.idRemedio, required this.nome, required this.dosagem, required this.duracao});
+  Remedios({Key? key, required this.idRemedio, required this.nome, required this.dosagem, required this.duracao});
 }
 
 

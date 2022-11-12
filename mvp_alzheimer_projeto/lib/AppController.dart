@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:projeto_estudo/src/controller/ProfileController.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:projeto_estudo/src/models/FamilyModel.dart';
+import 'package:projeto_estudo/src/models/MainProfileModel.dart';
 import 'package:projeto_estudo/src/views/AddFamily.dart';
 
 import 'src/remedios/ViewRemedioPage.dart';
@@ -11,6 +12,7 @@ class AppController extends ChangeNotifier{
   static AppController instance = AppController();
   List<Widget> memories = <Widget>[];
   List<Widget> family = <Widget>[];
+  late Usuario user;
   List<Remedio> remedio = [];
 
   DateTime now = DateTime.now().toUtc();

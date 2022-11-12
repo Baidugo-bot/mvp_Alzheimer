@@ -70,9 +70,10 @@ class RegisterViewState extends State<RegisterView> {
             Container(height: 10,),
             DefaultButton(color: Color.fromRGBO(173, 216, 230, 1), title: 'Cadastrar-se', response: () {
               //validar apenas um escolhido, mostrar mensagem
+              print("teste");
               if(passwordController.text!=confirmController.text){}else{
                 SessionController.instance.register(
-                  (cuidadorController==true)?((cuidadorController==true) ? "1" : "0"):(pacienteController) ? "1" : "0",
+                  (cuidadorController==true)?((cuidadorController==true) ? '1' : '0'):(pacienteController==true) ?'1' : '0',
                   emailController.text,
                   passwordController.text
                 );

@@ -1,5 +1,6 @@
 
 
+import 'package:flutter/material.dart';
 import 'package:latlong2/latlong.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
@@ -9,7 +10,7 @@ class SessionController {
   static SessionController instance = SessionController();
 
   Future<String> tryLogin(String email,String passWord) async {
-    print("mandando local");
+    print(email+passWord);
     final response = await http.post(
       Uri.parse('https://alzheimer-db.herokuapp.com/login/'),
       headers: <String, String>{
@@ -20,16 +21,16 @@ class SessionController {
         'senha':passWord,
       }),
     );
-    print(response.body);
+    print(jsonDecode(json.encode(response.body)));
 
-    dynamic returned = jsonDecode(response.body);
-    dynamic fixed = jsonDecode(returned["data"]);
-    print(fixed["Email"]);
-    if(returned["auth"]==null){
-      print(returned["auth"]);
+    dynamic returned = jsonDecode(json.encode(response.body));
+    dynamic fixed = jsonDecode(json.encode(returned[0]));
+    print(fixed);
+    if(returned[0]==null){
+      print(returned[0]);
       return "";
-    }else{
-      print("teste");
+    }else{//pega id pra consultas futuras e guarda no app
+      print(0);
       return "";
     }
   }
@@ -40,15 +41,15 @@ class SessionController {
       headers: <String, String>{
         'Content-Type': 'application/json; charset=UTF-8',
       },
-      body: jsonEncode(<String, String>{
+      body: jsonEncode({
         'tipo_cuidador':tipoCuidador,
         'email':email,
         'senha':passWord,
       }),
     );
-    print(response.body);
-    dynamic posCollected = jsonDecode(response.body);
-    dynamic posUpdated = jsonDecode(posCollected["data"]);
+    print(response.body.toString());
+    dynamic posCollected = jsonDecode(json.encode(response.body));
+    dynamic posUpdated = jsonDecode(json.encode(posCollected["data"]));
     // if(posCollected["message"]!="Não encontrado"){
     //   ;
     // }else{

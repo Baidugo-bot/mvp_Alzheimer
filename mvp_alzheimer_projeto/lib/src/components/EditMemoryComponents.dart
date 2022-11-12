@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
+import 'package:intl/intl.dart';
 import 'package:bordered_text/bordered_text.dart';
 import 'package:date_field/date_field.dart';
 
@@ -124,7 +124,7 @@ class DateBorderedFieldState extends State<DateBorderedField> {
 
             width: 200,
             child: DateTimeFormField(
-
+                dateFormat: DateFormat('dd/MM/yyyy'),
                 onDateSelected: (DateTime date){
                   widget.onChangeFunction(date);
                 },
