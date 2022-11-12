@@ -124,7 +124,7 @@ class DateBorderedFieldState extends State<DateBorderedField> {
 
             width: 200,
             child: DateTimeFormField(
-                dateFormat: DateFormat('dd/MM/yyyy HH:mm'),
+                dateFormat: DateFormat('dd/MM/yyyy'),
                 onDateSelected: (DateTime date){
                   widget.onChangeFunction(date);
                 },
