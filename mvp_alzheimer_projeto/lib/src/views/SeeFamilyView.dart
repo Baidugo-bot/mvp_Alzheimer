@@ -106,7 +106,7 @@ class SeeFamilyView extends StatelessWidget {
                     height: 60,
                     child: Center(
                       child: Text(
-                        args["family"]!.getDate().toString().substring(0, 10),
+                        args["family"]!.getConvertedDate().toString().substring(0, 10),
                         style: const TextStyle(
                           fontSize: 30,
                           color: Colors.black,

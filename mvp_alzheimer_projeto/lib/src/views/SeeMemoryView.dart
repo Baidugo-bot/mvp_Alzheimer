@@ -63,7 +63,7 @@ class SeeMemoryView extends StatelessWidget {
                       strokeWidth: 0,
 
                       child: Text(
-                          Jiffy(AppController.instance.now).EEEE.toString()+" "+args["memory"]!.getDate().toString().substring(0,10),
+                          Jiffy(AppController.instance.now).EEEE.toString()+" "+args["memory"]!.getConvertedDate().toString().substring(0,10),
                           style: const TextStyle(fontSize: 25, color: Colors.black)
                       ),
                     )

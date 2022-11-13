@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'package:intl/intl.dart';
 class FamilyModel {
   static FamilyModel instance = FamilyModel();
 
@@ -34,6 +34,9 @@ class Family {
 
   DateTime getDate() {
     return date;
+  }
+  String getConvertedDate(){
+    return DateFormat('dd/MM/yyyy').format(date);
   }
 
   String getTelephone() {
