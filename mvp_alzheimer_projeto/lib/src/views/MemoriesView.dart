@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:projeto_estudo/AppController.dart';
 import '../components/CustomButton.dart';
 import '../models/MemoryModel.dart';
-
+import 'package:intl/intl.dart';
 class MemoriesView extends StatefulWidget {
   MemoriesView({Key? key}) : super(key: key);
 
@@ -60,7 +60,7 @@ class MemoriesViewState extends State<MemoriesView> {
                                 ),
                              Text(
                                 MemoryModel.instance.memories[index]
-                                    .getDate()
+                                    .getConvertedDate()
                                     .toString()
                                     .substring(0, 10),
                                 style: TextStyle(
