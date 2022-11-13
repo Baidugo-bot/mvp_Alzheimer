@@ -1,4 +1,4 @@
-
+import 'package:intl/intl.dart';
 import 'package:flutter/material.dart';
 class MemoryModel{
   static MemoryModel instance = MemoryModel();
@@ -26,6 +26,10 @@ class Memory {
 
   DateTime getDate(){
     return date;
+  }
+
+  String getConvertedDate(){
+    return DateFormat('dd/MM/yyyy').format(date);
   }
 
   int getIdentifier(){

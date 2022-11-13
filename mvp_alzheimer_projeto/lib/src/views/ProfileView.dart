@@ -52,11 +52,11 @@ class _ProfileViewState extends State<ProfileView> {
           
           Text(
             "Nome: ${ProfileController.instance.nome}",
-            style: TextStyle(fontSize: 24,),
+            style: TextStyle(fontSize: 24,color: Colors.black),
           ),
           Text(
-            "Nascimento: ${Jiffy(ProfileController.instance.dataNasc).format("MMMM do yyyy")}",
-            style: TextStyle(fontSize: 24),
+            "Nascimento: ${Jiffy(ProfileController.instance.dataNasc).format("dd/MM/yyyy")}",
+            style: TextStyle(fontSize: 24,color: Colors.black),
           ),
           Container(
             height: 80,

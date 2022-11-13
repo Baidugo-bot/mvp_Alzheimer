@@ -57,10 +57,11 @@ class _RegisterRemedio extends State<RegisterRemedio> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 circleDay(
-                  'seg',
-                  context,
-                  false,
-                ),
+                    'seg',
+                    context,
+                    false,
+                  ),
+
                 circleDay(
                   'ter',
                   context,

@@ -10,7 +10,8 @@ dependencies:
     sdk: flutter
   bordered_text: ^2.0.0
   jiffy: ^5.0.0
-
+  cron:
+  awesome_notifications: any
   date_field: #latest version
   image_picker: ^0.8.5
   permission_handler: ^9.2.0

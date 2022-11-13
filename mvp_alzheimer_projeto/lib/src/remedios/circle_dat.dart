@@ -5,7 +5,7 @@ Widget circleDay(day, context, enabled) {
     width: 45.0,
     height: 45.0,
     decoration: BoxDecoration(
-      color: (enabled) ? Theme.of(context).accentColor : Colors.grey,
+      color: enabled ? Colors.green  : Colors.grey,
       borderRadius: BorderRadiusDirectional.circular(100.0),
     ),
     child: Padding(
