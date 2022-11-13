@@ -26,7 +26,7 @@ class PatientsViewState extends State<PatientsView> {
         toolbarHeight: 35,
         backgroundColor: AppController.instance.mainColor,
         automaticallyImplyLeading: false,
-        title: Center(child: Text("Patients")),
+        title: Center(child: Text("Pacientes")),
       ),
       body: ListView.builder(
           itemCount: 2,

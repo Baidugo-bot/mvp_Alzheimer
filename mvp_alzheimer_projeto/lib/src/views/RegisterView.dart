@@ -29,7 +29,7 @@ class RegisterViewState extends State<RegisterView> {
 
     return Scaffold(
       backgroundColor: AppController.instance.mainColor,
-      appBar: CustomAppBar.instance.getDefault(context,"login"),
+      appBar: CustomAppBar.instance.getDefault(context,"/login"),
       body: SingleChildScrollView(
         child: Column(
           children: [
