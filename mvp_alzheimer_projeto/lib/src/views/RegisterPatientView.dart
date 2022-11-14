@@ -105,7 +105,7 @@ class RegisterPatientViewState extends State<RegisterPatientView> {
                   response: () {
                     AppController.instance.pacientes.add(Paciente(
                         doenca: diseaseController.text,
-                        anotacoes: casesController,
+                        anotacoes: casesController.text,
                         id: SessionController.instance.sessionID,
                         dataNasc: dateController,
                         idUsuario: SessionController.instance.sessionID,
