@@ -14,6 +14,7 @@ class AppController extends ChangeNotifier{
   List<Widget> family = <Widget>[];
   late Usuario user;
   List<Remedio> remedio = [];
+  List<Paciente> pacientes = [];
 
   DateTime now = DateTime.now().toUtc();
   int counter = 0;

@@ -26,6 +26,7 @@ class RegisterPatientViewState extends State<RegisterPatientView> {
     String imageLink = "assets/images/imagemEscolha.png";
     return Scaffold(
       backgroundColor: AppController.instance.mainColor,
+
       appBar: CustomAppBar.instance.getNamedDefault(context, "/patients",
           Text("Cadastrar Paciente", style: TextStyle(color: Colors.black))),
       body: SingleChildScrollView(
@@ -90,6 +91,13 @@ class RegisterPatientViewState extends State<RegisterPatientView> {
               enableBounds: true,
               bounds: {125.0: 50.0},
             ),
+            Container(height: 35,),
+            DefaultButton(color: Color.fromRGBO(173, 216, 230, 1), title: 'Salvar', response: () {
+
+              Navigator.of(context).pushNamed('/patients');
+              },
+              enableBounds: true,
+              bounds: {125.0:50.0},),
           ],
         ),
       ),
