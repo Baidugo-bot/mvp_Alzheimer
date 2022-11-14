@@ -8,6 +8,9 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 class SessionController {
   static SessionController instance = SessionController();
+  int sessionID = 0;
+
+
 
   Future<String> tryLogin(String email,String passWord) async {
     print(email+passWord);
@@ -23,15 +26,15 @@ class SessionController {
     );
     print(jsonDecode(json.encode(response.body)));
 
-    dynamic returned = jsonDecode(json.encode(response.body));
-    dynamic fixed = jsonDecode(json.encode(returned[0]));
-    print(fixed);
-    if(returned[0]==null){
-      print(returned[0]);
-      return "";
+    dynamic returned = jsonDecode(response.body);
+    print(returned.toString().substring(1,5));
+    if(returned.toString().substring(1,5)=="data"){
+      print("LOGOUUUUUUUUUUUUUU");
+      sessionID =  int.parse(returned["data"]["idUsuario"].toString());
+      print(sessionID);
+      return "logou";
     }else{//pega id pra consultas futuras e guarda no app
-      print(0);
-      return "";
+      return "errou";
     }
   }
 

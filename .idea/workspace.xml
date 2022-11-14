@@ -26,9 +26,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="01374189-c916-4464-add0-3260a260741b" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mvp_alzheimer_projeto/lib/src/views/PatientsView.dart" beforeDir="false" afterPath="$PROJECT_DIR$/mvp_alzheimer_projeto/lib/src/views/PatientsView.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mvp_alzheimer_projeto/lib/src/views/RegisterView.dart" beforeDir="false" afterPath="$PROJECT_DIR$/mvp_alzheimer_projeto/lib/src/views/RegisterView.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mvp_alzheimer_projeto/android/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/mvp_alzheimer_projeto/android/app/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mvp_alzheimer_projeto/lib/src/controller/SessionController.dart" beforeDir="false" afterPath="$PROJECT_DIR$/mvp_alzheimer_projeto/lib/src/controller/SessionController.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mvp_alzheimer_projeto/lib/src/views/LoginView.dart" beforeDir="false" afterPath="$PROJECT_DIR$/mvp_alzheimer_projeto/lib/src/views/LoginView.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mvp_alzheimer_projeto/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/mvp_alzheimer_projeto/pubspec.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,7 +74,7 @@
     <property name="cidr.known.project.marker" value="true" />
     <property name="dart.analysis.tool.window.visible" value="false" />
     <property name="io.flutter.reload.alreadyRun" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../Downloads/flutter_windows_2.10.4-stable/flutter/bin/cache/dart-sdk" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Downloads/flutter_windows_3.3.8-stable/flutter/bin/cache/dart-sdk" />
     <property name="project.structure.last.edited" value="Problems" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.2" />

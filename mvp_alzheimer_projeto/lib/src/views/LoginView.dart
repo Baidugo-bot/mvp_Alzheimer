@@ -52,9 +52,11 @@ class LoginViewState extends State<LoginView> {
             DefaultTextField( title: 'Senha: ', myResult: passwordController,isPassword: true),
             Container(height: 25,),
             DefaultButton(color: Color.fromRGBO(173, 216, 230, 1), title: 'Entrar',
-              response: () {
-                SessionController.instance.tryLogin(emailController.text, passwordController.text);
-                Navigator.of(context).pushNamed('/patients');
+              response: () async{
+                SessionController.instance.tryLogin(emailController.text, passwordController.text).then((value) =>
+                (value=="logou")?Navigator.of(context).pushNamed('/patients', arguments: {}):null
+                );
+
               },
               enableBounds: true, bounds: {320.0:60.0},
             ),
