@@ -1,3 +1,4 @@
+import 'package:awesome_notifications/awesome_notifications.dart';
 import 'package:projeto_estudo/src/components/ProfileComponents.dart';
 import 'package:projeto_estudo/src/remedios/ViewRemedioPage.dart';
 import 'package:projeto_estudo/src/remedios/text_box.dart';
@@ -6,7 +7,7 @@ import 'package:flutter/material.dart';
 import '../../AppController.dart';
 import '../components/AddMemoryComponents.dart';
 import '../components/CustomButton.dart';
-
+import 'package:cron/cron.dart';
 class RegisterRemedio extends StatefulWidget {
   @override
   State<StatefulWidget> createState() => _RegisterRemedio();
@@ -37,7 +38,8 @@ class _RegisterRemedio extends State<RegisterRemedio> {
               " Remédio ",
               style: TextStyle(color: Colors.black),
             )),
-        body: ListView(
+        body:
+        ListView(
           children: [
             TextBox(controllerNome, "Nome"),
             TextBox(controllerDosagem, "Dosagem"),
@@ -58,7 +60,7 @@ class _RegisterRemedio extends State<RegisterRemedio> {
                 String nome = controllerNome.text;
                 String dosagem = controllerDosagem.text;
                 String observacao = controllerObservacao.text;
-
+                AppController.instance.setAlarm(controllerHora, nome);
                 if (nome.isNotEmpty &&
                     dosagem.isNotEmpty &&
                     observacao.isNotEmpty) {

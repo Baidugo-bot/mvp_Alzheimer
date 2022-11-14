@@ -1,4 +1,6 @@
 
+import 'package:awesome_notifications/awesome_notifications.dart';
+import 'package:cron/cron.dart';
 import 'package:flutter/material.dart';
 import 'package:projeto_estudo/src/controller/ProfileController.dart';
 import 'package:image_picker/image_picker.dart';
@@ -9,6 +11,7 @@ import 'package:projeto_estudo/src/views/AddFamily.dart';
 import 'src/remedios/ViewRemedioPage.dart';
 
 class AppController extends ChangeNotifier{
+
   static AppController instance = AppController();
   List<Widget> memories = <Widget>[];
   List<Widget> family = <Widget>[];
@@ -27,7 +30,20 @@ class AppController extends ChangeNotifier{
       counter++;
       notifyListeners();
   }
-    
+  void setAlarm(TimeOfDay time, String nome){
+    final cron = Cron();
+    cron.schedule(Schedule.parse('*/1 */${time.minute} */${time.hour} * * *'), () async => {
+      AwesomeNotifications().createNotification(
+          content: NotificationContent(
+              id: remedio.length,
+              channelKey: 'key1',
+              title:'${nome}',
+              body: 'Lembra que voce tem alzheimeeeer.'
+          )
+      ),
+      print(remedio.length),
+    });
+  }
 
 
   Future<String> getImage() async {
