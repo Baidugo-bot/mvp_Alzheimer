@@ -38,8 +38,7 @@ class _RegisterRemedio extends State<RegisterRemedio> {
               " Remédio ",
               style: TextStyle(color: Colors.black),
             )),
-        body:
-        ListView(
+        body: Column(
           children: [
             TextBox(controllerNome, "Nome"),
             TextBox(controllerDosagem, "Dosagem"),
