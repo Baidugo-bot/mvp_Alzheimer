@@ -29,7 +29,7 @@ class PatientsViewState extends State<PatientsView> {
         title: Center(child: Text("Pacientes")),
       ),
       body: ListView.builder(
-          itemCount: 2,
+          itemCount: AppController.instance.memories.length,
           itemBuilder: (BuildContext ctx, int number){
         return Align(
           alignment: Alignment.center,
