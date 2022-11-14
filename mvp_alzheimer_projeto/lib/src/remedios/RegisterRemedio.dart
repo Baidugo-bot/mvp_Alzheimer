@@ -1,9 +1,10 @@
+import 'package:projeto_estudo/src/components/ProfileComponents.dart';
 import 'package:projeto_estudo/src/remedios/ViewRemedioPage.dart';
 import 'package:projeto_estudo/src/remedios/text_box.dart';
 import 'package:projeto_estudo/src/remedios/circle_dat.dart';
 import 'package:flutter/material.dart';
-
 import '../../AppController.dart';
+import '../components/AddMemoryComponents.dart';
 import '../components/CustomButton.dart';
 
 class RegisterRemedio extends StatefulWidget {
@@ -14,17 +15,14 @@ class RegisterRemedio extends StatefulWidget {
 class _RegisterRemedio extends State<RegisterRemedio> {
   late TextEditingController controllerNome;
   late TextEditingController controllerDosagem;
-  late TextEditingController controllerHora;
-  late TextEditingController controllerData;
   late TextEditingController controllerObservacao;
+  TimeOfDay controllerHora = TimeOfDay(hour: 0, minute: 00);
 
   @override
   void initState() {
-    controllerNome = new TextEditingController();
-    controllerDosagem = new TextEditingController();
-    controllerHora = new TextEditingController();
-    controllerData = new TextEditingController();
-    controllerObservacao = new TextEditingController();
+    controllerNome = TextEditingController();
+    controllerDosagem = TextEditingController();
+    controllerObservacao = TextEditingController();
     super.initState();
   }
 
@@ -43,89 +41,36 @@ class _RegisterRemedio extends State<RegisterRemedio> {
           children: [
             TextBox(controllerNome, "Nome"),
             TextBox(controllerDosagem, "Dosagem"),
-            TextBox(
-              controllerHora,
-              "Horario",
-            ),
-            TextBox(
-              controllerData,
-              "Quantidade de Dias",
-            ),
-            GestureDetector(child: Text('    Dias da Semana :'), onTap: () {}),
-            SizedBox(height: 10.0),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                circleDay(
-                    'seg',
-                    context,
-                    false,
-                  ),
-
-                circleDay(
-                  'ter',
-                  context,
-                  false,
-                ),
-                circleDay(
-                  'qua',
-                  context,
-                  false,
-                ),
-                circleDay(
-                  'qui',
-                  context,
-                  false,
-                ),
-                circleDay(
-                  'sex',
-                  context,
-                  false,
-                ),
-                circleDay(
-                  'sab',
-                  context,
-                  false,
-                ),
-                circleDay(
-                  'dom',
-                  context,
-                  false,
-                ),
-              ],
-            ),
-            TextBox(
-              controllerObservacao,
-              "Observação",
-            ),
-            ElevatedButton(
-              onPressed: () {
+            ElevatedButton(onPressed: (){
+              showTimePicker(context: context, initialTime: controllerHora).then((value) {
+              setState(() {
+                controllerHora = value!;
+              });
+              });
+            },
+              style: ElevatedButton.styleFrom(
+                primary: Colors.grey,),
+              child:   Text("Horario Remédio",
+                style: TextStyle(color: Colors.black)),),
+            TextBox(controllerObservacao, "Observação"),
+            CustomButton(
+              response: (){
                 String nome = controllerNome.text;
                 String dosagem = controllerDosagem.text;
-                String hora = controllerHora.text;
-                String data = controllerData.text;
                 String observacao = controllerObservacao.text;
 
                 if (nome.isNotEmpty &&
                     dosagem.isNotEmpty &&
-                    hora.isNotEmpty &&
-                    data.isNotEmpty &&
                     observacao.isNotEmpty) {
                   Navigator.pop(
                       context,
-                      new Remedio(
+                      Remedio(
                           nome: nome,
                           dosagem: dosagem,
-                          hora: hora,
-                          data: data,
+                          hora: controllerHora,
                           observacao: observacao));
                 }
-              },
-              style: ElevatedButton.styleFrom(
-                primary: Colors.grey,
-              ),
-              child: const Text("Salvar Remedio",
-                  style: TextStyle(color: Colors.black)),
+              }, title: 'Salvar', color: Colors.green,
             ),
           ],
         ));

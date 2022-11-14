@@ -26,35 +26,70 @@ class RegisterPatientViewState extends State<RegisterPatientView> {
     String imageLink = "assets/images/imagemEscolha.png";
     return Scaffold(
       backgroundColor: AppController.instance.mainColor,
-      appBar: CustomAppBar.instance.getDefault(context,"patients"),
+      appBar: CustomAppBar.instance.getNamedDefault(context, "/patients",
+          Text("Cadastrar Paciente", style: TextStyle(color: Colors.black))),
       body: SingleChildScrollView(
         child: Column(
           children: [
-
-            Container(height: 10,),
+            Container(
+              height: 10,
+            ),
             Container(
               width: double.infinity,
               decoration: BoxDecoration(
-                border: Border(bottom: BorderSide(color: Colors.black,width: 1.3)),
+                border:
+                    Border(bottom: BorderSide(color: Colors.black, width: 1.3)),
               ),
-              child: ImagePickerContainer(imageLink: imageLink, response: ()async{
-                imageLink =  await AppController.instance.getImage().then((value) => imageLink = value);
-                Navigator.of(context).pushNamed('/addMemory', arguments: {'name':nameController.text, 'date': dateController.toString(),'disease':diseaseController.text, 'imageLink': imageLink});
-                }
-              ),
+              child: ImagePickerContainer(
+                  imageLink: imageLink,
+                  response: () async {
+                    imageLink = await AppController.instance
+                        .getImage()
+                        .then((value) => imageLink = value);
+                    Navigator.of(context).pushNamed('/addMemory', arguments: {
+                      'name': nameController.text,
+                      'date': dateController.toString(),
+                      'disease': diseaseController.text,
+                      'imageLink': imageLink
+                    });
+                  }),
             ),
-
-            DefaultTextField(haveFrame: false, title: 'Nome: ', myResult: nameController,),
-            DateBorderedField(onChangeFunction: (value){dateController = value;}, lastDate: dateController, initialValue: dateController),
-            DefaultTextField(haveFrame: false, title: 'Doença: ', myResult: diseaseController,),
-
-
+            DefaultTextField(
+              haveFrame: false,
+              title: 'Nome: ',
+              myResult: nameController,
+            ),
+            DateBorderedField(
+                onChangeFunction: (value) {
+                  dateController = value;
+                },
+                lastDate: dateController,
+                initialValue: dateController),
+            DefaultTextField(
+              haveFrame: false,
+              title: 'Doença: ',
+              myResult: diseaseController,
+            ),
             Container(
               width: double.infinity,
-              child: DefaultTextField(haveFrame: false, title: 'Casos Especiais: ', myResult: casesController,),
+              child: DefaultTextField(
+                haveFrame: false,
+                title: 'Casos Especiais: ',
+                myResult: casesController,
+              ),
             ),
-            Container(height: 35,),
-            DefaultButton(color: Color.fromRGBO(173, 216, 230, 1), title: 'Salvar', response: () { Navigator.of(context).pushNamed('/patients'); }, enableBounds: true, bounds: {125.0:50.0},),
+            Container(
+              height: 35,
+            ),
+            DefaultButton(
+              color: Color.fromRGBO(173, 216, 230, 1),
+              title: 'Salvar',
+              response: () {
+                Navigator.of(context).pushNamed('/patients');
+              },
+              enableBounds: true,
+              bounds: {125.0: 50.0},
+            ),
           ],
         ),
       ),

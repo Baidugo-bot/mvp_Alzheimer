@@ -1,9 +1,7 @@
 import 'package:projeto_estudo/src/remedios/RegisterRemedio.dart';
 import 'package:projeto_estudo/src/remedios/ModifyRemedio.dart';
 import 'package:projeto_estudo/src/remedios/masage_responce.dart';
-
 import 'package:flutter/material.dart';
-
 import '../../AppController.dart';
 import '../components/CustomButton.dart';
 
@@ -55,7 +53,7 @@ class _ViewRemedio extends State<ViewRemedio> {
             title: Text(AppController.instance.remedio[index].nome +
                 " " +
                 AppController.instance.remedio[index].dosagem),
-            subtitle: Text(AppController.instance.remedio[index].hora),
+            subtitle: Text(AppController.instance.remedio[index].hora.toString().substring(10,15)),
             leading: CircleAvatar(
               child: Text(
                   AppController.instance.remedio[index].nome.substring(0, 1)),

@@ -74,7 +74,7 @@ class EditMemoryViewState extends State<EditMemoryView> {
                 response: () async {
                   imageLink =  await AppController.instance.getImage().then((value) => imageLink = value);
                   Navigator.of(context).pushNamed('/editMemory', arguments: {
-                    'memory': new Memory(
+                    'memory':  Memory(
                         title: titleController.text,
                         date: dateController,
                         description: descController.text,

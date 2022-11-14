@@ -15,17 +15,13 @@ class ModifyRemedio extends StatefulWidget {
 class _ModifyRemedio extends State<ModifyRemedio> {
   late TextEditingController controllerNome;
   late TextEditingController controllerDosagem;
-  late TextEditingController controllerHora;
-  late TextEditingController controllerData;
   late TextEditingController controllerObservacao;
-
+  TimeOfDay controllerHora = TimeOfDay(hour: 0, minute: 00);
   @override
   void initState() {
     Remedio c = widget._remedio;
     controllerNome = new TextEditingController(text: c.nome);
     controllerDosagem = new TextEditingController(text: c.dosagem);
-    controllerHora = new TextEditingController(text: c.hora);
-    controllerData = new TextEditingController(text: c.data);
     controllerObservacao = new TextEditingController(text: c.observacao);
     super.initState();
   }
@@ -45,11 +41,17 @@ class _ModifyRemedio extends State<ModifyRemedio> {
         children: [
           TextBox(controllerNome, "Nome"),
           TextBox(controllerDosagem, "Dosagem"),
-          TextBox(controllerHora, "Horario"),
-          TextBox(
-            controllerData,
-            "Quantidade de Dias",
-          ),
+          ElevatedButton(onPressed: (){
+            showTimePicker(context: context, initialTime: controllerHora).then((value) {
+              setState(() {
+                controllerHora = value!;
+              });
+            });
+          },
+            style: ElevatedButton.styleFrom(
+              primary: Colors.grey,),
+            child:   Text("Horario Remédio",
+                style: TextStyle(color: Colors.black)),),
           TextBox(
             controllerObservacao,
             "Observação",
@@ -58,28 +60,23 @@ class _ModifyRemedio extends State<ModifyRemedio> {
             onPressed: () {
               String nome = controllerNome.text;
               String dosagem = controllerDosagem.text;
-              String hora = controllerHora.text;
-              String data = controllerData.text;
               String observacao = controllerObservacao.text;
 
               if (nome.isNotEmpty &&
                   dosagem.isNotEmpty &&
-                  hora.isNotEmpty &&
-                  data.isNotEmpty &&
                   observacao.isNotEmpty) {
                 Navigator.pop(
                     context,
                     new Remedio(
                         nome: nome,
                         dosagem: dosagem,
-                        hora: hora,
-                        data: data,
+                        hora: controllerHora,
                         observacao: observacao));
               }
             },
-            style: ElevatedButton.styleFrom(primary: Colors.grey),
+            style: ElevatedButton.styleFrom(primary: Colors.green),
             child: const Text("Salvar Remedio",
-                style: TextStyle(color: Colors.black)),
+                style: TextStyle(color: Colors.white)),
           ),
         ],
       ),
