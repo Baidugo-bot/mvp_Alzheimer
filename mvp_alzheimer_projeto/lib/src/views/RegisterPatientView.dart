@@ -4,9 +4,11 @@ import 'package:flutter/material.dart';
 import 'package:projeto_estudo/AppController.dart';
 import 'package:projeto_estudo/src/components/CustomButton.dart';
 import 'package:projeto_estudo/src/components/EditMemoryComponents.dart';
+import 'package:projeto_estudo/src/controller/SessionController.dart';
 
 import '../components/AddMemoryComponents.dart';
 import '../components/CustomInputs.dart';
+import '../models/MainProfileModel.dart';
 import '../models/MemoryModel.dart';
 
 class RegisterPatientView extends StatefulWidget {
@@ -19,11 +21,22 @@ class RegisterPatientView extends StatefulWidget {
 class RegisterPatientViewState extends State<RegisterPatientView> {
   @override
   Widget build(BuildContext context) {
+    var args;
     TextEditingController nameController = new TextEditingController();
     DateTime dateController = DateTime.now();
     TextEditingController diseaseController = new TextEditingController();
     TextEditingController casesController = new TextEditingController();
     String imageLink = "assets/images/imagemEscolha.png";
+
+
+    if(ModalRoute.of(context)!.settings.arguments != null){
+      args = ModalRoute.of(context)!.settings.arguments as Map<String,String>;
+      nameController.text = (args['name']!=null)?args['name'].toString():"";
+      diseaseController.text = (args['disease']!=null)?args['disease'].toString():"";
+      casesController.text = (args['case']!=null)?args['case'].toString():"";
+      dateController = (args['date']!=DateTime.now())?DateTime.parse(args['date'].toString()):DateTime.now();
+      imageLink = (args['imageLink']!=null)?args['imageLink'].toString():"";
+    }
     return Scaffold(
       backgroundColor: AppController.instance.mainColor,
 
@@ -47,11 +60,12 @@ class RegisterPatientViewState extends State<RegisterPatientView> {
                     imageLink = await AppController.instance
                         .getImage()
                         .then((value) => imageLink = value);
-                    Navigator.of(context).pushNamed('/addMemory', arguments: {
+                    Navigator.of(context).pushNamed('/registerPatient', arguments: {
                       'name': nameController.text,
-                      'date': dateController.toString(),
                       'disease': diseaseController.text,
-                      'imageLink': imageLink
+                      'case': casesController.toString(),
+                      'date': dateController.toString(),
+                      'imageLink': imageLink,
                     });
                   }),
             ),
@@ -82,22 +96,29 @@ class RegisterPatientViewState extends State<RegisterPatientView> {
             Container(
               height: 35,
             ),
-            DefaultButton(
-              color: Color.fromRGBO(173, 216, 230, 1),
-              title: 'Salvar',
-              response: () {
-                Navigator.of(context).pushNamed('/patients');
-              },
-              enableBounds: true,
-              bounds: {125.0: 50.0},
-            ),
-            Container(height: 35,),
-            DefaultButton(color: Color.fromRGBO(173, 216, 230, 1), title: 'Salvar', response: () {
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                DefaultButton(
+                  color: Color.fromRGBO(173, 216, 230, 1),
+                  title: 'Salvar',
+                  response: () {
+                    AppController.instance.pacientes.add(Paciente(
+                        doenca: diseaseController.text,
+                        anotacoes: casesController,
+                        id: SessionController.instance.sessionID,
+                        dataNasc: dateController,
+                        idUsuario: SessionController.instance.sessionID,
+                        nome: ''
 
-              Navigator.of(context).pushNamed('/patients');
-              },
-              enableBounds: true,
-              bounds: {125.0:50.0},),
+                    ));
+                    Navigator.of(context).pushNamed('/patients');
+                  },
+                  enableBounds: true,
+                  bounds: {125.0: 50.0},
+                ),
+              ],
+            )
           ],
         ),
       ),
