@@ -31,7 +31,7 @@ class AppController extends ChangeNotifier{
       counter++;
       notifyListeners();
   }
-  void setAlarm(TimeOfDay time, String nome,int id){
+  void setAlarm(TimeOfDay time, String nome,String observacao,int id){
     var cron = Cron();
     bool validacao= false;
 
@@ -45,7 +45,7 @@ class AppController extends ChangeNotifier{
                   id: id,
                   channelKey: 'key1',
                   title:'${nome}',
-                  body: 'Lembra que voce tem alzheimeeeer.'
+                  body: '${observacao}'
               )
           ),
         }else{
