@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:projeto_estudo/src/remedios/remedioPaciente/ViewRemedioPagePaciente.dart';
 import 'package:projeto_estudo/src/remedios/ViewRemedioPage.dart';
 import 'package:projeto_estudo/src/views/ConfigurationsView.dart';
 import 'package:projeto_estudo/src/views/EditFamilyView.dart';
@@ -84,6 +85,7 @@ class MyApp extends StatelessWidget {
                   title: '',
                 ),
             '/remedioPage': (context) => ViewRemedio('Remedio'),
+            '/remedioPaciente': (context) => ViewRemedioPaciente('Paciente'),
             /*'/addReminder': (context) => MyHomePage(
                   title: '',
                 ),*/

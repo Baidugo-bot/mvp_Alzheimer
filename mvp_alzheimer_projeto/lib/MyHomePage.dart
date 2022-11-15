@@ -9,6 +9,7 @@ import 'package:projeto_estudo/MyApp.dart';
 import 'package:projeto_estudo/AppController.dart';
 import 'package:projeto_estudo/src/controller/ProfileController.dart';
 import 'package:intl/intl.dart';
+
 class MyHomePage extends StatefulWidget {
   const MyHomePage({Key? key, required this.title}) : super(key: key);
 
@@ -76,7 +77,7 @@ class _MyHomePageState extends State<MyHomePage> {
             Center(
               child: Text(
                 "Nascimento: ${Jiffy(ProfileController.instance.dataNasc).format("dd/MM/yyyy")}",
-                style: TextStyle(fontSize: 26,color: Colors.black),
+                style: TextStyle(fontSize: 26, color: Colors.black),
               ),
             ),
             Container(
@@ -150,6 +151,23 @@ class _MyHomePageState extends State<MyHomePage> {
                   },
                   child: Ink.image(
                     image: AssetImage("assets/icons/Mapa.png"),
+                    height: 58,
+                    width: 58,
+                  ),
+                ),
+                Container(
+                  width: defaultPadding,
+                ),
+                ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    primary: Colors.lightBlue,
+                    padding: EdgeInsets.all(28.0),
+                  ),
+                  onPressed: () {
+                    Navigator.of(context).pushNamed('/remedioPaciente');
+                  },
+                  child: Ink.image(
+                    image: AssetImage("assets/icons/Familia.png"),
                     height: 58,
                     width: 58,
                   ),
