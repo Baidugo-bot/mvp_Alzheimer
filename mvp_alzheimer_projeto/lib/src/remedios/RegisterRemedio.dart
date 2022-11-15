@@ -17,7 +17,7 @@ class _RegisterRemedio extends State<RegisterRemedio> {
   late TextEditingController controllerNome;
   late TextEditingController controllerDosagem;
   late TextEditingController controllerObservacao;
-  TimeOfDay controllerHora = TimeOfDay(hour: 0, minute: 00);
+  TimeOfDay controllerHora = TimeOfDay(hour: 0, minute: 0);
 
   @override
   void initState() {
@@ -46,7 +46,9 @@ class _RegisterRemedio extends State<RegisterRemedio> {
               ElevatedButton(onPressed: (){
                 showTimePicker(context: context, initialTime: controllerHora).then((value) {
                 setState(() {
-                  controllerHora = value!;
+                  TimeOfDay verify = value!;
+                  print("${verify.hour} + ${verify.minute}");
+                  controllerHora = verify;
                 });
                 });
               },
@@ -62,7 +64,7 @@ class _RegisterRemedio extends State<RegisterRemedio> {
                   String observacao = controllerObservacao.text;
                   if (nome.isNotEmpty &&
                       dosagem.isNotEmpty &&
-                      observacao.isNotEmpty) {
+                      observacao.isNotEmpty ) {
                     Remedio tempRem = Remedio(
                       nome: nome,
                       dosagem: dosagem,

@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:projeto_estudo/AppController.dart';
 import 'package:projeto_estudo/src/components/CustomButton.dart';
 import 'package:projeto_estudo/src/components/EditMemoryComponents.dart';
+import 'package:projeto_estudo/src/controller/SessionController.dart';
+import 'package:projeto_estudo/src/models/MainProfileModel.dart';
 
 import '../components/AddMemoryComponents.dart';
 import '../models/MemoryModel.dart';
@@ -19,7 +21,7 @@ class PatientsViewState extends State<PatientsView> {
   Widget build(BuildContext context) {
     TextEditingController emailController = new TextEditingController();
     TextEditingController passwordController = new TextEditingController();
-
+    SessionController.instance.getPatients();
     return Scaffold(
       backgroundColor: AppController.instance.mainColor,
       appBar: AppBar(
@@ -29,8 +31,9 @@ class PatientsViewState extends State<PatientsView> {
         title: Center(child: Text("Pacientes")),
       ),
       body: ListView.builder(
-          itemCount: AppController.instance.memories.length,
+          itemCount: AppController.instance.pacientes.length,
           itemBuilder: (BuildContext ctx, int number){
+            Paciente actualPat = AppController.instance.pacientes[number];
         return Align(
           alignment: Alignment.center,
           child: Container(
@@ -40,7 +43,7 @@ class PatientsViewState extends State<PatientsView> {
             child: DefaultButton(
               circularBounds: true,
               color: Color.fromRGBO(228, 241, 247, 1),
-              title: 'Paciente '+number.toString(),
+              title: actualPat.nome,
               response: () { Navigator.of(context).pushNamed('/'); },
               enableBounds: true,
               bounds: {340.0:50.0},),

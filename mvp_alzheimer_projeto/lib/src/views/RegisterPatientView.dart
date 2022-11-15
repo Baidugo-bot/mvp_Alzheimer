@@ -26,7 +26,11 @@ class RegisterPatientViewState extends State<RegisterPatientView> {
     DateTime dateController = DateTime.now();
     TextEditingController diseaseController = new TextEditingController();
     TextEditingController casoController = new TextEditingController();
+    TextEditingController emailController = new TextEditingController();
+    TextEditingController senhaController = new TextEditingController();
+    TextEditingController repitaSenhaController = new TextEditingController();
     String imageLink = "assets/images/imagemEscolha.png";
+
 
 
     if(ModalRoute.of(context)!.settings.arguments != null){
@@ -34,9 +38,13 @@ class RegisterPatientViewState extends State<RegisterPatientView> {
       nameController.text = (args['name']!=null)?args['name'].toString():"";
       diseaseController.text = (args['disease']!=null)?args['disease'].toString():"";
       casoController.text = (args['case']!=null)?args['case'].toString():"";
+      emailController.text = (args['email']!=null)?args['email'].toString():"";
+      senhaController.text = (args['senha']!=null)?args['senha'].toString():"";
+      repitaSenhaController.text = (args['repSenha']!=null)?args['repSenha'].toString():"";
       dateController = (args['date']!=DateTime.now())?DateTime.parse(args['date'].toString()):DateTime.now();
       imageLink = (args['imageLink']!=null)?args['imageLink'].toString():"";
     }
+
     return Scaffold(
       backgroundColor: AppController.instance.mainColor,
 
@@ -63,9 +71,12 @@ class RegisterPatientViewState extends State<RegisterPatientView> {
                     Navigator.of(context).pushNamed('/registerPatient', arguments: {
                       'name': nameController.text,
                       'disease': diseaseController.text,
-                      'case': casoController.toString(),
+                      'case': casoController.text,
                       'date': dateController.toString(),
                       'imageLink': imageLink,
+                      'email':emailController.text,
+                      'senha':senhaController.text,
+                      'repSenha':repitaSenhaController.text
                     });
                   }),
             ),
@@ -90,6 +101,21 @@ class RegisterPatientViewState extends State<RegisterPatientView> {
               title: 'Casos Especiais: ',
               myResult: casoController,
             ),
+            DefaultTextField(
+              haveFrame: false,
+              title: 'Email: ',
+              myResult: emailController,
+            ),
+            DefaultTextField(
+              haveFrame: false,
+              title: 'Senha: ',
+              myResult: senhaController,
+            ),
+            DefaultTextField(
+              haveFrame: false,
+              title: 'Repita a senha: ',
+              myResult: repitaSenhaController,
+            ),
             Container(
               height: 35,
             ),
@@ -100,16 +126,22 @@ class RegisterPatientViewState extends State<RegisterPatientView> {
                   color: Color.fromRGBO(173, 216, 230, 1),
                   title: 'Salvar',
                   response: () {
-                    AppController.instance.pacientes.add(Paciente(
-                        doenca: diseaseController.text,
-                        anotacoes: casoController.text,
-                        id: SessionController.instance.sessionID,
-                        dataNasc: dateController,
-                        idUsuario: SessionController.instance.sessionID,
-                        nome: ''
+                    print(SessionController.instance.sessionID);
+                    if(senhaController.text==repitaSenhaController.text){
+                      Paciente myPac = Paciente(
+                          doenca: diseaseController.text,
+                          anotacoes: casoController.text,
+                          id: SessionController.instance.sessionID,
+                          dataNasc: dateController,
+                          idUsuario: SessionController.instance.sessionID,
+                          nome: nameController.text
 
-                    ));
-                    Navigator.of(context).pushNamed('/patients');
+                      );
+                      SessionController.instance.registerPatient("1", myPac, emailController.text, senhaController.text);
+                      Navigator.of(context).pushNamed('/patients');
+                    }else{
+                      print("senhas diferentes");
+                    }
                   },
                   enableBounds: true,
                   bounds: {125.0: 50.0},
