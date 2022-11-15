@@ -62,7 +62,8 @@ class RegisterViewState extends State<RegisterView> {
                   "2",
                   emailController.text,
                   passwordController.text
-                );
+                ).then((value) => (value==true)?Navigator.of(context).pushNamed('/login'):null);
+
               }
 
 

@@ -21,7 +21,7 @@ class PatientsViewState extends State<PatientsView> {
   Widget build(BuildContext context) {
     TextEditingController emailController = new TextEditingController();
     TextEditingController passwordController = new TextEditingController();
-    SessionController.instance.getPatients();
+     SessionController.instance.getPatients();
     return Scaffold(
       backgroundColor: AppController.instance.mainColor,
       appBar: AppBar(

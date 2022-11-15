@@ -41,7 +41,7 @@ class SessionController {
   }
 
 
-  void register(String tipoCuidador,String email,String passWord) async {
+  Future<bool> register(String tipoCuidador,String email,String passWord) async {
     final response = await http.post(
       Uri.parse('https://alzheimer-db.herokuapp.com/register/'),
       headers: <String, String>{
@@ -54,19 +54,19 @@ class SessionController {
       }),
     );
     print(response.body.toString());
-    dynamic posCollected = jsonDecode(json.encode(response.body));
-    dynamic posUpdated = jsonDecode(json.encode(posCollected["data"]));
-    // if(posCollected["message"]!="Não encontrado"){
-    //   ;
-    // }else{
-    //   ;
-    // }
+    dynamic returned = jsonDecode(json.encode(response.body));
+    if(returned.toString().substring(1,8)=="mensagem"){
+      return true;
+    }else{
+      return false;
+    }
   }
 
 
   void registerPatient(String tipoCuidador,Paciente patient,String email,String senha) async {
+    print(patient.dataNasc.toString().substring(0,10));
     final response = await http.post(
-      Uri.parse('https://alzheimer-db.herokuapp.com/register/'),
+      Uri.parse('https://alzheimer-db.herokuapp.com/paciente/register/'),
       headers: <String, String>{
         'Content-Type': 'application/json; charset=UTF-8',
       },
@@ -77,7 +77,9 @@ class SessionController {
         'idUsuario':sessionID,
         'doenca':patient.doenca,
         'observacao':patient.anotacoes,
-        'nome':patient.nome
+        'nome':patient.nome,
+        'data_nascimento':patient.dataNasc.toString(),
+        'idCuidador':sessionID,
       }),
     );
     print(response.body.toString());
