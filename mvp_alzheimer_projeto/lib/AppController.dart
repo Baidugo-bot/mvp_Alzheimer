@@ -18,6 +18,7 @@ class AppController extends ChangeNotifier{
   late Usuario user;
   List<Remedio> remedio = [];
   List<Paciente> pacientes = [];
+  int rmdCriados = 0;
 
   DateTime now = DateTime.now().toUtc();
   int counter = 0;
@@ -30,19 +31,33 @@ class AppController extends ChangeNotifier{
       counter++;
       notifyListeners();
   }
-  void setAlarm(TimeOfDay time, String nome){
-    final cron = Cron();
-    cron.schedule(Schedule.parse('*/1 */${time.minute} */${time.hour} * * *'), () async => {
-      AwesomeNotifications().createNotification(
-          content: NotificationContent(
-              id: remedio.length,
-              channelKey: 'key1',
-              title:'${nome}',
-              body: 'Lembra que voce tem alzheimeeeer.'
-          )
-      ),
-      print(remedio.length),
-    });
+  void setAlarm(TimeOfDay time, String nome,int id){
+    var cron = Cron();
+    bool validacao= false;
+
+    AppController.instance.remedio.forEach((element) {validacao = (element.id==id)?true:false;return;});
+    print(validacao);
+      cron.schedule(Schedule.parse('*/1 */${time.minute} */${time.hour} * * *'), () async => {
+        if(validarId(id)){
+          AwesomeNotifications().createNotification(
+              content: NotificationContent(
+
+                  id: id,
+                  channelKey: 'key1',
+                  title:'${nome}',
+                  body: 'Lembra que voce tem alzheimeeeer.'
+              )
+          ),
+        }else{
+          cron.close()
+        }
+      });
+  }
+  
+  bool validarId(int id){
+    bool validate = false;
+    AppController.instance.remedio.forEach((element) {validate = (element.id==id)?true:false;return;});
+    return validate;
   }
 
 
@@ -50,7 +65,6 @@ class AppController extends ChangeNotifier{
     ImagePicker picker = new ImagePicker();
     var image = await picker.pickImage(source: ImageSource.gallery);
     if(image!.path!=null){
-      //print(image.path);
       return image.path;
     }
     return "none";

@@ -38,42 +38,57 @@ class _RegisterRemedio extends State<RegisterRemedio> {
               " Remédio ",
               style: TextStyle(color: Colors.black),
             )),
-        body: Column(
-          children: [
-            TextBox(controllerNome, "Nome"),
-            TextBox(controllerDosagem, "Dosagem"),
-            ElevatedButton(onPressed: (){
-              showTimePicker(context: context, initialTime: controllerHora).then((value) {
-              setState(() {
-                controllerHora = value!;
-              });
-              });
-            },
-              style: ElevatedButton.styleFrom(
-                primary: Colors.grey,),
-              child:   Text("Horario Remédio",
-                style: TextStyle(color: Colors.black)),),
-            TextBox(controllerObservacao, "Observação"),
-            CustomButton(
-              response: (){
-                String nome = controllerNome.text;
-                String dosagem = controllerDosagem.text;
-                String observacao = controllerObservacao.text;
-                AppController.instance.setAlarm(controllerHora, nome);
-                if (nome.isNotEmpty &&
-                    dosagem.isNotEmpty &&
-                    observacao.isNotEmpty) {
-                  Navigator.pop(
-                      context,
-                      Remedio(
-                          nome: nome,
-                          dosagem: dosagem,
-                          hora: controllerHora,
-                          observacao: observacao));
-                }
-              }, title: 'Salvar', color: Colors.green,
-            ),
-          ],
+        body: SingleChildScrollView(
+          child: Column(
+            children: [
+              TextBox(controllerNome, "Nome"),
+              TextBox(controllerDosagem, "Dosagem"),
+              ElevatedButton(onPressed: (){
+                showTimePicker(context: context, initialTime: controllerHora).then((value) {
+                setState(() {
+                  controllerHora = value!;
+                });
+                });
+              },
+                style: ElevatedButton.styleFrom(
+                  primary: Colors.grey,),
+                child:   Text("Horario Remédio",
+                  style: TextStyle(color: Colors.black)),),
+              TextBox(controllerObservacao, "Observação"),
+              CustomButton(
+                response: (){
+                  String nome = controllerNome.text;
+                  String dosagem = controllerDosagem.text;
+                  String observacao = controllerObservacao.text;
+                  if (nome.isNotEmpty &&
+                      dosagem.isNotEmpty &&
+                      observacao.isNotEmpty) {
+                    Remedio tempRem = Remedio(
+                      nome: nome,
+                      dosagem: dosagem,
+                      hora: controllerHora,
+                      observacao: observacao,
+                      id: AppController.instance.rmdCriados,
+                    );
+                    AppController.instance.remedio.add(tempRem);
+                    AppController.instance.setAlarm(controllerHora, nome,AppController.instance.rmdCriados);
+                    AppController.instance.rmdCriados++;
+                    Navigator.pop(
+                        context,
+                        Remedio(
+                            nome: nome,
+                            dosagem: dosagem,
+                            hora: controllerHora,
+                            observacao: observacao,
+                            id: AppController.instance.rmdCriados,
+                        ));
+
+
+                  }
+                }, title: 'Salvar', color: Colors.green,
+              ),
+            ],
+          ),
         ));
   }
 }

@@ -15,6 +15,7 @@ class ViewRemedio extends StatefulWidget {
 class _ViewRemedio extends State<ViewRemedio> {
   @override
   Widget build(BuildContext context) {
+    AppController.instance.remedio.map((e) => print(e));
     return Scaffold(
       backgroundColor: AppController.instance.mainColor,
       appBar: CustomAppBar.instance.getNamedDefault(
@@ -73,7 +74,8 @@ class _ViewRemedio extends State<ViewRemedio> {
               .then((newRemedio) {
             if (newRemedio != null) {
               setState(() {
-                AppController.instance.remedio.add(newRemedio);
+                print(newRemedio.hora.toString());
+
                 messageResponse(context, newRemedio.nome + " Foi Armazenado!");
               });
             }
@@ -123,9 +125,10 @@ class _ViewRemedio extends State<ViewRemedio> {
 class Remedio {
   var nome;
   var dosagem;
-  var hora;
+  TimeOfDay hora;
   var data;
   var observacao;
+  var id;
 
-  Remedio({this.nome, this.dosagem, this.hora, this.data, this.observacao});
+  Remedio({this.nome, this.dosagem, required this.hora, this.data, this.observacao,this.id,});
 }

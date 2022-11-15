@@ -25,7 +25,7 @@ class RegisterPatientViewState extends State<RegisterPatientView> {
     TextEditingController nameController = new TextEditingController();
     DateTime dateController = DateTime.now();
     TextEditingController diseaseController = new TextEditingController();
-    TextEditingController casesController = new TextEditingController();
+    TextEditingController casoController = new TextEditingController();
     String imageLink = "assets/images/imagemEscolha.png";
 
 
@@ -33,7 +33,7 @@ class RegisterPatientViewState extends State<RegisterPatientView> {
       args = ModalRoute.of(context)!.settings.arguments as Map<String,String>;
       nameController.text = (args['name']!=null)?args['name'].toString():"";
       diseaseController.text = (args['disease']!=null)?args['disease'].toString():"";
-      casesController.text = (args['case']!=null)?args['case'].toString():"";
+      casoController.text = (args['case']!=null)?args['case'].toString():"";
       dateController = (args['date']!=DateTime.now())?DateTime.parse(args['date'].toString()):DateTime.now();
       imageLink = (args['imageLink']!=null)?args['imageLink'].toString():"";
     }
@@ -63,7 +63,7 @@ class RegisterPatientViewState extends State<RegisterPatientView> {
                     Navigator.of(context).pushNamed('/registerPatient', arguments: {
                       'name': nameController.text,
                       'disease': diseaseController.text,
-                      'case': casesController.toString(),
+                      'case': casoController.toString(),
                       'date': dateController.toString(),
                       'imageLink': imageLink,
                     });
@@ -85,13 +85,10 @@ class RegisterPatientViewState extends State<RegisterPatientView> {
               title: 'Doença: ',
               myResult: diseaseController,
             ),
-            Container(
-              width: double.infinity,
-              child: DefaultTextField(
-                haveFrame: false,
-                title: 'Casos Especiais: ',
-                myResult: casesController,
-              ),
+            DefaultTextField(
+              haveFrame: false,
+              title: 'Casos Especiais: ',
+              myResult: casoController,
             ),
             Container(
               height: 35,
@@ -105,7 +102,7 @@ class RegisterPatientViewState extends State<RegisterPatientView> {
                   response: () {
                     AppController.instance.pacientes.add(Paciente(
                         doenca: diseaseController.text,
-                        anotacoes: casesController.text,
+                        anotacoes: casoController.text,
                         id: SessionController.instance.sessionID,
                         dataNasc: dateController,
                         idUsuario: SessionController.instance.sessionID,
