@@ -8,6 +8,7 @@ import '../../AppController.dart';
 import '../components/AddMemoryComponents.dart';
 import '../components/CustomButton.dart';
 import 'package:cron/cron.dart';
+
 class RegisterRemedio extends StatefulWidget {
   @override
   State<StatefulWidget> createState() => _RegisterRemedio();
@@ -17,7 +18,9 @@ class _RegisterRemedio extends State<RegisterRemedio> {
   late TextEditingController controllerNome;
   late TextEditingController controllerDosagem;
   late TextEditingController controllerObservacao;
-  TimeOfDay controllerHora = TimeOfDay(hour: 0, minute: 0);
+  TimeOfDay controllerHora =
+      TimeOfDay(hour: DateTime.now().hour, minute: DateTime.now().minute);
+  bool confirmTime = false;
 
   @override
   void initState() {
@@ -43,28 +46,34 @@ class _RegisterRemedio extends State<RegisterRemedio> {
             children: [
               TextBox(controllerNome, "Nome"),
               TextBox(controllerDosagem, "Dosagem"),
-              ElevatedButton(onPressed: (){
-                showTimePicker(context: context, initialTime: controllerHora).then((value) {
-                setState(() {
-                  TimeOfDay verify = value!;
-                  print("${verify.hour} + ${verify.minute}");
-                  controllerHora = verify;
-                });
-                });
-              },
+              ElevatedButton(
+                onPressed: () {
+                  confirmTime = true;
+                  showTimePicker(context: context, initialTime: controllerHora)
+                      .then((value) {
+                    setState(() {
+                      TimeOfDay verify = value!;
+                      print("${verify.hour}:${verify.minute}");
+                      controllerHora = verify;
+                    });
+                  });
+                },
                 style: ElevatedButton.styleFrom(
-                  primary: Colors.grey,),
-                child:   Text("Horario Remédio",
-                  style: TextStyle(color: Colors.black)),),
+                  primary: Colors.grey,
+                ),
+                child: Text("Horario Remédio",
+                    style: TextStyle(color: Colors.black)),
+              ),
               TextBox(controllerObservacao, "Observação"),
               CustomButton(
-                response: (){
+                response: () {
                   String nome = controllerNome.text;
                   String dosagem = controllerDosagem.text;
                   String observacao = controllerObservacao.text;
                   if (nome.isNotEmpty &&
                       dosagem.isNotEmpty &&
-                      observacao.isNotEmpty ) {
+                      observacao.isNotEmpty &&
+                      confirmTime) {
                     Remedio tempRem = Remedio(
                       nome: nome,
                       dosagem: dosagem,
@@ -73,21 +82,22 @@ class _RegisterRemedio extends State<RegisterRemedio> {
                       id: AppController.instance.rmdCriados,
                     );
                     AppController.instance.remedio.add(tempRem);
-                    AppController.instance.setAlarm(controllerHora, nome,observacao,AppController.instance.rmdCriados);
+                    AppController.instance.setAlarm(controllerHora, nome,
+                        observacao, AppController.instance.rmdCriados);
                     AppController.instance.rmdCriados++;
                     Navigator.pop(
                         context,
                         Remedio(
-                            nome: nome,
-                            dosagem: dosagem,
-                            hora: controllerHora,
-                            observacao: observacao,
-                            id: AppController.instance.rmdCriados,
+                          nome: nome,
+                          dosagem: dosagem,
+                          hora: controllerHora,
+                          observacao: observacao,
+                          id: AppController.instance.rmdCriados,
                         ));
-
-
                   }
-                }, title: 'Salvar', color: Colors.green,
+                },
+                title: 'Salvar',
+                color: Colors.green,
               ),
             ],
           ),
