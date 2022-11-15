@@ -71,7 +71,7 @@ class _RegisterRemedio extends State<RegisterRemedio> {
                       id: AppController.instance.rmdCriados,
                     );
                     AppController.instance.remedio.add(tempRem);
-                    AppController.instance.setAlarm(controllerHora, nome,AppController.instance.rmdCriados);
+                    AppController.instance.setAlarm(controllerHora, nome,observacao,AppController.instance.rmdCriados);
                     AppController.instance.rmdCriados++;
                     Navigator.pop(
                         context,
