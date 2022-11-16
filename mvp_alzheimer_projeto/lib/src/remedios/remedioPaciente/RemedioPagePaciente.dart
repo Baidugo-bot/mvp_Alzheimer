@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:http/http.dart';
 
+import 'package:projeto_estudo/src/remedios/RegisterRemedio.dart';
 import 'package:projeto_estudo/src/remedios/ViewRemedioPage.dart';
 import 'package:flutter/material.dart';
 import 'package:projeto_estudo/src/remedios/text_box.dart';
@@ -21,7 +22,7 @@ class _VisualizarRemedio extends State<VisualizarRemedio> {
   late TextEditingController controllerObservacao;
   TimeOfDay controllerHora = TimeOfDay(hour: 0, minute: 00);
 
-  int index = AppController.instance.remedio.length;
+  var index = 0;
 
   @override
   void initState() {
