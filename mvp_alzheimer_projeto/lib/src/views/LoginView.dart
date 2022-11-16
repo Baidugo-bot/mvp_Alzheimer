@@ -33,8 +33,10 @@ class LoginViewState extends State<LoginView> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            Container(height: 10,),
-            Image.asset('assets/images/theme.png',height: 200),
+            Container(
+              height: 10,
+            ),
+            Image.asset('assets/images/theme.png', height: 200),
             Container(
               width: double.infinity,
               decoration: BoxDecoration(
@@ -44,26 +46,48 @@ class LoginViewState extends State<LoginView> {
               ),
               child: BorderedText(
                 strokeWidth: 1,
-                child: Text("Memories",style: TextStyle(fontSize: 35),),
+                child: Text(
+                  "Memories",
+                  style: TextStyle(fontSize: 35),
+                ),
               ),
             ),
-
-            DefaultTextField(title: 'Email: ', myResult: emailController,),
-            DefaultTextField( title: 'Senha: ', myResult: passwordController,isPassword: true),
-            Container(height: 25,),
-            DefaultButton(color: Color.fromRGBO(173, 216, 230, 1), title: 'Entrar',
-              response: () async{
-                SessionController.instance.tryLogin(emailController.text, passwordController.text).then((value) =>
-                (value=="logou")?Navigator.of(context).pushNamed('/patients', arguments: {}):null
-                );
-
-              },
-              enableBounds: true, bounds: {320.0:60.0},
+            DefaultTextField(
+              title: 'Email: ',
+              myResult: emailController,
             ),
-            Container(height: 35,),
-            DefaultButton(color: Color.fromRGBO(173, 216, 230, 1), title: 'Cadastrar-se',
-              response: () { Navigator.of(context).pushNamed('/register'); },
-              enableBounds: true, bounds: {320.0:60.0},
+            DefaultTextField(
+                title: 'Senha: ',
+                myResult: passwordController,
+                isPassword: true),
+            Container(
+              height: 25,
+            ),
+            DefaultButton(
+              color: Color.fromRGBO(173, 216, 230, 1),
+              title: 'Entrar',
+              response: () async {
+                SessionController.instance
+                    .tryLogin(emailController.text, passwordController.text)
+                    .then((value) => (value == "logou")
+                        ? Navigator.of(context)
+                            .pushNamed('/patients', arguments: {})
+                        : null);
+              },
+              enableBounds: true,
+              bounds: {320.0: 60.0},
+            ),
+            Container(
+              height: 35,
+            ),
+            DefaultButton(
+              color: Color.fromRGBO(173, 216, 230, 1),
+              title: 'Cadastrar-se',
+              response: () {
+                Navigator.of(context).pushNamed('/register');
+              },
+              enableBounds: true,
+              bounds: {320.0: 60.0},
             ),
           ],
         ),

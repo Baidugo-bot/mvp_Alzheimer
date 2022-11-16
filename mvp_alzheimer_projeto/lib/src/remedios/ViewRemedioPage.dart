@@ -7,7 +7,9 @@ import '../components/CustomButton.dart';
 
 class ViewRemedio extends StatefulWidget {
   final String _title;
+
   ViewRemedio(this._title);
+
   @override
   State<StatefulWidget> createState() => _ViewRemedio();
 }
@@ -54,7 +56,9 @@ class _ViewRemedio extends State<ViewRemedio> {
             title: Text(AppController.instance.remedio[index].nome +
                 " " +
                 AppController.instance.remedio[index].dosagem),
-            subtitle: Text(AppController.instance.remedio[index].hora.toString().substring(10,15)),
+            subtitle: Text(AppController.instance.remedio[index].hora
+                .toString()
+                .substring(10, 15)),
             leading: CircleAvatar(
               child: Text(
                   AppController.instance.remedio[index].nome.substring(0, 1)),
@@ -125,10 +129,17 @@ class _ViewRemedio extends State<ViewRemedio> {
 class Remedio {
   var nome;
   var dosagem;
-  TimeOfDay hora;
+  TimeOfDay? hora;
   var data;
   var observacao;
   var id;
 
-  Remedio({this.nome, this.dosagem, required this.hora, this.data, this.observacao,this.id,});
+  Remedio({
+    this.nome,
+    this.dosagem,
+    this.hora,
+    this.data,
+    this.observacao,
+    this.id,
+  });
 }

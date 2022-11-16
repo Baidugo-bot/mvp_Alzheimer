@@ -7,7 +7,9 @@ import '../components/CustomButton.dart';
 
 class ModifyRemedio extends StatefulWidget {
   final Remedio _remedio;
+
   ModifyRemedio(this._remedio);
+
   @override
   State<StatefulWidget> createState() => _ModifyRemedio();
 }
@@ -16,10 +18,17 @@ class _ModifyRemedio extends State<ModifyRemedio> {
   late TextEditingController controllerNome;
   late TextEditingController controllerDosagem;
   late TextEditingController controllerObservacao;
-  TimeOfDay controllerHora = TimeOfDay(hour: 0, minute: 00);
+  int idRemedio = 0;
+  TimeOfDay controllerHora =
+      TimeOfDay(hour: DateTime.now().hour, minute: DateTime.now().minute);
+  bool confirmTime = false;
+
   @override
   void initState() {
     Remedio c = widget._remedio;
+    print("Remedio print no initState ${c.id}");
+    idRemedio = c.id;
+    print("id aqui no init: ${idRemedio}");
     controllerNome = new TextEditingController(text: c.nome);
     controllerDosagem = new TextEditingController(text: c.dosagem);
     controllerObservacao = new TextEditingController(text: c.observacao);
@@ -41,17 +50,22 @@ class _ModifyRemedio extends State<ModifyRemedio> {
         children: [
           TextBox(controllerNome, "Nome"),
           TextBox(controllerDosagem, "Dosagem"),
-          ElevatedButton(onPressed: (){
-            showTimePicker(context: context, initialTime: controllerHora).then((value) {
-              setState(() {
-                controllerHora = value!;
+          ElevatedButton(
+            onPressed: () {
+              confirmTime = true;
+              showTimePicker(context: context, initialTime: controllerHora)
+                  .then((value) {
+                setState(() {
+                  controllerHora = value!;
+                });
               });
-            });
-          },
+            },
             style: ElevatedButton.styleFrom(
-              primary: Colors.grey,),
-            child:   Text("Horario Remédio",
-                style: TextStyle(color: Colors.black)),),
+              primary: Colors.grey,
+            ),
+            child:
+                Text("Horario Remédio", style: TextStyle(color: Colors.black)),
+          ),
           TextBox(
             controllerObservacao,
             "Observação",
@@ -64,7 +78,10 @@ class _ModifyRemedio extends State<ModifyRemedio> {
 
               if (nome.isNotEmpty &&
                   dosagem.isNotEmpty &&
-                  observacao.isNotEmpty) {
+                  observacao.isNotEmpty &&
+                  confirmTime) {
+                AppController.instance.modifyAlarm(controllerHora, nome,
+                    observacao, idRemedio);
                 Navigator.pop(
                     context,
                     new Remedio(
@@ -72,6 +89,8 @@ class _ModifyRemedio extends State<ModifyRemedio> {
                         dosagem: dosagem,
                         hora: controllerHora,
                         observacao: observacao));
+                print("Lenght do remedios: ${AppController.instance.remedio.length}");
+                print("Remédios criados: ${AppController.instance.rmdCriados}");
               }
             },
             style: ElevatedButton.styleFrom(primary: Colors.green),
