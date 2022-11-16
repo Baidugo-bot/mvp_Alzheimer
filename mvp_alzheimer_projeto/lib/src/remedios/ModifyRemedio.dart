@@ -18,6 +18,7 @@ class _ModifyRemedio extends State<ModifyRemedio> {
   late TextEditingController controllerNome;
   late TextEditingController controllerDosagem;
   late TextEditingController controllerObservacao;
+  int idRemedio = 0;
   TimeOfDay controllerHora =
       TimeOfDay(hour: DateTime.now().hour, minute: DateTime.now().minute);
   bool confirmTime = false;
@@ -25,6 +26,9 @@ class _ModifyRemedio extends State<ModifyRemedio> {
   @override
   void initState() {
     Remedio c = widget._remedio;
+    print("Remedio print no initState ${c.id}");
+    idRemedio = c.id;
+    print("id aqui no init: ${idRemedio}");
     controllerNome = new TextEditingController(text: c.nome);
     controllerDosagem = new TextEditingController(text: c.dosagem);
     controllerObservacao = new TextEditingController(text: c.observacao);
@@ -77,7 +81,7 @@ class _ModifyRemedio extends State<ModifyRemedio> {
                   observacao.isNotEmpty &&
                   confirmTime) {
                 AppController.instance.modifyAlarm(controllerHora, nome,
-                    observacao, AppController.instance.rmdCriados);
+                    observacao, idRemedio);
                 Navigator.pop(
                     context,
                     new Remedio(
@@ -85,6 +89,8 @@ class _ModifyRemedio extends State<ModifyRemedio> {
                         dosagem: dosagem,
                         hora: controllerHora,
                         observacao: observacao));
+                print("Lenght do remedios: ${AppController.instance.remedio.length}");
+                print("Remédios criados: ${AppController.instance.rmdCriados}");
               }
             },
             style: ElevatedButton.styleFrom(primary: Colors.green),

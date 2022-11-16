@@ -62,7 +62,7 @@ class AppController extends ChangeNotifier {
       return;
     });
     print(validacao);
-    print(id);
+    print("Id no modify ${id}");
     cron.schedule(
         Schedule.parse('*/1 */${time.minute} */${time.hour} * * *'),
         () async => {

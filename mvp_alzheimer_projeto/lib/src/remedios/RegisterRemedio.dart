@@ -92,7 +92,7 @@ class _RegisterRemedio extends State<RegisterRemedio> {
                           dosagem: dosagem,
                           hora: controllerHora,
                           observacao: observacao,
-                          id: AppController.instance.rmdCriados,
+                          id:  AppController.instance.rmdCriados,
                         ));
                   }
                 },
