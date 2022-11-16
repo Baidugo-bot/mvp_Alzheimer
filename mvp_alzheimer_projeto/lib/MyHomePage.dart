@@ -109,7 +109,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     primary: Colors.lightBlue,
                   ),
                   onPressed: () {
-                    Navigator.of(context).pushNamed('/memories');
+                    Navigator.of(context).pushNamed('/memoryPaciente');
                   },
                   child: Ink.image(
                     image: AssetImage("assets/icons/Memoria.png"),

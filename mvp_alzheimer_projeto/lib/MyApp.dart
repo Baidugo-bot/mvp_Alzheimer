@@ -3,6 +3,7 @@ import 'package:projeto_estudo/src/remedios/ViewRemedioPage.dart';
 import 'package:projeto_estudo/src/views/ConfigurationsView.dart';
 import 'package:projeto_estudo/src/views/EditFamilyView.dart';
 import 'package:projeto_estudo/src/views/MemoriesView.dart';
+import 'package:projeto_estudo/src/views/MemoryPaciente.dart';
 import 'package:projeto_estudo/src/views/ReminderView.dart';
 import 'package:projeto_estudo/src/views/FamilyView.dart';
 import 'package:projeto_estudo/src/views/ProfileView.dart';
@@ -23,9 +24,8 @@ import 'package:projeto_estudo/src/views/ReminderView.dart';
 import 'package:projeto_estudo/src/views/FamilyView.dart';
 import 'package:projeto_estudo/src/views/ProfileView.dart';
 import 'package:projeto_estudo/src/views/SeeFamilyView.dart';
+import 'package:projeto_estudo/src/views/SeeMemoryPaciente.dart';
 import 'package:projeto_estudo/src/views/SeeMemoryView.dart';
-
-
 
 import 'AppController.dart';
 import 'MyHomePage.dart';
@@ -86,6 +86,8 @@ class MyApp extends StatelessWidget {
                   title: '',
                 ),
             '/remedioPage': (context) => ViewRemedio('Remedio'),
+            '/memoryPaciente': (context) => MemoryPaciente(),
+            '/seememoryPaciente': (context) => SeeMemoryPaciente(),
             /*'/addReminder': (context) => MyHomePage(
                   title: '',
                 ),*/
