@@ -6,11 +6,15 @@ import 'package:http/http.dart' as http;
 import 'dart:convert';
 
 import 'package:http/http.dart' as http;
+import 'package:projeto_estudo/AppController.dart';
 
 import '../models/MainProfileModel.dart';
 class SessionController {
   static SessionController instance = SessionController();
   int sessionID = 0;
+  int cuidadorID = 0;
+  int pacienteID = 0;
+
 
 
 
@@ -29,10 +33,11 @@ class SessionController {
     print(jsonDecode(json.encode(response.body)));
 
     dynamic returned = jsonDecode(response.body);
-    print(returned.toString().substring(1,5));
+    print(returned);
     if(returned.toString().substring(1,5)=="data"){
       print("LOGOUUUUUUUUUUUUUU");
       sessionID =  int.parse(returned["data"]["idUsuario"].toString());
+      cuidadorID = int.parse(returned["data"]["idCuidador"].toString());
       print(sessionID);
       return "logou";
     }else{//pega id pra consultas futuras e guarda no app
@@ -79,7 +84,7 @@ class SessionController {
         'observacao':patient.anotacoes,
         'nome':patient.nome,
         'data_nascimento':patient.dataNasc.toString(),
-        'idCuidador':sessionID,
+        'idCuidador':cuidadorID,
       }),
     );
     print(response.body.toString());
@@ -88,21 +93,36 @@ class SessionController {
     //   ;
     // }else{
     //   ;
-    // }
+    // } qnd for usuario 2 vai receber o cuidador, mandar o cuidador nesse registro 1 o paciente, vai ser o restante de login
   }
 
-  void getPatients() async {
+  Future<void> getPatients() async {
+    int contador = 0;
+    List<Paciente> pacientes = [];
     final response = await http.post(
       Uri.parse('https://alzheimer-db.herokuapp.com/paciente/consulta/'),
       headers: <String, String>{
         'Content-Type': 'application/json; charset=UTF-8',
       },
-      body: jsonEncode(<String, String>{
-        'idUsuario':sessionID.toString(),
+      body: jsonEncode({
+        'idCuidador':cuidadorID,
       }),
     );
     print(jsonDecode(json.encode(response.body)));
-
     dynamic returned = jsonDecode(response.body);
+      for(Map<String, dynamic> a in returned){
+        pacientes.add(Paciente(
+            doenca: a["Doenca"],
+            anotacoes: "teste",
+            id: a["idPaciente"],
+            dataNasc: DateTime.parse(a["Data_Nascimento"].toString()),
+            idUsuario: a["idUsuario"],
+            nome: a["Nome"]
+        ));
+      }
+      AppController.instance.pacientes = pacientes;
   }
 }
+/*
+*
+* */

@@ -21,7 +21,7 @@ class PatientsViewState extends State<PatientsView> {
   Widget build(BuildContext context) {
     TextEditingController emailController = new TextEditingController();
     TextEditingController passwordController = new TextEditingController();
-     SessionController.instance.getPatients();
+     SessionController.instance.getPatients().then((value) => setState((){}));
     return Scaffold(
       backgroundColor: AppController.instance.mainColor,
       appBar: AppBar(
@@ -44,7 +44,10 @@ class PatientsViewState extends State<PatientsView> {
               circularBounds: true,
               color: Color.fromRGBO(228, 241, 247, 1),
               title: actualPat.nome,
-              response: () { Navigator.of(context).pushNamed('/'); },
+              response: () {
+                SessionController.instance.pacienteID = AppController.instance.pacientes[number].id;
+                Navigator.of(context).pushNamed('/');
+                },
               enableBounds: true,
               bounds: {340.0:50.0},),
           ),
