@@ -126,7 +126,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     padding: EdgeInsets.all(28.0),
                   ),
                   onPressed: () {
-                    Navigator.of(context).pushNamed('/family');
+                    Navigator.of(context).pushNamed('/familyPaciente');
                   },
                   child: Ink.image(
                     image: AssetImage("assets/icons/Familia.png"),
@@ -146,7 +146,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     padding: EdgeInsets.all(28.0),
                   ),
                   onPressed: () {
-                    Navigator.of(context).pushNamed('/login');
+                    Navigator.of(context).pushNamed('/addFamily');
                   },
                   child: Ink.image(
                     image: AssetImage("assets/icons/Mapa.png"),

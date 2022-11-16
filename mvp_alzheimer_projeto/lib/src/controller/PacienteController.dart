@@ -12,3 +12,14 @@ class MemoryPacienteController{
 
 
 }
+class FamilyPacienteController{
+  static FamilyPacienteController instance = FamilyPacienteController();
+  late String title = "Samuel";
+  late DateTime date = DateTime.now();
+  late String Telephone = '45998466105';
+  late String parentesco = "Filho";
+  late int identifier;
+  late ImageProvider<Object> image;
+  String? imgLink = "";
+
+}

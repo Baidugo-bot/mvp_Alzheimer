@@ -2,10 +2,10 @@ import 'dart:io';
 import 'package:bordered_text/bordered_text.dart';
 import 'package:flutter/material.dart';
 import 'package:projeto_estudo/AppController.dart';
-import 'package:projeto_estudo/src/controller/MemoryPacienteController.dart';
+import 'package:projeto_estudo/src/controller/PacienteController.dart';
 import '../components/CustomButton.dart';
-import '../controller/MemoryPacienteController.dart';
-import '../controller/MemoryPacienteController.dart';
+import '../controller/PacienteController.dart';
+import '../controller/PacienteController.dart';
 import '../models/MemoryModel.dart';
 import 'package:intl/intl.dart';
 class MemoryPaciente extends StatefulWidget {
