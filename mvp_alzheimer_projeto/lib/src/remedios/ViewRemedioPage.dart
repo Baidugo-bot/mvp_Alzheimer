@@ -132,7 +132,7 @@ class Remedio {
   TimeOfDay? hora;
   var data;
   var observacao;
-  var id;
+  var id = 0;
 
   Remedio({
     this.nome,
@@ -140,6 +140,6 @@ class Remedio {
     this.hora,
     this.data,
     this.observacao,
-    this.id,
+    this.id = 0,
   });
 }

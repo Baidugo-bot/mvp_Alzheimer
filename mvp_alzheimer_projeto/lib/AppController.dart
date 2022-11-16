@@ -6,7 +6,7 @@ import 'package:image_picker/image_picker.dart';
 import 'package:projeto_estudo/src/models/FamilyModel.dart';
 import 'package:projeto_estudo/src/models/MainProfileModel.dart';
 import 'package:projeto_estudo/src/views/AddFamily.dart';
-
+import 'package:ringtone_player/ringtone_player.dart';
 import 'src/remedios/ViewRemedioPage.dart';
 
 class AppController extends ChangeNotifier {
@@ -37,8 +37,10 @@ class AppController extends ChangeNotifier {
       return;
     });
     print(validacao);
+    print("${time.hour}");
+    print("${time.minute}");
     cron.schedule(
-        Schedule.parse('*/1 */${time.minute} */${time.hour} * * *'),
+        Schedule.parse('*/7 ${time.minute} ${time.hour} * * *'),
         () async => {
               if (validarId(id))
                 {
@@ -64,15 +66,20 @@ class AppController extends ChangeNotifier {
     print(validacao);
     print("Id no modify ${id}");
     cron.schedule(
-        Schedule.parse('*/1 */${time.minute} */${time.hour} * * *'),
+        Schedule.parse('*/7 ${time.minute} ${time.hour} * * *'),
         () async => {
-              AwesomeNotifications().createNotification(
-                  content: NotificationContent(
-                      id: id,
-                      channelKey: 'key1',
-                      title: '${nome}',
-                      body: '${observacao}')),
-              if (validarId(id) == false) {cron.close()}
+              if (validarId(id))
+                {
+                  AwesomeNotifications().createNotification(
+                      content: NotificationContent(
+                          id: id,
+                          channelKey: 'key1',
+                          title: '${nome}',
+                          body: '${observacao}')),
+                  RingtonePlayer.ringtone(),
+                }
+              else
+                {cron.close()}
             });
   }
 

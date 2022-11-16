@@ -18,7 +18,7 @@ class _ModifyRemedio extends State<ModifyRemedio> {
   late TextEditingController controllerNome;
   late TextEditingController controllerDosagem;
   late TextEditingController controllerObservacao;
-  int idRemedio = 0;
+  int? idRemedio = 0;
   TimeOfDay controllerHora =
       TimeOfDay(hour: DateTime.now().hour, minute: DateTime.now().minute);
   bool confirmTime = false;
@@ -63,6 +63,7 @@ class _ModifyRemedio extends State<ModifyRemedio> {
             style: ElevatedButton.styleFrom(
               primary: Colors.grey,
             ),
+
             child:
                 Text("Horario Remédio", style: TextStyle(color: Colors.black)),
           ),
@@ -75,13 +76,12 @@ class _ModifyRemedio extends State<ModifyRemedio> {
               String nome = controllerNome.text;
               String dosagem = controllerDosagem.text;
               String observacao = controllerObservacao.text;
-
               if (nome.isNotEmpty &&
                   dosagem.isNotEmpty &&
                   observacao.isNotEmpty &&
                   confirmTime) {
                 AppController.instance.modifyAlarm(controllerHora, nome,
-                    observacao, idRemedio);
+                    observacao, idRemedio!);
                 Navigator.pop(
                     context,
                     new Remedio(
