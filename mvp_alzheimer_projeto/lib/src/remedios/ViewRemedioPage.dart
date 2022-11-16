@@ -1,6 +1,7 @@
 import 'package:projeto_estudo/src/remedios/RegisterRemedio.dart';
 import 'package:projeto_estudo/src/remedios/ModifyRemedio.dart';
 import 'package:projeto_estudo/src/remedios/masage_responce.dart';
+import 'package:projeto_estudo/src/controller/PacienteController.dart';
 import 'package:flutter/material.dart';
 import '../../AppController.dart';
 import '../components/CustomButton.dart';
@@ -15,6 +16,8 @@ class ViewRemedio extends StatefulWidget {
 }
 
 class _ViewRemedio extends State<ViewRemedio> {
+
+
   @override
   Widget build(BuildContext context) {
     AppController.instance.remedio.map((e) => print(e));

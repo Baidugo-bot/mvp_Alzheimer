@@ -92,7 +92,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   style: ElevatedButton.styleFrom(
                       primary: Colors.lightBlue, padding: EdgeInsets.all(28.0)),
                   onPressed: () {
-                    Navigator.of(context).pushNamed('/remedioPage');
+                    Navigator.of(context).pushNamed('/seeRemedioPaciente');
                   },
                   child: Ink.image(
                     image: AssetImage("assets/icons/Remedio.png"),
@@ -146,7 +146,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     padding: EdgeInsets.all(28.0),
                   ),
                   onPressed: () {
-                    Navigator.of(context).pushNamed('/addFamily');
+                    Navigator.of(context).pushNamed('/registerRemedio');
                   },
                   child: Ink.image(
                     image: AssetImage("assets/icons/Mapa.png"),

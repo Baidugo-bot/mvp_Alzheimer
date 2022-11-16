@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:projeto_estudo/src/remedios/RegisterRemedio.dart';
+import 'package:projeto_estudo/src/remedios/ViewRemedioPaciente.dart';
 import 'package:projeto_estudo/src/remedios/ViewRemedioPage.dart';
 import 'package:projeto_estudo/src/views/ConfigurationsView.dart';
 import 'package:projeto_estudo/src/views/EditFamilyView.dart';
@@ -94,6 +96,9 @@ class MyApp extends StatelessWidget {
             '/familyPaciente': (context) => FamilyPaciente(),
             '/profilePaciente': (context) => ProfilePaciente(),
             '/seeFamilyPaciente': (context) => SeeFamilyPaciente(),
+            '/seeRemedioPaciente': (context) => ViewRemedioPaciente(''),
+            '/registerRemedio': (context) => RegisterRemedio(),
+
             /*'/addReminder': (context) => MyHomePage(
                   title: '',
                 ),*/

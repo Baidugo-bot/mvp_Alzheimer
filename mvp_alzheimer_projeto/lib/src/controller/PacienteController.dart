@@ -34,3 +34,13 @@ class PerfilPacienteController{
   String imageLink = "assets/images/imagemEscolha.png";
 
 }
+
+class VerRemedioPaciente{
+  static VerRemedioPaciente instance = VerRemedioPaciente();
+  late String nome = "Usuario";
+  late String dosagem;
+  TimeOfDay? hora;
+  late int data;
+  late String observacao;
+  late var id = 0;
+}
