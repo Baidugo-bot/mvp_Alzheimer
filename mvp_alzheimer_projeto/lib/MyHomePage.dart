@@ -40,7 +40,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   child: Container(
                     child: IconButton(
                       onPressed: () {
-                        Navigator.of(context).pushNamed('/profile');
+                        Navigator.of(context).pushNamed('/profilePaciente');
                       },
                       color: Colors.black,
                       icon: Icon(

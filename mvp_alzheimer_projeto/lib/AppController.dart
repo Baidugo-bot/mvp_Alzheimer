@@ -6,7 +6,6 @@ import 'package:image_picker/image_picker.dart';
 import 'package:projeto_estudo/src/models/FamilyModel.dart';
 import 'package:projeto_estudo/src/models/MainProfileModel.dart';
 import 'package:projeto_estudo/src/views/AddFamily.dart';
-import 'package:ringtone_player/ringtone_player.dart';
 import 'src/remedios/ViewRemedioPage.dart';
 
 class AppController extends ChangeNotifier {
@@ -76,7 +75,7 @@ class AppController extends ChangeNotifier {
                           channelKey: 'key1',
                           title: '${nome}',
                           body: '${observacao}')),
-                  RingtonePlayer.ringtone(),
+
                 }
               else
                 {cron.close()}

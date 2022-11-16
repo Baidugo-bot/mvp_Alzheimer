@@ -23,3 +23,14 @@ class FamilyPacienteController{
   String? imgLink = "";
 
 }
+
+class PerfilPacienteController{
+  static PerfilPacienteController instance = PerfilPacienteController();
+  String nome = "Usuário";
+  DateTime dataNasc = DateTime.now();
+  ImageProvider<Object> image = AssetImage("assets/images/imagemEscolha.png");
+  ImageProvider<Object> imagemTemporaria =
+  AssetImage('assets/images/pelezin.jpg');
+  String imageLink = "assets/images/imagemEscolha.png";
+
+}

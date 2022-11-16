@@ -27,6 +27,7 @@ import 'package:projeto_estudo/src/views/ProfileView.dart';
 import 'package:projeto_estudo/src/views/SeeFamilyPaciente.dart';
 import 'package:projeto_estudo/src/views/SeeFamilyView.dart';
 import 'package:projeto_estudo/src/views/SeeMemoryPaciente.dart';
+import 'package:projeto_estudo/src/views/ProfilePaciente.dart';
 import 'package:projeto_estudo/src/views/SeeMemoryView.dart';
 
 import 'AppController.dart';
@@ -91,6 +92,7 @@ class MyApp extends StatelessWidget {
             '/memoryPaciente': (context) => MemoryPaciente(),
             '/seememoryPaciente': (context) => SeeMemoryPaciente(),
             '/familyPaciente': (context) => FamilyPaciente(),
+            '/profilePaciente': (context) => ProfilePaciente(),
             '/seeFamilyPaciente': (context) => SeeFamilyPaciente(),
             /*'/addReminder': (context) => MyHomePage(
                   title: '',
