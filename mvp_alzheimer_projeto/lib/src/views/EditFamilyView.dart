@@ -3,7 +3,6 @@ import 'package:intl/intl.dart';
 import 'package:flutter/material.dart';
 import 'package:projeto_estudo/AppController.dart';
 import 'package:projeto_estudo/src/models/FamilyModel.dart';
-
 import '../components/AddFamilyComponents.dart';
 import '../components/CustomButton.dart';
 import '../components/EditFamilyComponetes.dart';

@@ -63,7 +63,6 @@ class Family {
     this.image = newFamily.getImage();
     this.imgLink = newFamily.imgLink;
   }
-
   // Image image = Image();
 
 }

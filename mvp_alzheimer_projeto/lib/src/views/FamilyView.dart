@@ -56,10 +56,6 @@ class TopBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     DateTime agora = DateTime.now();
-
-    print((agora.difference(FamilyController.instance.dataNasc).inDays / 365)
-        .toString()
-        .substring(0, 2));
     return Stack(
       children: <Widget>[
         Container(
@@ -137,7 +133,7 @@ class TopBar extends StatelessWidget {
                                             ),
                                           ),
                                           Text(
-                                            "Idade: ${(agora.difference(FamilyModel.instance.famili[index].date).inDays / 365).toString().substring(0, 2)}",
+                                            "Idade: ${FamilyController.instance.calculateAge(FamilyModel.instance.famili[index].date).toString()}",
                                             style: const TextStyle(
                                               color: Colors.black,
                                               fontSize: 22,
