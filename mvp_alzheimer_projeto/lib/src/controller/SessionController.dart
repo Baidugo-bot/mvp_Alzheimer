@@ -223,7 +223,7 @@ class SessionController {
   Future<void> removeMemory(int id) async {
     print("Remove: ${id}");
     final response = await http.post(
-      Uri.parse('https://alzheimer-db.herokuapp.com/memoria/delete/'),
+      Uri.parse('https://alzheimer-db.herokuapp.com/memoria/memory/'),
       headers: {
         'Content-Type': 'application/json; charset=UTF-8',
       },
@@ -238,12 +238,12 @@ class SessionController {
   Future<void> removeRemedy(int id) async {
     print("Remove: ${id}");
     final response = await http.post(
-      Uri.parse('https://alzheimer-db.herokuapp.com/memoria/delete/'),
+      Uri.parse('https://alzheimer-db.herokuapp.com/remedio/delete/'),
       headers: {
         'Content-Type': 'application/json; charset=UTF-8',
       },
       body: jsonEncode({
-        "idMemoria":id,
+        "idRemedios":id,
       }),
     );
     print(response.body.toString());
@@ -253,12 +253,12 @@ class SessionController {
   Future<void> removeFamily(int id) async {
     print("Removendo Remedio"+id.toString());
     final response = await http.post(
-      Uri.parse('https://alzheimer-db.herokuapp.com/remedio/delete/'),
+      Uri.parse('https://alzheimer-db.herokuapp.com/familia/delete/'),
       headers: {
         'Content-Type': 'application/json; charset=UTF-8',
       },
       body: jsonEncode({
-        "idRemedios": id,
+        "idFamilia": id,
       }),
     );
     print(response.body.toString());
