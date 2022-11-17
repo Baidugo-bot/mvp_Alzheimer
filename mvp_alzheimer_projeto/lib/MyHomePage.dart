@@ -73,6 +73,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   child: Container(
                     child: IconButton(
                       onPressed: () {
+                        AppController.instance.messageResponse(context, "Saindo da conta...");
                         Navigator.of(context).pushNamed('/login');
                       },
                       color: Colors.redAccent,
