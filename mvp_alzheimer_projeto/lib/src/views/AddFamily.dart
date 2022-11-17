@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:projeto_estudo/AppController.dart';
 import 'package:projeto_estudo/src/components/CustomButton.dart';
 import 'package:projeto_estudo/src/components/EditMemoryComponents.dart';
+import 'package:projeto_estudo/src/controller/SessionController.dart';
 
 import '../components/AddMemoryComponents.dart';
 import '../models/FamilyModel.dart';
@@ -80,6 +81,7 @@ class AddFamilyViewState extends State<AddFamily> {
               myResult: parentescoController,
             ),
             DateBorderedField(
+              dateTime: false,
               initialValue: dateController,
               lastDate: dateController,
               onChangeFunction: (DateTime date){
@@ -103,7 +105,7 @@ class AddFamilyViewState extends State<AddFamily> {
                   int memCount = FamilyModel.instance.famili.length;
                   await File(imageLink).exists().then((value) =>imgExists=value);
                   ImageProvider<Object>? finalImg = ((imgExists)?FileImage(File(imageLink)):AssetImage("assets/images/imagemEscolha.png")) as ImageProvider<Object>?;
-                  FamilyModel.instance.famili.add(new Family(
+                  Family usedFamily = new Family(
                       title: nomeController.text,
                       date: dateController,
                       parentesco: parentescoController.text,
@@ -111,8 +113,9 @@ class AddFamilyViewState extends State<AddFamily> {
                       image: finalImg ?? AssetImage("assets/images/imagemEscolha.png"),
                       imgLink: (imgExists)?imageLink:"assets/images/imagemEscolha.png",
                       Telephone: telefoneController.text
-                  ));
-                  Navigator.of(context).pushNamed('/family', arguments: {});
+                  );
+                  SessionController.instance.registerFamily(usedFamily).then((value) => (){});
+                  SessionController.instance.getFamily().then((value) =>Navigator.of(context).pushNamed('/family'));;
                 }
 
 

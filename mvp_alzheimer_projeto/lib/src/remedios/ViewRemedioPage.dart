@@ -1,3 +1,4 @@
+import 'package:projeto_estudo/src/controller/SessionController.dart';
 import 'package:projeto_estudo/src/remedios/RegisterRemedio.dart';
 import 'package:projeto_estudo/src/remedios/ModifyRemedio.dart';
 import 'package:projeto_estudo/src/remedios/masage_responce.dart';
@@ -20,7 +21,7 @@ class _ViewRemedio extends State<ViewRemedio> {
 
   @override
   Widget build(BuildContext context) {
-    AppController.instance.remedio.map((e) => print(e));
+   // SessionController.instance.getRemedios().then((value){print("Chegou");});
     return Scaffold(
       backgroundColor: AppController.instance.mainColor,
       appBar: CustomAppBar.instance.getNamedDefault(
@@ -33,8 +34,10 @@ class _ViewRemedio extends State<ViewRemedio> {
       body: ListView.builder(
         itemCount: AppController.instance.remedio.length,
         itemBuilder: (context, index) {
+
           return ListTile(
             onTap: () {
+              AppController.instance.modificarRemedio = AppController.instance.remedio[index];
               Navigator.push(
                       context,
                       MaterialPageRoute(
@@ -136,6 +139,7 @@ class Remedio {
   var data;
   var observacao;
   var id = 0;
+  int? idBanco;
 
   Remedio({
     this.nome,
@@ -144,5 +148,6 @@ class Remedio {
     this.data,
     this.observacao,
     this.id = 0,
+    this.idBanco
   });
 }

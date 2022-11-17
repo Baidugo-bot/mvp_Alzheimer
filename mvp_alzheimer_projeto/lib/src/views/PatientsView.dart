@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:projeto_estudo/AppController.dart';
 import 'package:projeto_estudo/src/components/CustomButton.dart';
 import 'package:projeto_estudo/src/components/EditMemoryComponents.dart';
+import 'package:projeto_estudo/src/controller/ProfileController.dart';
 import 'package:projeto_estudo/src/controller/SessionController.dart';
 import 'package:projeto_estudo/src/models/MainProfileModel.dart';
 
@@ -21,7 +22,7 @@ class PatientsViewState extends State<PatientsView> {
   Widget build(BuildContext context) {
     TextEditingController emailController = new TextEditingController();
     TextEditingController passwordController = new TextEditingController();
-     SessionController.instance.getPatients().then((value) => setState((){}));
+
     return Scaffold(
       backgroundColor: AppController.instance.mainColor,
       appBar: AppBar(
@@ -46,6 +47,7 @@ class PatientsViewState extends State<PatientsView> {
               title: actualPat.nome,
               response: () {
                 SessionController.instance.pacienteID = AppController.instance.pacientes[number].id;
+                ProfileController.instance.updateProfile(AppController.instance.pacientes[number].nome, AppController.instance.pacientes[number].dataNasc);
                 Navigator.of(context).pushNamed('/');
                 },
               enableBounds: true,

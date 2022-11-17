@@ -47,7 +47,7 @@ class MyApp extends StatelessWidget {
         return MaterialApp(
           debugShowCheckedModeBanner: false,
           theme: ThemeData.dark(),
-          initialRoute: '/',
+          initialRoute: '/',//ternario (tipo)?rotapaciente,rotaCuidador
           routes: {
             '/': (context) => MyHomePage(
                   title: '',

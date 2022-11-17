@@ -19,8 +19,7 @@ class _ModifyRemedio extends State<ModifyRemedio> {
   late TextEditingController controllerDosagem;
   late TextEditingController controllerObservacao;
   int? idRemedio = 0;
-  TimeOfDay controllerHora =
-      TimeOfDay(hour: DateTime.now().hour, minute: DateTime.now().minute);
+  TimeOfDay? controllerHora = AppController.instance.modificarRemedio.hora;
   bool confirmTime = false;
 
   @override
@@ -50,10 +49,11 @@ class _ModifyRemedio extends State<ModifyRemedio> {
         children: [
           TextBox(controllerNome, "Nome"),
           TextBox(controllerDosagem, "Dosagem"),
+          Center(child: Text("${controllerHora?.hour}:${controllerHora?.minute}")),
           ElevatedButton(
             onPressed: () {
               confirmTime = true;
-              showTimePicker(context: context, initialTime: controllerHora)
+              showTimePicker(context: context, initialTime: controllerHora ?? TimeOfDay(hour: 0, minute: 0))
                   .then((value) {
                 setState(() {
                   controllerHora = value!;
@@ -80,7 +80,7 @@ class _ModifyRemedio extends State<ModifyRemedio> {
                   dosagem.isNotEmpty &&
                   observacao.isNotEmpty &&
                   confirmTime) {
-                AppController.instance.modifyAlarm(controllerHora, nome,
+                AppController.instance.modifyAlarm(controllerHora!, nome,
                     observacao, idRemedio!);
                 Navigator.pop(
                     context,

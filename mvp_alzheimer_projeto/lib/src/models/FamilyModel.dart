@@ -9,6 +9,7 @@ class FamilyModel {
 class Family {
   Family(
       {Key? key,
+        this.idBanco,
       required this.title,
       required this.date,
       required this.parentesco,
@@ -23,6 +24,7 @@ class Family {
   int identifier;
   ImageProvider<Object> image;
   String? imgLink = "";
+  int? idBanco;
 
   String getTitle() {
     return title;
