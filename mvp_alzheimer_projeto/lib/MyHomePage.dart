@@ -185,26 +185,6 @@ class _MyHomePageState extends State<MyHomePage> {
               ],
             ),
             Container(height: 5),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    primary: Colors.lightBlue,
-                    padding: EdgeInsets.all(28.0),
-                  ),
-                  onPressed: () {
-                    Navigator.of(context).pushNamed('/login');
-
-                  },
-                  child: Ink.image(
-                    image: AssetImage("assets/icons/Mapa.png"),
-                    height: 58,
-                    width: 58,
-                  ),
-                ),
-              ],
-            ),
           ],
         ),
       ),

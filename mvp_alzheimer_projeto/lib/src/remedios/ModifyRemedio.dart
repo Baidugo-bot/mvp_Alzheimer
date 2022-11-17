@@ -57,6 +57,9 @@ class _ModifyRemedio extends State<ModifyRemedio> {
                   TimeOfDay verify = value!;
                   print("${verify.hour}:${verify.minute}");
                   args["remedio"].hora = TimeOfDay(hour: verify.hour, minute: verify.minute);
+                  args["remedio"].dosagem = controllerDosagem.text;
+                  args["remedio"].nome = controllerNome.text;
+                  args["remedio"].observacao = controllerObservacao.text;
                   Navigator.of(context).pushNamed('/editarRemedio',arguments: {"remedio": args["remedio"] as Remedio});
                 });
               });
@@ -83,21 +86,18 @@ class _ModifyRemedio extends State<ModifyRemedio> {
                   confirmTime) {
                 AppController.instance.modifyAlarm(controllerHora!, nome,
                     observacao, idRemedio!);
-                Navigator.pop(
-                    context,
-                    new Remedio(
-                        nome: nome,
-                        dosagem: dosagem,
-                        hora: controllerHora,
-                        observacao: observacao));
                 tempRem = new Remedio(
                     nome: nome,
                     dosagem: dosagem,
                     hora: controllerHora,
-                    observacao: observacao);
-                SessionController.instance.editRemedy(tempRem).then((value) => SessionController.instance.getRemedios().then((value) => Navigator.pop(
-                    context,tempRem
-                )));
+                    observacao: observacao,
+                    idBanco: args["remedio"]?.idBanco
+                );
+                print(tempRem.observacao);
+                SessionController.instance.editRemedy(
+                    tempRem).then(
+                        (value) => SessionController.instance.getRemedios().then((value) => Navigator.of(context).pushNamed('/remedioPage'))
+                );
               }
             },
             style: ElevatedButton.styleFrom(primary: Colors.green),

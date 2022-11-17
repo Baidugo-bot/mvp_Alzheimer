@@ -16,7 +16,6 @@ class MemoriesView extends StatefulWidget {
 class MemoriesViewState extends State<MemoriesView> {
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       backgroundColor: AppController.instance.mainColor,
       appBar: CustomAppBar.instance.getNamedDefault(context, "/", Text(" Memórias ",style: TextStyle(color: Colors.black),)),
@@ -24,7 +23,7 @@ class MemoriesViewState extends State<MemoriesView> {
           itemCount: MemoryModel.instance.memories.length,
           // if 0 then show message
           itemBuilder: (BuildContext build, int index) {
-
+            print(MemoryModel.instance.memories[index].image);
             return Card(
               color: AppController.instance.mainColor,
               child: InkWell(
@@ -41,7 +40,7 @@ class MemoriesViewState extends State<MemoriesView> {
                       CircleAvatar(
                         radius: 60,
                         backgroundImage:
-                            MemoryModel.instance.memories[index].getImage(),
+                            AssetImage("assets/images/imagemEscolha.png"),
                       ),
                       Container(
                         width: 10,

@@ -45,22 +45,6 @@ class AddMemoryViewState extends State<AddMemoryView> {
               height: 30,
             ),
             Container(
-              padding: EdgeInsets.only(bottom: 10),
-              width: 430,
-              decoration: BoxDecoration(
-                border: Border(
-                  bottom: BorderSide(width: 2, color: Colors.black),
-                ),
-              ),
-              child: ImagePickerContainer(
-                  imageLink : imageLink,
-                  response: () async {
-                      imageLink =  await AppController.instance.getImage().then((value) => imageLink = value);
-                      Navigator.of(context).pushNamed('/addMemory', arguments: {'title':titleController.text, 'date': dateController.toString(),'desc':descController.text, 'imageLink': imageLink, 'identifier': MemoryModel.instance.memories.length.toString()});
-                      },
-              ),
-            ),
-            Container(
               height: 30,
             ),
             BorderedTextField(

@@ -104,9 +104,7 @@ class TopBar extends StatelessWidget {
                                     children: <Widget>[
                                       CircleAvatar(
                                         radius: 60,
-                                        backgroundImage: FamilyModel
-                                            .instance.famili[index]
-                                            .getImage(),
+                                        backgroundImage: AssetImage("assets/images/imagemEscolha.png"),
                                       ),
                                       Container(
                                         width: MediaQuery.of(context).size.width -

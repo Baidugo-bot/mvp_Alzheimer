@@ -47,29 +47,6 @@ class AddFamilyViewState extends State<AddFamily> {
             Container(
               height: 30,
             ),
-            Container(
-              padding: EdgeInsets.only(bottom: 10),
-              width: 430,
-              decoration: BoxDecoration(
-                border: Border(
-                  bottom: BorderSide(width: 2, color: Colors.black),
-                ),
-              ),
-              child: ImagePickerContainer(
-                imageLink : imageLink,
-                response: () async {
-                  imageLink =  await AppController.instance.getImage().then((value) => imageLink = value);
-                  Navigator.of(context).pushNamed('/addFamily', arguments: {
-                    'nome':nomeController.text,
-                    'date': dateController.toString(),
-                    'parentesco':parentescoController.text,
-                    'imageLink': imageLink,
-                    'identifier': MemoryModel.instance.memories.length.toString(),
-                    'telefone':telefoneController.text
-                  });
-                },
-              ),
-            ),
             BorderedTextField(
               title: 'nome:',
               haveFrame: false,

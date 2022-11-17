@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:bordered_text/bordered_text.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -33,7 +35,7 @@ class SeeMemoryView extends StatelessWidget {
             //mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Container(height: 15,),
-              Image(image: args["memory"]!.getImage(),height: 200,),
+              Image(image: AssetImage("assets/images/imagemEscolha.png"),height: 200,),
               Container(height: 10,),
               Container(
                 width: 500,

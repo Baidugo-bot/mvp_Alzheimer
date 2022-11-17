@@ -62,32 +62,7 @@ class EditMemoryViewState extends State<EditMemoryView> {
             Container(
               height: 30,
             ),
-            Container(
-              padding: EdgeInsets.only(bottom: 10),
-              width: 430,
-              decoration: BoxDecoration(
-                border: Border(
-                  bottom: BorderSide(width: 2, color: Colors.grey),
-                ),
-              ),
-              child: ImagePickerContainer(
-                imageLink : imageLink,
-                response: () async {
-                  imageLink =  await AppController.instance.getImage().then((value) => imageLink = value);
-                  Navigator.of(context).pushNamed('/editMemory', arguments: {
-                    'memory':  Memory(
-                        title: titleController.text,
-                        date: dateController,
-                        description: descController.text,
-                        identifier: args['memory']!.getIdentifier(),
-                        image: FileImage(File(imageLink)),
-                        imgLink: imageLink
-                    ),
 
-                  });
-                },
-              ),
-            ),
             Container(
               height: 30,
             ),
@@ -141,8 +116,11 @@ class EditMemoryViewState extends State<EditMemoryView> {
                   title: "Apagar",
                   color: Colors.red,
                   response: (){
-                    SessionController.instance.removeMemory(args["memory"]!.idBanco).then((value) =>null);
-                    SessionController.instance.getMemories().then((value) =>  Navigator.of(context).pushNamed('/memories', arguments: {}));
+                    SessionController.instance.removeMemory(args["memory"]!.idBanco).then((value) =>
+                    {
+                    SessionController.instance.getMemories().then((value) =>  Navigator.of(context).pushNamed('/memories', arguments: {}))
+
+                    });
 
                   },
                 ),

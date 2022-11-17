@@ -38,7 +38,6 @@ class SessionController {
     dynamic returned = jsonDecode(response.body);
     print(returned);
     if(returned.toString().substring(1,5)=="data"){
-      print("LOGOUUUUUUUUUUUUUU");
       sessionID =  int.parse(returned["data"]["idUsuario"].toString());
 
       if(int.parse(returned["data"]["TIPO_CUIDADOR_PACIENTE"].toString())==1){
@@ -55,7 +54,7 @@ class SessionController {
   }
 
 
-  Future<bool> register(String tipoCuidador,String email,String passWord) async {
+  Future<void> register(String tipoCuidador,String email,String passWord) async {
     final response = await http.post(
       Uri.parse('https://alzheimer-db.herokuapp.com/register/'),
       headers: <String, String>{
@@ -69,11 +68,6 @@ class SessionController {
     );
     print(response.body.toString());
     dynamic returned = jsonDecode(json.encode(response.body));
-    if(returned.toString().substring(1,8)=="mensagem"){
-      return true;
-    }else{
-      return false;
-    }
   }
 
 
@@ -188,7 +182,7 @@ class SessionController {
 
   Future<void> editMemory(Memory memory) async {
     print("MEMORIA: ${memory.idBanco}");
-    final response = await http.post(
+    final response = await http.put(
       Uri.parse('https://alzheimer-db.herokuapp.com/memoria/edit/'),
       headers: {
         'Content-Type': 'application/json; charset=UTF-8',
@@ -205,8 +199,8 @@ class SessionController {
     dynamic posCollected = jsonDecode(json.encode(response.body));
   }
 
-  Future<String> editRemedy(Remedio rem) async {
-    print("Registrando Remedio"+rem.hora.toString());
+  Future<void> editRemedy(Remedio rem) async {
+    print("Registrando Remedio"+rem.idBanco.toString());
     final response = await http.put(
       Uri.parse('https://alzheimer-db.herokuapp.com/remedio/edit/'),
       headers: {
@@ -217,12 +211,12 @@ class SessionController {
         "nomeRedio":rem.nome,
         "dosagem": rem.dosagem,
         "horario": "${rem.hora?.hour}:${rem.hora?.minute}:00",
-        "observacao": rem.observacao
+        "observacao": rem.observacao,
       }),
     );
+    print("Resultado a seguir:");
     print(response.body.toString());
     dynamic posCollected = jsonDecode(json.encode(response.body));
-    return "deu";
   }
 
   Future<void> removeMemory(int id) async {
@@ -285,6 +279,7 @@ class SessionController {
       }),
     );
     dynamic returned = jsonDecode(response.body);
+    print(returned);
       for(Map<String, dynamic> a in returned){
         pacientes.add(Paciente(
             doenca: a["Doenca"],
@@ -322,7 +317,7 @@ class SessionController {
           date: DateTime.parse(a["Data"].toString()),
           description:a["Anotacao"] ,
           identifier: contador,
-          image: FileImage(io.File("assets/images/imagemEscolha.png"))
+          image: AssetImage("assets/images/imagemEscolha.png")
       ));
       contador++;
     }
@@ -382,13 +377,11 @@ class SessionController {
     AppController.instance.rmdCriados = 0;
      print(returned);
     for(Map<String, dynamic> a in returned){
-      print(a["Horario"].toString().substring(0,2));
-      print(a["Horario"].toString().substring(3,5));
       remedios.add(Remedio(
         nome: a["NomeRedio"],
         dosagem: a["Dosagem"],
         hora: TimeOfDay(hour: int.parse(a["Horario"].toString().substring(0,2)),minute: int.parse(a["Horario"].toString().substring(3,5))),
-        observacao: a["observacao"],
+        observacao: a["Observacao"],
         id : AppController.instance.rmdCriados,
         idBanco: a["idRemedios"]
       )

@@ -61,31 +61,6 @@ class EditFamilyViewState extends State<EditFamilyView> {
             Container(
               height: 10,
             ),
-            Container(
-              padding: EdgeInsets.only(bottom: 10),
-              width: 430,
-              decoration: BoxDecoration(
-                border: Border(
-                  bottom: BorderSide(width: 2, color: Colors.grey),
-                ),
-              ),
-              child: ImagePickerContainer(
-                imageLink: imageLink,
-                response: () async {
-                  //imageLink =  await AppController.instance.getImage().then((value) => imageLink = value);
-                  Navigator.of(context).pushNamed('/editFamily', arguments: {
-                    'family': new Family(
-                        title: titleController.text,
-                        Telephone: Telephone.text,
-                        date: dateController,
-                        parentesco: descController.text,
-                        identifier: args['family']!.getIdentifier(),
-                        image: FileImage(File(imageLink)),
-                        imgLink: imageLink),
-                  });
-                },
-              ),
-            ),
             
             Container(
               height: 1,
@@ -164,8 +139,9 @@ class EditFamilyViewState extends State<EditFamilyView> {
                   title: "Apagar",
                   color: Colors.red,
                   response: () {
-                    SessionController.instance.removeFamily(args["family"]!.idBanco ?? -1).then((value) => (){});
-                    SessionController.instance.getFamily().then((value) =>Navigator.of(context).pushNamed('/family'));;
+                    SessionController.instance.removeFamily(args["family"]!.idBanco ?? -1).then((value) => (){
+                      SessionController.instance.getFamily().then((value) =>Navigator.of(context).pushNamed('/family'));
+                    });
 
                   },
                 ),

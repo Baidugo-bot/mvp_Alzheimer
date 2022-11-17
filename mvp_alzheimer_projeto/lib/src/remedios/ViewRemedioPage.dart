@@ -120,7 +120,7 @@ class Remedio {
   var dosagem;
   TimeOfDay? hora;
   var data;
-  var observacao;
+  String? observacao;
   var id = 0;
   int? idBanco;
 
