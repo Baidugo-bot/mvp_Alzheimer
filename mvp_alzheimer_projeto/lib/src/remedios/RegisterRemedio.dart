@@ -3,7 +3,6 @@ import 'package:projeto_estudo/src/components/ProfileComponents.dart';
 import 'package:projeto_estudo/src/controller/SessionController.dart';
 import 'package:projeto_estudo/src/remedios/ViewRemedioPage.dart';
 import 'package:projeto_estudo/src/remedios/text_box.dart';
-import 'package:projeto_estudo/src/remedios/circle_dat.dart';
 import 'package:flutter/material.dart';
 import '../../AppController.dart';
 import '../components/AddMemoryComponents.dart';

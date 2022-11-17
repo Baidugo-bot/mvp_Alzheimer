@@ -41,7 +41,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   child: Container(
                     child: IconButton(
                       onPressed: () {
-                        Navigator.of(context).pushNamed('/profile');
+                        Navigator.of(context).pushNamed('/profilePaciente');
                       },
                       color: Colors.black,
                       icon: Icon(
@@ -108,7 +108,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   style: ElevatedButton.styleFrom(
                       primary: Colors.lightBlue, padding: EdgeInsets.all(28.0)),
                   onPressed: () {
-                    Navigator.of(context).pushNamed('/remedioPage');
+                    Navigator.of(context).pushNamed('/seeRemedioPaciente');
                   },
                   child: Ink.image(
                     image: AssetImage("assets/icons/Remedio.png"),
@@ -125,6 +125,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     primary: Colors.lightBlue,
                   ),
                   onPressed: () {
+                    Navigator.of(context).pushNamed('/memoryPaciente');
                     SessionController.instance.getMemories().then((value) =>Navigator.of(context).pushNamed('/memories'));
                   },
                   child: Ink.image(
@@ -142,7 +143,9 @@ class _MyHomePageState extends State<MyHomePage> {
                     padding: EdgeInsets.all(28.0),
                   ),
                   onPressed: () {
+                    Navigator.of(context).pushNamed('/familyPaciente');
                     SessionController.instance.getFamily().then((value) =>Navigator.of(context).pushNamed('/family'));
+
                   },
                   child: Ink.image(
                     image: AssetImage("assets/icons/Familia.png"),
@@ -162,7 +165,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     padding: EdgeInsets.all(28.0),
                   ),
                   onPressed: () {
-                    Navigator.of(context).pushNamed('/login');
+                    Navigator.of(context).pushNamed('/registerRemedio');
                   },
                   child: Ink.image(
                     image: AssetImage("assets/icons/Mapa.png"),

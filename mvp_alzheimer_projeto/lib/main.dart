@@ -12,7 +12,7 @@ import 'package:intl/date_symbol_data_file.dart';
 
 import 'MyApp.dart';
 Future<void> main() async {
-  initializeDateFormatting('pt_BR', 'en_US').then((_) =>  runApp( MyApp()));
+ runApp( MyApp());
   //LocalizationController.instance.getPosition();
 }
 
