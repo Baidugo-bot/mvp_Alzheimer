@@ -109,7 +109,7 @@ class _ViewRemedio extends State<ViewRemedio> {
                 TextButton(
                   onPressed: () {
                     setState(() {
-                      AppController.instance.remedio.remove(remedio);
+                      SessionController.instance.removeRemedy(remedio.idBanco ??-1);
                       Navigator.pop(context);
                     });
                   },

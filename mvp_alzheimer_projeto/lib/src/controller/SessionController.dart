@@ -145,7 +145,7 @@ class SessionController {
 
 
   Future<void> registerRemedy(Remedio rem) async {
-    print("Registrando Remedio"+rem.hora.toString());
+    print("Remover Remedio"+rem.hora.toString());
     final response = await http.post(
       Uri.parse('https://alzheimer-db.herokuapp.com/remedio/register/'),
       headers: {
@@ -201,6 +201,25 @@ class SessionController {
     dynamic posCollected = jsonDecode(json.encode(response.body));
   }
 
+  Future<void> editRemedy(Remedio rem) async {
+    print("Registrando Remedio"+rem.hora.toString());
+    final response = await http.post(
+      Uri.parse('https://alzheimer-db.herokuapp.com/remedio/edit/'),
+      headers: {
+        'Content-Type': 'application/json; charset=UTF-8',
+      },
+      body: jsonEncode({
+        "idRemedios":rem.idBanco,
+        "nomeRedio":rem.nome,
+        "dosagem": rem.dosagem,
+        "horario": rem.hora.toString(),
+        "observacao": rem.observacao
+      }),
+    );
+    print(response.body.toString());
+    dynamic posCollected = jsonDecode(json.encode(response.body));
+  }
+
   Future<void> removeMemory(int id) async {
     print("Remove: ${id}");
     final response = await http.post(
@@ -216,15 +235,30 @@ class SessionController {
     dynamic posCollected = jsonDecode(json.encode(response.body));
   }
 
-  Future<void> removeFamily(int id) async {
-    print("Removendo Familiar"+id.toString());
+  Future<void> removeRemedy(int id) async {
+    print("Remove: ${id}");
     final response = await http.post(
-      Uri.parse('https://alzheimer-db.herokuapp.com/familia/delete/'),
+      Uri.parse('https://alzheimer-db.herokuapp.com/memoria/delete/'),
       headers: {
         'Content-Type': 'application/json; charset=UTF-8',
       },
       body: jsonEncode({
-        "idFamilia": id,
+        "idMemoria":id,
+      }),
+    );
+    print(response.body.toString());
+    dynamic posCollected = jsonDecode(json.encode(response.body));
+  }
+
+  Future<void> removeFamily(int id) async {
+    print("Removendo Remedio"+id.toString());
+    final response = await http.post(
+      Uri.parse('https://alzheimer-db.herokuapp.com/remedio/delete/'),
+      headers: {
+        'Content-Type': 'application/json; charset=UTF-8',
+      },
+      body: jsonEncode({
+        "idRemedios": id,
       }),
     );
     print(response.body.toString());

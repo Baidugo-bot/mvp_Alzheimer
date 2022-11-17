@@ -103,8 +103,8 @@ class AddMemoryViewState extends State<AddMemoryView> {
                       image: finalImg ?? AssetImage("assets/images/imagemEscolha.png"),
                       imgLink: (imgExists)?imageLink:"assets/images/imagemEscolha.png"
                   );
-                  SessionController.instance.registerMemory(usedMemory).then((value) =>{});
-                  SessionController.instance.getMemories().then((value) =>  Navigator.of(context).pushNamed('/memories', arguments: {}));
+                  SessionController.instance.registerMemory(usedMemory).then((value) =>{SessionController.instance.getMemories().then((value) =>  Navigator.of(context).pushNamed('/memories', arguments: {}))
+                  });
                   //Navigator.of(context).pushNamed('/memories', arguments: {});
                 }
               },

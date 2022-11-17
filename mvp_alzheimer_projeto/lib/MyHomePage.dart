@@ -177,7 +177,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     padding: EdgeInsets.all(28.0),
                   ),
                   onPressed: () {
-                      SessionController.instance.getRemedios().then((value) => Navigator.of(context).pushNamed('/login'));
+                    Navigator.of(context).pushNamed('/login');
 
                   },
                   child: Ink.image(

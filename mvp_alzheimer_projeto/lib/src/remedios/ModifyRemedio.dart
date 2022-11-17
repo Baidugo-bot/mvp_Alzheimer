@@ -89,8 +89,8 @@ class _ModifyRemedio extends State<ModifyRemedio> {
                         dosagem: dosagem,
                         hora: controllerHora,
                         observacao: observacao));
-                print("Lenght do remedios: ${AppController.instance.remedio.length}");
-                print("Remédios criados: ${AppController.instance.rmdCriados}");
+                // print("Lenght do remedios: ${AppController.instance.remedio.length}");
+                // print("Remédios criados: ${AppController.instance.rmdCriados}");
               }
             },
             style: ElevatedButton.styleFrom(primary: Colors.green),
