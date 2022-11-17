@@ -108,9 +108,6 @@ class EditFamilyViewState extends State<EditFamilyView> {
                       print("Preencha");
                     } else {
                       bool imgExists = false;
-                      await File(imageLink)
-                          .exists()
-                          .then((value) => imgExists = value);
                       ImageProvider<Object>? finalImg = ((imgExists)
                               ? FileImage(File(imageLink))
                               : AssetImage("assets/images/imagemEscolha.png"))
@@ -128,7 +125,16 @@ class EditFamilyViewState extends State<EditFamilyView> {
                               ? imageLink
                               : "assets/images/imagemEscolha.png");
                       SessionController.instance.editFamily(usedFamily).then((value) => (){});
-                      SessionController.instance.getFamily().then((value) =>Navigator.of(context).pushNamed('/family'));;
+                      Future.delayed(const Duration(seconds: 1), () {
+
+// Here you can write your code
+                        SessionController.instance.getFamily().then((value) =>Navigator.of(context).pushNamed('/family'));;
+                        setState(() {
+
+                        });
+
+                      });
+
                     }
                   },
                 ),
@@ -140,7 +146,16 @@ class EditFamilyViewState extends State<EditFamilyView> {
                   color: Colors.red,
                   response: () {
                     SessionController.instance.removeFamily(args["family"]!.idBanco ?? -1).then((value) => (){
+
+                    });
+                    Future.delayed(const Duration(seconds: 1), () {
+
+// Here you can write your code
                       SessionController.instance.getFamily().then((value) =>Navigator.of(context).pushNamed('/family'));
+                      setState(() {
+
+                      });
+
                     });
 
                   },

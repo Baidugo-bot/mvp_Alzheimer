@@ -30,6 +30,7 @@ class PatientsViewState extends State<PatientsView> {
         backgroundColor: AppController.instance.mainColor,
         automaticallyImplyLeading: false,
         title: Center(child: Text("Pacientes",style: TextStyle(color: Colors.black),)),
+
       ),
       body: ListView.builder(
           itemCount: AppController.instance.pacientes.length,

@@ -200,7 +200,7 @@ class SessionController {
   }
 
   Future<void> editRemedy(Remedio rem) async {
-    print("Registrando Remedio"+rem.idBanco.toString());
+    print("Editando Remedio"+rem.idBanco.toString());
     final response = await http.put(
       Uri.parse('https://alzheimer-db.herokuapp.com/remedio/edit/'),
       headers: {

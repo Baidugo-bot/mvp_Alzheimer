@@ -80,7 +80,6 @@ class AddFamilyViewState extends State<AddFamily> {
                 }else{
                   bool imgExists = false;
                   int memCount = FamilyModel.instance.famili.length;
-                  await File(imageLink).exists().then((value) =>imgExists=value);
                   ImageProvider<Object>? finalImg = ((imgExists)?FileImage(File(imageLink)):AssetImage("assets/images/imagemEscolha.png")) as ImageProvider<Object>?;
                   Family usedFamily = new Family(
                       title: nomeController.text,
@@ -92,8 +91,18 @@ class AddFamilyViewState extends State<AddFamily> {
                       Telephone: telefoneController.text
                   );
                   SessionController.instance.registerFamily(usedFamily).then((value) => (){
-                    SessionController.instance.getFamily().then((value) =>Navigator.of(context).pushNamed('/family'));;
+
                   });
+                  Future.delayed(const Duration(seconds: 1), () {
+
+// Here you can write your code
+
+                    setState(() {
+                      SessionController.instance.getFamily().then((value) =>Navigator.of(context).pushNamed('/family'));;
+                    });
+
+                  });
+
  }
 
 

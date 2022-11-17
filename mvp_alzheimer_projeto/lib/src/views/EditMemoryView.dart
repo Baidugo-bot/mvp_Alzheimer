@@ -106,8 +106,13 @@ class EditMemoryViewState extends State<EditMemoryView> {
                           idBanco: args["memory"]!.idBanco
                       );
                       SessionController.instance.editMemory(usedMemory).then((value) => null);
-                      SessionController.instance.getMemories().then((value) =>  Navigator.of(context).pushNamed('/memories', arguments: {}));
 
+                      Future.delayed(const Duration(seconds: 1), () {
+                        SessionController.instance.getMemories().then((value) =>  Navigator.of(context).pushNamed('/memories', arguments: {}));
+                        setState(() {
+
+                        });
+                      });
                     }
                   },
                 ),
@@ -118,10 +123,13 @@ class EditMemoryViewState extends State<EditMemoryView> {
                   response: (){
                     SessionController.instance.removeMemory(args["memory"]!.idBanco).then((value) =>
                     {
-                    SessionController.instance.getMemories().then((value) =>  Navigator.of(context).pushNamed('/memories', arguments: {}))
-
                     });
+                    Future.delayed(const Duration(seconds: 1), () {
+                      SessionController.instance.getMemories().then((value) =>  Navigator.of(context).pushNamed('/memories', arguments: {}));
+                      setState(() {
 
+                      });
+                    });
                   },
                 ),
               ],

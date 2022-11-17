@@ -92,8 +92,13 @@ class _ViewRemedio extends State<ViewRemedio> {
                 TextButton(
                   onPressed: () {
                     setState(() {
-                      SessionController.instance.removeRemedy(remedio.idBanco ??-1).then((value) => Navigator.pop(context));
+                      SessionController.instance.removeRemedy(remedio.idBanco ??-1).then((value) => null);
+                      Future.delayed(const Duration(seconds: 1), () {
+                        SessionController.instance.getRemedios().then((value) => Navigator.of(context).pushNamed('/remedioPage'));
+                        setState(() {
 
+                        });
+                      });
                     });
                   },
                   child: Text(

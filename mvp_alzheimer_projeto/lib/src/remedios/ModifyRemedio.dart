@@ -96,8 +96,15 @@ class _ModifyRemedio extends State<ModifyRemedio> {
                 print(tempRem.observacao);
                 SessionController.instance.editRemedy(
                     tempRem).then(
-                        (value) => SessionController.instance.getRemedios().then((value) => Navigator.of(context).pushNamed('/remedioPage'))
+                        (value) => null
                 );
+
+                Future.delayed(const Duration(seconds: 1), () {
+                  SessionController.instance.getRemedios().then((value) => Navigator.of(context).pushNamed('/remedioPage'));
+                  setState(() {
+
+                  });
+                });
               }
             },
             style: ElevatedButton.styleFrom(primary: Colors.green),
