@@ -104,8 +104,8 @@ class EditFamilyViewState extends State<EditFamilyView> {
                   color: Colors.green,
                   response: () async {
                     if (titleController.text == "" ||
-                        descController.text == "") {
-                      print("Preencha");
+                        descController.text == "" || Telephone=="") {
+                      AppController.instance.messageResponse(context, "Campos precisam ser preenchidos!");
                     } else {
                       bool imgExists = false;
                       ImageProvider<Object>? finalImg = ((imgExists)
@@ -126,7 +126,7 @@ class EditFamilyViewState extends State<EditFamilyView> {
                               : "assets/images/imagemEscolha.png");
                       SessionController.instance.editFamily(usedFamily).then((value) => (){});
                       Future.delayed(const Duration(seconds: 1), () {
-
+                        AppController.instance.messageResponse(context, "Membro da familia editado!");
 // Here you can write your code
                         SessionController.instance.getFamily().then((value) =>Navigator.of(context).pushNamed('/family'));;
                         setState(() {
@@ -152,6 +152,7 @@ class EditFamilyViewState extends State<EditFamilyView> {
 
 // Here you can write your code
                       SessionController.instance.getFamily().then((value) =>Navigator.of(context).pushNamed('/family'));
+                      AppController.instance.messageResponse(context, "Membro da familia apagado!");
                       setState(() {
 
                       });

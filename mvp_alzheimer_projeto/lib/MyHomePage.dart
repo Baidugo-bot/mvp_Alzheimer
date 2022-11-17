@@ -108,7 +108,7 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             Center(
               child: Text(
-                "Nascimento: ${Jiffy(ProfileController.instance.dataNasc).format("dd/MM/yyyy")}",
+                " ${Jiffy(ProfileController.instance.dataNasc).format("dd/MM/yyyy")}",
                 style: TextStyle(fontSize: 26,color: Colors.black),
               ),
             ),

@@ -56,30 +56,6 @@ class RegisterPatientViewState extends State<RegisterPatientView> {
             Container(
               height: 10,
             ),
-            Container(
-              width: double.infinity,
-              decoration: BoxDecoration(
-                border:
-                    Border(bottom: BorderSide(color: Colors.black, width: 1.3)),
-              ),
-              child: ImagePickerContainer(
-                  imageLink: imageLink,
-                  response: () async {
-                    imageLink = await AppController.instance
-                        .getImage()
-                        .then((value) => imageLink = value);
-                    Navigator.of(context).pushNamed('/registerPatient', arguments: {
-                      'name': nameController.text,
-                      'disease': diseaseController.text,
-                      'case': casoController.text,
-                      'date': dateController.toString(),
-                      'imageLink': imageLink,
-                      'email':emailController.text,
-                      'senha':senhaController.text,
-                      'repSenha':repitaSenhaController.text
-                    });
-                  }),
-            ),
             DefaultTextField(
               haveFrame: false,
               title: 'Nome: ',

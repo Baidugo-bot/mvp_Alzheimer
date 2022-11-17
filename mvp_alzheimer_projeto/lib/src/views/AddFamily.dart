@@ -75,8 +75,8 @@ class AddFamilyViewState extends State<AddFamily> {
               title: "Adicionar",
               color: Colors.green,
               response: () async {
-                if(nomeController.text=="" || parentescoController.text==""){
-                  print("Preencha");
+                if(nomeController.text=="" || parentescoController.text=="" || telefoneController.text==""){
+                  AppController.instance.messageResponse(context, "Campos precisam ser preenchidos!");
                 }else{
                   bool imgExists = false;
                   int memCount = FamilyModel.instance.famili.length;
@@ -99,6 +99,7 @@ class AddFamilyViewState extends State<AddFamily> {
 
                     setState(() {
                       SessionController.instance.getFamily().then((value) =>Navigator.of(context).pushNamed('/family'));;
+                      AppController.instance.messageResponse(context, "Membro da familia cadastrado!");
                     });
 
                   });

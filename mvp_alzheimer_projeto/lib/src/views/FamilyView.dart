@@ -39,6 +39,7 @@ class Tela extends StatelessWidget {
       ),
       floatingActionButton: SingleChildScrollView(
         child: FloatingActionButton(
+
           backgroundColor: Colors.grey,
           onPressed: () {
             Navigator.of(context).pushNamed('/addFamily');
