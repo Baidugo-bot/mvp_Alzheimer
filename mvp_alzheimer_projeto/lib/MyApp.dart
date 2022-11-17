@@ -25,6 +25,8 @@ import 'package:projeto_estudo/src/views/ProfileView.dart';
 import 'package:projeto_estudo/src/views/SeeFamilyView.dart';
 import 'package:projeto_estudo/src/views/SeeMemoryView.dart';
 
+
+
 import 'AppController.dart';
 import 'MyHomePage.dart';
 

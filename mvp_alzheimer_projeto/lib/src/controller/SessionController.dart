@@ -153,7 +153,8 @@ class SessionController {
         "idPaciente":pacienteID,
         "nomeRedio":rem.nome,
         "dosagem": rem.dosagem,
-        "horario": rem.hora.toString()
+        "horario": rem.hora.toString(),
+        "observacao": rem.observacao
       }),
     );
     print(response.body.toString());
