@@ -37,6 +37,7 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           children: [
             Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Positioned(
                   child: Container(
@@ -53,20 +54,35 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                 ),
 
+                (SessionController.instance.isCuidador)?
+                Positioned(
+                child: Container(
+                child: IconButton(
+                onPressed: () {
+                Navigator.of(context).pushNamed('/patients');
+                },
+                color: Colors.black,
+                icon: Icon(
+                Icons.people,
+                ),
+                iconSize: 50.0,
+                ),
+                ),
+                ) : Text(""),
                 Positioned(
                   child: Container(
                     child: IconButton(
                       onPressed: () {
-                        Navigator.of(context).pushNamed('/patients');
+                        Navigator.of(context).pushNamed('/login');
                       },
-                      color: Colors.black,
+                      color: Colors.redAccent,
                       icon: Icon(
-                        Icons.people,
+                        Icons.exit_to_app,
                       ),
                       iconSize: 50.0,
                     ),
                   ),
-                ),
+                )
               ],
             ),
             CircleAvatar(

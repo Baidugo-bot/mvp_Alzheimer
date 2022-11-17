@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:projeto_estudo/src/controller/PacienteController.dart';
+import 'package:projeto_estudo/src/controller/SessionController.dart';
 import 'package:projeto_estudo/src/remedios/ViewRemedioPage.dart';
 
 import 'package:projeto_estudo/src/remedios/RegisterRemedio.dart';
@@ -19,7 +20,6 @@ class ViewRemedioPaciente extends StatefulWidget {
 class _ViewRemedioPaciente extends State<ViewRemedioPaciente> {
   @override
   Widget build(BuildContext context) {
-    AppController.instance.remedio.map((e) => print(e));
     return Scaffold(
       backgroundColor: AppController.instance.mainColor,
       appBar: CustomAppBar.instance.getNamedDefault(
@@ -33,16 +33,8 @@ class _ViewRemedioPaciente extends State<ViewRemedioPaciente> {
         itemCount: AppController.instance.remedio.length,
         itemBuilder: (context, index) {
           return ListTile(
-            onTap: () {
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (_) => VisualizarRemedio(
-                          AppController.instance.remedio[index])));
-            },
-            title: Text(VerRemedioPaciente.instance.nome +
-                " " +
-                AppController.instance.remedio[index].dosagem.toString()),
+
+            title: Text(AppController.instance.remedio[index].dosagem.toString()),
             subtitle: Text(AppController.instance.remedio[index].hora
                 .toString()
                 .substring(10, 15)),
