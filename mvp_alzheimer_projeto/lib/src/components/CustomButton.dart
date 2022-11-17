@@ -117,4 +117,15 @@ class CustomAppBar {
     );
   }
 
+  PreferredSizeWidget appSemVolta(BuildContext context,String routeName,Widget additionals,Widget action){
+    return AppBar(
+      automaticallyImplyLeading: false,
+      toolbarHeight: 40,
+      backgroundColor: AppController.instance.mainColor,
+      centerTitle: true,
+      title: additionals,
+      actions: [action],
+    );
+  }
+
 }
