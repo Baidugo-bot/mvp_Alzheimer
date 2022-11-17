@@ -9,6 +9,7 @@ import 'package:projeto_estudo/MyApp.dart';
 import 'package:projeto_estudo/AppController.dart';
 import 'package:projeto_estudo/src/controller/ProfileController.dart';
 import 'package:intl/intl.dart';
+import 'package:projeto_estudo/src/controller/SessionController.dart';
 class MyHomePage extends StatefulWidget {
   const MyHomePage({Key? key, required this.title}) : super(key: key);
 
@@ -45,6 +46,21 @@ class _MyHomePageState extends State<MyHomePage> {
                       color: Colors.black,
                       icon: Icon(
                         Icons.account_circle_outlined,
+                      ),
+                      iconSize: 50.0,
+                    ),
+                  ),
+                ),
+
+                Positioned(
+                  child: Container(
+                    child: IconButton(
+                      onPressed: () {
+                        Navigator.of(context).pushNamed('/patients');
+                      },
+                      color: Colors.black,
+                      icon: Icon(
+                        Icons.people,
                       ),
                       iconSize: 50.0,
                     ),
@@ -109,7 +125,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     primary: Colors.lightBlue,
                   ),
                   onPressed: () {
-                    Navigator.of(context).pushNamed('/memories');
+                    SessionController.instance.getMemories().then((value) =>Navigator.of(context).pushNamed('/memories'));
                   },
                   child: Ink.image(
                     image: AssetImage("assets/icons/Memoria.png"),
@@ -126,7 +142,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     padding: EdgeInsets.all(28.0),
                   ),
                   onPressed: () {
-                    Navigator.of(context).pushNamed('/family');
+                    SessionController.instance.getFamily().then((value) =>Navigator.of(context).pushNamed('/family'));
                   },
                   child: Ink.image(
                     image: AssetImage("assets/icons/Familia.png"),

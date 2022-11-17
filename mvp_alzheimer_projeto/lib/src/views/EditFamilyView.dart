@@ -6,8 +6,9 @@ import 'package:projeto_estudo/src/models/FamilyModel.dart';
 
 import '../components/AddFamilyComponents.dart';
 import '../components/CustomButton.dart';
-import '../components/EditFamilyComponetes.dart';
+import '../components/EditMemoryComponents.dart';
 import '../controller/EditFamilyController.dart';
+import '../controller/SessionController.dart';
 
 class EditFamilyView extends StatefulWidget {
   const EditFamilyView({Key? key}) : super(key: key);
@@ -101,6 +102,7 @@ class EditFamilyViewState extends State<EditFamilyView> {
               myResult: titleController,
             ),
             DateBorderedField(
+              dateTime: false,
               initialValue: dateController,
               onChangeFunction: (DateTime date) {
                 dateController = date;
@@ -139,21 +141,20 @@ class EditFamilyViewState extends State<EditFamilyView> {
                               ? FileImage(File(imageLink))
                               : AssetImage("assets/images/imagemEscolha.png"))
                           as ImageProvider<Object>?;
-                      EditFamilyController.instance.changeById(
-                          args["family"]!.getIdentifier(),
-                          Family(
-                              title: titleController.text,
-                              date: dateController,
-                              Telephone: Telephone.text,
-                              parentesco: descController.text,
-                              identifier: args["family"]!.getIdentifier(),
-                              image: finalImg ??
-                                  AssetImage("assets/images/imagemEscolha.png"),
-                              imgLink: (imgExists)
-                                  ? imageLink
-                                  : "assets/images/imagemEscolha.png"));
-                      Navigator.of(context)
-                          .pushNamed('/family', arguments: {});
+                      Family usedFamily = Family(
+                          title: titleController.text,
+                          date: dateController,
+                          Telephone: Telephone.text,
+                          parentesco: descController.text,
+                          identifier: args["family"]!.getIdentifier(),
+                          idBanco: args["family"]!.idBanco,
+                          image: finalImg ??
+                              AssetImage("assets/images/imagemEscolha.png"),
+                          imgLink: (imgExists)
+                              ? imageLink
+                              : "assets/images/imagemEscolha.png");
+                      SessionController.instance.editFamily(usedFamily).then((value) => (){});
+                      SessionController.instance.getFamily().then((value) =>Navigator.of(context).pushNamed('/family'));;
                     }
                   },
                 ),
@@ -164,9 +165,9 @@ class EditFamilyViewState extends State<EditFamilyView> {
                   title: "Apagar",
                   color: Colors.red,
                   response: () {
-                    EditFamilyController.instance
-                        .excludeById(args["family"]!.getIdentifier());
-                    Navigator.of(context).pushNamed('/family', arguments: {});
+                    SessionController.instance.removeFamily(args["family"]!.idBanco ?? -1).then((value) => (){});
+                    SessionController.instance.getFamily().then((value) =>Navigator.of(context).pushNamed('/family'));;
+
                   },
                 ),
               ],

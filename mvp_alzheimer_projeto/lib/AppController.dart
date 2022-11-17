@@ -17,6 +17,7 @@ class AppController extends ChangeNotifier {
   List<Remedio> remedio = [];
   List<Paciente> pacientes = [];
   int rmdCriados = 0;
+  late Remedio modificarRemedio ;
 
   DateTime now = DateTime.now().toUtc();
   int counter = 0;

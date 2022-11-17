@@ -12,4 +12,10 @@ class ProfileController extends ChangeNotifier {
       AssetImage('assets/images/pelezin.jpg');
   String imageLink = "assets/images/imagemEscolha.png";
   final now = DateTime.now();
+
+
+  void updateProfile(String nome,DateTime date){
+    this.nome = nome;
+    this.dataNasc = date;
+  }
 }

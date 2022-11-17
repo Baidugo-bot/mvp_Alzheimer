@@ -96,7 +96,8 @@ class DateBorderedField extends StatefulWidget {
   Function(DateTime) onChangeFunction = (DateTime date){};
   DateTime lastDate = DateTime.now();
   DateTime initialValue = DateTime.now();
-  DateBorderedField({Key? key, required this.onChangeFunction, required this.lastDate,required this.initialValue}) : super(key: key);
+  bool? dateTime;
+  DateBorderedField({Key? key, required this.onChangeFunction, required this.lastDate,required this.initialValue,this.dateTime =true}) : super(key: key);
 
   @override
   DateBorderedFieldState createState() => DateBorderedFieldState();
@@ -106,7 +107,6 @@ class DateBorderedFieldState extends State<DateBorderedField> {
   @override
   Widget build(BuildContext context) {
     DateTime holderDate = DateTime.now();
-
     return Container(
       decoration: BoxDecoration(
         border: Border(
@@ -118,19 +118,19 @@ class DateBorderedFieldState extends State<DateBorderedField> {
           BorderedText(
             strokeColor: Colors.black26,
             strokeWidth: 2,
-            child: Text("Data:",style: TextStyle(fontSize: 20,fontFamily: "Gidugu-Regular"),),
+            child: Text("Data: ",style: TextStyle(fontSize: 20,fontFamily: "Gidugu-Regular"),),
           ),
           Container(
 
             width: 200,
             child: DateTimeFormField(
-                dateFormat: DateFormat('dd/MM/yyyy'),
+              dateFormat:(widget.dateTime==true)?DateFormat('dd/MM/yyyy hh:mm'): DateFormat('dd/MM/yyyy'),
                 onDateSelected: (DateTime date){
                   widget.onChangeFunction(date);
                 },
               lastDate: DateTime.now(),
               initialValue: widget.initialValue,
-                mode: DateTimeFieldPickerMode.date,
+                mode: (widget.dateTime==true)?DateTimeFieldPickerMode.dateAndTime:DateTimeFieldPickerMode.date ,
                 dateTextStyle: TextStyle(color: Colors.black,fontFamily: "Gidugu-Regular"),
                 decoration: InputDecoration(
                     border: InputBorder.none

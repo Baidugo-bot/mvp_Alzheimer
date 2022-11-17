@@ -3,6 +3,7 @@ import 'package:bordered_text/bordered_text.dart';
 import 'package:flutter/material.dart';
 import 'package:projeto_estudo/AppController.dart';
 import '../components/CustomButton.dart';
+import '../controller/SessionController.dart';
 import '../models/MemoryModel.dart';
 import 'package:intl/intl.dart';
 class MemoriesView extends StatefulWidget {
@@ -15,6 +16,7 @@ class MemoriesView extends StatefulWidget {
 class MemoriesViewState extends State<MemoriesView> {
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       backgroundColor: AppController.instance.mainColor,
       appBar: CustomAppBar.instance.getNamedDefault(context, "/", Text(" Memórias ",style: TextStyle(color: Colors.black),)),
@@ -22,8 +24,6 @@ class MemoriesViewState extends State<MemoriesView> {
           itemCount: MemoryModel.instance.memories.length,
           // if 0 then show message
           itemBuilder: (BuildContext build, int index) {
-            print("Sequencia :" +
-                MemoryModel.instance.memories[index].identifier.toString());
 
             return Card(
               color: AppController.instance.mainColor,

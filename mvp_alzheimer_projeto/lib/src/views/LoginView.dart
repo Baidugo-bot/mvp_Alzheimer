@@ -70,8 +70,8 @@ class LoginViewState extends State<LoginView> {
                 SessionController.instance
                     .tryLogin(emailController.text, passwordController.text)
                     .then((value) => (value == "logou")
-                        ? Navigator.of(context)
-                            .pushNamed('/patients', arguments: {})
+                        ?SessionController.instance.getPatients().then((value) => Navigator.of(context)
+                    .pushNamed('/patients', arguments: {}))
                         : null);
               },
               enableBounds: true,

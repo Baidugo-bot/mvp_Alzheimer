@@ -8,13 +8,14 @@ class MemoryModel{
 }
 
 class Memory {
-   Memory(  {Key? key, required this.title, required this.date,required this.description,required this.identifier,required this.image,this.imgLink}) ;
+   Memory(  {Key? key, this.idBanco,required this.title, required this.date,required this.description,required this.identifier,required this.image,this.imgLink}) ;
    String title ;
    DateTime date;
    String description;
    int identifier;
    ImageProvider<Object> image;
    String? imgLink = "";
+   int? idBanco;
 
   String getTitle(){
     return title;

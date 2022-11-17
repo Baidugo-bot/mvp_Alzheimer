@@ -7,6 +7,7 @@ import 'package:projeto_estudo/src/components/CustomButton.dart';
 import 'package:projeto_estudo/src/components/EditMemoryComponents.dart';
 
 import '../components/AddMemoryComponents.dart';
+import '../controller/SessionController.dart';
 import '../models/MemoryModel.dart';
 
 class AddMemoryView extends StatefulWidget {
@@ -19,13 +20,13 @@ class AddMemoryView extends StatefulWidget {
 class AddMemoryViewState extends State<AddMemoryView> {
   @override
   Widget build(BuildContext context) {
+
     var args ;
     TextEditingController titleController = new TextEditingController();
     TextEditingController descController = new TextEditingController();
     ImageProvider<Object> imageController ;
     String imageLink = "assets/images/imagemEscolha.png";
     DateTime dateController = DateTime.now();
-
     if(ModalRoute.of(context)!.settings.arguments != null){
       args = ModalRoute.of(context)!.settings.arguments as Map<String,String>;
       titleController.text = (args['title']!=null)?args['title'].toString():"";
@@ -68,6 +69,7 @@ class AddMemoryViewState extends State<AddMemoryView> {
               myResult: titleController,
             ),
             DateBorderedField(
+              dateTime: true,
               initialValue: dateController,
               lastDate: dateController,
               onChangeFunction: (DateTime date){
@@ -93,19 +95,18 @@ class AddMemoryViewState extends State<AddMemoryView> {
                   await File(imageLink).exists().then((value) =>imgExists=value);
                   ImageProvider<Object>? finalImg = ((imgExists)?FileImage(File(imageLink)):AssetImage("assets/images/imagemEscolha.png")) as ImageProvider<Object>?;
                   print(MemoryModel.instance.memories.length);
-                  MemoryModel.instance.memories.add(new Memory(
+                  Memory usedMemory = new Memory(
                       title: titleController.text,
                       date: dateController,
                       description: descController.text,
                       identifier: memCount,
                       image: finalImg ?? AssetImage("assets/images/imagemEscolha.png"),
                       imgLink: (imgExists)?imageLink:"assets/images/imagemEscolha.png"
-                  ));
-                  Navigator.of(context).pushNamed('/memories', arguments: {});
+                  );
+                  SessionController.instance.registerMemory(usedMemory).then((value) =>{});
+                  SessionController.instance.getMemories().then((value) =>  Navigator.of(context).pushNamed('/memories', arguments: {}));
+                  //Navigator.of(context).pushNamed('/memories', arguments: {});
                 }
-
-
-
               },
             ),
           ],

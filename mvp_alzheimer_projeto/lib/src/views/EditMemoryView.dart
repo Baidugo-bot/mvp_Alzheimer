@@ -5,6 +5,7 @@ import 'package:projeto_estudo/AppController.dart';
 import 'package:projeto_estudo/src/components/EditMemoryComponents.dart';
 import 'package:projeto_estudo/src/controller/EditMemoryController.dart';
 import 'package:projeto_estudo/src/controller/FamilyController.dart';
+import 'package:projeto_estudo/src/controller/SessionController.dart';
 
 import '../components/AddMemoryComponents.dart';
 import '../components/CustomButton.dart';
@@ -117,20 +118,21 @@ class EditMemoryViewState extends State<EditMemoryView> {
                     if(titleController.text=="" || descController.text==""){
                       print("Preencha");
                     }else{
-
                       bool imgExists = false;
                       await File(imageLink).exists().then((value) =>imgExists=value);
                       ImageProvider<Object>? finalImg = ((imgExists)?FileImage(File(imageLink)):AssetImage("assets/images/imagemEscolha.png")) as ImageProvider<Object>?;
-                      EditMemoryController.instance.changeById(args["memory"]!.getIdentifier(),
-                            Memory(
-                                title: titleController.text,
-                                date: dateController,
-                                identifier: args["memory"]!.getIdentifier(),
-                                image: finalImg ?? AssetImage("assets/images/imagemEscolha.png"),
-                                imgLink: (imgExists)?imageLink:"assets/images/imagemEscolha.png",
-                                description: descController.text
-                            ));
-                        Navigator.of(context).pushNamed('/memories', arguments: {});
+                      Memory usedMemory = Memory(
+                          title: titleController.text,
+                          date: dateController,
+                          identifier: args["memory"]!.getIdentifier(),
+                          image: finalImg ?? AssetImage("assets/images/imagemEscolha.png"),
+                          imgLink: (imgExists)?imageLink:"assets/images/imagemEscolha.png",
+                          description: descController.text,
+                          idBanco: args["memory"]!.idBanco
+                      );
+                      SessionController.instance.editMemory(usedMemory).then((value) => null);
+                      SessionController.instance.getMemories().then((value) =>  Navigator.of(context).pushNamed('/memories', arguments: {}));
+
                     }
                   },
                 ),
@@ -139,8 +141,9 @@ class EditMemoryViewState extends State<EditMemoryView> {
                   title: "Apagar",
                   color: Colors.red,
                   response: (){
-                    FamilyController.instance.excludeById(args["memory"]!.getIdentifier());
-                    Navigator.of(context).pushNamed('/memories', arguments: {});
+                    SessionController.instance.removeMemory(args["memory"]!.idBanco).then((value) =>null);
+                    SessionController.instance.getMemories().then((value) =>  Navigator.of(context).pushNamed('/memories', arguments: {}));
+
                   },
                 ),
               ],

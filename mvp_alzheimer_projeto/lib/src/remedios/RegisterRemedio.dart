@@ -1,5 +1,6 @@
 import 'package:awesome_notifications/awesome_notifications.dart';
 import 'package:projeto_estudo/src/components/ProfileComponents.dart';
+import 'package:projeto_estudo/src/controller/SessionController.dart';
 import 'package:projeto_estudo/src/remedios/ViewRemedioPage.dart';
 import 'package:projeto_estudo/src/remedios/text_box.dart';
 import 'package:projeto_estudo/src/remedios/circle_dat.dart';
@@ -46,6 +47,7 @@ class _RegisterRemedio extends State<RegisterRemedio> {
             children: [
               TextBox(controllerNome, "Nome"),
               TextBox(controllerDosagem, "Dosagem"),
+              Text("${controllerHora.hour}:${controllerHora.minute}"),
               ElevatedButton(
                 onPressed: () {
                   confirmTime = true;
@@ -70,6 +72,7 @@ class _RegisterRemedio extends State<RegisterRemedio> {
                   String nome = controllerNome.text;
                   String dosagem = controllerDosagem.text;
                   String observacao = controllerObservacao.text;
+                  Remedio usedRemedio ;
                   if (nome.isNotEmpty &&
                       dosagem.isNotEmpty &&
                       observacao.isNotEmpty &&
@@ -85,15 +88,17 @@ class _RegisterRemedio extends State<RegisterRemedio> {
                     AppController.instance.setAlarm(controllerHora, nome,
                         observacao, AppController.instance.rmdCriados!);
                     AppController.instance.rmdCriados++;
-                    Navigator.pop(
-                        context,
-                        Remedio(
-                          nome: nome,
-                          dosagem: dosagem,
-                          hora: controllerHora,
-                          observacao: observacao,
-                          id:  AppController.instance.rmdCriados,
-                        ));
+                    usedRemedio = Remedio(
+                      nome: nome,
+                      dosagem: dosagem,
+                      hora: controllerHora,
+                      observacao: observacao,
+                      id:  AppController.instance.rmdCriados,
+                    );
+                    // SessionController.instance.registerRemedy(usedRemedio).then((value) => SessionController.instance.getRemedios().then((value) => Navigator.pop(
+                    //     context,usedRemedio
+                    // )));
+
                   }
                 },
                 title: 'Salvar',
