@@ -108,7 +108,11 @@ class _MyHomePageState extends State<MyHomePage> {
                   style: ElevatedButton.styleFrom(
                       primary: Colors.lightBlue, padding: EdgeInsets.all(28.0)),
                   onPressed: () {
-                    Navigator.of(context).pushNamed('/seeRemedioPaciente');
+                    if(SessionController.instance.isCuidador){
+                      SessionController.instance.getRemedios().then((value) => Navigator.of(context).pushNamed('/remedioPage'));
+                    }else{
+                      SessionController.instance.getRemedios().then((value) => Navigator.of(context).pushNamed('/seeRemedioPaciente'));
+                    }
                   },
                   child: Ink.image(
                     image: AssetImage("assets/icons/Remedio.png"),
@@ -125,9 +129,13 @@ class _MyHomePageState extends State<MyHomePage> {
                     primary: Colors.lightBlue,
                   ),
                   onPressed: () {
-                    Navigator.of(context).pushNamed('/memoryPaciente');
-                    SessionController.instance.getMemories().then((value) =>Navigator.of(context).pushNamed('/memories'));
-                  },
+
+                    if(SessionController.instance.isCuidador){
+                      SessionController.instance.getMemories().then((value) => Navigator.of(context).pushNamed('/memories'));
+                    }else{
+                      SessionController.instance.getMemories().then((value) => Navigator.of(context).pushNamed('/memoryPaciente'));
+                    }
+                    },
                   child: Ink.image(
                     image: AssetImage("assets/icons/Memoria.png"),
                     height: 58,
@@ -143,8 +151,12 @@ class _MyHomePageState extends State<MyHomePage> {
                     padding: EdgeInsets.all(28.0),
                   ),
                   onPressed: () {
-                    Navigator.of(context).pushNamed('/familyPaciente');
-                    SessionController.instance.getFamily().then((value) =>Navigator.of(context).pushNamed('/family'));
+
+                    if(SessionController.instance.isCuidador){
+                      SessionController.instance.getFamily().then((value) => Navigator.of(context).pushNamed('/family'));
+                    }else{
+                      SessionController.instance.getFamily().then((value) => Navigator.of(context).pushNamed('/familyPaciente'));
+                    }
 
                   },
                   child: Ink.image(
@@ -165,7 +177,8 @@ class _MyHomePageState extends State<MyHomePage> {
                     padding: EdgeInsets.all(28.0),
                   ),
                   onPressed: () {
-                    Navigator.of(context).pushNamed('/registerRemedio');
+                      SessionController.instance.getRemedios().then((value) => Navigator.of(context).pushNamed('/login'));
+
                   },
                   child: Ink.image(
                     image: AssetImage("assets/icons/Mapa.png"),

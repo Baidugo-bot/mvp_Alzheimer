@@ -27,11 +27,9 @@
   <component name="ChangeListManager">
     <list default="true" id="01374189-c916-4464-add0-3260a260741b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mvp_alzheimer_projeto/lib/MyHomePage.dart" beforeDir="false" afterPath="$PROJECT_DIR$/mvp_alzheimer_projeto/lib/MyHomePage.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mvp_alzheimer_projeto/lib/src/controller/SessionController.dart" beforeDir="false" afterPath="$PROJECT_DIR$/mvp_alzheimer_projeto/lib/src/controller/SessionController.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mvp_alzheimer_projeto/lib/src/remedios/ModifyRemedio.dart" beforeDir="false" afterPath="$PROJECT_DIR$/mvp_alzheimer_projeto/lib/src/remedios/ModifyRemedio.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mvp_alzheimer_projeto/lib/src/remedios/RegisterRemedio.dart" beforeDir="false" afterPath="$PROJECT_DIR$/mvp_alzheimer_projeto/lib/src/remedios/RegisterRemedio.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mvp_alzheimer_projeto/lib/src/remedios/ViewRemedioPage.dart" beforeDir="false" afterPath="$PROJECT_DIR$/mvp_alzheimer_projeto/lib/src/remedios/ViewRemedioPage.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mvp_alzheimer_projeto/lib/src/views/FamilyView.dart" beforeDir="false" afterPath="$PROJECT_DIR$/mvp_alzheimer_projeto/lib/src/views/FamilyView.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mvp_alzheimer_projeto/lib/src/remedios/ViewRemedioPaciente.dart" beforeDir="false" afterPath="$PROJECT_DIR$/mvp_alzheimer_projeto/lib/src/remedios/ViewRemedioPaciente.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -121,12 +119,6 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="463" y="115" key="FileChooserDialogImpl" timestamp="1668631195330">
-      <screen x="0" y="0" width="1366" height="720" />
-    </state>
-    <state x="463" y="115" key="FileChooserDialogImpl/0.0.1366.720@0.0.1366.720" timestamp="1668631195330" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

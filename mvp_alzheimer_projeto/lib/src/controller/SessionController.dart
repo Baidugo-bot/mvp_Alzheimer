@@ -17,8 +17,7 @@ class SessionController {
   int sessionID = 0;
   int cuidadorID = 0;
   int pacienteID = 0;
-
-
+  bool isCuidador = true;
 
 
   Future<String> tryLogin(String email,String passWord) async {
@@ -41,6 +40,9 @@ class SessionController {
       print("LOGOUUUUUUUUUUUUUU");
       sessionID =  int.parse(returned["data"]["idUsuario"].toString());
       cuidadorID = int.parse(returned["data"]["idCuidador"].toString());
+      if(int.parse(returned["data"]["TIPO_CUIDADOR_PACIENTE"].toString())==1){
+        isCuidador=false;
+      }
         print(sessionID);
       return "logou";
     }else{//pega id pra consultas futuras e guarda no app
@@ -153,7 +155,7 @@ class SessionController {
         "idPaciente":pacienteID,
         "nomeRedio":rem.nome,
         "dosagem": rem.dosagem,
-        "horario": rem.hora.toString(),
+        "Horario": rem.hora.toString(),
         "observacao": rem.observacao
       }),
     );

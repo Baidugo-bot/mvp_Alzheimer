@@ -42,7 +42,7 @@ class _ViewRemedioPaciente extends State<ViewRemedioPaciente> {
             },
             title: Text(VerRemedioPaciente.instance.nome +
                 " " +
-                AppController.instance.remedio[index].dosagem),
+                AppController.instance.remedio[index].dosagem.toString()),
             subtitle: Text(AppController.instance.remedio[index].hora
                 .toString()
                 .substring(10, 15)),
