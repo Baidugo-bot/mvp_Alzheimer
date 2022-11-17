@@ -118,25 +118,10 @@ class _MyHomePageState extends State<MyHomePage> {
             Container(
               height: 30,
             ),
+            Container(height: 50),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                      primary: Colors.lightBlue, padding: EdgeInsets.all(28.0)),
-                  onPressed: () {
-                    if(SessionController.instance.isCuidador){
-                      SessionController.instance.getRemedios().then((value) => Navigator.of(context).pushNamed('/remedioPage'));
-                    }else{
-                      SessionController.instance.getRemedios().then((value) => Navigator.of(context).pushNamed('/seeRemedioPaciente'));
-                    }
-                  },
-                  child: Ink.image(
-                    image: AssetImage("assets/icons/Remedio.png"),
-                    height: 58,
-                    width: 58,
-                  ),
-                ),
                 Container(
                   width: defaultPadding,
                 ),
@@ -155,8 +140,8 @@ class _MyHomePageState extends State<MyHomePage> {
                     },
                   child: Ink.image(
                     image: AssetImage("assets/icons/Memoria.png"),
-                    height: 58,
-                    width: 58,
+                    height: 80,
+                    width: 80,
                   ),
                 ),
                 Container(
@@ -178,11 +163,28 @@ class _MyHomePageState extends State<MyHomePage> {
                   },
                   child: Ink.image(
                     image: AssetImage("assets/icons/Familia.png"),
-                    height: 58,
-                    width: 58,
+                    height: 80,
+                    width: 80,
                   ),
                 ),
               ],
+            ),
+            Container(height: 20,),
+            ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                  primary: Colors.lightBlue, padding: EdgeInsets.all(28.0)),
+              onPressed: () {
+                if(SessionController.instance.isCuidador){
+                  SessionController.instance.getRemedios().then((value) => Navigator.of(context).pushNamed('/remedioPage'));
+                }else{
+                  SessionController.instance.getRemedios().then((value) => Navigator.of(context).pushNamed('/seeRemedioPaciente'));
+                }
+              },
+              child: Ink.image(
+                image: AssetImage("assets/icons/Remedio.png"),
+                height: 80,
+                width: 80,
+              ),
             ),
             Container(height: 5),
           ],

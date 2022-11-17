@@ -91,7 +91,7 @@ class EditMemoryViewState extends State<EditMemoryView> {
                   color: Colors.green,
                   response: () async {
                     if(titleController.text=="" || descController.text==""){
-                      print("Preencha");
+                      AppController.instance.messageResponse(context, "Campos precisam ser preenchidos!");
                     }else{
                       bool imgExists = false;
                       await File(imageLink).exists().then((value) =>imgExists=value);
