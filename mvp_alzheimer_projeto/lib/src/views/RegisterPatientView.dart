@@ -137,8 +137,10 @@ class RegisterPatientViewState extends State<RegisterPatientView> {
                           nome: nameController.text
 
                       );
-                      SessionController.instance.registerPatient("1", myPac, emailController.text, senhaController.text);
-                      Navigator.of(context).pushNamed('/patients');
+                      SessionController.instance.registerPatient("1", myPac, emailController.text, senhaController.text).then((value) =>
+                          SessionController.instance.getPatients().then((value) => Navigator.of(context).pushNamed('/patients'))
+                      );
+
                     }else{
                       print("senhas diferentes");
                     }

@@ -21,6 +21,7 @@ class SessionController {
 
 
   Future<String> tryLogin(String email,String passWord) async {
+    isCuidador=true;
     print(email+passWord);
     final response = await http.post(
       Uri.parse('https://alzheimer-db.herokuapp.com/login/'),
@@ -39,9 +40,12 @@ class SessionController {
     if(returned.toString().substring(1,5)=="data"){
       print("LOGOUUUUUUUUUUUUUU");
       sessionID =  int.parse(returned["data"]["idUsuario"].toString());
-      cuidadorID = int.parse(returned["data"]["idCuidador"].toString());
+
       if(int.parse(returned["data"]["TIPO_CUIDADOR_PACIENTE"].toString())==1){
         isCuidador=false;
+        cuidadorID = int.parse(returned["data"]["idPaciente"].toString());
+      }else{
+        cuidadorID = int.parse(returned["data"]["idCuidador"].toString());
       }
         print(sessionID);
       return "logou";
@@ -73,7 +77,7 @@ class SessionController {
   }
 
 
-  void registerPatient(String tipoCuidador,Paciente patient,String email,String senha) async {
+  Future<void> registerPatient(String tipoCuidador,Paciente patient,String email,String senha) async {
     print(patient.dataNasc.toString().substring(0,10));
     final response = await http.post(
       Uri.parse('https://alzheimer-db.herokuapp.com/paciente/register/'),
@@ -86,7 +90,7 @@ class SessionController {
         'senha':senha,
         'idUsuario':sessionID,
         'doenca':patient.doenca,
-        'observacao':patient.anotacoes,
+        'Observacao':patient.anotacoes,
         'nome':patient.nome,
         'data_nascimento':patient.dataNasc.toString(),
         'idCuidador':cuidadorID,
@@ -145,7 +149,7 @@ class SessionController {
 
 
   Future<void> registerRemedy(Remedio rem) async {
-    print("Remover Remedio"+rem.hora.toString());
+    print("registrar Remedio"+rem.hora.toString());
     final response = await http.post(
       Uri.parse('https://alzheimer-db.herokuapp.com/remedio/register/'),
       headers: {
@@ -155,7 +159,7 @@ class SessionController {
         "idPaciente":pacienteID,
         "nomeRedio":rem.nome,
         "dosagem": rem.dosagem,
-        "Horario": rem.hora.toString(),
+        "horario": "${rem.hora?.hour}:${rem.hora?.minute}:00",
         "observacao": rem.observacao
       }),
     );
@@ -201,9 +205,9 @@ class SessionController {
     dynamic posCollected = jsonDecode(json.encode(response.body));
   }
 
-  Future<void> editRemedy(Remedio rem) async {
+  Future<String> editRemedy(Remedio rem) async {
     print("Registrando Remedio"+rem.hora.toString());
-    final response = await http.post(
+    final response = await http.put(
       Uri.parse('https://alzheimer-db.herokuapp.com/remedio/edit/'),
       headers: {
         'Content-Type': 'application/json; charset=UTF-8',
@@ -212,18 +216,19 @@ class SessionController {
         "idRemedios":rem.idBanco,
         "nomeRedio":rem.nome,
         "dosagem": rem.dosagem,
-        "horario": rem.hora.toString(),
+        "horario": "${rem.hora?.hour}:${rem.hora?.minute}:00",
         "observacao": rem.observacao
       }),
     );
     print(response.body.toString());
     dynamic posCollected = jsonDecode(json.encode(response.body));
+    return "deu";
   }
 
   Future<void> removeMemory(int id) async {
     print("Remove: ${id}");
     final response = await http.post(
-      Uri.parse('https://alzheimer-db.herokuapp.com/memoria/memory/'),
+      Uri.parse('https://alzheimer-db.herokuapp.com/memoria/delete/'),
       headers: {
         'Content-Type': 'application/json; charset=UTF-8',
       },
@@ -248,6 +253,7 @@ class SessionController {
     );
     print(response.body.toString());
     dynamic posCollected = jsonDecode(json.encode(response.body));
+    return;
   }
 
   Future<void> removeFamily(int id) async {
@@ -286,7 +292,8 @@ class SessionController {
             id: a["idPaciente"],
             dataNasc: DateTime.parse(a["Data_Nascimento"].toString()),
             idUsuario: a["idUsuario"],
-            nome: a["Nome"]
+            nome: a["Nome"],
+
         ));
       }
       AppController.instance.pacientes = pacientes;
@@ -357,7 +364,7 @@ class SessionController {
 
   }
 
-  Future<void> getRemedios() async {
+  Future<String> getRemedios() async {
     print("PacienteAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA: ${pacienteID}");
     int contador = 0;
     List<Remedio> remedios = [];
@@ -375,19 +382,23 @@ class SessionController {
     AppController.instance.rmdCriados = 0;
      print(returned);
     for(Map<String, dynamic> a in returned){
+      print(a["Horario"].toString().substring(0,2));
+      print(a["Horario"].toString().substring(3,5));
       remedios.add(Remedio(
         nome: a["NomeRedio"],
         dosagem: a["Dosagem"],
-        hora: TimeOfDay(hour: int.parse(a["Horario"].toString().substring(3,5)),minute: int.parse(a["Horario"].toString().substring(6,8))),
+        hora: TimeOfDay(hour: int.parse(a["Horario"].toString().substring(0,2)),minute: int.parse(a["Horario"].toString().substring(3,5))),
         observacao: a["observacao"],
         id : AppController.instance.rmdCriados,
         idBanco: a["idRemedios"]
       )
       );
+
       AppController.instance.rmdCriados++;
       contador++;
     }
     AppController.instance.remedio = remedios;
+    return "deu";
 
   }
 

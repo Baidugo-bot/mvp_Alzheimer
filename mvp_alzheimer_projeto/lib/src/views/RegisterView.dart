@@ -67,7 +67,7 @@ class RegisterViewState extends State<RegisterView> {
               }
 
 
-              //Navigator.of(context).pushNamed('/patients');
+              Navigator.of(context).pushNamed('/patients');
               }, enableBounds: true, bounds: {250.0:50.0},),
           ],
         ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:projeto_estudo/src/remedios/ModifyRemedio.dart';
 import 'package:projeto_estudo/src/remedios/RegisterRemedio.dart';
 import 'package:projeto_estudo/src/remedios/ViewRemedioPaciente.dart';
 import 'package:projeto_estudo/src/remedios/ViewRemedioPage.dart';
@@ -91,14 +92,14 @@ class MyApp extends StatelessWidget {
                   title: '',
                 ),
             '/remedioPage': (context) => ViewRemedio('Remedio'),
-            '/memoryPaciente': (context) => MemoryPaciente(),
+            '/memoryPaciente': (context) => MemoriesPacienteView(),
             '/seememoryPaciente': (context) => SeeMemoryPaciente(),
             '/familyPaciente': (context) => FamilyPaciente(),
             '/profilePaciente': (context) => ProfilePaciente(),
             '/seeFamilyPaciente': (context) => SeeFamilyPaciente(),
             '/seeRemedioPaciente': (context) => ViewRemedioPaciente(''),
             '/registerRemedio': (context) => RegisterRemedio(),
-
+            '/editarRemedio': (context) => ModifyRemedio(Remedio()),
             /*'/addReminder': (context) => MyHomePage(
                   title: '',
                 ),*/
