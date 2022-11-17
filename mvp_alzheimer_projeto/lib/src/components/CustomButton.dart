@@ -85,7 +85,7 @@ class CustomAppBar {
               Navigator.pushNamed(context, routeName);
             },
             child: Icon(
-              Icons.arrow_back_ios_rounded,
+              Icons.arrow_circle_left_rounded,
               color: Color.fromARGB(255, 255, 255, 255),
               size: 35.0,
             ),

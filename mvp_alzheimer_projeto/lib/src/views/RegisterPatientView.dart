@@ -103,18 +103,18 @@ class RegisterPatientViewState extends State<RegisterPatientView> {
             ),
             DefaultTextField(
               haveFrame: false,
-              title: 'Email: ',
+              title: 'Usuario: ',
               myResult: emailController,
             ),
             DefaultTextField(
               haveFrame: false,
               title: 'Senha: ',
-              myResult: senhaController,
+              myResult: senhaController,isPassword: true
             ),
             DefaultTextField(
               haveFrame: false,
               title: 'Repita a senha: ',
-              myResult: repitaSenhaController,
+              myResult: repitaSenhaController,isPassword: true
             ),
             Container(
               height: 35,

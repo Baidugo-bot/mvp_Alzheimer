@@ -69,11 +69,11 @@ class DefaultTextFieldState extends State<DefaultTextField> {
       Row(
         children: [
           BorderedText(
-              strokeWidth: 2,
+              strokeWidth: 0,
               strokeColor: Colors.black26,
               child: Text(
                 widget.title,
-                style: TextStyle(fontSize: 20,fontFamily: "Gidugu-Regular"),
+                style: TextStyle(fontSize: 20,fontFamily: "Gidugu-Regular",color: Colors.black),
               )),
           Expanded(
             child: Container(

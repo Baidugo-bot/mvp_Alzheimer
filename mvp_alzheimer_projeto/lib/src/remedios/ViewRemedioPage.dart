@@ -68,7 +68,6 @@ class _ViewRemedio extends State<ViewRemedio> {
             if (newRemedio != null) {
               setState(() {
                 print(newRemedio.hora.toString());
-
                 messageResponse(context, newRemedio.nome + " Foi Armazenado!");
               });
             }

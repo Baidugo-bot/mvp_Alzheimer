@@ -67,6 +67,7 @@ class PatientsViewState extends State<PatientsView> {
       }
       ),
       floatingActionButton: FloatingActionButton(
+        backgroundColor: Colors.grey,
         child: Icon(Icons.add),
         onPressed: () { Navigator.of(context).pushNamed('/registerPatient'); },
 

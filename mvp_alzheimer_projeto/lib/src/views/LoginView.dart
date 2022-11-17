@@ -44,16 +44,15 @@ class LoginViewState extends State<LoginView> {
                   bottom: BorderSide(color: Colors.black),
                 ),
               ),
-              child: BorderedText(
-                strokeWidth: 1,
+              child: Center(
                 child: Text(
-                  "Memories",
-                  style: TextStyle(fontSize: 35),
-                ),
+                    "Memories",
+                    style: TextStyle(fontSize: 35,color: Colors.black,shadows: [Shadow(color: Colors.black54.withOpacity(0.2),offset: Offset(1.5, 3))]),
+                  ),
               ),
             ),
             DefaultTextField(
-              title: 'Email: ',
+              title: 'Usuario: ',
               myResult: emailController,
             ),
             DefaultTextField(
@@ -71,8 +70,10 @@ class LoginViewState extends State<LoginView> {
                 SessionController.instance.tryLogin(emailController.text, passwordController.text).then((value) => {
 
                   if(SessionController.instance.isCuidador){
+                    print("oi"),
                     SessionController.instance.getPatients().then((value) => Navigator.of(context).pushNamed('/patients', arguments: {}))
                   }else{
+                    print("ola"),
                     Navigator.of(context).pushNamed('/', arguments: {})
                 }
                 });

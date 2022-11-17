@@ -5,7 +5,8 @@ messageResponse(BuildContext context, String nome) {
   showDialog(
       context: context,
       builder: (_) => AlertDialog(
-            title: Text("Mensagem Informativo...!"),
-            content: Text(" O Remedio " + nome),
+            title: Text("Mensagem Informativa...!"),
+            content: Text(" O Remédio " + nome),
           ));
 }
+
