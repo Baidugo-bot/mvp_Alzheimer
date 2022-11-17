@@ -70,8 +70,8 @@ class AddMemoryViewState extends State<AddMemoryView> {
               title: "Adicionar",
               color: Colors.green,
               response: () async {
-                if(titleController.text=="" || descController.text==""){
-                  print("Preencha");
+                if(titleController.text=="" || descController.text==""  ){
+                  AppController.instance.messageResponse(context, "Campos precisam ser preenchidos!");
                 }else{
                   print(dateController);
                   bool imgExists = false;
@@ -90,6 +90,7 @@ class AddMemoryViewState extends State<AddMemoryView> {
                   SessionController.instance.registerMemory(usedMemory).then((value) =>{
                   });
                   Future.delayed(const Duration(seconds: 1), () {
+                    AppController.instance.messageResponse(context, "Memoria registrada!");
                     SessionController.instance.getMemories().then((value) =>  Navigator.of(context).pushNamed('/memories', arguments: {}));
                     setState(() {
                     });

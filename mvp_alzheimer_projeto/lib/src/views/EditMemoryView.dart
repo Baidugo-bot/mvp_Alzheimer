@@ -108,6 +108,7 @@ class EditMemoryViewState extends State<EditMemoryView> {
                       SessionController.instance.editMemory(usedMemory).then((value) => null);
 
                       Future.delayed(const Duration(seconds: 1), () {
+                        AppController.instance.messageResponse(context, "Memoria editada!");
                         SessionController.instance.getMemories().then((value) =>  Navigator.of(context).pushNamed('/memories', arguments: {}));
                         setState(() {
 
@@ -125,6 +126,7 @@ class EditMemoryViewState extends State<EditMemoryView> {
                     {
                     });
                     Future.delayed(const Duration(seconds: 1), () {
+                      AppController.instance.messageResponse(context, "Memoria apagada!");
                       SessionController.instance.getMemories().then((value) =>  Navigator.of(context).pushNamed('/memories', arguments: {}));
                       setState(() {
 
