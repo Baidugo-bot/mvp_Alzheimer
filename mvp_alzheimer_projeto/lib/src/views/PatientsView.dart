@@ -29,7 +29,7 @@ class PatientsViewState extends State<PatientsView> {
         toolbarHeight: 35,
         backgroundColor: AppController.instance.mainColor,
         automaticallyImplyLeading: false,
-        title: Center(child: Text("Pacientes")),
+        title: Center(child: Text("Pacientes",style: TextStyle(color: Colors.black),)),
       ),
       body: ListView.builder(
           itemCount: AppController.instance.pacientes.length,
@@ -38,7 +38,6 @@ class PatientsViewState extends State<PatientsView> {
         return Align(
           alignment: Alignment.center,
           child: Container(
-
             height: 100,
             margin: EdgeInsets.only(top: 22,bottom: 22),
             child: DefaultButton(

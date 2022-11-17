@@ -29,7 +29,7 @@ class DefaultButtonState extends State<DefaultButton> {
         child: Container(
           decoration: BoxDecoration(
             border: Border.all(
-              width: 1,
+              width: 0,
               color: Colors.black,
               style: BorderStyle.solid,
             ),
@@ -41,12 +41,9 @@ class DefaultButtonState extends State<DefaultButton> {
 
             ),
             onPressed: widget.response,
-            child: BorderedText(
-              strokeWidth: 1.0,
-              child: Text(widget.title,style: TextStyle(fontSize: 30),),
+              child: Text(widget.title,style: TextStyle(fontSize: 30,color: Colors.black),),
             ),
           ),
-        )
     );
   }
 }
