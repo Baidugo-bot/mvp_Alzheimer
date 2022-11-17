@@ -73,14 +73,14 @@ class LoginViewState extends State<LoginView> {
                     if(value=="logou"){
                       SessionController.instance.getPatients().then((value) => Navigator.of(context).pushNamed('/patients', arguments: {}))
                     }else{
-                      AppController.instance.messageResponse(context, value)
+                      AppController.instance.messageResponse(context, "Login incorreto")
                     }
                   }else{
 
                     if(value=="logou"){
                       Navigator.of(context).pushNamed('/', arguments: {})
                     }else{
-                      AppController.instance.messageResponse(context, value)
+                      AppController.instance.messageResponse(context, "Login incorreto")
                     }
                   }
                 });

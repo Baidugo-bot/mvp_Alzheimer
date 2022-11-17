@@ -27,8 +27,8 @@ class AppController extends ChangeNotifier {
     showDialog(
         context: context,
         builder: (_) => AlertDialog(
-          title: Text("Informativo"),
-          content: Text(nome,style: TextStyle(color: Colors.red),),
+          title: Text("Informativo",textAlign: TextAlign.center,),
+          content: Text(nome,textAlign: TextAlign.center,style: TextStyle(fontSize: 20,color: Colors.orange),),
         ));
   }
 

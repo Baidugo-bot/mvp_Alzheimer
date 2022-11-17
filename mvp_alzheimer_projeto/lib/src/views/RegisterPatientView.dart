@@ -128,7 +128,7 @@ class RegisterPatientViewState extends State<RegisterPatientView> {
                   response: () {
                     print(SessionController.instance.sessionID);
                     if(senhaController.text!=repitaSenhaController.text || senhaController.text=="" || emailController.text=="" || nameController.text=="" || diseaseController.text=="" || casoController.text=="" || emailController.text=="" ){
-                      print("Informacoes faltantes ou senhas diferentes.");
+                      AppController.instance.messageResponse(context, "Informacoes faltantes ou senhas diferentes.");
 
                     }else{
                       Paciente myPac = Paciente(

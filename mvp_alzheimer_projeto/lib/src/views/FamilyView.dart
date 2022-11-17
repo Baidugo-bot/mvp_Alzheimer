@@ -37,12 +37,14 @@ class Tela extends StatelessWidget {
           TopBar(),
         ],
       ),
-      floatingActionButton: FloatingActionButton(
-        backgroundColor: Colors.grey,
-        onPressed: () {
-          Navigator.of(context).pushNamed('/addFamily');
-        },
-        child: const Icon(Icons.add),
+      floatingActionButton: SingleChildScrollView(
+        child: FloatingActionButton(
+          backgroundColor: Colors.grey,
+          onPressed: () {
+            Navigator.of(context).pushNamed('/addFamily');
+          },
+          child: const Icon(Icons.add),
+        ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );
