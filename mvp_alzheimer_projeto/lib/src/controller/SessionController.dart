@@ -22,7 +22,6 @@ class SessionController {
 
   Future<String> tryLogin(String email,String passWord) async {
     isCuidador=true;
-    print(email+passWord);
     final response = await http.post(
       Uri.parse('https://alzheimer-db.herokuapp.com/login/'),
       headers: <String, String>{
@@ -36,8 +35,10 @@ class SessionController {
     print(jsonDecode(json.encode(response.body)));
 
     dynamic returned = jsonDecode(response.body);
-    print(returned);
-    if(returned.toString().substring(1,5)=="data"){
+    print(returned["message"].toString().compareTo("Email doesn't exist"));
+    if(returned["message"].toString().compareTo("Login Incorreto")==0 || returned["message"].toString().compareTo("Email doesn't exist")==0){
+      return "errou";
+    }else{//pega id pra consultas futuras e guarda no app
       sessionID =  int.parse(returned["data"]["idUsuario"].toString());
 
       if(int.parse(returned["data"]["TIPO_CUIDADOR_PACIENTE"].toString())==1){
@@ -46,10 +47,8 @@ class SessionController {
       }else{
         cuidadorID = int.parse(returned["data"]["idCuidador"].toString());
       }
-        print(sessionID);
+      print(sessionID);
       return "logou";
-    }else{//pega id pra consultas futuras e guarda no app
-      return "errou";
     }
   }
 

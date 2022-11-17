@@ -71,10 +71,14 @@ class LoginViewState extends State<LoginView> {
                 SessionController.instance.tryLogin(emailController.text, passwordController.text).then((value) => {
 
                   if(SessionController.instance.isCuidador){
-                    SessionController.instance.getPatients().then((value) => Navigator.of(context).pushNamed('/patients', arguments: {}))
+                    if(value=="logou"){
+                      SessionController.instance.getPatients().then((value) => Navigator.of(context).pushNamed('/patients', arguments: {}))
+                    }
                   }else{
-                    Navigator.of(context).pushNamed('/', arguments: {})
-                }
+
+                    if(value=="logou"){
+                      Navigator.of(context).pushNamed('/', arguments: {})}
+                  }
                 });
               },
               enableBounds: true,

@@ -25,7 +25,7 @@ class PatientsViewState extends State<PatientsView> {
 
     return Scaffold(
       backgroundColor: AppController.instance.mainColor,
-      appBar: CustomAppBar.instance.appSemVolta(context, "/login", Text("Pacientes"),
+      appBar: CustomAppBar.instance.appSemVolta(context, "/login", Text("Pacientes",style: TextStyle(color: Colors.black),),
           Positioned(
             child: Container(
               child: IconButton(
