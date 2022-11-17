@@ -69,6 +69,7 @@ class _RegisterRemedio extends State<RegisterRemedio> {
               TextBox(controllerObservacao, "Observação"),
               CustomButton(
                 response: () {
+
                   String nome = controllerNome.text;
                   String dosagem = controllerDosagem.text;
                   String observacao = controllerObservacao.text;
@@ -84,20 +85,15 @@ class _RegisterRemedio extends State<RegisterRemedio> {
                       observacao: observacao,
                       id: AppController.instance.rmdCriados,
                     );
-                    AppController.instance.remedio.add(tempRem);
+                    print("REgistrando remedio");
+                    SessionController.instance.registerRemedy(tempRem).then((value) => SessionController.instance.getRemedios().then((value) => Navigator.pop(
+                        context,tempRem
+                    )));
+                    //AppController.instance.remedio.add(tempRem);
                     AppController.instance.setAlarm(controllerHora, nome,
                         observacao, AppController.instance.rmdCriados!);
                     AppController.instance.rmdCriados++;
-                    usedRemedio = Remedio(
-                      nome: nome,
-                      dosagem: dosagem,
-                      hora: controllerHora,
-                      observacao: observacao,
-                      id:  AppController.instance.rmdCriados,
-                    );
-                    // SessionController.instance.registerRemedy(usedRemedio).then((value) => SessionController.instance.getRemedios().then((value) => Navigator.pop(
-                    //     context,usedRemedio
-                    // )));
+
 
                   }
                 },

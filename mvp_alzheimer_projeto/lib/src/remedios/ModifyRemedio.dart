@@ -29,7 +29,7 @@ class _ModifyRemedio extends State<ModifyRemedio> {
     idRemedio = c.id;
     print("id aqui no init: ${idRemedio}");
     controllerNome = new TextEditingController(text: c.nome);
-    controllerDosagem = new TextEditingController(text: c.dosagem);
+    controllerDosagem = new TextEditingController(text: c.dosagem.toString());
     controllerObservacao = new TextEditingController(text: c.observacao);
     super.initState();
   }

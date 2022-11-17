@@ -18,7 +18,7 @@ class ViewRemedio extends StatefulWidget {
 class _ViewRemedio extends State<ViewRemedio> {
   @override
   Widget build(BuildContext context) {
-   // SessionController.instance.getRemedios().then((value){print("Chegou");});
+    SessionController.instance.getRemedios().then((value){print("Chegou");});
     return Scaffold(
       backgroundColor: AppController.instance.mainColor,
       appBar: CustomAppBar.instance.getNamedDefault(
@@ -58,7 +58,7 @@ class _ViewRemedio extends State<ViewRemedio> {
             },
             title: Text(AppController.instance.remedio[index].nome +
                 " " +
-                AppController.instance.remedio[index].dosagem),
+                AppController.instance.remedio[index].dosagem.toString()),
             subtitle: Text(AppController.instance.remedio[index].hora
                 .toString()
                 .substring(10, 15)),

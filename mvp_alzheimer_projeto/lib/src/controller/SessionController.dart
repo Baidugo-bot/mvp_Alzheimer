@@ -143,7 +143,7 @@ class SessionController {
 
 
   Future<void> registerRemedy(Remedio rem) async {
-    print("Registrando Familiar"+pacienteID.toString());
+    print("Registrando Remedio"+rem.hora.toString());
     final response = await http.post(
       Uri.parse('https://alzheimer-db.herokuapp.com/remedio/register/'),
       headers: {
@@ -326,7 +326,7 @@ class SessionController {
     int contador = 0;
     List<Remedio> remedios = [];
     final response = await http.post(
-      Uri.parse('https://alzheimer-db.herokuapp.com/familia/consulta/'),
+      Uri.parse('https://alzheimer-db.herokuapp.com/remedio/consulta/'),
       headers: <String, String>{
         'Content-Type': 'application/json; charset=UTF-8',
       },
@@ -338,22 +338,20 @@ class SessionController {
     dynamic returned = jsonDecode(response.body);
     AppController.instance.rmdCriados = 0;
      print(returned);
-    // for(Map<String, dynamic> a in returned){
-    //   print(a["DataNascimento"]);
-    //   remedios.add(Remedio(
-    //     nome:a[""],
-    //     dosagem:,
-    //     hora:,
-    //     data:,
-    //     observacao:,
-    //     id : AppController.instance.rmdCriados,
-    //     idBanco:
-    //   )
-    //   );
-    //   AppController.instance.rmdCriados++;
-    //   contador++;
-    // }
-    // AppController.instance.remedio = remedios;
+    for(Map<String, dynamic> a in returned){
+      remedios.add(Remedio(
+        nome: a["NomeRedio"],
+        dosagem: a["Dosagem"],
+        hora: TimeOfDay(hour: int.parse(a["Horario"].toString().substring(3,5)),minute: int.parse(a["Horario"].toString().substring(6,8))),
+        observacao: a["observacao"],
+        id : AppController.instance.rmdCriados,
+        idBanco: a["idRemedios"]
+      )
+      );
+      AppController.instance.rmdCriados++;
+      contador++;
+    }
+    AppController.instance.remedio = remedios;
 
   }
 
