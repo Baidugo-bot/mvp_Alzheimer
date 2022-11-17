@@ -4,6 +4,7 @@ import 'package:projeto_estudo/src/remedios/text_box.dart';
 
 import '../../AppController.dart';
 import '../components/CustomButton.dart';
+import '../controller/SessionController.dart';
 
 class ModifyRemedio extends StatefulWidget {
   final Remedio _remedio;
@@ -15,27 +16,25 @@ class ModifyRemedio extends StatefulWidget {
 }
 
 class _ModifyRemedio extends State<ModifyRemedio> {
-  late TextEditingController controllerNome;
-  late TextEditingController controllerDosagem;
-  late TextEditingController controllerObservacao;
+   TextEditingController controllerNome = new TextEditingController();
+   TextEditingController controllerDosagem = new TextEditingController();
+   TextEditingController controllerObservacao = new TextEditingController();
   int? idRemedio = 0;
   TimeOfDay? controllerHora = AppController.instance.modificarRemedio.hora;
-  bool confirmTime = false;
-
+  bool confirmTime = true;
   @override
-  void initState() {
-    Remedio c = widget._remedio;
-    print("Remedio print no initState ${c.id}");
-    idRemedio = c.id;
-    print("id aqui no init: ${idRemedio}");
-    controllerNome = new TextEditingController(text: c.nome);
-    controllerDosagem = new TextEditingController(text: c.dosagem.toString());
-    controllerObservacao = new TextEditingController(text: c.observacao);
-    super.initState();
-  }
 
   @override
   Widget build(BuildContext context) {
+    var args;
+    if(ModalRoute.of(context)!.settings.arguments != null){
+      args = ModalRoute.of(context)!.settings.arguments as Map<String,Remedio>;
+      controllerNome.text= args["remedio"]?.nome;
+      controllerDosagem.text=args["remedio"]?.dosagem.toString() ?? "";
+      controllerObservacao.text=args["remedio"]?.observacao.toString()?? "";
+      controllerHora = args["remedio"]?.hora;
+    }
+
     return Scaffold(
       backgroundColor: AppController.instance.mainColor,
       appBar: CustomAppBar.instance.getNamedDefault(
@@ -52,20 +51,21 @@ class _ModifyRemedio extends State<ModifyRemedio> {
           Center(child: Text("${controllerHora?.hour}:${controllerHora?.minute}")),
           ElevatedButton(
             onPressed: () {
-              confirmTime = true;
-              showTimePicker(context: context, initialTime: controllerHora ?? TimeOfDay(hour: 0, minute: 0))
+              showTimePicker(context: context, initialTime: controllerHora ?? TimeOfDay(hour: 1, minute: 1))
                   .then((value) {
                 setState(() {
-                  controllerHora = value!;
+                  TimeOfDay verify = value!;
+                  print("${verify.hour}:${verify.minute}");
+                  args["remedio"].hora = TimeOfDay(hour: verify.hour, minute: verify.minute);
+                  Navigator.of(context).pushNamed('/editarRemedio',arguments: {"remedio": args["remedio"] as Remedio});
                 });
               });
             },
             style: ElevatedButton.styleFrom(
               primary: Colors.grey,
             ),
-
-            child:
-                Text("Horario Remédio", style: TextStyle(color: Colors.black)),
+            child: Text("Horario Remédio",
+                style: TextStyle(color: Colors.black)),
           ),
           TextBox(
             controllerObservacao,
@@ -76,6 +76,7 @@ class _ModifyRemedio extends State<ModifyRemedio> {
               String nome = controllerNome.text;
               String dosagem = controllerDosagem.text;
               String observacao = controllerObservacao.text;
+              Remedio tempRem ;
               if (nome.isNotEmpty &&
                   dosagem.isNotEmpty &&
                   observacao.isNotEmpty &&
@@ -89,8 +90,14 @@ class _ModifyRemedio extends State<ModifyRemedio> {
                         dosagem: dosagem,
                         hora: controllerHora,
                         observacao: observacao));
-                // print("Lenght do remedios: ${AppController.instance.remedio.length}");
-                // print("Remédios criados: ${AppController.instance.rmdCriados}");
+                tempRem = new Remedio(
+                    nome: nome,
+                    dosagem: dosagem,
+                    hora: controllerHora,
+                    observacao: observacao);
+                SessionController.instance.editRemedy(tempRem).then((value) => SessionController.instance.getRemedios().then((value) => Navigator.pop(
+                    context,tempRem
+                )));
               }
             },
             style: ElevatedButton.styleFrom(primary: Colors.green),

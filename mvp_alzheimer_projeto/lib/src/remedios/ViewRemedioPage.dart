@@ -21,7 +21,6 @@ class _ViewRemedio extends State<ViewRemedio> {
 
   @override
   Widget build(BuildContext context) {
-    SessionController.instance.getRemedios().then((value){print("Chegou");});
     return Scaffold(
       backgroundColor: AppController.instance.mainColor,
       appBar: CustomAppBar.instance.getNamedDefault(
@@ -38,23 +37,7 @@ class _ViewRemedio extends State<ViewRemedio> {
           return ListTile(
             onTap: () {
               AppController.instance.modificarRemedio = AppController.instance.remedio[index];
-              Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (_) => ModifyRemedio(
-                              AppController.instance.remedio[index])))
-                  .then((newRemedio) {
-                if (newRemedio != null) {
-                  setState(() {
-                    AppController.instance.remedio.removeAt(index);
-
-                    AppController.instance.remedio.insert(index, newRemedio);
-
-                    messageResponse(
-                        context, newRemedio.nome + " foi modificado...!");
-                  });
-                }
-              });
+              Navigator.of(context).pushNamed('/editarRemedio',arguments: {"remedio": AppController.instance.remedio[index]});
             },
             onLongPress: () {
               removeClient(context, AppController.instance.remedio[index]);
@@ -109,8 +92,8 @@ class _ViewRemedio extends State<ViewRemedio> {
                 TextButton(
                   onPressed: () {
                     setState(() {
-                      SessionController.instance.removeRemedy(remedio.idBanco ??-1);
-                      Navigator.pop(context);
+                      SessionController.instance.removeRemedy(remedio.idBanco ??-1).then((value) => Navigator.pop(context));
+
                     });
                   },
                   child: Text(

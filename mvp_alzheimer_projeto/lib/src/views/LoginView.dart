@@ -67,12 +67,15 @@ class LoginViewState extends State<LoginView> {
               color: Color.fromRGBO(173, 216, 230, 1),
               title: 'Entrar',
               response: () async {
-                SessionController.instance
-                    .tryLogin(emailController.text, passwordController.text)
-                    .then((value) => (value == "logou")
-                        ?SessionController.instance.getPatients().then((value) => Navigator.of(context)
-                    .pushNamed('/patients', arguments: {}))
-                        : null);
+                print(SessionController.instance.isCuidador);
+                SessionController.instance.tryLogin(emailController.text, passwordController.text).then((value) => {
+
+                  if(SessionController.instance.isCuidador){
+                    SessionController.instance.getPatients().then((value) => Navigator.of(context).pushNamed('/patients', arguments: {}))
+                  }else{
+                    Navigator.of(context).pushNamed('/', arguments: {})
+                }
+                });
               },
               enableBounds: true,
               bounds: {320.0: 60.0},

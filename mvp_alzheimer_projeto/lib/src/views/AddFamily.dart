@@ -114,9 +114,10 @@ class AddFamilyViewState extends State<AddFamily> {
                       imgLink: (imgExists)?imageLink:"assets/images/imagemEscolha.png",
                       Telephone: telefoneController.text
                   );
-                  SessionController.instance.registerFamily(usedFamily).then((value) => (){});
-                  SessionController.instance.getFamily().then((value) =>Navigator.of(context).pushNamed('/family'));;
-                }
+                  SessionController.instance.registerFamily(usedFamily).then((value) => (){
+                    SessionController.instance.getFamily().then((value) =>Navigator.of(context).pushNamed('/family'));;
+                  });
+ }
 
 
 

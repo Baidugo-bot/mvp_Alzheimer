@@ -28,6 +28,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
+    print("E CUIDADOR?:${SessionController.instance.isCuidador}");
     return Scaffold(
       // map dos botoes
       backgroundColor: AppController.instance.mainColor,
