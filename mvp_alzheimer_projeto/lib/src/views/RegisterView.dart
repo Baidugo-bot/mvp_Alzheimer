@@ -34,8 +34,8 @@ class RegisterViewState extends State<RegisterView> {
         child: Column(
           children: [
             BorderedText(
-              strokeWidth: 1,
-              child: Text("Memories",style: TextStyle(fontSize: 20),),
+              strokeWidth: 0,
+              child: Text("Memories",style: TextStyle(fontSize: 25,color: Colors.black,shadows: [Shadow(color: Colors.black54.withOpacity(0.2),offset: Offset(1.5, 2.3))]),),
             ),
             Container(height: 10,),
             Container(
@@ -49,9 +49,9 @@ class RegisterViewState extends State<RegisterView> {
             ),
 
             DefaultTextField(haveFrame: false, title: 'Nome: ', myResult: nameController,),
-            DefaultTextField(haveFrame: false, title: 'Email: ', myResult: emailController,),
-            DefaultTextField(haveFrame: false, title: 'Senha: ', myResult: passwordController,),
-            DefaultTextField(haveFrame: false, title: 'Confirmar senha: ', myResult: confirmController,),
+            DefaultTextField(haveFrame: false, title: 'Usuario: ', myResult: emailController,),
+            DefaultTextField(haveFrame: false, title: 'Senha: ', myResult: passwordController,isPassword: true),
+            DefaultTextField(haveFrame: false, title: 'Confirmar senha: ', myResult: confirmController,isPassword: true),
 
             Container(height: 10,),
             DefaultButton(color: Color.fromRGBO(173, 216, 230, 1), title: 'Cadastrar-se', response: () {
