@@ -127,7 +127,10 @@ class RegisterPatientViewState extends State<RegisterPatientView> {
                   title: 'Salvar',
                   response: () {
                     print(SessionController.instance.sessionID);
-                    if(senhaController.text==repitaSenhaController.text){
+                    if(senhaController.text!=repitaSenhaController.text || senhaController.text=="" || emailController.text=="" || nameController.text=="" || diseaseController.text=="" || casoController.text=="" || emailController.text=="" ){
+                      print("Informacoes faltantes ou senhas diferentes.");
+
+                    }else{
                       Paciente myPac = Paciente(
                           doenca: diseaseController.text,
                           anotacoes: casoController.text,
@@ -140,9 +143,6 @@ class RegisterPatientViewState extends State<RegisterPatientView> {
                       SessionController.instance.registerPatient("1", myPac, emailController.text, senhaController.text).then((value) =>
                           SessionController.instance.getPatients().then((value) => Navigator.of(context).pushNamed('/patients'))
                       );
-
-                    }else{
-                      print("senhas diferentes");
                     }
                   },
                   enableBounds: true,

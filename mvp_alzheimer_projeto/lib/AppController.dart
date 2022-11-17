@@ -23,6 +23,15 @@ class AppController extends ChangeNotifier {
   String lastImgURL = "none";
   Color mainColor = const Color.fromRGBO(121, 188, 218, 1);
 
+  messageResponse(BuildContext context, String nome) {
+    showDialog(
+        context: context,
+        builder: (_) => AlertDialog(
+          title: Text("Informativo"),
+          content: Text(nome,style: TextStyle(color: Colors.red),),
+        ));
+  }
+
   void addMemory() {
     memories.add(Text(""));
     counter++;

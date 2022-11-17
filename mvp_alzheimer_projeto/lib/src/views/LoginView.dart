@@ -72,11 +72,16 @@ class LoginViewState extends State<LoginView> {
                   if(SessionController.instance.isCuidador){
                     if(value=="logou"){
                       SessionController.instance.getPatients().then((value) => Navigator.of(context).pushNamed('/patients', arguments: {}))
+                    }else{
+                      AppController.instance.messageResponse(context, value)
                     }
                   }else{
 
                     if(value=="logou"){
-                      Navigator.of(context).pushNamed('/', arguments: {})}
+                      Navigator.of(context).pushNamed('/', arguments: {})
+                    }else{
+                      AppController.instance.messageResponse(context, value)
+                    }
                   }
                 });
               },

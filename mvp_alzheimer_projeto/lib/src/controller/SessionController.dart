@@ -37,7 +37,7 @@ class SessionController {
     dynamic returned = jsonDecode(response.body);
     print(returned["message"].toString().compareTo("Email doesn't exist"));
     if(returned["message"].toString().compareTo("Login Incorreto")==0 || returned["message"].toString().compareTo("Email doesn't exist")==0){
-      return "errou";
+      return returned["message"].toString();
     }else{//pega id pra consultas futuras e guarda no app
       sessionID =  int.parse(returned["data"]["idUsuario"].toString());
 
