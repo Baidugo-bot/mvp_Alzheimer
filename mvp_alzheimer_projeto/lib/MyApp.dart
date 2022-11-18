@@ -38,6 +38,7 @@ import 'MyHomePage.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
+  static final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
 
   // This widget is the root of your application.
   @override
@@ -46,6 +47,7 @@ class MyApp extends StatelessWidget {
       animation: AppController.instance,
       builder: (context, child) {
         return MaterialApp(
+          navigatorKey: navigatorKey,
           debugShowCheckedModeBanner: false,
           theme: ThemeData.dark(),
           initialRoute: '/login',//ternario (tipo)?rotapaciente,rotaCuidador

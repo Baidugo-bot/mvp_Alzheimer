@@ -32,58 +32,67 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       // map dos botoes
       backgroundColor: AppController.instance.mainColor,
-
+      appBar: AppBar(
+        backgroundColor: AppController.instance.mainColor,
+        leading: Positioned(
+          child: Container(
+            child: IconButton(
+              onPressed: () {
+                Navigator.of(context).pushNamed('/profilePaciente');
+              },
+              color: Colors.black,
+              icon: Icon(
+                Icons.account_circle_outlined,
+              ),
+              iconSize: 50.0,
+            ),
+          ),
+        ),
+        title: (SessionController.instance.isCuidador)?
+        Center(
+          child: Positioned(
+            child: Container(
+              child: IconButton(
+                onPressed: () {
+                  Navigator.of(context).pushNamed('/patients');
+                },
+                color: Colors.black,
+                icon: Icon(
+                  Icons.people,
+                ),
+                iconSize: 50.0,
+              ),
+            ),
+          ),
+        ) : Text(""),
+        actions: [
+          Positioned(
+            child: Container(
+              child: IconButton(
+                onPressed: () {
+                  AppController.instance.messageResponse(context, "Saindo da conta...");
+                  Navigator.of(context).pushNamed('/login');
+                },
+                color: Colors.redAccent,
+                icon: Icon(
+                  Icons.exit_to_app,
+                ),
+                iconSize: 50.0,
+              ),
+            ),
+          )
+        ],
+      ),
       body: SizedBox(
         child: Column(
           children: [
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Positioned(
-                  child: Container(
-                    child: IconButton(
-                      onPressed: () {
-                        Navigator.of(context).pushNamed('/profilePaciente');
-                      },
-                      color: Colors.black,
-                      icon: Icon(
-                        Icons.account_circle_outlined,
-                      ),
-                      iconSize: 50.0,
-                    ),
-                  ),
-                ),
 
-                (SessionController.instance.isCuidador)?
-                Positioned(
-                child: Container(
-                child: IconButton(
-                onPressed: () {
-                Navigator.of(context).pushNamed('/patients');
-                },
-                color: Colors.black,
-                icon: Icon(
-                Icons.people,
-                ),
-                iconSize: 50.0,
-                ),
-                ),
-                ) : Text(""),
-                Positioned(
-                  child: Container(
-                    child: IconButton(
-                      onPressed: () {
-                        AppController.instance.messageResponse(context, "Saindo da conta...");
-                        Navigator.of(context).pushNamed('/login');
-                      },
-                      color: Colors.redAccent,
-                      icon: Icon(
-                        Icons.exit_to_app,
-                      ),
-                      iconSize: 50.0,
-                    ),
-                  ),
-                )
+
+
+
               ],
             ),
             CircleAvatar(

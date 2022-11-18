@@ -18,6 +18,7 @@ class _RegisterRemedio extends State<RegisterRemedio> {
   late TextEditingController controllerNome;
   late TextEditingController controllerDosagem;
   late TextEditingController controllerObservacao;
+  bool isReady = true;
   TimeOfDay controllerHora =
       TimeOfDay(hour: DateTime.now().hour, minute: DateTime.now().minute);
   bool confirmTime = false;
@@ -84,13 +85,13 @@ class _RegisterRemedio extends State<RegisterRemedio> {
                       observacao: observacao,
                       id: AppController.instance.rmdCriados,
                     );
-                    print("REgistrando remedio");
-                    SessionController.instance.registerRemedy(tempRem).then((value) => SessionController.instance.getRemedios().then((value) => Navigator.pop(
-                        context,tempRem
-                    )));
-                    //AppController.instance.remedio.add(tempRem);
+                    print("REgistrando rem ${isReady}");
+                    Navigator.of(context).pushNamed('/remedioPage');
                     AppController.instance.setAlarm(controllerHora, nome,
                         observacao, AppController.instance.rmdCriados!);
+                    SessionController.instance.registerRemedy(tempRem).then((value) => SessionController.instance.getRemedios().then((value) => SessionController.instance.getRemedios().then((value) => Navigator.of(context).pushNamed('/remedioPage'))));
+                    //AppController.instance.remedio.add(tempRem);
+
                     AppController.instance.rmdCriados++;
 
 

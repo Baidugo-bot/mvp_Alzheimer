@@ -125,7 +125,7 @@ class EditFamilyViewState extends State<EditFamilyView> {
                               ? imageLink
                               : "assets/images/imagemEscolha.png");
                       SessionController.instance.editFamily(usedFamily).then((value) => (){});
-                      Future.delayed(const Duration(seconds: 1), () {
+                      Future.delayed(const Duration(seconds: 1,milliseconds: 500), () {
                         AppController.instance.messageResponse(context, "Membro da familia editado!");
 // Here you can write your code
                         SessionController.instance.getFamily().then((value) =>Navigator.of(context).pushNamed('/family'));;
@@ -148,7 +148,7 @@ class EditFamilyViewState extends State<EditFamilyView> {
                     SessionController.instance.removeFamily(args["family"]!.idBanco ?? -1).then((value) => (){
 
                     });
-                    Future.delayed(const Duration(seconds: 1), () {
+                    Future.delayed(const Duration(seconds: 1,milliseconds: 500), () {
 
 // Here you can write your code
                       SessionController.instance.getFamily().then((value) =>Navigator.of(context).pushNamed('/family'));

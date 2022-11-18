@@ -99,7 +99,7 @@ class _ModifyRemedio extends State<ModifyRemedio> {
                         (value) => null
                 );
 
-                Future.delayed(const Duration(seconds: 1), () {
+                Future.delayed(const Duration(milliseconds: 300), () {
                   SessionController.instance.getRemedios().then((value) => Navigator.of(context).pushNamed('/remedioPage'));
                   setState(() {
 

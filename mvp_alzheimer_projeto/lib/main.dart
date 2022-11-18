@@ -12,6 +12,21 @@ import 'package:intl/date_symbol_data_file.dart';
 
 import 'MyApp.dart';
 Future<void> main() async {
+ AwesomeNotifications().initialize(
+     null, // icon for your app notification
+     [
+      NotificationChannel(
+          channelKey: 'key1',
+          channelName: 'Proto Coders Point',
+          channelDescription: "Notification example",
+          defaultColor: Color(0XFF9050DD),
+          ledColor: Colors.white,
+          playSound: true,
+          enableLights:true,
+          enableVibration: true
+      )
+     ]
+ );
  runApp( MyApp());
   //LocalizationController.instance.getPosition();
 }
