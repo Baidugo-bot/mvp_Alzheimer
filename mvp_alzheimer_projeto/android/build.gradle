@@ -11,12 +11,24 @@ buildscript {
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
     }
 
+    ext {
+               compileSdkVersion   = 31                // or latest
+               targetSdkVersion    = 31                // or latest
+               appCompatVersion    = "1.4.2"           // or latest
+
+    }
+
 }
 
 allprojects {
     repositories {
         google()
         mavenCentral()
+        maven {
+            // [required] background_fetch
+             url "${project(':background_fetch').projectDir}/libs"
+
+        }
     }
 }
 

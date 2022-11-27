@@ -34,51 +34,47 @@ class _MyHomePageState extends State<MyHomePage> {
       backgroundColor: AppController.instance.mainColor,
       appBar: AppBar(
         backgroundColor: AppController.instance.mainColor,
-        leading: Positioned(
-          child: Container(
-            child: IconButton(
-              onPressed: () {
-                Navigator.of(context).pushNamed('/profilePaciente');
-              },
-              color: Colors.black,
-              icon: Icon(
-                Icons.account_circle_outlined,
-              ),
-              iconSize: 50.0,
+        leading: Container(
+          child: IconButton(
+            onPressed: () {
+              Navigator.of(context).pushNamed('/profilePaciente');
+            },
+            color: Colors.black,
+            icon: Icon(
+              Icons.account_circle_outlined,
             ),
+            iconSize: 50.0,
           ),
         ),
         title: (SessionController.instance.isCuidador)?
         Center(
-          child: Positioned(
-            child: Container(
-              child: IconButton(
-                onPressed: () {
-                  Navigator.of(context).pushNamed('/patients');
-                },
-                color: Colors.black,
-                icon: Icon(
-                  Icons.people,
-                ),
-                iconSize: 50.0,
+          child: Container(
+            child: IconButton(
+              onPressed: () {
+                Navigator.of(context).pushNamed('/patients');
+              },
+              color: Colors.black,
+              icon: Icon(
+                Icons.people,
               ),
+              iconSize: 50.0,
             ),
           ),
         ) : Text(""),
         actions: [
-          Positioned(
-            child: Container(
-              child: IconButton(
-                onPressed: () {
-                  AppController.instance.messageResponse(context, "Saindo da conta...");
-                  Navigator.of(context).pushNamed('/login');
-                },
-                color: Colors.redAccent,
-                icon: Icon(
-                  Icons.exit_to_app,
-                ),
-                iconSize: 50.0,
+          Container(
+            child: IconButton(
+              onPressed: () {
+                AppController.instance.messageResponse(context, "Saindo da conta...");
+                AppController.instance.remedio = [];
+                print("Saindo!!");
+                Navigator.of(context).pushNamed('/login');
+              },
+              color: Colors.redAccent,
+              icon: Icon(
+                Icons.exit_to_app,
               ),
+              iconSize: 50.0,
             ),
           )
         ],

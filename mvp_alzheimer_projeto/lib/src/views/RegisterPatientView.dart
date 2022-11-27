@@ -117,7 +117,7 @@ class RegisterPatientViewState extends State<RegisterPatientView> {
 
                       );
                       SessionController.instance.registerPatient("1", myPac, emailController.text, senhaController.text).then((value) =>
-                          SessionController.instance.getPatients().then((value) => Navigator.of(context).pushNamed('/patients'))
+                        (value!="Email já cadastrado!")?SessionController.instance.getPatients().then((value) => Navigator.of(context).pushNamed('/patients')):AppController.instance.messageResponse(context, value)
                       );
                     }
                   },

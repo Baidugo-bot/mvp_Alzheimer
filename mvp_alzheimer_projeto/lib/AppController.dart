@@ -17,6 +17,7 @@ class AppController extends ChangeNotifier {
   List<Paciente> pacientes = [];
   int rmdCriados = 0;
   late Remedio modificarRemedio ;
+  bool deactivateAlarms = true;
 
   DateTime now = DateTime.now().toUtc();
   int counter = 0;
@@ -39,19 +40,20 @@ class AppController extends ChangeNotifier {
   }
 
   void setAlarm(TimeOfDay time, String nome, String observacao, int id) {
+    print("Running!");
     var cron = Cron();
     bool validacao = false;
-    AppController.instance.remedio.forEach((element) {
-      validacao = (element.id == id) ? true : false;
+    validacao = validarId(id);
+    if(validacao==false){
+      print("Negado!");
       return;
-    });
-    print(validacao);
-    print("${time.hour}");
-    print("${time.minute}");
+    }
+    print("Setado!");
     cron.schedule(
         Schedule.parse('*/7 ${time.minute} ${time.hour} * * *'),
         () async => {
-              if (validarId(id))
+
+              if (validarId(id) && teste())
                 {
                   AwesomeNotifications().createNotification(
                       content: NotificationContent(
@@ -68,12 +70,10 @@ class AppController extends ChangeNotifier {
   void modifyAlarm(TimeOfDay time, String nome, String observacao, int id) {
     var cron = Cron();
     bool validacao = false;
-    AppController.instance.remedio.forEach((element) {
-      validacao = (element.id == id) ? true : false;
+    validacao = validarId(id);
+    if(validacao==false){
       return;
-    });
-    print(validacao);
-    print("Id no modify ${id}");
+    }
     cron.schedule(
         Schedule.parse('*/7 ${time.minute} ${time.hour} * * *'),
         () async => {
@@ -88,16 +88,24 @@ class AppController extends ChangeNotifier {
 
                 }
               else
-                {cron.close()}
+                {cron.close().then((value) => print("Remedio Recusado."))}
             });
   }
 
   bool validarId(int id) {
     bool validate = false;
-    AppController.instance.remedio.forEach((element) {
-      validate = (element.id == id) ? true : false;
-      return;
-    });
+
+
+    for (var i = 0; i < AppController.instance.remedio.length; i++) {
+      validate = (AppController.instance.remedio[i].id == id) ? true : false;
+
+      if(validate==true){
+        print("VALIDADO!");
+        break;
+      }
+
+    }
+
     return validate;
   }
 
@@ -108,5 +116,11 @@ class AppController extends ChangeNotifier {
       return image.path;
     }
     return "none";
+  }
+
+
+  bool teste(){
+    print("ALARMANDO!");
+    return true;
   }
 }

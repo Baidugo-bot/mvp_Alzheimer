@@ -87,8 +87,8 @@ class _RegisterRemedio extends State<RegisterRemedio> {
                     );
                     print("REgistrando rem ${isReady}");
                     Navigator.of(context).pushNamed('/remedioPage');
-                    AppController.instance.setAlarm(controllerHora, nome,
-                        observacao, AppController.instance.rmdCriados!);
+                    // AppController.instance.setAlarm(controllerHora, nome,
+                    //     observacao, AppController.instance.rmdCriados!);
                     SessionController.instance.registerRemedy(tempRem).then((value) => SessionController.instance.getRemedios().then((value) => SessionController.instance.getRemedios().then((value) => Navigator.of(context).pushNamed('/remedioPage'))));
                     //AppController.instance.remedio.add(tempRem);
 

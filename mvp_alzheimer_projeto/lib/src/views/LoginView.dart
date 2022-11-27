@@ -78,7 +78,7 @@ class LoginViewState extends State<LoginView> {
                   }else{
 
                     if(value=="logou"){
-                      Navigator.of(context).pushNamed('/', arguments: {})
+                      prepareLogin()
                     }else{
                       AppController.instance.messageResponse(context, "Login incorreto")
                     }
@@ -104,5 +104,11 @@ class LoginViewState extends State<LoginView> {
         ),
       ),
     );
+  }
+
+  void prepareLogin(){
+    SessionController.instance.getRemedios().then((value) => SessionController.instance.setupAlarms());
+    ;
+    Navigator.of(context).pushNamed('/', arguments: {});
   }
 }

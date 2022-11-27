@@ -46,23 +46,31 @@ class PatientsViewState extends State<PatientsView> {
           itemCount: AppController.instance.pacientes.length,
           itemBuilder: (BuildContext ctx, int number){
             Paciente actualPat = AppController.instance.pacientes[number];
-        return Align(
-          alignment: Alignment.center,
-          child: Container(
-            height: 100,
-            margin: EdgeInsets.only(top: 22,bottom: 22),
-            child: DefaultButton(
-              circularBounds: true,
-              color: Color.fromRGBO(228, 241, 247, 1),
-              title: actualPat.nome,
-              response: () {
-                SessionController.instance.pacienteID = AppController.instance.pacientes[number].id;
-                ProfileController.instance.updateProfile(AppController.instance.pacientes[number].nome, AppController.instance.pacientes[number].dataNasc);
-                Navigator.of(context).pushNamed('/');
-                },
-              enableBounds: true,
-              bounds: {340.0:50.0},),
-          ),
+        return InkWell(
+          child: ListTile(
+
+            onTap: () {
+              SessionController.instance.pacienteID = AppController.instance.pacientes[number].id;
+              ProfileController.instance.updateProfile(AppController.instance.pacientes[number].nome, AppController.instance.pacientes[number].dataNasc); //if not relogging, once relog not reset check it
+              Navigator.of(context).pushNamed('/');
+            },
+            onLongPress: (){
+              removeClient(context,actualPat );
+            },
+
+            title: Text(
+                "Paciente: "+actualPat.nome,
+              style: TextStyle(color: Colors.black,fontSize: 25),
+            ),
+            subtitle: Text(
+                "Anotação: "+actualPat.anotacoes,
+              style: TextStyle(color: Colors.black,fontSize: 18),
+            ),
+            trailing: Icon(
+              Icons.delete,
+              color: Colors.red,
+            ),
+            ),
         );
       }
       ),
@@ -73,5 +81,45 @@ class PatientsViewState extends State<PatientsView> {
 
       ),
     );
+  }
+
+
+  removeClient(BuildContext context, Paciente pac) {
+    showDialog(
+        context: context,
+        builder: (_) => AlertDialog(
+          title: Text("Excluir Paciente"),
+          content:
+          Text("Tem certeza que quer excluir o paciente " + pac.nome + "?"),
+          actions: [
+            TextButton(
+              onPressed: () {
+                setState(() {
+                  SessionController.instance.removePatient(pac.id).then((value) => {});
+                  Future.delayed(const Duration(seconds: 2), () {
+                    AppController.instance.messageResponse(context, "Paciente deletado!");
+                    SessionController.instance.getPatients().then((value) =>  Navigator.of(context).pushNamed('/patients', arguments: {}));
+                    setState(() {
+
+                    });
+                  });
+                });
+              },
+              child: Text(
+                "Excluir",
+                style: TextStyle(color: Colors.red),
+              ),
+            ),
+            TextButton(
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              child: Text(
+                "Cancelar",
+                style: TextStyle(color: Colors.blue),
+              ),
+            )
+          ],
+        ));
   }
 }

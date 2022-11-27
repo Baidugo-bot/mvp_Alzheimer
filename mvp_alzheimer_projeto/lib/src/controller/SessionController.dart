@@ -53,7 +53,7 @@ class SessionController {
   }
 
 
-  Future<void> register(String tipoCuidador,String email,String passWord) async {
+  Future<String> register(String tipoCuidador,String email,String passWord) async {
     final response = await http.post(
       Uri.parse('https://alzheimer-db.herokuapp.com/register/'),
       headers: <String, String>{
@@ -66,11 +66,18 @@ class SessionController {
       }),
     );
     print(response.body.toString());
-    dynamic returned = jsonDecode(json.encode(response.body));
+    dynamic returned = jsonDecode(response.body);
+    if(returned["message"]=="Email já existe"){
+      print("Cadastrado");
+      return "Email já cadastrado!";
+    }else{
+      return "Cadastrado com sucesso!";
+    }
+
   }
 
 
-  Future<void> registerPatient(String tipoCuidador,Paciente patient,String email,String senha) async {
+  Future<String> registerPatient(String tipoCuidador,Paciente patient,String email,String senha) async {
     print(patient.dataNasc.toString().substring(0,10));
     final response = await http.post(
       Uri.parse('https://alzheimer-db.herokuapp.com/paciente/register/'),
@@ -90,12 +97,14 @@ class SessionController {
       }),
     );
     print(response.body.toString());
-    dynamic posCollected = jsonDecode(json.encode(response.body));
-    // if(posCollected["message"]!="Não encontrado"){
-    //   ;
-    // }else{
-    //   ;
-    // } qnd for usuario 2 vai receber o cuidador, mandar o cuidador nesse registro 1 o paciente, vai ser o restante de login
+    dynamic returned = jsonDecode(response.body);
+    if(returned["message"]=="Email já existe"){
+      print("Cadastrado");
+      return "Email já cadastrado!";
+    }else{
+      return "Cadastrado com sucesso!";
+    }
+
   }
 
   Future<void> registerMemory(Memory memory) async {
@@ -264,6 +273,22 @@ class SessionController {
     dynamic posCollected = jsonDecode(json.encode(response.body));
   }
 
+  Future<void> removePatient(int id) async {
+    print("Removendo Remedio"+id.toString());
+    final response = await http.post(
+      Uri.parse('https://alzheimer-db.herokuapp.com/paciente/delete/'),
+      headers: {
+        'Content-Type': 'application/json; charset=UTF-8',
+      },
+      body: jsonEncode({
+        "idPaciente": id,
+      }),
+    );
+    print(response.body.toString());
+    dynamic posCollected = jsonDecode(json.encode(response.body));
+  }
+
+
 
   Future<void> getPatients() async {
     int contador = 0;
@@ -376,17 +401,16 @@ class SessionController {
     AppController.instance.rmdCriados = 0;
      print(returned);
     for(Map<String, dynamic> a in returned){
+      print(DateTime.now().millisecondsSinceEpoch.toString().substring(7));
       remedios.add(Remedio(
         nome: a["NomeRedio"],
         dosagem: a["Dosagem"],
         hora: TimeOfDay(hour: int.parse(a["Horario"].toString().substring(0,2)),minute: int.parse(a["Horario"].toString().substring(3,5))),
         observacao: a["Observacao"],
-        id : AppController.instance.rmdCriados,
+        id : int.parse(DateTime.now().millisecondsSinceEpoch.toString().substring(7)),
         idBanco: a["idRemedios"]
       )
       );
-
-      AppController.instance.rmdCriados++;
       contador++;
     }
     AppController.instance.remedio = remedios;
@@ -394,7 +418,13 @@ class SessionController {
 
   }
 
-
+  void setupAlarms(){
+    print("Fazendo setup de remedios");
+    for(Remedio rem in AppController.instance.remedio){
+      print("meu Remedio ${rem.nome} ${AppController.instance.validarId(rem.id)}");
+      AppController.instance.setAlarm(rem.hora ?? TimeOfDay(hour: 0, minute: 0), rem.nome, rem.observacao ?? "", rem.id);
+    }
+  }
 
 }
 
