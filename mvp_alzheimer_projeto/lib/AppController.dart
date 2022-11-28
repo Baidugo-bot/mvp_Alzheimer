@@ -25,9 +25,10 @@ class AppController extends ChangeNotifier {
   Color mainColor = const Color.fromRGBO(121, 188, 218, 1);
 
   Future<void> requestNotifyPermission() async{
+
     PermissionStatus result;
     result = await Permission.notification.request();
-
+    print(result);
     if(result.isGranted){
       AppController.instance.notifyPermitted = true;
     }else if(result.isPermanentlyDenied && result.isDenied){

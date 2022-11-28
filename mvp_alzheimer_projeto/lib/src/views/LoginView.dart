@@ -1,3 +1,4 @@
+import 'package:awesome_notifications/awesome_notifications.dart';
 import 'package:bordered_text/bordered_text.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -104,7 +105,12 @@ class LoginViewState extends State<LoginView> {
               color: Color.fromRGBO(173, 216, 230, 1),
               title: 'Permissao',
               response: () {
-                AppController.instance.requestNotifyPermission();
+                AwesomeNotifications().createNotification(
+                    content: NotificationContent(
+                        id: DateTime.now().millisecond,
+                        channelKey: 'key1',
+                        title: 'Samuel',
+                        body: '${DateTime.now().toString()}'));
               },
               enableBounds: true,
               bounds: {320.0: 60.0},
