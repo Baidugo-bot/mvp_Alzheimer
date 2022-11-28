@@ -36,30 +36,48 @@ class _ProfileViewState extends State<ProfileView> {
 
         ),
       ),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
+      body:  Stack(
         children: [
-//informações tela principal
-          
-          Text(
-            "Nome: ${ProfileController.instance.nome}",
-            style: TextStyle(fontSize: 24,color: Colors.black),
-          ),
-
-          Text(
-            "Observacoes: ${ProfileController.instance.observacoes}",
-            style: TextStyle(fontSize: 24,color: Colors.black),
-          ),
-          Text(
-            "Doenca: ${ProfileController.instance.doenca}",
-            style: TextStyle(fontSize: 24,color: Colors.black),
-          ),
-          Text(
-            "Nascimento: ${Jiffy(ProfileController.instance.dataNasc).format("dd/MM/yyyy")}",
-            style: TextStyle(fontSize: 24,color: Colors.black),
-          ),
           Container(
-            height: 80,
+            margin: EdgeInsets.only(left:  MediaQuery.of(context).size.width/2-60,top: 10),
+            child: CircleAvatar(
+              radius: 60,
+              child: Text(
+                ProfileController.instance.nome
+                    .substring(0, 1),
+                style: TextStyle(fontSize: 55),
+              ),
+            ),
+          ),
+          Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Container(height: 14,),
+//informações tela principal
+
+
+              Text(
+                "Nome: ${ProfileController.instance.nome}",
+                style: TextStyle(fontSize: 20,color: Colors.black),
+              ),
+              Container(height: 35,),
+              Text("'Observacoes:",
+                style: TextStyle(fontSize: 20,color: Colors.black),
+              ),
+              Text(ProfileController.instance.observacoes,
+                style: TextStyle(fontSize: 20,color: Colors.black),
+              ),
+              Container(height: 35,),
+              Text(
+                "Doenca: ${ProfileController.instance.doenca}",
+                style: TextStyle(fontSize: 20,color: Colors.black),
+              ),
+              Container(height: 35,),
+              Text(
+                "Nascimento: ${Jiffy(ProfileController.instance.dataNasc).format("dd/MM/yyyy")}",
+                style: TextStyle(fontSize: 20,color: Colors.black),
+              )
+            ],
           ),
         ],
       ),
