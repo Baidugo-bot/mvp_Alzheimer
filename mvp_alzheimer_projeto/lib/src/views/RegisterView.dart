@@ -40,18 +40,17 @@ class RegisterViewState extends State<RegisterView> {
             Container(height: 10,),
             Container(
               width: double.infinity,
-              decoration: BoxDecoration(
-                border: Border(
-                  bottom: BorderSide(color: Colors.black),
-                ),
-              ),
+
               child:  Image.asset('assets/images/theme.png',height: 100),
             ),
 
-            DefaultTextField(haveFrame: false, title: 'Nome: ', myResult: nameController,),
-            DefaultTextField(haveFrame: false, title: 'Usuario: ', myResult: emailController,),
-            DefaultTextField(haveFrame: false, title: 'Senha: ', myResult: passwordController,isPassword: true),
-            DefaultTextField(haveFrame: false, title: 'Confirmar senha: ', myResult: confirmController,isPassword: true),
+            DefaultTextField(haveFrame: false, title: 'Nome ', myResult: nameController,),
+            Container(height: 10,),
+            DefaultTextField(haveFrame: false, title: 'Usuario ', myResult: emailController,),
+            Container(height: 10,),
+            DefaultTextField(haveFrame: false, title: 'Senha ', myResult: passwordController,isPassword: true),
+            Container(height: 10,),
+            DefaultTextField(haveFrame: false, title: 'Confirmar senha ', myResult: confirmController,isPassword: true),
 
             Container(height: 10,),
             DefaultButton(color: Color.fromRGBO(173, 216, 230, 1), title: 'Cadastrar-se', response: () {

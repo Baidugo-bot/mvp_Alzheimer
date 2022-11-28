@@ -58,38 +58,45 @@ class RegisterPatientViewState extends State<RegisterPatientView> {
             ),
             DefaultTextField(
               haveFrame: false,
-              title: 'Nome: ',
+              title: 'Nome ',
               myResult: nameController,
             ),
+            Container(height: 10,),
             DateBorderedField(
                 onChangeFunction: (value) {
                   dateController = value;
                 },
                 lastDate: dateController,
+                dateTime: false,
                 initialValue: dateController),
+            Container(height: 10,),
             DefaultTextField(
               haveFrame: false,
-              title: 'Doença: ',
+              title: 'Doença ',
               myResult: diseaseController,
             ),
+            Container(height: 10,),
             DefaultTextField(
               haveFrame: false,
-              title: 'Casos Especiais: ',
+              title: 'Casos Especiais ',
               myResult: casoController,
             ),
+            Container(height: 10,),
             DefaultTextField(
               haveFrame: false,
-              title: 'Usuario: ',
+              title: 'Usuario ',
               myResult: emailController,
             ),
+            Container(height: 10,),
             DefaultTextField(
               haveFrame: false,
-              title: 'Senha: ',
+              title: 'Senha ',
               myResult: senhaController,isPassword: true
             ),
+            Container(height: 10,),
             DefaultTextField(
               haveFrame: false,
-              title: 'Repita a senha: ',
+              title: 'Repita a senha ',
               myResult: repitaSenhaController,isPassword: true
             ),
             Container(

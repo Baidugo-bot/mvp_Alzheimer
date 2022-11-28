@@ -40,8 +40,10 @@ class MemoriesPacienteViewState extends State<MemoriesPacienteView> {
                     children: [
                       CircleAvatar(
                         radius: 60,
-                        backgroundImage:
-                        MemoryModel.instance.memories[index].getImage(),
+                        child: Text(MemoryModel.instance.memories[index]
+                            .getTitle().substring(0,1),
+                          style: TextStyle(fontSize: 55),
+                        ),
                       ),
                       Container(
                         width: 10,

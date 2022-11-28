@@ -2,7 +2,6 @@ import 'package:awesome_notifications/awesome_notifications.dart';
 import 'package:cron/cron.dart';
 import 'package:flutter/material.dart';
 import 'package:projeto_estudo/src/controller/ProfileController.dart';
-import 'package:image_picker/image_picker.dart';
 import 'package:projeto_estudo/src/models/FamilyModel.dart';
 import 'package:projeto_estudo/src/models/MainProfileModel.dart';
 import 'package:projeto_estudo/src/views/AddFamily.dart';
@@ -109,14 +108,14 @@ class AppController extends ChangeNotifier {
     return validate;
   }
 
-  Future<String> getImage() async {
-    ImagePicker picker = new ImagePicker();
-    var image = await picker.pickImage(source: ImageSource.gallery);
-    if (image!.path != null) {
-      return image.path;
-    }
-    return "none";
-  }
+  // Future<String> getImage() async {
+  //   ImagePicker picker = new ImagePicker();
+  //   var image = await picker.pickImage(source: ImageSource.gallery);
+  //   if (image!.path != null) {
+  //     return image.path;
+  //   }
+  //   return "none";
+  // }
 
 
   bool teste(){

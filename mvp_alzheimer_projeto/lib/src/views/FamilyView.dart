@@ -66,8 +66,12 @@ class FamilyView extends StatelessWidget {
                                       children: <Widget>[
                                         CircleAvatar(
                                           radius: 60,
-                                          backgroundImage: AssetImage("assets/images/imagemEscolha.png"),
-                                        ),
+                                          child: Text(
+                                        FamilyModel.instance.famili[index].title
+                                            .substring(0, 1),
+                                        style: TextStyle(fontSize: 55),
+                                      ),
+                                    ),
                                         Container(
                                           width: MediaQuery.of(context).size.width -
                                               135,

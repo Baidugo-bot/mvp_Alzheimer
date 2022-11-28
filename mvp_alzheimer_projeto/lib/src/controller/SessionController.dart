@@ -307,7 +307,7 @@ class SessionController {
       for(Map<String, dynamic> a in returned){
         pacientes.add(Paciente(
             doenca: a["Doenca"],
-            anotacoes: "teste",
+            anotacoes: a["Doenca"],
             id: a["idPaciente"],
             dataNasc: DateTime.parse(a["Data_Nascimento"].toString()),
             idUsuario: a["idUsuario"],

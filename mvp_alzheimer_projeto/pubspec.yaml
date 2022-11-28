@@ -14,7 +14,6 @@ dependencies:
   cron: ^0.5.1
   awesome_notifications: any
   date_field: #latest version
-  image_picker: ^0.8.5
   permission_handler: ^9.2.0
   latlong2: ^0.8.1
   qr_flutter: ^4.0.0

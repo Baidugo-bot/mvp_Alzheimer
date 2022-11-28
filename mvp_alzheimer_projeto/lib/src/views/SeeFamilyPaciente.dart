@@ -41,10 +41,6 @@ class SeeFamilyPaciente extends StatelessWidget {
                   Container(
                     height: 30,
                   ),
-                  Image(
-                    image: args["family"]!.getImage(),
-                    height: 200,
-                  ),
                   Container(
                     height: 20,
                   ),

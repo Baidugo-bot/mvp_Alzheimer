@@ -108,11 +108,6 @@ class DateBorderedFieldState extends State<DateBorderedField> {
   Widget build(BuildContext context) {
     DateTime holderDate = DateTime.now();
     return Container(
-      decoration: BoxDecoration(
-        border: Border(
-          bottom: BorderSide(width: 2, color: Colors.black),
-        ),
-      ),
       child: Row(
         children: [
           BorderedText(
@@ -133,7 +128,7 @@ class DateBorderedFieldState extends State<DateBorderedField> {
                 mode: (widget.dateTime==true)?DateTimeFieldPickerMode.dateAndTime:DateTimeFieldPickerMode.date ,
                 dateTextStyle: TextStyle(color: Colors.black,fontFamily: "Gidugu-Regular"),
                 decoration: InputDecoration(
-                    border: InputBorder.none
+                    border: OutlineInputBorder(),
                 ),
               ),
           ),

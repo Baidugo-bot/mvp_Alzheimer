@@ -25,7 +25,6 @@ class SeeMemoryPaciente extends StatelessWidget {
             //mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Container(height: 15,),
-              Image(image: args["memory"]!.getImage(),height: 200,),
               Container(height: 10,),
               Container(
                 width: 500,
@@ -55,7 +54,7 @@ class SeeMemoryPaciente extends StatelessWidget {
                       strokeWidth: 0,
 
                       child: Text(
-                          Jiffy(AppController.instance.now).EEEE.toString()+" "+args["memory"]!.getConvertedDate().toString().substring(0,10),
+                          args["memory"]!.getConvertedDate().toString()+" "+args["memory"]!.date.toString().substring(10,16),
                           style: const TextStyle(fontSize: 25, color: Colors.black)
                       ),
                     )

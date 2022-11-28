@@ -21,13 +21,16 @@ Future<void> main() async {
           ledColor: Colors.white,
           playSound: true,
           enableLights:true,
+
           enableVibration: true
+
       )
      ]
  );
- initPlatformState().then((value) => runApp( MyApp()));
-  //LocalizationController.instance.getPosition();
- BackgroundFetch.registerHeadlessTask(backgroundFetchHeadlessTask);
+ runApp( MyApp());
+ // initPlatformState().then((value) => runApp( MyApp()));
+ //  //LocalizationController.instance.getPosition();
+ // BackgroundFetch.registerHeadlessTask(backgroundFetchHeadlessTask);
 }
 
 

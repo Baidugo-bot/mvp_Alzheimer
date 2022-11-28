@@ -63,7 +63,7 @@ class PatientsViewState extends State<PatientsView> {
               style: TextStyle(color: Colors.black,fontSize: 25),
             ),
             subtitle: Text(
-                "Anotação: "+actualPat.anotacoes,
+                "Doença: "+actualPat.doenca,
               style: TextStyle(color: Colors.black,fontSize: 18),
             ),
             trailing: Icon(

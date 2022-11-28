@@ -86,12 +86,17 @@ class _RegisterRemedio extends State<RegisterRemedio> {
                       id: AppController.instance.rmdCriados,
                     );
                     print("REgistrando rem ${isReady}");
-                    Navigator.of(context).pushNamed('/remedioPage');
                     // AppController.instance.setAlarm(controllerHora, nome,
                     //     observacao, AppController.instance.rmdCriados!);
-                    SessionController.instance.registerRemedy(tempRem).then((value) => SessionController.instance.getRemedios().then((value) => SessionController.instance.getRemedios().then((value) => Navigator.of(context).pushNamed('/remedioPage'))));
+                    //SessionController.instance.registerRemedy(tempRem).then((value) => SessionController.instance.getRemedios().then((value) => SessionController.instance.getRemedios().then((value) => Navigator.of(context).pushNamed('/remedioPage'))));
+                    SessionController.instance.registerRemedy(tempRem).then((value) => null);
                     //AppController.instance.remedio.add(tempRem);
-
+                    Future.delayed(const Duration(seconds: 1), () {
+                      AppController.instance.messageResponse(context, "Remedio registrado!");
+                      SessionController.instance.getRemedios().then((value) =>  Navigator.of(context).pushNamed('/remedioPage', arguments: {}));
+                      setState(() {
+                      });
+                    });
                     AppController.instance.rmdCriados++;
 
 

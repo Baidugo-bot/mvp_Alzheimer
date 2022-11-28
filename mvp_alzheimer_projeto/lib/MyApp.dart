@@ -49,7 +49,7 @@ class MyApp extends StatelessWidget {
         return MaterialApp(
           navigatorKey: navigatorKey,
           debugShowCheckedModeBanner: false,
-          theme: ThemeData.dark(),
+          theme: ThemeData( colorSchemeSeed: Colors.white),
           initialRoute: '/login',//ternario (tipo)?rotapaciente,rotaCuidador
           routes: {
             '/': (context) => MyHomePage(

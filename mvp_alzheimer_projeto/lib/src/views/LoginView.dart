@@ -39,11 +39,7 @@ class LoginViewState extends State<LoginView> {
             Image.asset('assets/images/theme.png', height: 200),
             Container(
               width: double.infinity,
-              decoration: BoxDecoration(
-                border: Border(
-                  bottom: BorderSide(color: Colors.black),
-                ),
-              ),
+
               child: Center(
                 child: Text(
                     "Memories",
@@ -52,11 +48,12 @@ class LoginViewState extends State<LoginView> {
               ),
             ),
             DefaultTextField(
-              title: 'Usuario: ',
+              title: 'Usuario ',
               myResult: emailController,
             ),
+            Container(height: 10,),
             DefaultTextField(
-                title: 'Senha: ',
+                title: 'Senha ',
                 myResult: passwordController,
                 isPassword: true),
             Container(

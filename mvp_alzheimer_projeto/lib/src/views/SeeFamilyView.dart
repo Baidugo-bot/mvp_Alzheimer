@@ -53,10 +53,6 @@ class SeeFamilyView extends StatelessWidget {
                   Container(
                     height: 30,
                   ),
-                  Image(
-                    image: AssetImage("assets/images/imagemEscolha.png"),
-                    height: 200,
-                  ),
                   Container(
                     height: 20,
                   ),

@@ -3,48 +3,47 @@
 
 
 import 'package:flutter/material.dart';
-import 'package:image_picker/image_picker.dart';
 import 'dart:io';
 
 
-class ImagePickerContainer extends StatefulWidget {
-  String imageLink;
-  VoidCallback  response = (){};
-  ImagePickerContainer({Key? key,required this.imageLink, required this.response }) : super(key: key);
+// class ImagePickerContainer extends StatefulWidget {
+//   String imageLink;
+//   VoidCallback  response = (){};
+//   ImagePickerContainer({Key? key,required this.imageLink, required this.response }) : super(key: key);
+//
+//   @override
+//   ImagePickerContainerState createState() => ImagePickerContainerState();
+// }
+//
+// class ImagePickerContainerState extends State<ImagePickerContainer> {
+//   @override
+//
+//    Future<String> getImage() async {
+//     ImagePicker picker = new ImagePicker();
+//     var image = await picker.pickImage(source: ImageSource.gallery);
+//     setState(() {
+//
+//     });
+//     if(image!.path!=null){
+//       return image.path;
+//     }
+//     return "none";
+//   }
 
-  @override
-  ImagePickerContainerState createState() => ImagePickerContainerState();
-}
-
-class ImagePickerContainerState extends State<ImagePickerContainer> {
-  @override
-
-   Future<String> getImage() async {
-    ImagePicker picker = new ImagePicker();
-    var image = await picker.pickImage(source: ImageSource.gallery);
-    setState(() {
-
-    });
-    if(image!.path!=null){
-      return image.path;
-    }
-    return "none";
-  }
-
-  Widget build(BuildContext context) {
-
-        return GestureDetector(
-          onTap: widget.response,
-          child: Container(
-            child: Image(
-              image:
-              (widget.imageLink!="assets/images/imagemEscolha.png")?FileImage(File(widget.imageLink)):Image.asset("assets/images/imagemEscolha.png").image,
-              height: 250,
-            ),
-          ),
-        );
-  }
-}
+//   Widget build(BuildContext context) {
+//
+//         return GestureDetector(
+//           onTap: widget.response,
+//           child: Container(
+//             child: Image(
+//               image:
+//               (widget.imageLink!="assets/images/imagemEscolha.png")?FileImage(File(widget.imageLink)):Image.asset("assets/images/imagemEscolha.png").image,
+//               height: 250,
+//             ),
+//           ),
+//         );
+//   }
+// }
 
 class CustomButton extends StatefulWidget {
   Color color = Colors.green;

@@ -3,7 +3,6 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:projeto_estudo/src/components/CustomInputs.dart';
 import 'package:projeto_estudo/src/controller/ProfileController.dart';
-import 'package:image_picker/image_picker.dart';
 
 import '../../AppController.dart';
 import '../components/AddFamilyComponents.dart';
@@ -44,26 +43,26 @@ class EditProfileState extends State<EditProfile> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Container(
-              padding: EdgeInsets.only(bottom: 10),
-              width: 430,
-              decoration: BoxDecoration(
-                border: Border(
-                  bottom: BorderSide(width: 2, color: Colors.grey),
-                ),
-              ),
-              child: ImagePickerContainer(
-                imageLink : imageLink,
-                response: () async {
-                  imageLink =  await AppController.instance.getImage().then((value) => imageLink = value);
-                  Navigator.of(context).pushNamed('/editProfile', arguments: {
-                    'nome':nomeController.text,
-                    'data':dateController.toString(),
-                    'imageLink':imageLink.toString(),
-                  });
-                },
-              ),
-            ),
+            // Container(
+            //   padding: EdgeInsets.only(bottom: 10),
+            //   width: 430,
+            //   decoration: BoxDecoration(
+            //     border: Border(
+            //       bottom: BorderSide(width: 2, color: Colors.grey),
+            //     ),
+            //   ),
+            //   child: ImagePickerContainer(
+            //     imageLink : imageLink,
+            //     response: () async {
+            //       imageLink =  await AppController.instance.getImage().then((value) => imageLink = value);
+            //       Navigator.of(context).pushNamed('/editProfile', arguments: {
+            //         'nome':nomeController.text,
+            //         'data':dateController.toString(),
+            //         'imageLink':imageLink.toString(),
+            //       });
+            //     },
+            //   ),
+            // ),
 //container pega imagen
             Container(
               padding: EdgeInsets.only(bottom: 10),

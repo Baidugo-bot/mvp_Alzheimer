@@ -27,14 +27,7 @@ class DefaultButtonState extends State<DefaultButton> {
         width: (widget.enableBounds)?widget.bounds.keys.first:100,
         height: (widget.enableBounds)?widget.bounds.values.first:50,
         child: Container(
-          decoration: BoxDecoration(
-            border: Border.all(
-              width: 0,
-              color: Colors.black,
-              style: BorderStyle.solid,
-            ),
-            borderRadius: (widget.circularBounds==true)? BorderRadius.all(Radius.circular(50.0)):null,
-          ),
+
           child: ElevatedButton(
             style: TextButton.styleFrom(
               backgroundColor: widget.color,

@@ -68,7 +68,7 @@ class TopBar extends StatelessWidget {
                   decoration: BoxDecoration(
                     color: AppController.instance.mainColor,
                   ),
-                  height: MediaQuery.of(context).size.height -75,
+                  height: MediaQuery.of(context).size.height - 75,
                   child: ListView.builder(
                     itemCount: FamilyModel.instance.famili.length,
                     itemBuilder: (BuildContext context, int index) {
@@ -85,23 +85,23 @@ class TopBar extends StatelessWidget {
                           child: SizedBox(
                             height: 160,
                             child: Row(
-                              mainAxisAlignment:
-                              MainAxisAlignment.spaceBetween,
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: <Widget>[
                                 CircleAvatar(
                                   radius: 60,
-                                  backgroundImage: FamilyModel
-                                      .instance.famili[index]
-                                      .getImage(),
+                                  child: Text(
+                                    FamilyModel.instance.famili[index].title
+                                        .substring(0, 1),
+                                    style: TextStyle(fontSize: 55),
+                                  ),
                                 ),
                                 Container(
-                                  width: MediaQuery.of(context).size.width -
-                                      135,
+                                  width:
+                                      MediaQuery.of(context).size.width - 135,
                                   child: Column(
-                                    mainAxisAlignment:
-                                    MainAxisAlignment.center,
+                                    mainAxisAlignment: MainAxisAlignment.center,
                                     crossAxisAlignment:
-                                    CrossAxisAlignment.start,
+                                        CrossAxisAlignment.start,
                                     children: <Widget>[
                                       Text(
                                         "Parentesco: ${FamilyModel.instance.famili[index].parentesco}",

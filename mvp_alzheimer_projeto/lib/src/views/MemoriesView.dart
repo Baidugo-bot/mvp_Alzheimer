@@ -6,6 +6,7 @@ import '../components/CustomButton.dart';
 import '../controller/SessionController.dart';
 import '../models/MemoryModel.dart';
 import 'package:intl/intl.dart';
+
 class MemoriesView extends StatefulWidget {
   MemoriesView({Key? key}) : super(key: key);
 
@@ -18,7 +19,13 @@ class MemoriesViewState extends State<MemoriesView> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppController.instance.mainColor,
-      appBar: CustomAppBar.instance.getNamedDefault(context, "/", Text(" Memórias ",style: TextStyle(color: Colors.black),)),
+      appBar: CustomAppBar.instance.getNamedDefault(
+          context,
+          "/",
+          Text(
+            " Memórias ",
+            style: TextStyle(color: Colors.black),
+          )),
       body: ListView.builder(
           itemCount: MemoryModel.instance.memories.length,
           // if 0 then show message
@@ -39,8 +46,12 @@ class MemoriesViewState extends State<MemoriesView> {
                     children: [
                       CircleAvatar(
                         radius: 60,
-                        backgroundImage:
-                            AssetImage("assets/images/imagemEscolha.png"),
+                        child: Text(
+                          MemoryModel.instance.memories[index]
+                              .getTitle()
+                              .substring(0, 1),
+                          style: TextStyle(fontSize: 55),
+                        ),
                       ),
                       Container(
                         width: 10,
@@ -50,21 +61,22 @@ class MemoriesViewState extends State<MemoriesView> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Text(
-                                  MemoryModel.instance.memories[index]
-                                      .getTitle(),
-                                  style: TextStyle(
-                                    fontSize: 22,
-                                    color: Colors.black,
-                                  ),
-                                ),
-                             Text(
-                                MemoryModel.instance.memories[index]
-                                    .getConvertedDate()
-                                    .toString()
-                                    .substring(0, 10),
-                                style: TextStyle(
-                                    fontSize: 22, color: Colors.black,),
+                              MemoryModel.instance.memories[index].getTitle(),
+                              style: TextStyle(
+                                fontSize: 22,
+                                color: Colors.black,
                               ),
+                            ),
+                            Text(
+                              MemoryModel.instance.memories[index]
+                                  .getConvertedDate()
+                                  .toString()
+                                  .substring(0, 10),
+                              style: TextStyle(
+                                fontSize: 22,
+                                color: Colors.black,
+                              ),
+                            ),
                           ],
                         ),
                       ),

@@ -22,24 +22,11 @@ class DefaultTextFieldState extends State<DefaultTextField> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(top: 10,bottom: 10),
-      decoration: BoxDecoration(
-        border: Border(
 
-          bottom: BorderSide(width: 1.3, color: Colors.black),
-        ),
-      ),
       child: (widget.haveFrame==true)?
       Column(
         children: [
-          BorderedText(
-              strokeWidth: 2,
-              strokeColor: Colors.black26,
-              child: Text(
-                widget.title,
-                style: TextStyle(fontSize: 20,fontFamily: "Gidugu-Regular"),
-              )
-          ),
+
           Row(
             children: [
               Container(width: 10,),
@@ -54,7 +41,9 @@ class DefaultTextFieldState extends State<DefaultTextField> {
                     controller: widget.myResult  ,
                     //onChanged: ,
                     decoration: InputDecoration(
-                      border: InputBorder.none,
+                       border: OutlineInputBorder(),
+                      labelText: "Senha",
+                        labelStyle: TextStyle(color: Colors.black)
 
                     ),
                   ),
@@ -68,13 +57,6 @@ class DefaultTextFieldState extends State<DefaultTextField> {
           :
       Row(
         children: [
-          BorderedText(
-              strokeWidth: 0,
-              strokeColor: Colors.black26,
-              child: Text(
-                widget.title,
-                style: TextStyle(fontSize: 20,fontFamily: "Gidugu-Regular",color: Colors.black),
-              )),
           Expanded(
             child: Container(
 
@@ -84,7 +66,9 @@ class DefaultTextFieldState extends State<DefaultTextField> {
                 controller: widget.myResult  ,
                 //onChanged: ,
                 decoration: InputDecoration(
-                  border: InputBorder.none,
+                    border: OutlineInputBorder(),
+                    labelText: widget.title,
+                    labelStyle: TextStyle(color: Colors.black)
                 ),
               ),
             ),
