@@ -4,6 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:projeto_estudo/AppController.dart';
 import 'package:projeto_estudo/src/components/EditMemoryComponents.dart';
+import 'package:projeto_estudo/src/controller/ProfileController.dart';
 
 import '../components/AddMemoryComponents.dart';
 import '../components/CustomButton.dart';
@@ -122,8 +123,15 @@ class LoginViewState extends State<LoginView> {
   }
 
   void prepareLogin(){
+    SessionController.instance.getPatient(SessionController.instance.pacienteID).then((value) =>
+      doLogin(value).then((value) => Navigator.of(context).pushNamed('/', arguments: {}))
+    );
+    
+  }
+
+  Future<void> doLogin(Map<String,DateTime> value)async {
+    ProfileController.instance.updateProfile(value.keys.first, value.values.first);
     SessionController.instance.getRemedios().then((value) => SessionController.instance.setupAlarms());
-    ;
-    Navigator.of(context).pushNamed('/', arguments: {});
+
   }
 }

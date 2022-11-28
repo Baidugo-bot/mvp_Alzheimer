@@ -43,7 +43,7 @@ class SessionController {
 
       if(int.parse(returned["data"]["TIPO_CUIDADOR_PACIENTE"].toString())==1){
         isCuidador=false;
-        cuidadorID = int.parse(returned["data"]["idPaciente"].toString());
+        pacienteID = int.parse(returned["data"]["idPaciente"].toString());
       }else{
         cuidadorID = int.parse(returned["data"]["idCuidador"].toString());
       }
@@ -288,7 +288,23 @@ class SessionController {
     dynamic posCollected = jsonDecode(json.encode(response.body));
   }
 
+  Future<Map<String,DateTime>> getPatient(int id) async {
+    print("aqui: "+id.toString());
+    final response = await http.post(
+      Uri.parse('https://alzheimer-db.herokuapp.com/paciente/get/'),
+      headers: {
+        'Content-Type': 'application/json; charset=UTF-8',
+      },
+      body: jsonEncode({
+        "idPaciente": id,
+      }),
+    );
 
+    dynamic result = jsonDecode(response.body);
+    print(" AQUI: "+result[0].toString());
+    return {result[0]["Nome"]:DateTime.parse(result[0]["Data_Nascimento"].toString())};
+
+  }
 
   Future<void> getPatients() async {
     int contador = 0;

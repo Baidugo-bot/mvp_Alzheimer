@@ -63,22 +63,16 @@ class AppController extends ChangeNotifier {
       return;
     }
     print("Setado!");
-    cron.schedule(
-        Schedule.parse('*/7 ${time.minute} ${time.hour} * * *'),
-        () async => {
-
-              if (validarId(id) && teste())
-                {
-                  AwesomeNotifications().createNotification(
-                      content: NotificationContent(
-                          id: id,
-                          channelKey: 'key1',
-                          title: '${nome}',
-                          body: '${observacao}')),
-                }
-              else
-                {cron.close()}
-            });
+    if (validarId(id) && teste())
+    {
+      AwesomeNotifications().createNotification(
+          schedule: NotificationCalendar(hour: time.hour,minute: time.minute),
+          content: NotificationContent(
+              id: id,
+              channelKey: 'key1',
+              title: '${nome}',
+              body: '${observacao}'));
+    }
   }
 
   void modifyAlarm(TimeOfDay time, String nome, String observacao, int id) {
