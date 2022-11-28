@@ -1,6 +1,7 @@
 import 'package:awesome_notifications/awesome_notifications.dart';
 import 'package:cron/cron.dart';
 import 'package:flutter/material.dart';
+import 'package:permission_handler/permission_handler.dart';
 import 'package:projeto_estudo/src/controller/ProfileController.dart';
 import 'package:projeto_estudo/src/models/FamilyModel.dart';
 import 'package:projeto_estudo/src/models/MainProfileModel.dart';
@@ -16,12 +17,25 @@ class AppController extends ChangeNotifier {
   List<Paciente> pacientes = [];
   int rmdCriados = 0;
   late Remedio modificarRemedio ;
-  bool deactivateAlarms = true;
+  bool notifyPermitted = false;
 
   DateTime now = DateTime.now().toUtc();
   int counter = 0;
   String lastImgURL = "none";
   Color mainColor = const Color.fromRGBO(121, 188, 218, 1);
+
+  Future<void> requestNotifyPermission() async{
+    PermissionStatus result;
+    result = await Permission.notification.request();
+
+    if(result.isGranted){
+      AppController.instance.notifyPermitted = true;
+    }else if(result.isPermanentlyDenied && result.isDenied){
+      AppController.instance.notifyPermitted = false;
+    }else{
+
+    }
+  }
 
   messageResponse(BuildContext context, String nome) {
     showDialog(
@@ -122,4 +136,6 @@ class AppController extends ChangeNotifier {
     print("ALARMANDO!");
     return true;
   }
+
+
 }

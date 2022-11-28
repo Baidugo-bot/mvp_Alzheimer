@@ -97,6 +97,18 @@ class LoginViewState extends State<LoginView> {
               enableBounds: true,
               bounds: {320.0: 60.0},
             ),
+            Container(
+              height: 35,
+            ),
+            DefaultButton(
+              color: Color.fromRGBO(173, 216, 230, 1),
+              title: 'Permissao',
+              response: () {
+                AppController.instance.requestNotifyPermission();
+              },
+              enableBounds: true,
+              bounds: {320.0: 60.0},
+            ),
           ],
         ),
       ),

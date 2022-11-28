@@ -5,6 +5,7 @@ import 'package:awesome_notifications/awesome_notifications.dart';
 import 'package:background_fetch/background_fetch.dart';
 import 'package:cron/cron.dart';
 import 'package:flutter/material.dart';
+import 'package:permission_handler/permission_handler.dart';
 import 'package:projeto_estudo/AppController.dart';
 
 
@@ -28,10 +29,18 @@ Future<void> main() async {
      ]
  );
  runApp( MyApp());
+
  // initPlatformState().then((value) => runApp( MyApp()));
  //  //LocalizationController.instance.getPosition();
  // BackgroundFetch.registerHeadlessTask(backgroundFetchHeadlessTask);
+
+
 }
+
+
+
+
+
 
 
 
