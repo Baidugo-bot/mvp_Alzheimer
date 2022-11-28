@@ -22,7 +22,9 @@ Future<void> main() async {
           ledColor: Colors.white,
           playSound: true,
           enableLights:true,
-
+          onlyAlertOnce: false,
+          locked: true,
+          importance: NotificationImportance.Max,
           enableVibration: true
 
       )
