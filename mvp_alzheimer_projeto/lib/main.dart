@@ -23,7 +23,6 @@ Future<void> main() async {
           playSound: true,
           enableLights:true,
           onlyAlertOnce: false,
-          locked: true,
           importance: NotificationImportance.Max,
           enableVibration: true
 

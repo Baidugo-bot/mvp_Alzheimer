@@ -71,6 +71,12 @@ class AppController extends ChangeNotifier {
               id: id,
               channelKey: 'key1',
               title: '${nome}',
+              locked: true,
+              displayOnForeground: true,
+              displayOnBackground: true,
+              wakeUpScreen: true,
+              category: NotificationCategory.Alarm,
+              autoDismissible: true,
               body: '${observacao}'));
     }
   }
