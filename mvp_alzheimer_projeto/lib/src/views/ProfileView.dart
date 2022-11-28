@@ -37,21 +37,21 @@ class _ProfileViewState extends State<ProfileView> {
         ),
       ),
       body: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
 //informações tela principal
           
-              CircleAvatar(
-              backgroundColor: Colors.white,
-              radius: 85,
-              child: CircleAvatar(
-            backgroundImage: ProfileController.instance.image,
-            radius: 100,
-          )
-          ),
-          
           Text(
             "Nome: ${ProfileController.instance.nome}",
+            style: TextStyle(fontSize: 24,color: Colors.black),
+          ),
+
+          Text(
+            "Observacoes: ${ProfileController.instance.observacoes}",
+            style: TextStyle(fontSize: 24,color: Colors.black),
+          ),
+          Text(
+            "Doenca: ${ProfileController.instance.doenca}",
             style: TextStyle(fontSize: 24,color: Colors.black),
           ),
           Text(

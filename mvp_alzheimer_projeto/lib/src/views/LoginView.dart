@@ -11,6 +11,7 @@ import '../components/CustomButton.dart';
 import '../components/CustomInputs.dart';
 import '../controller/LoginController.dart';
 import '../controller/SessionController.dart';
+import '../models/MainProfileModel.dart';
 import '../models/MemoryModel.dart';
 
 class LoginView extends StatefulWidget {
@@ -126,11 +127,11 @@ class LoginViewState extends State<LoginView> {
     SessionController.instance.getPatient(SessionController.instance.pacienteID).then((value) =>
       doLogin(value).then((value) => Navigator.of(context).pushNamed('/', arguments: {}))
     );
-    
+
   }
 
-  Future<void> doLogin(Map<String,DateTime> value)async {
-    ProfileController.instance.updateProfile(value.keys.first, value.values.first);
+  Future<void> doLogin(Paciente pac)async {
+    ProfileController.instance.updateProfile(pac);
     SessionController.instance.getRemedios().then((value) => SessionController.instance.setupAlarms());
 
   }

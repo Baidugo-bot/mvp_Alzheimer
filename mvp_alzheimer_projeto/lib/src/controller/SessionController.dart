@@ -90,7 +90,7 @@ class SessionController {
         'senha':senha,
         'idUsuario':sessionID,
         'doenca':patient.doenca,
-        'Observacao':patient.anotacoes,
+        'observacoes':patient.anotacoes,
         'nome':patient.nome,
         'data_nascimento':patient.dataNasc.toString(),
         'idCuidador':cuidadorID,
@@ -288,7 +288,7 @@ class SessionController {
     dynamic posCollected = jsonDecode(json.encode(response.body));
   }
 
-  Future<Map<String,DateTime>> getPatient(int id) async {
+  Future<Paciente> getPatient(int id) async {
     print("aqui: "+id.toString());
     final response = await http.post(
       Uri.parse('https://alzheimer-db.herokuapp.com/paciente/get/'),
@@ -302,7 +302,15 @@ class SessionController {
 
     dynamic result = jsonDecode(response.body);
     print(" AQUI: "+result[0].toString());
-    return {result[0]["Nome"]:DateTime.parse(result[0]["Data_Nascimento"].toString())};
+    return Paciente(
+        doenca: result[0]["Doenca"],
+        anotacoes: result[0]["Observacoes"] ?? "Sem observacao",
+        id: 0,
+        dataNasc: DateTime.parse(result[0]["Data_Nascimento"].toString()),
+        idUsuario: 0,
+        nome: result[0]["Nome"]
+
+    );
 
   }
 
@@ -323,7 +331,7 @@ class SessionController {
       for(Map<String, dynamic> a in returned){
         pacientes.add(Paciente(
             doenca: a["Doenca"],
-            anotacoes: a["Doenca"],
+            anotacoes: a["observacoes"],
             id: a["idPaciente"],
             dataNasc: DateTime.parse(a["Data_Nascimento"].toString()),
             idUsuario: a["idUsuario"],

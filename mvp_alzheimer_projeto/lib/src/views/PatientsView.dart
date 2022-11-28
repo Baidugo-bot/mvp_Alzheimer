@@ -51,7 +51,7 @@ class PatientsViewState extends State<PatientsView> {
 
             onTap: () {
               SessionController.instance.pacienteID = AppController.instance.pacientes[number].id;
-              ProfileController.instance.updateProfile(AppController.instance.pacientes[number].nome, AppController.instance.pacientes[number].dataNasc); //if not relogging, once relog not reset check it
+              ProfileController.instance.updateProfile(AppController.instance.pacientes[number]); //if not relogging, once relog not reset check it
               Navigator.of(context).pushNamed('/');
             },
             onLongPress: (){
