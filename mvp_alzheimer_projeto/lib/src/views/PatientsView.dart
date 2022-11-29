@@ -25,22 +25,17 @@ class PatientsViewState extends State<PatientsView> {
 
     return Scaffold(
       backgroundColor: AppController.instance.mainColor,
-      appBar: CustomAppBar.instance.appSemVolta(context, "/login", Text("Pacientes",style: TextStyle(color: Colors.black),),
-          Positioned(
-            child: Container(
-              child: IconButton(
-                onPressed: () {
-                  Navigator.of(context).pushNamed('/login');
-                },
-                color: Colors.redAccent,
-                icon: Icon(
-                  Icons.exit_to_app,
-                ),
-                iconSize: 30.0,
-              ),
-            ),
-          )
-
+     appBar: CustomAppBar.instance.appSemVolta(context, "/login", Text("Pacientes",style: TextStyle(color: Colors.black),),
+         IconButton(
+           onPressed: () {
+             Navigator.of(context).pushNamed('/login');
+           },
+           color: Colors.redAccent,
+           icon: Icon(
+             Icons.exit_to_app,
+           ),
+           iconSize: 30.0,
+         )
       ),
       body: ListView.builder(
           itemCount: AppController.instance.pacientes.length,
