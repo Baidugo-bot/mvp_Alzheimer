@@ -100,23 +100,6 @@ class LoginViewState extends State<LoginView> {
               enableBounds: true,
               bounds: {320.0: 60.0},
             ),
-            Container(
-              height: 35,
-            ),
-            DefaultButton(
-              color: Color.fromRGBO(173, 216, 230, 1),
-              title: 'Permissao',
-              response: () {
-                AwesomeNotifications().createNotification(
-                    content: NotificationContent(
-                        id: DateTime.now().millisecond,
-                        channelKey: 'key1',
-                        title: 'Samuel',
-                        body: '${DateTime.now().toString()}'));
-              },
-              enableBounds: true,
-              bounds: {320.0: 60.0},
-            ),
           ],
         ),
       ),

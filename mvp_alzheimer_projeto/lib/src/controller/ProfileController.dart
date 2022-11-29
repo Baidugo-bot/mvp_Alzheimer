@@ -18,7 +18,7 @@ class ProfileController extends ChangeNotifier {
 
 
   void updateProfile(Paciente pac){
-    this.nome = nome;
+    this.nome = pac.nome;
     this.dataNasc = pac.dataNasc;
     this.doenca = pac.doenca;
     this.observacoes = pac.anotacoes;
