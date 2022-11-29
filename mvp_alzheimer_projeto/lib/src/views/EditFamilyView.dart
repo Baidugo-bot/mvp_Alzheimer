@@ -87,6 +87,7 @@ class EditFamilyViewState extends State<EditFamilyView> {
               title: "Telefone: ",
               haveFrame: false,
               myResult: Telephone,
+              numeric: true,
             ),
             BorderedTextField(
               title: 'Parentesco: ',
@@ -104,7 +105,7 @@ class EditFamilyViewState extends State<EditFamilyView> {
                   color: Colors.green,
                   response: () async {
                     if (titleController.text == "" ||
-                        descController.text == "" || Telephone=="") {
+                        descController.text == "" || Telephone.text=="") {
                       AppController.instance.messageResponse(context, "Campos precisam ser preenchidos!");
                     } else {
                       bool imgExists = false;

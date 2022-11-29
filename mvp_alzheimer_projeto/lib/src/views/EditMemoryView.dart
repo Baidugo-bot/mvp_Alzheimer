@@ -74,7 +74,10 @@ class EditMemoryViewState extends State<EditMemoryView> {
             ),
             DateBorderedField(
               initialValue: dateController,
-              onChangeFunction: (DateTime date){dateController = date;},
+              onChangeFunction: (DateTime date){
+                print(date);
+                dateController = date;
+                },
               lastDate: dateController,
             ),
             BorderedTextField(

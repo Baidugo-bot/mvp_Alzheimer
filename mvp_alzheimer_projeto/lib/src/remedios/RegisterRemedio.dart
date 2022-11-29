@@ -100,6 +100,8 @@ class _RegisterRemedio extends State<RegisterRemedio> {
                     AppController.instance.rmdCriados++;
 
 
+                  }else{
+                    AppController.instance.messageResponse(context, "Campos precisam ser preenchidos!");
                   }
                 },
                 title: 'Salvar',

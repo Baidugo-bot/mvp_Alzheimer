@@ -100,7 +100,7 @@ class SessionController {
     dynamic returned = jsonDecode(response.body);
     if(returned["message"]=="Email já existe"){
       print("Cadastrado");
-      return "Email já cadastrado!";
+      return "Usuário já cadastrado!";
     }else{
       return "Cadastrado com sucesso!";
     }

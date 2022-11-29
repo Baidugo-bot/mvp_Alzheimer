@@ -124,12 +124,12 @@ class RegisterPatientViewState extends State<RegisterPatientView> {
 
                       );
                       SessionController.instance.registerPatient("1", myPac, emailController.text, senhaController.text).then((value) =>
-                        (value!="Usuário já cadastrado!")?SessionController.instance.getPatients().then((value) => Navigator.of(context).pushNamed('/patients')):AppController.instance.messageResponse(context, value)
+                        (value!="Usuário já cadastrado!" && value!="Email já existe" )?SessionController.instance.getPatients().then((value) => goToPatients()):AppController.instance.messageResponse(context, value)
                       );
                     }
                   },
                   enableBounds: true,
-                  bounds: {125.0: 50.0},
+                  bounds: {320.0: 50.0},
                 ),
               ],
             )
@@ -137,5 +137,12 @@ class RegisterPatientViewState extends State<RegisterPatientView> {
         ),
       ),
     );
+  }
+
+  void goToPatients(){
+
+    Navigator.of(context).pushNamed('/patients');
+    AppController.instance.messageResponse(context, "Paciente cadastrado!");
+
   }
 }

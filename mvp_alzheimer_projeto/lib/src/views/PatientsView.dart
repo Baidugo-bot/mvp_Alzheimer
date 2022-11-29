@@ -37,37 +37,50 @@ class PatientsViewState extends State<PatientsView> {
            iconSize: 30.0,
          )
       ),
-      body: ListView.builder(
-          itemCount: AppController.instance.pacientes.length,
-          itemBuilder: (BuildContext ctx, int number){
-            Paciente actualPat = AppController.instance.pacientes[number];
-        return InkWell(
-          child: ListTile(
+      body: ListTileTheme(
+        tileColor: Color.fromRGBO(184, 219, 232, 1.0),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(35),
+          side: BorderSide(
+            width: 1
+          )
+        ),
 
-            onTap: () {
-              SessionController.instance.pacienteID = AppController.instance.pacientes[number].id;
-              ProfileController.instance.updateProfile(AppController.instance.pacientes[number]); //if not relogging, once relog not reset check it
-              Navigator.of(context).pushNamed('/');
-            },
-            onLongPress: (){
-              removeClient(context,actualPat );
-            },
+        child: ListView.builder(
+            itemCount: AppController.instance.pacientes.length,
+            itemBuilder: (BuildContext ctx, int number){
+              Paciente actualPat = AppController.instance.pacientes[number];
+          return Container(
+            margin: EdgeInsets.all(10),
+            child: InkWell(
+              child: ListTile(
 
-            title: Text(
-                "Paciente: "+actualPat.nome,
-              style: TextStyle(color: Colors.black,fontSize: 25),
+                onTap: () {
+                  SessionController.instance.pacienteID = AppController.instance.pacientes[number].id;
+                  ProfileController.instance.updateProfile(AppController.instance.pacientes[number]); //if not relogging, once relog not reset check it
+                  Navigator.of(context).pushNamed('/');
+                },
+                onLongPress: (){
+                  removeClient(context,actualPat );
+                },
+
+                title: Text(
+                    actualPat.nome,
+                  style: TextStyle(color: Colors.black,fontSize: 25,fontWeight: FontWeight.w700),
+                ),
+                subtitle: Text(
+                    "Doença: "+actualPat.doenca,
+                  style: TextStyle(color: Colors.black,fontSize: 18),
+                ),
+                trailing: Icon(
+                  Icons.delete,
+                  color: Colors.red,
+                ),
+                ),
             ),
-            subtitle: Text(
-                "Doença: "+actualPat.doenca,
-              style: TextStyle(color: Colors.black,fontSize: 18),
-            ),
-            trailing: Icon(
-              Icons.delete,
-              color: Colors.red,
-            ),
-            ),
-        );
-      }
+          );
+        }
+        ),
       ),
       floatingActionButton: FloatingActionButton(
         backgroundColor: Colors.grey,

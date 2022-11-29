@@ -105,6 +105,8 @@ class _ModifyRemedio extends State<ModifyRemedio> {
 
                   });
                 });
+              }else{
+                AppController.instance.messageResponse(context, "Campos precisam ser preenchidos!");
               }
             },
             style: ElevatedButton.styleFrom(primary: Colors.green),

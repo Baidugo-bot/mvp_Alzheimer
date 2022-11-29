@@ -31,9 +31,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="01374189-c916-4464-add0-3260a260741b" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mvp_alzheimer_projeto/lib/src/components/CustomButton.dart" beforeDir="false" afterPath="$PROJECT_DIR$/mvp_alzheimer_projeto/lib/src/components/CustomButton.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mvp_alzheimer_projeto/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/mvp_alzheimer_projeto/lib/main.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mvp_alzheimer_projeto/lib/src/components/EditMemoryComponents.dart" beforeDir="false" afterPath="$PROJECT_DIR$/mvp_alzheimer_projeto/lib/src/components/EditMemoryComponents.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mvp_alzheimer_projeto/lib/src/controller/SessionController.dart" beforeDir="false" afterPath="$PROJECT_DIR$/mvp_alzheimer_projeto/lib/src/controller/SessionController.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mvp_alzheimer_projeto/lib/src/remedios/ModifyRemedio.dart" beforeDir="false" afterPath="$PROJECT_DIR$/mvp_alzheimer_projeto/lib/src/remedios/ModifyRemedio.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mvp_alzheimer_projeto/lib/src/remedios/RegisterRemedio.dart" beforeDir="false" afterPath="$PROJECT_DIR$/mvp_alzheimer_projeto/lib/src/remedios/RegisterRemedio.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mvp_alzheimer_projeto/lib/src/views/EditFamilyView.dart" beforeDir="false" afterPath="$PROJECT_DIR$/mvp_alzheimer_projeto/lib/src/views/EditFamilyView.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mvp_alzheimer_projeto/lib/src/views/EditMemoryView.dart" beforeDir="false" afterPath="$PROJECT_DIR$/mvp_alzheimer_projeto/lib/src/views/EditMemoryView.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mvp_alzheimer_projeto/lib/src/views/PatientsView.dart" beforeDir="false" afterPath="$PROJECT_DIR$/mvp_alzheimer_projeto/lib/src/views/PatientsView.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mvp_alzheimer_projeto/lib/src/views/RegisterPatientView.dart" beforeDir="false" afterPath="$PROJECT_DIR$/mvp_alzheimer_projeto/lib/src/views/RegisterPatientView.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mvp_alzheimer_projeto/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/mvp_alzheimer_projeto/pubspec.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mvp_alzheimer_projeto/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/mvp_alzheimer_projeto/pubspec.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

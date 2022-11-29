@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:intl/date_symbol_data_local.dart';
 import 'package:bordered_text/bordered_text.dart';
 import 'package:date_field/date_field.dart';
 
@@ -9,7 +10,8 @@ class BorderedTextField extends StatefulWidget {
   bool haveFrame;
   TextEditingController myResult;
   bool beenChanged= false;
-  BorderedTextField({Key? key, required this.title, required this.haveFrame, required this.myResult,}) : super(key: key);
+  bool? numeric = false;
+  BorderedTextField({Key? key, required this.title, required this.haveFrame, required this.myResult,this.numeric}) : super(key: key);
 
 
   @override
@@ -46,7 +48,6 @@ class BorderedTextFieldState extends State<BorderedTextField> {
                   height: 100,
                   color: Colors.white,
                   child: TextField(
-                    
                     style: TextStyle(color: Colors.black,fontFamily: "Gidugu-Regular"),
                     controller: widget.myResult  ,
                     
@@ -77,6 +78,7 @@ class BorderedTextFieldState extends State<BorderedTextField> {
           Expanded(
             child: Container(
               child: TextField(
+                keyboardType: (widget.numeric==true)?TextInputType.number:TextInputType.text,
                 style: TextStyle(color: Colors.black,fontFamily: "Gidugu-Regular"),
                 controller: widget.myResult  ,
                 
@@ -106,6 +108,8 @@ class DateBorderedField extends StatefulWidget {
 class DateBorderedFieldState extends State<DateBorderedField> {
   @override
   Widget build(BuildContext context) {
+    DateFormat formatter = DateFormat('dd/MM/yyyy hh:mm');
+    formatter.locale;
     DateTime holderDate = DateTime.now();
     return Container(
       child: Row(
@@ -119,6 +123,7 @@ class DateBorderedFieldState extends State<DateBorderedField> {
 
             width: 200,
             child: DateTimeFormField(
+              use24hFormat: true,
               dateFormat:(widget.dateTime==true)?DateFormat('dd/MM/yyyy hh:mm'): DateFormat('dd/MM/yyyy'),
                 onDateSelected: (DateTime date){
                   widget.onChangeFunction(date);
