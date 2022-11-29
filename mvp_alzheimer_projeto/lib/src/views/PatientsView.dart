@@ -57,6 +57,7 @@ class PatientsViewState extends State<PatientsView> {
 
                 onTap: () {
                   SessionController.instance.pacienteID = AppController.instance.pacientes[number].id;
+                  print(AppController.instance.pacientes[number].anotacoes);
                   ProfileController.instance.updateProfile(AppController.instance.pacientes[number]); //if not relogging, once relog not reset check it
                   Navigator.of(context).pushNamed('/');
                 },

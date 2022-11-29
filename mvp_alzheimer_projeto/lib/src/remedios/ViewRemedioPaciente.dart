@@ -34,7 +34,7 @@ class _ViewRemedioPaciente extends State<ViewRemedioPaciente> {
         itemBuilder: (context, index) {
           return ListTile(
 
-            title: Text(AppController.instance.remedio[index].dosagem.toString()),
+            title: Text(AppController.instance.remedio[index].nome.toString()+" "+AppController.instance.remedio[index].dosagem.toString()),
             subtitle: Text(AppController.instance.remedio[index].hora
                 .toString()
                 .substring(10, 15)),

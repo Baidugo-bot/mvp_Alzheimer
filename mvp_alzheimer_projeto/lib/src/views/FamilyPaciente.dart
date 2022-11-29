@@ -107,7 +107,7 @@ class TopBar extends StatelessWidget {
                                         "Parentesco: ${FamilyModel.instance.famili[index].parentesco}",
                                         style: const TextStyle(
                                           color: Colors.black,
-                                          fontSize: 22,
+                                          fontSize: 20,
                                           overflow: TextOverflow.ellipsis,
                                         ),
                                       ),
@@ -115,7 +115,7 @@ class TopBar extends StatelessWidget {
                                         "Nome: ${FamilyModel.instance.famili[index].title}",
                                         style: const TextStyle(
                                           color: Colors.black,
-                                          fontSize: 22,
+                                          fontSize: 20,
                                           //fontWeight: FontWeight.bold,
                                         ),
                                       ),
@@ -123,7 +123,7 @@ class TopBar extends StatelessWidget {
                                         "Idade: ${(agora.difference(FamilyModel.instance.famili[index].date).inDays / 365).toString().substring(0, 2)}",
                                         style: const TextStyle(
                                           color: Colors.black,
-                                          fontSize: 22,
+                                          fontSize: 20,
                                           overflow: TextOverflow.ellipsis,
                                         ),
                                       ),
@@ -131,7 +131,7 @@ class TopBar extends StatelessWidget {
                                         "Telefone: ${FamilyModel.instance.famili[index].Telephone}",
                                         style: const TextStyle(
                                           color: Colors.black,
-                                          fontSize: 22,
+                                          fontSize: 20,
                                           overflow: TextOverflow.ellipsis,
                                         ),
                                       ),

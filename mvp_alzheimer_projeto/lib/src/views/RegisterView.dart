@@ -62,8 +62,8 @@ class RegisterViewState extends State<RegisterView> {
                 "2",
                   emailController.text,
                   passwordController.text
-                  ).then((value) =>
-                (value!="Email já cadastrado!")?SessionController.instance.getPatients().then((value) => Navigator.of(context).pushNamed('/login')):AppController.instance.messageResponse(context, value)
+                  ).then((valor) =>
+                (valor!="Email já cadastrado!")?SessionController.instance.getPatients().then((value) => registerSuccess(valor)):AppController.instance.messageResponse(context, valor)
                 );
 
               }
@@ -72,5 +72,12 @@ class RegisterViewState extends State<RegisterView> {
         ),
       ),
     );
+  }
+
+  void registerSuccess(String value){
+
+
+    Navigator.of(context).pushNamed('/login');
+    AppController.instance.messageResponse(context, value);
   }
 }

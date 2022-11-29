@@ -48,7 +48,7 @@ class AddFamilyViewState extends State<AddFamily> {
               height: 30,
             ),
             BorderedTextField(
-              title: 'nome:',
+              title: 'Nome:',
               haveFrame: false,
               myResult: nomeController,
             ),
@@ -69,6 +69,7 @@ class AddFamilyViewState extends State<AddFamily> {
               title: 'Telefone:',
               haveFrame: false,
               myResult: telefoneController,
+              numeric: true,
             ),
             Container(height: 10,),
             CustomButton(
